@@ -20,6 +20,9 @@ December 31st + January 1st -- New Years
 - Austen Cote, TA
     - a_cote@comcast.net
 
+- Pete Jones, TA
+    - pete@pdxcodeguild.com
+
 ## Capstone Dates:
 
 Capstone proposal due: TBD  
