@@ -2,7 +2,7 @@ distance = float(input("what is the distance? "))
 
 input_units = input("what are the input units? (in ft/mi/m/km/yd/inch) ")
 
-output_units = input("what are the output units? ")
+output_units = input("what are the output units? (in ft/mi/m/km/yd/inch) ")
 
 if input_units == "ft":
     conversion = distance * 0.3048
