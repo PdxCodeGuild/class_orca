@@ -8,6 +8,22 @@ dist = int(input('''What is the amount of input units you would like to convert?
 unit2 = input('''What is the output unit of measure you would like to convert?
 ft for feet, mi for miles, km for kilometer or m for meters:
 >''')
+units = ['ft', 'mi', 'm', 'km']
+while unit1 != units:
+    print('''Invalid selection! 
+Please select ft for feet, mi for miles, km for kilometer or m for meters:''')
+    unit1 = input('''What is the input unit of measure you would like to convert?
+ft for feet, mi for miles, km for kilometer or m for meters:
+>''')
+    break
+while unit2 != units:
+    print('''Invalid selection! 
+Please select ft for feet, mi for miles, km for kilometer or m for meters''')
+    unit2 = input('''What is the output unit of measure you would like to convert?
+ft for feet, mi for miles, km for kilometer or m for meters:
+>''')
+    break
+
 while unit1 == 'ft':
     if unit2 == 'm':
         total = dist * 0.3048
