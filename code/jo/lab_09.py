@@ -1,10 +1,5 @@
 distance = int(input("What is the distance? "))
 
-if distance = int:
-    print('Entry not a number. Please start over. ')
-break
-
-
 start_units = input('What unit is the distance? (m, mi, ft, km, yd, in) ')
 end_units = input('What unit would you like to convert to? (m, mi, ft, km, yd, in) ')
 
