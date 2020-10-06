@@ -1,8 +1,20 @@
 distance = float(input("what is the distance? "))
 
+valid_choices = ["ft", "mi", "m", "km", "yd", "inch"]
+
 input_units = input("what are the input units? (in ft/mi/m/km/yd/inch) ")
+while input_units not in valid_choices:
+    print('That is not a valid choice.')
+    input_units = input("what are the input units? (in ft/mi/m/km/yd/inch) ")
+else:
+    pass
 
 output_units = input("what are the output units? (in ft/mi/m/km/yd/inch) ")
+while output_units not in valid_choices:
+    print('That is not a valid choice.')
+    output_units = input("what are the output units? (in ft/mi/m/km/yd/inch) ")
+else:
+    pass
 
 if input_units == "ft":
     conversion = distance * 0.3048
