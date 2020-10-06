@@ -56,9 +56,9 @@ def main():
         meters = x * 1000
     elif y == "y":
         meters = x * 0.9144
-    # else:
-    #     print("Cannot compute with what you entered.")
-    #     #exit()
+    else:
+        print("Cannot compute with what you entered.")
+        return
         
     if z == y:
         output = x * 1
@@ -74,14 +74,13 @@ def main():
         output = x / 1000
     elif z == "y":
         output = x / 0.9144
+    else:
+        print("Cannot compute with what you entered.")
+        return
     print(f"{x} {y} is equal to {output} {z}.")
-    # else:
-    #     print("Cannot compute with what you entered.")
-    #     #exit()
        
     
  
-    # else:
-    # print("Cannot compute with what you entered.")
+
        
 main()
