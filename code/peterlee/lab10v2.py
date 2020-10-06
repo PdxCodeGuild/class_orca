@@ -1,7 +1,5 @@
 nums = []
 
-add = input("enter a number, or 'done': ")
-
 while True:
     add = input("enter a number, or 'done': ")
     if add == 'done':
