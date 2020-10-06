@@ -1,4 +1,5 @@
 start = float(input('what is the distance?\n>'))
+print('Avaliable units are: ft, m, mi, km, yd, in')
 input_units = input('what are the input units?\n>')
 output_units = input('what are the output units?\n>')
 answer = 0
