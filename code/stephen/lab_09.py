@@ -1,29 +1,29 @@
 print('Welcome to the Unit Converter!')
+units = ['ft', 'mi', 'm', 'km']
 
 unit1 = input('''What is the input unit of measure you would like to convert?
 ft for feet, mi for miles, km for kilometer or m for meters:
 >''')
-dist = int(input('''What is the amount of input units you would like to convert?
->'''))
-unit2 = input('''What is the output unit of measure you would like to convert?
-ft for feet, mi for miles, km for kilometer or m for meters:
->''')
-units = ['ft', 'mi', 'm', 'km']
-while unit1 != units:
+while unit1 not in units:
     print('''Invalid selection! 
 Please select ft for feet, mi for miles, km for kilometer or m for meters:''')
     unit1 = input('''What is the input unit of measure you would like to convert?
 ft for feet, mi for miles, km for kilometer or m for meters:
 >''')
     break
-while unit2 != units:
+dist = int(input('''What is the amount of input units you would like to convert?
+>'''))
+unit2 = input('''What is the output unit of measure you would like to convert?
+ft for feet, mi for miles, km for kilometer or m for meters:
+>''')
+
+while unit2 not in units:
     print('''Invalid selection! 
 Please select ft for feet, mi for miles, km for kilometer or m for meters''')
     unit2 = input('''What is the output unit of measure you would like to convert?
 ft for feet, mi for miles, km for kilometer or m for meters:
 >''')
     break
-
 while unit1 == 'ft':
     if unit2 == 'm':
         total = dist * 0.3048
