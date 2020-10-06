@@ -30,4 +30,4 @@ elif output_units == 'yd':
 elif output_units == 'in':
     final += answer / .0254
 
-print(f'{start} {input_units} is {final:.4f} {output_units}')
+print(f'{start} {input_units} is {final} {output_units}')
