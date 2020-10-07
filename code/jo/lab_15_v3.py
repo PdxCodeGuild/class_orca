@@ -1,3 +1,4 @@
+# dictionaries with converted values for each place
 unus = {
     1: "I",
     2: "II",
@@ -34,10 +35,15 @@ centi = {
     9: "CM"
 }
 
-
+# sets the number to be converted
 number = input('Enter your number to convert: ')
 
+# splits the number into a list so individual numbers can be called
 split_number = list(number)
+
+# checks for length of the number
+# then uses the value from the list to pull from the  dictionaries
+# then puts them back together and prints
 if len(split_number) == 3:
     ones = unus[int(split_number[2])]
     tens = decem[int(split_number[1])]
