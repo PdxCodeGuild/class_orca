@@ -30,11 +30,15 @@ Presentation Day: January 21st, 2020
 
 ## Python Labs Assigned:
 
-
+ Lab 09 -- Unit Converter  
+ Lab 10 -- Average Numbers  
+ Lab 15 -- Number to Phrase  
+ Lab 19 -- Blackjack  
 
 #### Optional Python Labs
 
-
+ Practice 1-5  
+ Labs 01-08, 11, 12, 17 (You did these during the intro course) 
 
 ## Student Presentations
 
