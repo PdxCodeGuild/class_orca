@@ -36,6 +36,7 @@ while add_num != 'done':
 # prints out the new list
 else:
     print(f'Your list is {num}')
+    num = int(num)
 
 ''' WHY DO THESE SEPARATE PARTS WORK BY THEMSELVES FINE BUT NOT TOGETHER?
 ----------------------------------------------------------------------'''
