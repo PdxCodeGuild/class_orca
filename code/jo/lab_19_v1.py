@@ -20,23 +20,13 @@ card_1 = input("What is your first card? ")
 card_2 = input("What is your second card? ")
 card_3 = input("What is your third card? ")
 
-ace_check = [card_1, card_2, card_3]
-for a in ace_check:
-    if a == 'A':
-        ace_value = 0
-        for 'A' in ace_check:
-            ace value += 10
-
-if ace_value = True:
-    total_value = values[card_1] + values[card_2] + values[card_3] + ace_check
-else:
-    total_value = values[card_1] + values[card_2] + values[card_3]
-
+# gets values of inputs from dictionary and adds them together
+total_value = values[card_1] + values[card_2] + values[card_3]
 
 # checks the total value against some comparisons to determine best advice
 if total_value < 17:
     action = 'You should hit.'
-elif 17 <= total_value <= 21:
+elif 17 <= total_value <= 20:
     action = 'You should stay.'
 elif total_value == 21:
     action = 'You got Blackjack!'
