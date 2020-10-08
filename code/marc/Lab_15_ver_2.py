@@ -37,6 +37,8 @@ def main():
                 return f"{second_digit[(x//100)]}-hundred"
             elif ((x % 100)) % 10 == 0:
                 return f"{second_digit[(x//100)]}-hundred and {first_digit[((x % 100) // 10)]}"
+            elif 1<= (x % 100) <= 9:
+                return f"{second_digit[(x//100)]}-hundred and {second_digit[(x % 100)]}" 
             elif 11<= (x % 100) <= 19:
                 return f"{second_digit[(x//100)]}-hundred and {teens[(x % 100)]}" 
             else:
