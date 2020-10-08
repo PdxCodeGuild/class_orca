@@ -2,7 +2,8 @@
 def main():
     def number_to_word (x):
         x = int(x)
-        teens = {11:"eleven",
+        teens = {10:"ten",
+        11:"eleven",
         12:"twelve", 
         13:"thirteen",
         14:"fourteen",
@@ -11,7 +12,8 @@ def main():
         17:"seventeen",
         18:"eightteen",
         19:"nineteen"}
-        first_digit = {2:"twenty",
+        first_digit = {1:"ten",
+        2:"twenty",
         3:"thirty",
         4:"forty",
         5:"fifty",
@@ -49,7 +51,7 @@ def main():
         if x // 10 == 0:
             return second_digit[x]
         if x == 10:
-            return second_digit[10]
+            return teens[10]
         if 11<= x <= 19:
             return teens[x]
         if 20 <= x <= 99:
