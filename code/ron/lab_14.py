@@ -83,6 +83,7 @@ def main():
     roi = (prize_money - money_spent)/money_spent 
     print(f'\nInvestment: {money_spent}')
     print(f'Prize Money: {prize_money}')
+    print(f'Net Income: {prize_money - money_spent}')
     print(f'ROI: {roi:.2f}\n')
 
 main()
