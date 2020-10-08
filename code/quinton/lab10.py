@@ -1,3 +1,5 @@
+# Welcome to lab10 by Quinton Baseman
+
 nums = []
 total = 0
 # loop that gathers each number from the user
@@ -18,5 +20,5 @@ Your list:
 {nums}
 
 The added total of your list is {total}
-The average of your list is {average}
+The average of your list is {average:.2f}
 ''')
