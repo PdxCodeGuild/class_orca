@@ -27,16 +27,3 @@ elif total == 21:
     print('Blackjack!')
 else:
     print('Already Busted')
-
-
-
-
-
-
-
-
-
-
-
-
-
