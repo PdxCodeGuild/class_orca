@@ -8,6 +8,7 @@ Lab 14 Version 1
 import random
 
 def pick6():
+    '''Generates 6 random numbers and returns those numbers.'''
     six_nums = []
     counter = 0
     while counter <=5:
@@ -18,6 +19,8 @@ def pick6():
 winning_nums = pick6()
 
 def compare_tix(comp, gambler):
+    '''Calls the winning and gambler numbers to compare 
+    and returns to total number of matches'''
     matching_nums = 0
     counter = 0
     for num in comp:
@@ -29,6 +32,7 @@ def compare_tix(comp, gambler):
     return matching_nums
 
 def winning_total(matches):
+    '''Calls the quantity of matching numbers to the amount won'''
     if matches == 0:
         return 0
     elif matches == 1:
@@ -45,9 +49,11 @@ def winning_total(matches):
         return 25000000
         
 def main():
+    '''Runs a loop n times and returns total winnings'''
     # net winnings for gambler
     net_winnings = 0
     float(net_winnings)
+    # loop for gambler to play
     counter = 0
     while counter <= 100000:
         # cost of a ticket
