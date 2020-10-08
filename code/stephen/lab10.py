@@ -8,7 +8,6 @@ total = 0
 for number in range(0, len(nums)):
     total = total + nums[number]
     avg = total / len(nums)
-
 print(f'Your average number of all listed numbers is {avg:.0f}.')
 '''
 
@@ -44,4 +43,4 @@ for number in nums:
 
 avg = total / len(nums)
 
-print(f'The average for all numbers inputted is {avg}!')
+print(f'The average for all numbers inputted is {avg}!') 
