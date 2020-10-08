@@ -1,5 +1,4 @@
 
-
 # *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 #        Project: Python
 # Assignment/Ver: Lab09
@@ -99,7 +98,7 @@ def ver_4():
 #--------Main Code---------------------------------------------
 
 def main():
-    ''' User input for version '''
+    ''' User input for lab version '''
 
     version = ''
     while version != ('1', '2', '4', 'exit'):
@@ -119,3 +118,5 @@ def main():
 main()
 
 #----End Code--------------------------------------------------
+
+

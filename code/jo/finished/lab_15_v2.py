@@ -7,7 +7,8 @@ spell_tens = {
     6: 'sixty',
     7: 'seventy',
     8: 'eighty',
-    9: 'ninety'
+    9: 'ninety',
+    0: ''
 }
 
 spell_singles = {
@@ -60,9 +61,12 @@ elif 20 <= number <= 99:
     else:
         tens_digit = spell_tens[tens_digit]
         print(f"{number} is spelled {tens_digit}")
-   
+# for 100+ splits everything down to 100s, 10s, and 1s places before recombining and printing
 else:
     tens_digit = spell_tens[number//10%10]
     ones_digit = spell_singles[number%10]
     hundreds_digit = spell_singles[number//100]
-    print(f"{number} is spelled {hundreds_digit} hundred {tens_digit}-{ones_digit}")
+    if tens_digit == '':
+        print(f"{number} is spelled {hundreds_digit} hundred {ones_digit}")
+    else:
+        print(f"{number} is spelled {hundreds_digit} hundred {tens_digit}-{ones_digit}")
