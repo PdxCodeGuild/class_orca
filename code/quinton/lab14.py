@@ -1,16 +1,20 @@
-import random
+# Welcome to lab09 by Quinton Baseman
 
+import random
+# adding 6 random numbers to winning ticket list
 winning_ticket = []
 for i in range(6):
     winning_ticket.append(random.randint(1, 99))
 
+# function to create each ticket with 6 random numbers
 def my_ticket():
     my_list = []
     for i in range(6):
         my_list.append(random.randint(1, 99))
     return my_list
 
-
+# function to check similarities in the winning ticket and my ticket, adding up the
+# similarities and storing them in count
 def check(blah, blah2):
     count = 0
     for i in range(6):
@@ -20,6 +24,8 @@ def check(blah, blah2):
 
 money_spent = 0
 earnings = 0
+# if else loop checking same numbers between my ticket and winning ticket using the 
+# check function while adding corresponding amount to earnings.
 while money_spent < 200000:
     money_spent += 2
     if check(my_ticket(), winning_ticket) == 1:
@@ -35,6 +41,7 @@ while money_spent < 200000:
     elif check(my_ticket(), winning_ticket) == 6:
         earnings += 25000000
 
+# determining if you made or lost money, then printing out the final message
 print(f'''
 You spent: ${money_spent}
 You won: ${earnings}''')
