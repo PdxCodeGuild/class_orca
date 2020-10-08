@@ -1,6 +1,6 @@
 num = int(input('enter a number from 0-999: '))
 
-#separates the digits to ensure we can convert both into words
+#separates the digits to ensure we can convert them into words
 hundreds_digit = num//100
 tens_digit = (num%100)//10
 ones_digit = num%10
