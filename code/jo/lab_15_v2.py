@@ -65,4 +65,7 @@ else:
     tens_digit = spell_tens[number//10%10]
     ones_digit = spell_singles[number%10]
     hundreds_digit = spell_singles[number//100]
-    print(f"{number} is spelled {hundreds_digit} hundred {tens_digit}-{ones_digit}")
+        if tens_digit == 0:
+        print(f"{number} is spelled {hundreds_digit} hundred {ones_digit}")
+        else:
+        print(f"{number} is spelled {hundreds_digit} hundred {tens_digit}-{ones_digit}")
