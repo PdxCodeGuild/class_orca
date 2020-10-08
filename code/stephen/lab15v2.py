@@ -15,6 +15,7 @@ hundreds = {
 }
 
 tens = {
+    0: '',
     1: '',
     2: 'twenty',
     3: 'thirty',
@@ -40,6 +41,7 @@ outliers = {
 }
 
 higher = {
+    0: '',
     1: 'one-hundred',
     2: 'two-hundred',
     3: 'three-hundred',
@@ -48,7 +50,8 @@ higher = {
     6: 'six-hundred',
     7: 'seven-hundred',
     8: 'eight-hundred',
-    9: 'nine-hundred'
+    9: 'nine-hundred',
+    10: ''
 }
 
 def one_thru_nine(user_input):
@@ -84,10 +87,10 @@ if user_input in range(1,10):
 
 # converting for teens numbers
 
-if user_input in range(10,20):
+elif user_input in range(10,20):
     ten_thru_20(user_input)
 
-if user_input in range(20,100):
+elif user_input in range(20,100):
     tens_conv = above20(user_input)
     hundreds_conv = one_thru_nine(user_input)
     print(f'Your number phrase is {tens_conv}-{hundreds_conv}')
