@@ -8,7 +8,7 @@ single = {
 }
 # dictionary of multiples of ten
 tens = {
-    2: 'twenty', 3: 'thirty', 4: 'forty', 5: 'fifty',
+    0: 'zero', 2: 'twenty', 3: 'thirty', 4: 'forty', 5: 'fifty',
     6: 'sixty', 7: 'seventy', 8: 'eighty', 9: 'ninety'
 }
 
@@ -53,12 +53,12 @@ for i in single:
 # checking all numbers over 19 and converting to strings using above functions
 if x > 19:
     if convert_hundred(hundreds_digit):
-        if not convert_ten(tens_digit) and convert_single(ones_digit) == 'zero':
+        if convert_ten(tens_digit) == 'zero' and convert_single(ones_digit) == 'zero':
             print(convert_hundred(hundreds_digit))
         elif convert_ten(tens_digit) and convert_single(ones_digit) == 'zero':
             print(f'{convert_hundred(hundreds_digit)}-{convert_ten(tens_digit)}')
-        else:
-            print(f'{convert_hundred(hundreds_digit)}-{convert_ten(tens_digit)}-{convert_single(ones_digit)}')
+        elif convert_ten(tens_digit) == 'zero' and convert_single(ones_digit):
+            print(f'{convert_hundred(hundreds_digit)}-{convert_single(ones_digit)}')
     else:
         if convert_ten(tens_digit) and convert_single(ones_digit) == 'zero':
             print(f'{convert_ten(tens_digit)}')

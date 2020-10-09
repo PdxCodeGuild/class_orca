@@ -62,7 +62,7 @@ elif user_units == 'in':
 elif user_units == 'm':
     distance = user_distance * 1
     # else:
-    #     print('Invalid selection')
+    # print('Invalid selection')
 
 # Output
 print(f'\n {user_distance} {user_units} is {distance:.2f} m')
@@ -90,6 +90,8 @@ elif user_units == 'in':
     to_meters = user_distance * .0254
 elif user_units == 'm':
     to_meters = user_distance * 1
+# else:
+    # print('Invalid selection')
 
 if user_outputs == 'ft':
     distance = to_meters / .3048
@@ -103,7 +105,9 @@ elif user_outputs == 'in':
     distance = to_meters / .0254
 elif user_outputs == 'm':
     distance = to_meters / 1
-
+# else:
+    # print('Invalid selection')
+    
 # Output
 print(f'\n {user_distance} {user_units} is {distance} {user_outputs}\n')
 
