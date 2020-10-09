@@ -50,6 +50,6 @@ second_digit = card_list_sum_split.pop(1)
 print(f'7. {second_digit}')
 
 if second_digit == check_digit:
-    print('Valid!')
+    print('8. Valid!')
 else:
-    print('Not Valid!')
+    print('8. Not Valid!')
