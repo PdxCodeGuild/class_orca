@@ -28,15 +28,11 @@ def pick_6():
 
     ticket = [choice_1, choice_2, choice_3, choice_4, choice_5, choice_6]
 
-    print(ticket)
-
     for i in range(0, len(ticket), 1):
-        for j in range(0, len(winning_numbers), 1):
-            if ticket[i] == winning_numbers[j]:
-                score.append(ticket[i])
-                count += 1
+        if ticket[i] == winning_numbers[i]:
+            score.append(ticket[i])
+            count += 1
 
-    print(f'You matched {count} numbers!') 
     return count
 
 loop_count = 0
@@ -44,7 +40,6 @@ loop_count = 0
 while loop_count < 10000:
     loop_count += 1
     count = pick_6()
-    print(new_balance, "this is new balance")
 
     if count == 1:
         new_balance += 4
@@ -66,25 +61,12 @@ while loop_count < 10000:
 
     balance_debit -= 2
 
-print(balance_debit)
-print(new_balance, "gross winnings")
 
 earnings = balance_debit + new_balance 
 roi = earnings / balance_debit
 print(f'You earned {earnings} dollars')
 print(f'Your return on investment was {roi}')
 
-
-
-
-# def get_balance(pick_6, balance, balance_debit):
-#     for _ in range(100):
-#         pick_6()
-#         balance_debit -= 2
-#         # balance += x
-#         print(balance_debit)
-#         print(balance, "this is x")
-    
 
 
 
