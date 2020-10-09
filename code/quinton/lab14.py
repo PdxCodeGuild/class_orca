@@ -1,4 +1,4 @@
-# Welcome to lab09 by Quinton Baseman
+# Welcome to lab14 by Quinton Baseman
 
 import random
 # adding 6 random numbers to winning ticket list

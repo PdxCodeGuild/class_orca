@@ -1,3 +1,5 @@
+# Welcome to lab19 by Quinton Baseman
+
 # dictionary of card possibilities
 list = {
     'A': 1, '2': 2, '3': 3, '4': 4,
