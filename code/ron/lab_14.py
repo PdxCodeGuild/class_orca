@@ -80,10 +80,11 @@ def main():
                     prize_money += num_match(matches)
 
     # Output
-    roi = (prize_money - money_spent)/money_spent 
+    roi = ((prize_money - money_spent)/money_spent)*100
     print(f'\nInvestment: {money_spent}')
     print(f'Prize Money: {prize_money}')
-    print(f'ROI: {roi:.2f}\n')
+    print(f'Net Income: {prize_money - money_spent}')
+    print(f'ROI: {roi:.2f}%\n')
 
 main()
 
