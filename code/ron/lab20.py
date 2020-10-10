@@ -56,7 +56,7 @@ def main():
     print(f'Total: {sum(cc_num)}')
     print(f'Checksum: {check_digit}')
     if sum(cc_num)%10 == check_digit:
-        print(f'Status: {"Valid Card"}')
+        print(f'Status: {"Valid Card"}\n')
     else: 
         print(f'Status: {"Invalid Card"}\n')
 
