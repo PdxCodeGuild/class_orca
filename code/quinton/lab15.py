@@ -1,3 +1,5 @@
+# Welcome to lab15 by Quinton Baseman
+
 # dictionary of single numbers plus teens
 single = {
     0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four',
@@ -53,14 +55,16 @@ for i in single:
 # checking all numbers over 19 and converting to strings using above functions
 if x > 19:
     if convert_hundred(hundreds_digit):
-        if convert_ten(tens_digit) == 'zero' and convert_single(ones_digit) == 'zero':
-            print(convert_hundred(hundreds_digit))
-        elif convert_ten(tens_digit) and convert_single(ones_digit) == 'zero':
+        if convert_ten(tens_digit) != 'zero' and convert_single(ones_digit) != 'zero':
+            print(f'{convert_hundred(hundreds_digit)}-{convert_ten(tens_digit)}-{convert_single(ones_digit)}')
+        elif convert_ten(tens_digit) != 'zero' and convert_single(ones_digit) == 'zero':
             print(f'{convert_hundred(hundreds_digit)}-{convert_ten(tens_digit)}')
-        elif convert_ten(tens_digit) == 'zero' and convert_single(ones_digit):
+        elif convert_ten(tens_digit) == 'zero' and convert_single(ones_digit) != 'zero':
             print(f'{convert_hundred(hundreds_digit)}-{convert_single(ones_digit)}')
+        elif convert_ten(tens_digit) == 'zero' and convert_single(ones_digit) == 'zero':
+            print(f'{convert_hundred(hundreds_digit)}')
     else:
-        if convert_ten(tens_digit) and convert_single(ones_digit) == 'zero':
-            print(f'{convert_ten(tens_digit)}')
-        else:
+        if convert_ten(tens_digit) != 'zero' and convert_single(ones_digit) != 'zero':
             print(f'{convert_ten(tens_digit)}-{convert_single(ones_digit)}')
+        elif convert_ten(tens_digit) != 'zero' and convert_single(ones_digit) == 'zero':
+            print(f'{convert_ten(tens_digit)}')
