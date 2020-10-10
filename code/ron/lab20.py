@@ -62,25 +62,4 @@ def main():
 
 main()
 
-
-
-#--------End Code-------------------------------------------
-
-
-
-
-
-
-''' Excess, left over code ----------------------------------------'''
-
-    # # Convert to str
-    # cc_num = [str(num) for num in cc_num]
-    # print(2, cc_num) # Error Check
-
-    # # Convert to int
-    # cc_num = [int(num) for num in cc_num]
-    # print(3, cc_num) # Error Check
-
-
-
 #--------End Code-------------------------------------------
