@@ -1,6 +1,6 @@
 # Welcome to lab20 by Quinton Baseman
 
-x = '4556737586899855'
+x = input('Please enter 16 digit card number. No spaces.\n>')
 num_list = []
 #step 1: Convert the input string into a list of ints
 for i in x:
@@ -25,6 +25,9 @@ else:
     final = sum
 #step 8: compare final number to check digit
 if final == check_digit:
-    print('Valid!')
+    print('This card number checks out. Valid!')
 else:
-    print('Invalid!')
+    print('This card number does NOT check out. Invalid!')
+
+#4556737586899855 returns Valid
+#4318214376802398 return Invalid
