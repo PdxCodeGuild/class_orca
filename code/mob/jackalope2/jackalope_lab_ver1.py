@@ -2,9 +2,39 @@
  
 
 
-population = [8,8]
+population = [4,4]
 
 def main():
+
+
+    def age():
+
+        fertile = 0
+        for i, age in enumerate(population):
+            # if age >= 4 and age <= 8:
+            #     fertile += 1
+            if age == 4:
+                fertile += 1
+            if age == 8:
+                fertile -= 1
+            population[i] += 1
+            #     population.append(0)
+            #     population.append(0)
+        # return fertile
+        print(fertile)
+        print(population)
+    
+    for i in range(len(population)):
+        if 4 <= population[i] <= 8:
+            fertile = True
+    
+
+
+    age()
+
+
+
+
     
     # def jackaloupe_breeding_mach(jacks):
     #     years = 0
@@ -21,26 +51,6 @@ def main():
 
 
     # for age in range(10):
-
-    
-
-    def age():
-
-        fertile = 0
-        for i, age in enumerate(population):
-            population[i] += 1
-            if age >= 4 and age <= 8:
-                fertile += 1
-            #     population.append(0)
-            #     population.append(0)
-        # return fertile
-        print(fertile)
-        print(population)
-    
-    age()
-
-
-
 
     # print(jackaloupe_breeding_mach(2))
     
