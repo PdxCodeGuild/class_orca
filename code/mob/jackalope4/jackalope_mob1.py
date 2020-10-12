@@ -8,23 +8,24 @@
 population = [0, 0]    # jackalope population
 year = 0    # goes up 1
 
-while len(population) < 999:
+while len(population) < 500:
     print(f'len(population) is {len(population)}')
     # Main code to count adults and add babies
+    # for x in population > 10:
+    #     population.remove(x)
+    #     population.remove(x)
+    babies = []
     for x in population:
-        if x > 10:
-            population.remove(x)
-        elif x > 3 and x < 9:
+        if x > 3 and x < 9:
             print(x)
-            population.append(0)
-            print(population)
-
-
-
+            babies.append(0)
+        elif x > 10:
+            population.remove(x)
+            population.remove(x)
+    population.extend(babies)
+    print(babies)
+    print(population)
     print(year)
-
-
-
     for i in range(len(population)):
         # print(f'A {age}-year old jack from list {population} ... ')
         # new_age = age
