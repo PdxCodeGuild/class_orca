@@ -10,15 +10,19 @@ def main():
     def age():
         fertile = 0
         global population
+        # appends list with 0 for new jackalopes (fertile) 
         while len(population) <= 1000:
             for x in range(fertile):
                 population = population.append(0)
-            population = [x + 1 for x in population]
+            # ages all jackalopes by one year (adds 1 to each element of list)    
+            population = [x + 1 for x in range(len(population))]
+            # finds total number of fertile rabbits and adds to fertile
             for i in range(len(population)):
                 fertile = 0
                 if 4 <= population[i] <= 8:
                     fertile += 1
-                population = [x for x in population if x !=10]
+            # removes 10 year old rabbits from list
+            population = [population.rem(x) for x in population if x == 10]
 
             
 
