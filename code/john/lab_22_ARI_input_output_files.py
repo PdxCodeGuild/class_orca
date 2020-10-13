@@ -3,9 +3,11 @@
 # https://github.com/PdxCodeGuild/class_orca/blob/main/1%20Python/labs/lab22-ari.md
 ##############################################################################
 
-# FUTURE: Save the filename to a variable, then print that filename in the end statement
+# FILENAMES:
+# testbook.txt
+# carroll_alices_adventures_in_wonderland.txt
+# jung_~1920_collected_papers_on_analytical_psychology.txt
 
-# import string # necessary?
 import math # necessary for the math.ceil function to round up
 
 ari_scale = {
@@ -26,7 +28,7 @@ ari_scale = {
 }
 
 # This line makes it slightly simpler to change the filename
-file_to_open = 'lotr_exerpt.txt'
+file_to_open = 'carroll_alices_adventures_in_wonderland.txt'
 
 # Open file as UTF-9 and save it as a string 'book'
 with open(file_to_open, 'r', encoding='utf-8') as f:
@@ -65,7 +67,7 @@ ages = scale_data['ages']
 grade_level = scale_data['grade_level']
 
 # FINAL PRINT RESULT
-print(f'''The raw ARI score for file:{file_to_open} is {ari_raw}, rounded to {ari_rounded}. {impressive}\nThis value corresponds to a {grade_level} level of difficulty, suitable for the average person {ages} years old.''')
+print(f'''The raw ARI score for file:{file_to_open} is {ari_raw}, so its ARI value is {ari_rounded}. {impressive}\nThis value corresponds to a \"{grade_level}\" level of difficulty, suitable for the average person {ages} years old.''')
 
 
 
