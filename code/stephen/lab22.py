@@ -52,8 +52,8 @@ def ari_total(total_chars, total_sentences, total_words):
     return ari
 
 # opening text file
-speech = open('pearl_harbor_address.txt')
-contents = speech.read()
+with open('pearl_harbor_address.txt', encoding = 'utf-8') as speech:
+    contents = speech.read()
 
 # settings cariables to run functions
 chars = character_count(contents)
