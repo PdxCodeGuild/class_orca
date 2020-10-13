@@ -51,7 +51,7 @@ def main():
     #prints the top 10 word pairs as shown in the lab instructions
     words = list(words_dict.items())
     words.sort(key=lambda tup: tup[1], reverse=True)
-
+    print(words)
     for i in range(min(10, len(words))):
         print(words[i])
 
