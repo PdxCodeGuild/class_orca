@@ -1,4 +1,5 @@
 import string
+import math
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -19,31 +20,57 @@ ari_scale = {
 
 
 
-with open('pearl_harbor_address.txt', encoding = 'utf-8') as speech:
-    contents = speech.read()
+# making function to determine number of total words
+def words_count(total_words):
+    words = contents.split(' ')
+    total_words = len(words)
+    return total_words
 
-words = contents.split(' ')
-words_count = len(words)
+# making function to determine number of characters that are present in ascii.letters
+def character_count(context):
+    chars = string.ascii_letters
+    chars_list = list(contents)
+    char = []
 
-chars = string.ascii_letters
-chars_list = list(contents)
-char = []
+    for i in chars_list:
+        if i in chars:
+            char.append(i)
 
-for i in chars_list:
-    if i in chars:
-        char.append(i)
+    total_chars = len(char)
+    return total_chars
 
-total_chars = len(char)
+# making function to find total number of sentences by splittings at each .
+def sentence_count(total_sentences):
+    sentences = contents.split('.')
+    total_sentences = len(sentences)
+    return total_sentences
 
-sentences = contents.split('.')
-sentence_count = len(sentences)
+# making function to compute the ARI formula 
+def ari_total(total_chars, total_sentences, total_words):
+
+    ari = 4.71 * (float(chars) / float(words)) + (0.5 * (float(words) / (float(sentences))) - 21.43)
+    return ari
+
+# opening text file
+speech = open('pearl_harbor_address.txt')
+contents = speech.read()
+
+# settings cariables to run functions
+chars = character_count(contents)
+sentences = sentence_count(contents)
+words = words_count(contents)
+
+# using math module to perform ceiling division and get final score
+score = math.ceil(ari_total(chars, words, sentences))
+if score > 14:
+    score == 14
+
+# setting variable to get age from dictionary to pass into f-string
+age_level = ari_scale[score]
+
+# just getting the value at ages
+age = age_level['ages']
+
+print(f'The Pearl Harbor Address has an ARI score of {score}.\nThis is a reading level of {age}.')
 
 
-# print(words_count)
-# print(sentence_count)
-# print(total_chars)
-# # print(contents)
-
-ari = 4.71 * (float(total_chars) / float(words_count)) + (0.5 (float(words_count) / float(sentence_count))) - 21.43)
-
-print(ari)
