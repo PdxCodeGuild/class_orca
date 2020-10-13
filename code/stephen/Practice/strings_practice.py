@@ -12,14 +12,21 @@ def double_letters(user_input):
 
 
 def missing_char(word):
-    for i in range(len(word)):
-        word = list(word)
-        word = word[0::]
-        i += 1
+    word = list(word)
+    i = 0
+    for i in range(len(word[i])):
+        
+        new_word = []
+        new_word = word.pop([i])
+        word = str(word)
         print(word)
+        i += 1
+
 
     
-    
-word = input('Enter a word: ')
 
+
+word = input('Enter a word:')
 missing_char(word)
+
+   

@@ -48,7 +48,7 @@ def main():
 
     # Assign value to J, Q, K, A
     for y in range(0, len(hand)):
-        if hand[y] == ("Q" or "K" or "J"):
+        if hand[y] in ("J", "Q", "K"):
             hand[y] = 10
         elif hand[y] == ("A"):
             hand[y] = 11
