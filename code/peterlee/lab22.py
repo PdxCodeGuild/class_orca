@@ -1,6 +1,6 @@
 import string
-
-
+import math
+from nltk import tokenize
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -19,20 +19,25 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
-with open('pickwickpapers.txt', 'r', encoding='utf-8') as f:
+with open('580-0.txt', 'r', encoding='utf-8') as f:
     contents = f.read()
 
 characters_list = list(contents)
-characters_string = string.ascii_letters
 characters = []
-
 for i in characters_list:
-    if i in characters_string:
+    if i in string.ascii_letters or i in string.digits:
         characters.append(i)
 
 words = contents.split()
 
-sentences = contents.split('. ')
-    if 
+sentences = tokenize.sent_tokenize(contents)
 
-print(sentences)
+ARI = (4.71 * len(characters) / len(words)) + (0.5 * len(words) / len(sentences)) - 21.43
+
+
+print(f'The ARI for "The Pickwick Papers", by Charles Dickens is {math.ceil(ARI)}')
+
+ARI_grade = ari_scale[math.ceil(ARI)]['grade_level']
+ARI_age = ari_scale[math.ceil(ARI)]['ages']
+print(f'This corresponds to a(n) {ARI_grade} level of difficulty"\n"that is suitable for an average person {ARI_age} years old')
+
