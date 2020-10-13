@@ -1,4 +1,6 @@
 # todo
+# Version 2:
+# count unique word pairs then print top 10
 # Version 3:
 # let the user enter a word then show the words which most frequently follow
 
