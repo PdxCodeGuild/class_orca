@@ -1,5 +1,7 @@
 import string
 
+digits_list = list(string.digits)
+
 STOPWORDS = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 
 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 
 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 
@@ -30,14 +32,15 @@ def main():
     #removes STOPWORDS from the list
     contents_list = [x for x in contents_list if x not in STOPWORDS]
 
+    #removes non-alphabetic characters in list
+    contents_list = [x for x in contents_list if str.isalpha(x)]
+
     #adds word:count from the list into a dictionary
     words_dict = {}
     for x in contents_list:
         if x not in words_dict:
             words_dict[x] = 0
         words_dict[x] += 1
-
-
 
     #prints the top 10 words as shown in the lab instructions
     words = list(words_dict.items())

@@ -1,3 +1,4 @@
+  
 import string
 
 STOPWORDS = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 
@@ -45,10 +46,13 @@ def main():
             words_dict[x] = 0
         words_dict[x] += 1
 
+    input_word = input('Enter a word: ')
+
+
+
     #prints the top 10 word pairs as shown in the lab instructions
     words = list(words_dict.items())
     words.sort(key=lambda tup: tup[1], reverse=True)
-
     for i in range(min(10, len(words))):
         print(words[i])
 
