@@ -20,22 +20,26 @@ STOPWORDS = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you',
 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't", '', 'said', 'could', 'us', 'would', 'may', 'shall']
 
 
-
+# makes text lowercase
 dracula = dracula.lower()
 
 translator = str.maketrans('', '', string.punctuation)
 no_punct = dracula.translate(translator)
 
+# replacing new line with spaces, splitting into list at space
 no_punct =  no_punct.replace('\n', ' ')
 no_punct = no_punct.split(' ')
 
+# list comprehension to compare new_list to stopwords, delete any matches
 new_list = [x for x in no_punct if x not in STOPWORDS]
-# print(new_list)
+
+# using zip and line splicing to create a list of tuples with the word ahead of it
 pairs = list(zip(new_list, new_list[1:] + new_list[:1]))
 
-# print(new_list)
+# making empty dict to input each word at key and how many times the word occurs as value
 word_dict = {}
 
+# looping through tuples to add to dictionary 
 for x in pairs:
     
     if x not in word_dict:
