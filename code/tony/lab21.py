@@ -10,7 +10,7 @@ book_dict = {}
 stop = stopwords.stopper()
 
 # open book file
-soap = 'soaper.txt'
+soap = 'soap.txt'
 book = open(file=soap, mode='r', encoding='UTF-8').read()
 
 print(f'\nOpened file {soap}. May take a bit to return results.\n')
