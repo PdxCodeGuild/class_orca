@@ -41,6 +41,8 @@ def character_count(context):
 
 # making function to find total number of sentences by splittings at each .
 def sentence_count(total_sentences):
+    sentences = contents.replace('?', '.')
+    sentences = contents.replace('!', '.')
     sentences = contents.split('.')
     total_sentences = len(sentences)
     return total_sentences
@@ -55,7 +57,7 @@ def ari_total(total_chars, total_sentences, total_words):
 with open('pearl_harbor_address.txt', encoding = 'utf-8') as speech:
     contents = speech.read()
 
-# settings cariables to run functions
+# setting variables to run functions
 chars = character_count(contents)
 sentences = sentence_count(contents)
 words = words_count(contents)
@@ -71,6 +73,7 @@ age_level = ari_scale[score]
 # just getting the value at ages
 age = age_level['ages']
 
-print(f'The Pearl Harbor Address has an ARI score of {score}.\nThis is a reading level of {age}.')
+# print(f'The Pearl Harbor Address has an ARI score of {score}.\nThis is a reading level of {age}.')
 
+print(sentences)
 
