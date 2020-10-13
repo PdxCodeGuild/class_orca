@@ -9,19 +9,19 @@ population = [0, 0]    # jackalope population
 year = 0    # goes up 1
 
 while len(population) < 999:
-    print(f'len(population) is {len(population)}')
+    # print(f'len(population) is {len(population)}')
     # Main code to count adults and add babies
     for x in population:
         if x > 10:
             population.remove(x)
         elif x > 3 and x < 9:
-            print(x)
+            # print(x)
             population.append(0)
-            print(population)
+            # print(population)
 
 
 
-    print(year)
+    # print(year)
 
 
 
@@ -42,5 +42,5 @@ while len(population) < 999:
     # print(f'{year} is year, end of while loop...')
 
 # # Final print
-# print(population)
-# print('end')
+print(population)
+print('end')
