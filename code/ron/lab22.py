@@ -73,10 +73,7 @@ def main():
 
     # Make list of 'characters' with no punctuation and then counts them
     characters = list(new_chars)
-
     characters = del_function(characters)
-
-    # Count all the characters (no spaces or punctation)
     char_count = len(characters)
 
     # Count sentances in raw text based on number of periods '.' 
