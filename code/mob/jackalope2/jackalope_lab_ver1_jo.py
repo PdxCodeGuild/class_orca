@@ -27,40 +27,11 @@ def main():
         print(years)
         return years
 
-
     total_years = age(years)
     print(f'It takes {total_years} years to make 1000 jackalopes')
 
 main()
 
-
-
-    
-    # def jackaloupe_breeding_mach(jacks):
-    #     years = 0
-    #     while jacks < 1000:
-    #         years += 1
-    #         for age in range(10):
-
-    #             if 4 >= age <= 8:
-    #                 jacks += 2
-    #             if age >= 10:
-    #                 jacks -= 1
-    #             print(jacks)
-    #     return years
-
-
-    # for age in range(10):
-
-    # print(jackaloupe_breeding_mach(2))
-    
-            # if age >= 4 and age <= 8:
-            #     fertile += 1
-            # if age == 4:
-            #     fertile += 1
-            # if age == 8:
-            #     fertile -= 1
-            # population[i] += 1
 
 
 
