@@ -1,6 +1,5 @@
 import string
 import math
-from nltk import tokenize
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -32,13 +31,12 @@ def main():
     
     #makes a list of all words in the text
     words = contents.split()
-
-    '''
-    makes a list of all sentences in the text using the Natural Language Toolkit from https://www.nltk.org/
-    due to the difficulty in specifying where sentences start and end with the prevalent use of periods
-    in various contexts
-    '''
-    sentences = tokenize.sent_tokenize(contents)
+    
+    #makes a list of all sentences split by periods, question marks and exclamation points
+    sentences_periods = contents.split('. ')
+    sentences_questionmarks = contents.split('? ')
+    sentences_exclamationpoints = contents.split('! ')
+    sentences = sentences_periods + sentences_questionmarks + sentences_exclamationpoints
 
     #gets the ARI using the formula from the lab instructions and prints out the required results
     ARI = (4.71 * len(characters) / len(words)) + (0.5 * len(words) / len(sentences)) - 21.43
