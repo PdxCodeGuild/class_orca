@@ -37,6 +37,9 @@ Presentation Day: January 21st, 2020
  Lab 14 -- Pick 6  
  Lab 20 -- Credit Card Validation  
  Lab 13 -- ROT13  
+ Group -- Jackalope  
+ Lab 22 -- ARI  
+ Lab 21 -- Count Words  
 
 #### Optional Python Labs
 
