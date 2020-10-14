@@ -37,11 +37,16 @@ Presentation Day: January 21st, 2020
  Lab 14 -- Pick 6  
  Lab 20 -- Credit Card Validation  
  Lab 13 -- ROT13  
+ Group -- Jackalope  
+ Lab 22 -- ARI  
+ Lab 21 -- Count Words  
+ Lab 16 -- Image Manipulation  
 
 #### Optional Python Labs
 
  Practice 1-5  
- Labs 01-08, 11, 12, 17 (You did these during the intro course) 
+ Labs 01-08, 11, 12, 17 (You did these during the intro course)  
+ Lab 18 -- Peaks and Valleys  
 
 ## Student Presentations
 
