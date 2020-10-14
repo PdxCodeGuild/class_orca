@@ -1,14 +1,21 @@
-""" once v1 works, will modify rotation to be iditable """
 
-
-# function to encrypt message
+# function to encrypt message. takes the list message and adds the rot value to pull from rotated dictionary
 def encrypt():
     global message
+    global rot
     message = [x.upper() for x in message]
     encrypted = [english[i] for i in message]
-    encrypted = [rot13[i] for i in encrypted]
+    encrypted = [rotated[i + rot] for i in encrypted]
     return encrypted
 
+# function to decrypt a message. does same thing but subtracts the rot value
+def decrypt():
+    global message
+    global rot
+    message = [x.upper() for x in message]
+    decrypted = [english[i] for i in message]
+    decrypted = [rotated[i - rot] for i in decrypted]
+    return decrypted
 
 # english cipher dict
 english = {
@@ -34,15 +41,47 @@ english = {
     "T": 19,
     "U": 20,
     "V": 21,
-    "W": 23,
-    "X": 24,
-    "Y": 25,
-    "Z": 26
+    "W": 22,
+    "X": 23,
+    "Y": 24,
+    "Z": 25
+}
+# reversed key:value dictionary
+rotated = {
+     0: "A",
+     1: "B",
+     2: "C",
+     3: "D",
+     4: "E",
+     5: "F",
+     6: "G",
+     7: "H",
+     8: "I",
+     9: "J",
+     10: "K",
+     11: "L",
+     12: "M",
+     13: "N",
+     14: "O",
+     15: "P",
+     16: "Q",
+     17: "R",
+     18: "S",
+     19: "T",
+     20: "U",
+     21: "V",
+     22: "W",
+     23: "X",
+     24: "Y",
+     25: "Z"
 }
 
 # asks user which way they want to run the cipher
 action = input("Would you like to encrypt or decrypt? ")
-rot = input("What rotation would you like to use?")
+# gets to rotation value and reduces it to a number useable in the dictionaries
+rot = int(input("What cypher rotation would you like to use? "))
+if rot > 26:
+    rot = rot // 26
 
 # will pick which function to run based on input. loops back if entry is invalid
 while True:
@@ -61,48 +100,3 @@ while True:
             action = input("Would you like to encrypt or decrypt? ")
 
 
-
-
-""" 
-don't think i'll need this
-
-# ROT13 cipher dict
-rot13 = {
-    0: "N",
-    1: "O",
-    2: "P",
-    3: "Q",
-    4: "R",
-    5: "S",
-    6: "T",
-    7: "U",
-    8: "V",
-    9: "W",
-    10: "X",
-    11: "Y",
-    12: "Z",
-    13: "A",
-    14: "B",
-    15: "C",
-    16: "D",
-    17: "E",
-    18: "F",
-    19: "G",
-    20: "H",
-    21: "I",
-    23: "J",
-    24: "K",
-    25: "L",
-    26: "M"
-} """
-
-""" 
-ignoring for now
-
-# function to decrypt a message
-def decrypt():
-    global message
-    message = [x.upper() for x in message]
-    decrypted = [rot13[i] for i in message]
-    decrypted = [english[i] for i in message]
-    return decrypted """
