@@ -5,15 +5,15 @@
 # missing_char('kitten') → ['itten', 'ktten', 'kiten', 'kiten', 'kittn', 'kitte']
 
 def missing_char(word):
-    letters = list(word)
-    print(letters)
+    # print(letters)
     missing_letter = []
-   
     
-    letters.remove(1)
-    print(letters)
-        # new_word = "".join(new_letters)
-        # missing_letter.append(new_word)
+    for i in range (0, len(word)):
+        man_letters = list(word)
+        man_letters.pop(i)
+        new_word = "".join(man_letters)
+        missing_letter.append(new_word)
+        
         
     return missing_letter
 
