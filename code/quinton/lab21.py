@@ -29,7 +29,7 @@ stop_words = ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you'
 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 
 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 
 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 
-'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't"]
+'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't", 'mr']
 
 # creating an empty dictionary to add key(words) value(occurences) pairs
 word_count = {}
@@ -48,6 +48,27 @@ sorted_words = sorted(word_count.items(), key=lambda kv: kv[1])
 top_words = sorted_words[::-1]
 top_ten = top_words[0:10]
 
-print(top_ten)
+first, second, third, fourth, fifth, sixth, seventh, eighth, ninth, tenth = top_ten[0][0], top_ten[1][0], \
+    top_ten[2][0], top_ten[3][0], top_ten[4][0], top_ten[5][0], top_ten[6][0], top_ten[7][0], top_ten[8][0], top_ten[9][0]
+num1, num2, num3, num4, num5, num6, num7, num8, num9, num10 = top_ten[0][1], top_ten[1][1], top_ten[2][1], \
+    top_ten[3][1], top_ten[4][1], top_ten[5][1], top_ten[6][1], top_ten[7][1], top_ten[8][1], top_ten[9][1]
+
+print(f'''
+
+Top ten most common words
+-------------------------
+1st: {first} - {num1} times
+2nd: {second} - {num2} times
+3rd: {third} - {num3} times
+4th: {fourth} - {num4} times
+5th: {fifth} - {num5} times
+6th: {sixth} - {num6} times
+7th: {seventh} - {num7} times
+8th: {eighth} - {num8} times
+9th: {ninth} - {num9} times
+10th: {tenth} - {num10} times
+
+
+''')
 
 f.close()
