@@ -35,8 +35,8 @@ new_list = [x for x in no_punct if x not in STOPWORDS]
 
 # using zip and line splicing to create a list of tuples with the word ahead of it
 pairs = dict(zip(new_list, new_list[1:] + new_list[:1]))
-list_of_values = pairs['helsing']
-print(list_of_values)
+
+# print(list_of_values)
 
 # making empty dict to input each word at key and how many times the word occurs as value
 # word_dict = {}
@@ -70,3 +70,14 @@ print(list_of_values)
 # # compile dict of pairs
 # # iterate through and count the matches of values
 # # sort them highest to lowest
+
+# while user_input in word_dict[x]:
+
+def count(pairs): 
+      
+    pairs_count = {} 
+    for i in pairs: 
+        pairs_count[i] = pairs_count.get(i, 0) +1
+    print(pairs_count) 
+
+count(pairs)
