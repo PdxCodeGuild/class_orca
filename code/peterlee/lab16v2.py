@@ -25,13 +25,11 @@ for i in range(width):
 
         r, g, b = colorsys.hsv_to_rgb(h, s, v)
 
-
+        #decreases brightness
         r = round(int(r*255) ** .8)
         g = round(int(g*255) ** .8)
         b = round(int(b*255) ** .8)
 
         pixels[i, j] = (r, g, b)
-
-
 
 img.show()
