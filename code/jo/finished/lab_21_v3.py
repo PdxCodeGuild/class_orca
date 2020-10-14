@@ -20,14 +20,31 @@ with open('frankenstein.txt', 'r', encoding='utf8') as t:
     split_text = [word for word in split_text if word not in stopwords]
     split_text = [word for word in split_text if word != '']
 
-    # compares each word to keys in the dictionary. if that word isn't in the dict, it adds it with a value of 1. otherwise, it adds 1 to value, representing times it was used
+    # gets a word to check for
+    ask = input('Enter a word to find the words that follow it: ')
+
+    # empty lists to add to
+    double_list1 = []
+    double_list2 = []
+
+    # checks text for matches with the input word. appends one list with the word for each usage. 
+    # gets the index of each usage and adds 1 to get the words that follow each usage. appends the other list with them
     for word in split_text:
+        if word == ask:
+            double_list1.append(word)
+            double_list2 = [split_text[i+1] for i,word in enumerate(split_text) if word == ask]
+    
+    # compines both lists into a list of tuples
+    tuple_list = list(zip(double_list1, double_list2))
+
+    # compares each tuple to keys in the dictionary. if not in the dict, it adds it with a value of 1. otherwise, it adds 1 to value, representing times it was used
+    for word in tuple_list:
         if word not in word_dict:
             word_dict[word] = 1
         elif word in word_dict:
             word_dict[word] += 1
 
-    # prints out the 10 most often used words
+    # prints out the 10 most often used combos
     words = list(word_dict.items()) # .items() returns a list of tuples
     words.sort(key=lambda tup: tup[1], reverse=True)  # sort largest to smallest, based on count
     for i in range(min(10, len(words))):  # print the top 10 words, or all of them, whichever is smaller
