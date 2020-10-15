@@ -56,6 +56,7 @@ def delete_crud(l, m):
     file_update_two = file_update_two.replace('\n\n', '\n')
     new_file_two = open('contacts.csv','w')
     new_file_two.writelines(file_update_two)
+    new_file_two.close()
     return
 
 
@@ -67,7 +68,6 @@ def main():
     #REPL loop for CRUD
     which_crud = input("Select a choice by typing it (create, retrieve, update, delete or done): ")
     while True:
-        #prints final list when user is finished
         if which_crud == 'done':
             break
         elif which_crud == 'create':
