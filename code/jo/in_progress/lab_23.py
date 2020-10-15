@@ -11,8 +11,10 @@ with open('contacts.csv', 'r') as file:
     lines = file.read().split('\n')
 
 
-# list of contacts. will be list of dicts
+
 contacts = []
+contacts_tup_list = []
+contacts_list = []
 
 # makes each element of lines list into its own list
 for i in lines:
@@ -23,13 +25,11 @@ key1 = contacts[0]
 del contacts[0]
 
 # makes each contact a list of key/value tuples
-contacts_tup_list = []
 for i in contacts:
     entry = list(zip(key1,i))
     contacts_tup_list.append(entry)
 
 # turns list of tuples to list of dicts
-contacts_list = []
 for i in contacts_tup_list:
     contacts_list.append(dict(i))
 
