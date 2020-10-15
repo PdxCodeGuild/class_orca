@@ -67,7 +67,6 @@ def main():
     #REPL loop for CRUD
     which_crud = input("Select a choice by typing it (create, retrieve, update, delete or done): ")
     while True:
-        #prints final list when user is finished
         if which_crud == 'done':
             break
         elif which_crud == 'create':
