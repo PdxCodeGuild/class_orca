@@ -20,6 +20,6 @@ draw.line((150, 205, 350, 205), fill=('black'), width=10)
 draw.line((250, 350, 250, 150), fill=('black'), width=10)
 draw.line((150, 480, 250, 350), fill=('black'), width=10)
 draw.line((350, 480, 250, 350), fill=('black'), width=10)
-draw.line((235, 125, 265, 125), fill=('black'), width=5)
+draw.chord((235, 100, 265, 120), start=0, end=180, fill=('black'))
 
 img.show()
