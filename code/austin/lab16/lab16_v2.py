@@ -1,3 +1,5 @@
+#Lab16 version 2: Change Color Scheme
+
 from PIL import Image
 import colorsys
 
