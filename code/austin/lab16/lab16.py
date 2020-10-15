@@ -1,3 +1,5 @@
+#Lab16: Change to Greyscale
+
 from PIL import Image
 img = Image.open("test_image.jpg")
 width, height = img.size
