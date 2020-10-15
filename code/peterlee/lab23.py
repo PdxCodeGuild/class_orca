@@ -69,8 +69,6 @@ def main():
     while True:
         #prints final list when user is finished
         if which_crud == 'done':
-            update_contacts_list()
-            print(updated_contacts_list)
             break
         elif which_crud == 'create':
             new_name = input('Enter a new name: ')
