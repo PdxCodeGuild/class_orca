@@ -6,21 +6,19 @@
 file_to_open = 'contacts.csv'
 
 with open(file_to_open, 'r') as file:
-    #  = file.read().split('\n')
     contacts_raw = file.read()
-    # print(f'contacts_lines is {contacts_lines}')
 
 contacts_lines = contacts_raw.split('\n')
 
 contacts_list_of_dictionaries = []
 
 def next_operation():
-    user_input = input(f'Enter next operation: ')
-    # user_input = 'create' # TEMP INPUT ### REMEMBER that invalid input here WILL LOOP, which is correct functionality!
-    # print(f'LINE 5 user_input is {user_input}')
+
+    user_input = input(f'Enter next operation: ')    # user_input = 'create' # TEMP INPUT ### REMEMBER that invalid input here WILL LOOP, which is correct functionality!
     return user_input
 
 def get_csv_headers_line_1(input):
+
     line_number = 1
     header_list = []
     
@@ -40,8 +38,6 @@ def input_convert_lines_of_strings_with_headers_to_list_of_dictionaries(input):
     line_number = 1
     
     for line in input:
-
-        # STRING .split('\n') # https://www.w3schools.com/python/ref_string_split.asp  # is this a for or while function???
 
         if line_number == 1:  # extract the header line!
             line_number += 1
@@ -101,10 +97,11 @@ def output_back_headers_and_list_of_dictionaries_to_lines_of_strings(input):
                 temp_header_value = header_list[i] # Lookup the header value in the header list                
                 output_string += temp_dictionary_entry[temp_header_value] # Lookup the header value in the dictionary; Add it io the final csv string NO COMMA
     
-    output_file = 'lab23_temp_output_file.txt'
+    output_file = file_to_open
+    # output_file = 'contacts.csv'
     print(f'Saving to file: {output_file}...')
-    with open(output_file, 'w') as output_file: # changed to 'a' for a safer, append output in testing
-        output_file.write(output_string) # output_file.write('\n'.join(output_string)) # original line...why?
+    with open(output_file, 'w') as output_file:
+        output_file.write(output_string)
 
 
 ##############################################################################
@@ -145,60 +142,27 @@ def retrieve(input_list,lookup_name):
     return False # return something else?
 
 
-
-
-
-# ***************************** WORKING FROM HERE *****************************
-
-EXAMLE_contacts_list_of_dictionaries = [ # EXAMPLE list
-    {'name': 'john', 'color': 'clear', 'phone': '503', 'animal': 'penguin'}, 
-    {'name': 'josh', 'color': 'red', 'phone': '503', 'animal': 'bat'}, 
-    {'name': 'julie', 'color': 'white', 'phone': '310', 'animal': 'cat'}, 
-    {'name': 'keenan', 'color': 'green', 'phone': '808', 'animal': 'dog'}
-    ]
-
 ##############################################################################
-#     # Step 5 Update a record 5a Ask for contact name, then 5b ask for which attribute to set (if no attribute, ask again), then 5c ask for new value, then 5d re-save list of dicts
-# def update(input_list):
+    # Step 5 Update a record 5a Ask for contact name, then 5b ask for which attribute to set (if no attribute, ask again), then 5c ask for new value, then 5d re-save list of dicts
+def update(input_list,lookup_name):
     
-#     print('Note: does not yet check for duplicate entries, so input carefully!')
-    
-#     new_user_dictionary = {}
-#     print(f'Current headers are: {header_list}')
+    print('Note: does not yet check for duplicate entries, so input carefully!')
+    retrieval_dict = retrieve(input_list,lookup_name)
 
-#     for header in header_list:
-#         print(f'Current value for header {header} is {header_list}')
-    
-#         user_input = 
+    if retrieval_dict != False:
+        print(f'Current headers are: {header_list}')
+        for header in header_list:
+            print(f'Current value for \"{header}\" is: \"{retrieval_dict[header]}\""')
+            user_input = input(f'Please enter the new entry for \"{header}\", or type \"cancel\" to cancel the new entry: ')
+            if user_input == 'cancel':
+                print('Cancelling modification.')
+                return    
+            retrieval_dict[header] = user_input
+        print(f'New entry is: {retrieval_dict}')
+        return input_list
+    else: # if False (no user found)
+        return
 
-#         new_user_dictionary[header] = user_input
-
-
-
-#     return input_list
-    
-
-#     # COPY FROM CREATE THEN START...
-
-
-
-# print(contacts_list_of_dictionaries)
-# update(contacts_list_of_dictionaries)
-# print(contacts_list_of_dictionaries)
-
-
-
-
-
-
-
-
-
-
-
-
-##############################################################################
-# ***************************** ^^^^^^^^^ TO HERE *****************************
 
 ##############################################################################
 # STEP 6 Delete a record 
@@ -211,13 +175,10 @@ def delete(input_list,lookup_name):
 
         if input_list[retrieval_index] == retrieval_dict:
             print(f'You are deleting the record: \"{lookup_name}\" at position {input_list.index(retrieval_dict)}! Are you sure? For realseys? y/n :') # CHANGE
-            # print(input_list)
             del input_list[retrieval_index]
-            # print(input_list)
             return input_list # NOTE CHANGED FROM  # CHANGED FROM  # CHANGED FROM  # CHANGED FROM  # CHANGED FROM  # CHANGED FROM contacts_list_of_dictionaries
         else:
             print('else!')
-            # run convert_write function (input_list)
             return retrieval_dict
     else: # if False (no user found)
         return
@@ -238,10 +199,8 @@ def main(file):
             ########### NOTE FIX ENTERING COMMAS AND OTHER DANGEROUS CHARACTERS!
             ########### NOTE FIX ENTERING COMMAS AND OTHER DANGEROUS CHARACTERS!
             ########### NOTE FIX ENTERING COMMAS AND OTHER DANGEROUS CHARACTERS!
-            print('CREATE FUNCTION HERE') # TEMPORARY FOR TESTING 
             create(file)
             output_back_headers_and_list_of_dictionaries_to_lines_of_strings(contacts_list_of_dictionaries) # SAVE OUTPUT
-            # user_input = 'exit' # TEMPORARY FOR TESTING
             user_input = next_operation()
 
         elif user_input == 'retrieve':
@@ -254,16 +213,13 @@ def main(file):
             ########### NOTE FIX ENTERING COMMAS AND OTHER DANGEROUS CHARACTERS!
             ########### NOTE FIX ENTERING COMMAS AND OTHER DANGEROUS CHARACTERS!
             ########### NOTE FIX ENTERING COMMAS AND OTHER DANGEROUS CHARACTERS!
-
-            # RUN UPFATE FUNCTION
-            # output_back_headers_and_list_of_dictionaries_to_lines_of_strings(contacts_list_of_dictionaries) # SAVE OUTPUT
-            print('UPFATE FUNCTION HERE') # TEMPORARY FOR TESTING
+            lookup_name = input('Please type the exact name of the entry to update: ')            
+            update(file,lookup_name) 
             output_back_headers_and_list_of_dictionaries_to_lines_of_strings(contacts_list_of_dictionaries) # SAVE OUTPUT
-            # user_input = 'exit' # TEMPORARY FOR TESTING
             user_input = next_operation()
 
         elif user_input == 'delete':
-            lookup_name = input('Please type the exact name of the entry to display: ')
+            lookup_name = input('Please type the exact name of the entry to delete: ')
             ########### NOTE FIX ENTERING 'NAME' IN DELETE!
             ########### NOTE FIX ENTERING 'NAME' IN DELETE!
             ########### NOTE FIX ENTERING 'NAME' IN DELETE!
@@ -278,15 +234,13 @@ def main(file):
             pass
 
     else: # if user_input is 'exit'...
-        print('AFTER WHILE LOOP ELSE Exiting program. Thank you!')
         return file
 
 ################# call it!
 main(contacts_list_of_dictionaries)
-################### FINAL WORK: SAVE TO SAME OPEN FILE
 ################### FINAL WORK: FIX ENTERING NAME IN DELETE...
 ################### FINAL WORK: FIX ENTERING COMMAS AND OTHER DANGEROUS CHARACTERS!
-# NOTE INPUT 'name' can break whole thing...!
+
 # NOTES 
 # return one thing at once
 # every time we change / user input, write function... 
