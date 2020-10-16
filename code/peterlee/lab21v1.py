@@ -44,6 +44,7 @@ def main():
 
     #prints the top 10 words as shown in the lab instructions
     words = list(words_dict.items())
+    print(words)
     words.sort(key=lambda tup: tup[1], reverse=True)
     for i in range(min(10, len(words))):
         print(words[i])
