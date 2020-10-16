@@ -25,7 +25,7 @@ for i in range(0, len(user_card), 2):
 
 # subtract 9 if number over 9
 user_card = [x - 9 if x > 9 else x for x in user_card]
-
+user_card = str(user_card)
 # adding total of numbers
 user_card = sum(user_card)
 
