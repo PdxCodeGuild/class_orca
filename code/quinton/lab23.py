@@ -1,5 +1,3 @@
-import csv
-
 def update_file(dictionary):
     keys = dictionary[0].keys()
     with open('contacts.csv', 'w', newline='')  as f:
