@@ -66,7 +66,7 @@ def update_record():
         print("Updated record: ", record)
     
     edit_db()
-    return record
+    return contact_obj
 
 #Delete record
 def delete_record():
@@ -75,18 +75,26 @@ def delete_record():
         if contact_obj[i]['name'] == find_record:
             del contact_obj[i]
             break
-    print(f'New contact list: {contact_obj}')
+    print('New contact list: ', contact_obj)
     
     edit_db()
     return contact_obj
 
-#Convert dictionary to strings
-def back_to_strings():
-    # separator = ', '
-    # key_string = separator.join(key_list)
-    print(key_list)
-    print(lines)
-
+#Convert dictionary to strings, re-write csv file
+def write_file():
+    print(contact_obj, "contact object")
+    with open('contacts.csv', 'w') as file:
+        separator = ','
+        key_string = separator.join(key_list)
+        key_string.replace(" ", "")
+        print(key_string)
+        file.write(f'{key_string} \n')
+        for i in range(0, len(contact_obj)):
+            data_string = separator.join(contact_obj[i].values())
+            data_string.replace(" ", "")
+            print(data_string)
+            file.write(f'{data_string} \n')
+    
 #CRUD REPL
 def edit_db():
     select = input("What would you like to do? Type 'new,' 'view,' 'edit,' 'delete'  or 'done' ")
@@ -99,17 +107,6 @@ def edit_db():
     if select == "delete":
         delete_record()
     if select == "done":
-        back_to_strings()
-        # write_file()
+        write_file()
 
 edit_db()
-
-
-
-# #Write new contact list to CSV
-# def write_file():
-#     with open('contacts.csv', 'w') as file:
-#         file.write(contact_obj)
-#     print(contact_obj)
-#     exit()
-    
