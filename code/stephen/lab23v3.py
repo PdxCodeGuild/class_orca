@@ -42,7 +42,7 @@ def retrieve_contact():
     main_menu()
 
 def retrieve_plus():
-    con = input('Enter the name of the contact you would like to retireve:\n>')
+    con = input('Enter the name of the contact you would like to access:\n>')
     for record in contacts:
         if record['name'] == con:
             return record
@@ -114,8 +114,6 @@ def save_changes(contacts):
     with open('contacts.csv', 'w') as file:
         file.write(save_list)
 
-    
-
 def main():
     user_input = int(input('''Welcome to the Contact List!
     Please select an option from the following menu:
@@ -149,11 +147,3 @@ def main():
     >''' ))
 
 main()
- 
-# retrieve a record
-
-# update a record
-
-# delete a record
-
-# print(contacts)

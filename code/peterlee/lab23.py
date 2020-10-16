@@ -54,6 +54,8 @@ def delete_crud(l, m):
     file_update_two = ''.join([t for t in file_update_two])
     file_update_two = file_update_two.replace(delete_line, '')
     file_update_two = file_update_two.replace('\n\n', '\n')
+    if file_update_two[-1] == '\n':
+        file_update_two = file_update_two[:-1]
     new_file_two = open('contacts.csv','w')
     new_file_two.writelines(file_update_two)
     new_file_two.close()
@@ -98,5 +100,3 @@ def main():
 
 
 main()
-
-    
