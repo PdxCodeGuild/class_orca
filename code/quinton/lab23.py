@@ -1,9 +1,21 @@
+import csv
+
+def update_file(dictionary):
+    keys = dictionary[0].keys()
+    with open('contacts.csv', 'w', newline='')  as f:
+        dict_writer = csv.DictWriter(f, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(dictionary)
+        return dictionary
+
+
 def create(dictionary):
     name = input('Contact name?\n> ')
     fav_fruit = input('Contacts favorite fruit?\n> ')
     fav_color = input('Contacts favorite color?\n> ')
     blah = {'name': name, 'favorite fruit': fav_fruit, 'favorite color': fav_color}
     dictionary.append(blah)
+    update_file(dictionary)
     return dictionary
 
 
@@ -16,16 +28,13 @@ def retrieve(dictionary):
         else:
             count += 0
         if count > 0:
-            print(f'''
-Contact: 
-
-{i}
-
-''')
+            print(f'Contact: {i}')
             break
     if count == 0:
         print('''
+
 name not found
+
         ''')
 
 
@@ -36,6 +45,7 @@ def update(dictionary):
     for i in dictionary:
         if name == i['name']:
             i[attribute] = changed
+            update_file(dictionary)
             return dictionary
 
 
@@ -44,6 +54,7 @@ def delete(dictionary):
     for i in dictionary:
         if name == i['name']:
             dictionary.remove(i)
+            update_file(dictionary)
             return dictionary
 
 
