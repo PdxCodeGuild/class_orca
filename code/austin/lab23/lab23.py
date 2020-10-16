@@ -43,19 +43,58 @@ def view_record():
             print(record)
     
     edit_db()
-    return find_record
+    return record
 
 #Update record
-def update_record():
+def update_record(): 
     find_record = input("Please enter name ")
     for record in contact_obj:
         if record['name'] == find_record:
-            #Select which field to change
-            #Display input line for that field
-            #Re-display entire record
-            pass
+            select_change = input("What value would you like to change? Choose name, animal, band or tea  ")
+            if select_change == 'name':
+                new_name = input("Name? ")
+                record['name'] = new_name
+            if select_change == 'animal':
+                new_animal = input("Favorite animal? ")
+                record['fav_animal'] = new_animal
+            if select_change == 'band':
+                new_band = input('Favorite band? ')
+                record['fav_band'] = new_band
+            if select_change == 'tea':
+                new_tea = input("Favorite kind of tea? ")
+                record['fav_tea'] = new_tea      
+        print("Updated record: ", record)
+    
+    edit_db()
+    return contact_obj
 
+#Delete record
+def delete_record():
+    find_record = input("Please enter name ")
+    for i in range(len(contact_obj)):
+        if contact_obj[i]['name'] == find_record:
+            del contact_obj[i]
+            break
+    print('New contact list: ', contact_obj)
+    
+    edit_db()
+    return contact_obj
 
+#Convert dictionary to strings, re-write csv file
+def write_file():
+    print(contact_obj, "contact object")
+    with open('contacts.csv', 'w') as file:
+        separator = ','
+        key_string = separator.join(key_list)
+        key_string.replace(" ", "")
+        print(key_string)
+        file.write(f'{key_string} \n')
+        for i in range(0, len(contact_obj)):
+            data_string = separator.join(contact_obj[i].values())
+            data_string.replace(" ", "")
+            print(data_string)
+            file.write(f'{data_string} \n')
+    
 #CRUD REPL
 def edit_db():
     select = input("What would you like to do? Type 'new,' 'view,' 'edit,' 'delete'  or 'done' ")
@@ -63,5 +102,11 @@ def edit_db():
         new_record()
     if select == "view":
         view_record()
+    if select == "edit":
+        update_record()
+    if select == "delete":
+        delete_record()
+    if select == "done":
+        write_file()
+
 edit_db()
-    
