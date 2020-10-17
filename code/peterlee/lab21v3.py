@@ -23,40 +23,32 @@ def main():
         if i%2 == 1:
             b = (contents_list[i-1], contents_list[i])
             contents_list_paired_one.append(b) 
-    
+
+    #pairs staggered words in another list in a tuple in a new list to make sure all pairings are accounted for
     contents_list_paired_two = []
     for i in range (2, len(contents_list)):
         if i%2 == 0:
             c = (contents_list[i-1], contents_list[i])
             contents_list_paired_two.append(c) 
+    contents_list_combined = contents_list_paired_one + contents_list_paired_two
  
     #adds word pairing:count from the list into a dictionary
-    words_dict_one = {}
-    for x in contents_list_paired_one:
-        if x not in words_dict_one:
-            words_dict_one[x] = 0
-        words_dict_one[x] += 1
+    words_dict = {}
+    for x in contents_list_combined:
+        if x not in words_dict:
+            words_dict[x] = 0
+        words_dict[x] += 1
 
-    words_dict_two = {}
-    for x in contents_list_paired_two:
-        if x not in words_dict_two:
-            words_dict_two[x] = 0
-        words_dict_two[x] += 1
 
     input_word = input('Enter a word: ')
 
-    #prints the top 10 word pairs as shown in the lab instructions
-    words_one = list(words_dict_one.items())
+    words = list(words_dict.items())
 
-    words_two = list(words_dict_two.items())
+    #creates a new list that only contains the input word followed by another word
+    words_list = [x for x in words if x[0][0] == input_word]
+    #prints the top 10 words pairing as shown in the lab instructions
+    words_list.sort(key=lambda tup: tup[1], reverse=True)
+    for i in range(min(10, len(words_list))):
+        print(words_list[i])
 
-    words = zip(words_one, words_two)
-
-    updated_words = [x for x in words if x[0][0] == input_word]
-    # updated_words.sort(key=lambda tup: tup[1], reverse=True)
-
-    print(updated_words)
-#     for i in range(min(10, len(words))):
-#         print(words[i])
-
-main()
+main()  

@@ -44,13 +44,19 @@ def main():
     cc_num.reverse()
     # print(3, cc_num) # Error Check
 
-    # Double the values of every other number
+    # Double the values of every other number (notice if statement in the middle vs. the end)
+    # The if statement in the middle modifies the orginal list, at the end
+    # it would filter and change the entire list
     cc_num = [cc_num[x] * 2 if x % 2 == 0 else cc_num[x] for x in range(len(cc_num))]
     # print(4, cc_num) # Error Check
 
+    # Different way to build list comprehension
+    # cc_num = [digit*2 if i % 2 == 0 else digit for i, digit in enumerate(reversed_digits)]
+
     # Subtract 9 from every value
-    cc_num = [cc_num[x] - 9 if cc_num[x] >= 9 else cc_num[x] for x in range(len(cc_num))]
+    cc_num = [cc_num[x] - 9 if cc_num[x] > 9 else cc_num[x] for x in range(len(cc_num))]
     # print(5, cc_num) # Error Check
+
 
     # Output
     print(f'Total: {sum(cc_num)}')
