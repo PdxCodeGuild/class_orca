@@ -26,16 +26,25 @@ class account:
     def print_transactions(self):
         print(self.list)
 
-a1 = account()
+def main():
+    a1 = account()
+    while True:
+        option = input('What would you like to do (deposit, withdraw, check balance, history, done)? ')
+        if option == 'done':
+            break
+        elif option == 'deposit':
+            ask_deposit = float(input('How much would you like to deposit? '))
+            a1.deposit(ask_deposit)
+        elif option == 'withdraw':
+            ask_withdraw = float(input('How much would you like to withdraw? '))
+            a1.withdraw(ask_withdraw)
+        elif option == 'check balance':
+            balance = a1.check_balance()
+            print(f'Your balance is {balance}.')
+        elif option == 'history':
+            print(f'Your transaction history is:')
+            a1.print_transactions()
 
-a1.deposit(500)
-a1.deposit(500)
-a1.deposit(500)
-a1.deposit(500)
+main()
 
-a1.withdraw(300)
-a1.withdraw(300)
-a1.withdraw(300)
-a1.withdraw(300)
 
-a1.print_transactions()
