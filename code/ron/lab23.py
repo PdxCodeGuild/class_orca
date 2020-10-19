@@ -52,12 +52,15 @@ Please select from the following options:
             choices()                 
         elif choice == '2':
             contacts.append(create_user())
+            save_data()
             choices()
         elif choice == '3':
             delete_user() 
+            save_data()
             choices()
         elif choice == '4':
             update_user()
+            save_data()
             choices()             
         elif choice == '5':
             save_data()
@@ -200,7 +203,7 @@ Update Record
             break
 
     print(f'\n{user_name}, you have been successfully updated the record. \n')
-    choices()
+ 
 
 def save_data():#---------------------------------------------------------
     ''' Save contacts list to the original CSV '''
