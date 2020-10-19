@@ -105,7 +105,8 @@ def main_menu():
         quit()
 
 def save_changes(contacts):
-    save_list = [','.join(keys)]
+    k = ','.join(keys)
+    save_list = []
     for val in contacts:
         v = ','.join(val.values())
         save_list.append(v)
