@@ -1,14 +1,9 @@
 ##############################################################################
 # John Fial, PDX Code Guild, 2020-2021
 # https://github.com/PdxCodeGuild/class_orca/blob/main/1%20Python/labs/lab25-ATM.md
-
-# Step 8 v2 make an account history function... Make the deposit/withdraw functions
-# add a string to a list of 'User {Action} {amount} 
-# 8c then add new function print_transactions() to display the account history
 ##############################################################################
 # ***************************** WORKING FROM HERE *****************************
 # ***************************** ^^^^^^^^^ TO HERE *****************************
-
 
 class ATM(): 
 
@@ -18,7 +13,7 @@ class ATM():
         self.datetime = 'Today'
         self.history.append(f'Date: {self.datetime}. Account opened with starting balance of ${self.balance}.')
 
-    def check_balance(self): # shouldn't balance be started in the init function?
+    def check_balance(self):
         print(f'Balance is ${self.balance}.')
         return self.balance
         
@@ -63,18 +58,16 @@ class ATM():
             print(f'Sorry! Current balance is ${self.balance}; but you tried to withdraw ${amount}.')
             return self.balance
 
-
-
 account1 = ATM(505)
 
-account1.deposit(2)
-account1.deposit(-100)
-account1.deposit(2)
+# account1.deposit(2)
+# account1.deposit(-100)
+# account1.deposit(2)
+# # account1.print_transactions()
+# # print(account1.check_withdrawl(-555))
+# account1.withdraw(55)
+# account1.withdraw(-55)
 # account1.print_transactions()
-# print(account1.check_withdrawl(-555))
-account1.withdraw(-55)
-
-
 
 # add call function for REPL under each if statement... # should NOT have to do this if you call it one time before!
 # NOTE FIX # TypeError: '>' not supported between instances of 'int' and 'str'
@@ -83,72 +76,53 @@ account1.withdraw(-55)
 # print(account1.balance) # NOTE this is where __str__ comes in useful or necessary
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##############################################################################
-# Step 10 Creae the REPL Loop, start with the CRUD thing from contacts list and change wording
 def next_operation():
-
     user_input = input(f'Enter next operation: ')    # user_input = 'create' # TEMP INPUT ### REMEMBER that invalid input here WILL LOOP, which is correct functionality!
     return user_input
 
-
 def main(account):
     print('Welcome to ATM v1!')
-    print(f'Acceptable operations are, without quotes: \"check balance\", \"deposit\", \"withdraw\", \"history\", or \"exit\": ')
-    # TODO STRIP EXTRA CHARACTERS, LOWERCASE, ETC...
+    print(f'Acceptable operations are, without quotes: \"check balance\", \"deposit\", \"withdraw\", \"history\", \"menu\", or \"exit\": ')
 
     user_input = next_operation()
 
     while user_input != 'exit':
         if user_input == 'check balance':  
-            check_balance() # NOTE balance?
-            ########### NOTE 
+            account.check_balance() 
             user_input = next_operation()
 
         elif user_input == 'deposit':
-            print('Please type #################: ') 
+            amount = input(f'Please enter the amount, as a number: ')
+            try: 
+                amount = float(amount)
+            except ValueError:
+                print('Invalid number. Please enter a valid number next time.')
+                user_input = next_operation()
+                # NOTE this is still breaking...not here, but on the NEXT user operation!
+
+            account.deposit(amount)
             user_input = next_operation()
 
         elif user_input == 'withdraw':
-            ########### NOTE 
-            print('Please type #################: ')   
+            amount = input(f'Please enter the amount, as a number: ')
+            try: 
+                amount = float(amount)
+            except ValueError:
+                print('Invalid number. Please enter a valid number next time.')
+                user_input = next_operation()
+
+            account.withdraw(amount)
             user_input = next_operation()
 
         elif user_input == 'history':
-            print('Account History: ')
+            account.print_transactions()
             user_input = next_operation()
 
-        else:            
+        elif user_input == 'menu':
+            print(f'Acceptable operations are, without quotes: \"check balance\", \"deposit\", \"withdraw\", \"history\", \"menu\", or \"exit\": ')
+            user_input = next_operation()
+
+        else: # for invalid input
             print('Invalid input!')
             user_input = next_operation()
             pass
@@ -156,10 +130,9 @@ def main(account):
     else: # if user_input is 'exit'...
         return 
 
-################# call it!
-# main()
-################### FINAL WORK: FIX ENTERING NAME IN DELETE...
-################### FINAL WORK: FIX ENTERING COMMAS AND OTHER DANGEROUS CHARACTERS!
+
+main(account1)
+
 
 
 
