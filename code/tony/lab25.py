@@ -30,14 +30,6 @@ class ATM:
             return self.check
     def print_transactions(self):
         print(f"\nhere's what u did this time: u{(', then'.join(self.transactions))}\n")
-
-# def again():
-#     choices = input('you done? \n1. yea \n2. nah  ')
-#     if choices == 1:
-#         choices = 4
-#         return choices
-#     elif choices == 2:
-#         choices = 5
         
 bank1 = ATM()
 balance = f'${bank1.check_balance()}'
@@ -54,7 +46,6 @@ while True:
             print('\nu got NOTHIN in the bank. \n')
         else:
             print(f'\naight, u got ${balance} in the bank rn. \n')
-        # again()
 
     elif choices == 2:
         amt = float(input('\nk, how much  ').strip('$'))
