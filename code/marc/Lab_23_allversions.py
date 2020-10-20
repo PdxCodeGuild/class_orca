@@ -14,7 +14,7 @@ def main():
         contacts = []#new list of seperate dictionaries
         for i in range(1, len(list_of_contacts)):
             contacts.append(dict(zip(list_of_contacts[0], list_of_contacts[i]))) #combining functions to zip a dictionary together into a new list
-    
+        print (list_of_contacts)
         return contacts
     
     def dict_to_CSV (contacts):#This what converts the file back into CSV
@@ -28,7 +28,9 @@ def main():
         print (big_list)
         i = 5
         while i < len(big_list):
-            big_list.insert(i,("\n" + big_list[i])) #this little bastart was messing things up and it took a long time to figure out why!
+           
+            big_list.insert(i,("\n" + big_list[i])) #this little bastard was messing things up and it took a long time to figure out why!
+            # big_list.remove(big_list[i + 1])
             i += 6
         print (big_list)
         new_file = ",".join(big_list)
