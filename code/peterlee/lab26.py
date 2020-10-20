@@ -17,8 +17,10 @@ class Game:
             print('|'.join(self.board[x]))
         return
 
-    #inserted the player's move into self.board list based on their inputs
-    def move(self, x, y, player_token):
+    #inserts the player's move into self.board list based on their inputs
+    def move(self, x, y, player_token, other_player_token):
+        if self.board[x][y] == other_player_token:
+            return False
         del self.board[x][y]
         self.board[x].insert(y, player_token)
         return
@@ -100,13 +102,18 @@ def main():
     P2 = Player(player_two_name, player_two_token)
 
     new_game = Game()
-    new_game.__repr__()
+    repr(new_game.__repr__())
     #REPL that runs each player's turn in order
     while True:
         player_one_turn_x = int(input(f'{P1.name}, which row would you like to place an {P1.token} from 0-2? (0 is the top row) '))
         player_one_turn_y = int(input(f'Which column would you like to place the {P1.token} from 0-2? (0 is the left column)'))
-        new_game.move(player_one_turn_x, player_one_turn_y, P1.token)
-        new_game.__repr__()
+        new_game.move(player_one_turn_x, player_one_turn_y, P1.token, P2.token)
+        #makes sure that the player does not overwrite their opponent's move
+        while new_game.move(player_one_turn_x, player_one_turn_y, P1.token, P2.token) == False:
+            print(f'Sorry but you cannot place an {P1.token} there. Please select your row and column again. ')
+            player_one_turn_x = int(input(f'{P1.name}, which row would you like to place an {P1.token} from 0-2? (0 is the top row) '))
+            player_one_turn_y = int(input(f'Which column would you like to place the {P1.token} from 0-2? (0 is the left column)'))
+        repr(new_game.__repr__())
         #loop that checks whether the game is over after every move
         if new_game.is_game_over(P1.token, P2.token) == True:
             if new_game.is_full() == True:
@@ -122,8 +129,12 @@ def main():
 
         player_two_turn_x = int(input(f'{P2.name}, which row would you like to place an {P2.token} from 0-2? (0 is the top row) '))
         player_two_turn_y = int(input(f'Which column would you like to place the {P2.token} from 0-2? (0 is the left column)'))
-        new_game.move(player_two_turn_x, player_two_turn_y, P2.token)
-        new_game.__repr__()
+        new_game.move(player_two_turn_x, player_one_turn_y, P2.token, P1.token)
+        while new_game.move(player_two_turn_x, player_two_turn_y, P2.token, P1.token) == False:
+            print(f'Sorry but you cannot place an {P2.token} there. Please select your row and column again. ')
+            player_two_turn_x = int(input(f'{P2.name}, which row would you like to place an {P2.token} from 0-2? (0 is the top row) '))
+            player_two_turn_y = int(input(f'Which column would you like to place the {P2.token} from 0-2? (0 is the left column)'))
+        repr(new_game.__repr__())
 
         if new_game.is_game_over(P1.token, P2.token) == True:
             if new_game.is_full() == True:
