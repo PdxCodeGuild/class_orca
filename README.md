@@ -51,6 +51,8 @@ Presentation Day: January 21st, 2020
  Practice 1-5  
  Labs 01-08, 11, 12, 17 (You did these during the intro course)  
  Lab 18 -- Peaks and Valleys  
+ Lab 24 -- Rain Data  
+ Lab 27 -- Connect Four  
 
 ## Student Presentations
 
