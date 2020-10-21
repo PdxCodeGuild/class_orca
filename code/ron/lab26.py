@@ -40,30 +40,32 @@ class Game:
    def __repr__(self):
       for x in range(len(self.board)):
          print(' '.join(self.board[x]))
-      # print('\n') #formatting
 
    def move(self, xy, player):
    # y.Line 1 index 2
-      if xy == "0,0":
+      if xy == "0,0" and self.board[2][1] is ' ':
          self.board[2][1] = player.token
-      if xy == "0,1":
+      elif xy == "0,1" and self.board[2][3] is ' ':
          self.board[2][3] = player.token
-      if xy == "0,2":
+      elif xy == "0,2" and self.board[2][5] is ' ':
          self.board[2][5] = player.token
    # y.Line 2 index 4
-      if xy == "1,0":
+      elif xy == "1,0" and self.board[4][1] is ' ':
          self.board[4][1] = player.token
-      if xy == "1,1":
+      elif xy == "1,1" and self.board[4][3] is ' ':
          self.board[4][3] = player.token
-      if xy == "1,2":
+      elif xy == "1,2" and self.board[4][5] is ' ':
          self.board[4][5] = player.token
    # y.Line 3 index 6
-      if xy == "2,0":
+      elif xy == "2,0" and self.board[6][1] is ' ':
          self.board[6][1] = player.token
-      if xy == "2,1":
+      elif xy == "2,1" and self.board[6][3] is ' ':
          self.board[6][3] = player.token
-      if xy == "2,2":
+      elif xy == "2,2" and self.board[6][5] is ' ':
          self.board[6][5] = player.token
+      else:
+         xy = input(f"Let's try that again {player.name} (x,y): ")
+         self.move(xy,player)   
       self.__repr__()
       self.is_game_over(player)
 
