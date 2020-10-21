@@ -14,4 +14,4 @@ async def on_message(message):
     if message.content.startswith('hello'):
         await message.channel.send('Hello! I am a bot.')
 
-client.run('NzY4NTQ1MDY4MjgxNjI2NjQ1.X5CBXw.Cmd9BJ1vv-lAgO5OfYErUO5RvLc')
+client.run('')
