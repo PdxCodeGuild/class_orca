@@ -31,6 +31,13 @@ board = [
     ["    ","---","---","---"],
 ]
 
+#----Global Variables------------------------------------------------
+
+player_1 = ""
+player_1_token = ""
+player_2 = ""
+player_2_token = "" 
+
 #----Classes--------------------------------------------------------
 
 class Game:
@@ -40,32 +47,33 @@ class Game:
    def __repr__(self):
       for x in range(len(self.board)):
          print(' '.join(self.board[x]))
-      # print('\n') #formatting
 
    def move(self, xy, player):
    # y.Line 1 index 2
-      if xy == "0,0":
+      if xy == "0,0" and self.board[2][1] is ' ':
          self.board[2][1] = player.token
-      if xy == "0,1":
+      elif xy == "0,1" and self.board[2][3] is ' ':
          self.board[2][3] = player.token
-      if xy == "0,2":
+      elif xy == "0,2" and self.board[2][5] is ' ':
          self.board[2][5] = player.token
    # y.Line 2 index 4
-      if xy == "1,0":
+      elif xy == "1,0" and self.board[4][1] is ' ':
          self.board[4][1] = player.token
-      if xy == "1,1":
+      elif xy == "1,1" and self.board[4][3] is ' ':
          self.board[4][3] = player.token
-      if xy == "1,2":
+      elif xy == "1,2" and self.board[4][5] is ' ':
          self.board[4][5] = player.token
    # y.Line 3 index 6
-      if xy == "2,0":
+      elif xy == "2,0" and self.board[6][1] is ' ':
          self.board[6][1] = player.token
-      if xy == "2,1":
+      elif xy == "2,1" and self.board[6][3] is ' ':
          self.board[6][3] = player.token
-      if xy == "2,2":
+      elif xy == "2,2" and self.board[6][5] is ' ':
          self.board[6][5] = player.token
-      self.__repr__()
-      self.is_game_over(player)
+      else:
+         xy = input(f"Let's try that again {player.name} (x,y): ")
+         self.move(xy,player)   
+
 
    def calc_winner(self, player):
       count = 0
@@ -154,22 +162,41 @@ class player:
 def main():
 
    print('''
-"Catch a tiger by it's...
-   Tic Tac Toe" 
+**************************
+ "Catch a tiger by it's...
+      Tic Tac Toe"
+************************** 
       ''')
+
+   # Set up players
+   player_1 = input("Who is player 1? ")
+   player_2 = input("Who is player 2? ")
+   
+   # Randomize player order
+   coin_flip = random.randint(0,1)
+   if coin_flip == 0:
+      player_1_token = 'X'
+      player_2_token = 'O'
+   else:
+      player_1_token = 'O'
+      player_2_token = 'X'
 
    # Start it up
    g1 = Game(board)
-   p1 = player("Player 1","X")
-   p2 = player("Player 2", "O")
-   print((f'   {p1.name} - {p1.token}'))
-   print((f'   {p2.name} - {p2.token}'))
+   p1 = player(player_1, player_1_token)
+   p2 = player(player_2, player_2_token)
+   print((f"\n     {p1.name} - {p1.token}'s"))
+   print((f"     {p2.name} - {p2.token}'s"))
    g1.initialize()
 
    # Game play
    while True:
       g1.move((input(f"\n{p1.name}, it's your turn (x,y): ")), p1)
+      g1.__repr__()
+      g1.is_game_over(p1)
       g1.move((input(f"\n{p2.name}, it's your turn (x,y): ")), p2)
+      g1.__repr__()
+      g1.is_game_over(p1)
 
 main()
 
