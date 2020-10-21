@@ -25,31 +25,30 @@ class Game:
             print("That square's already taken!")
 
     def calc_winner(self, player):
-        print(player)
         for i in range(0, 9):
             if self.board[0] == self.board[1] == self.board[2] != " ":
                 print(f'You won, {player}!')
                 break
             elif self.board[3] == self.board[4] == self.board[5] != " ":
-                print('You won!')
+                print(f'You won, {player}!')
                 break
             elif self.board[6] == self.board[7] == self.board[8] != " ":
-                print('You won!')
+                print(f'You won, {player}!')
                 break
             elif self.board[0] == self.board[3] == self.board[6] != " ":
-                print('You won!')
+                print(f'You won, {player}!')
                 break
             elif self.board[1] == self.board[4] == self.board[7] != " ":
-                print('You won!')
+                print(f'You won, {player}!')
                 break
             elif self.board[2] == self.board[5] == self.board[8] != " ":
-                print('You won!')
+                print(f'You won, {player}!')
                 break
             elif self.board[0] == self.board[4] == self.board[8] != " ":
-                print('You won!')
+                print(f'You won, {player}!')
                 break
             elif self.board[2] == self.board[4] == self.board[6] != " ":
-                print('You won!')
+                print(f'You won, {player}!')
                 break
             else: 
                 return False
