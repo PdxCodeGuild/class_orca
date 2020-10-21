@@ -41,6 +41,10 @@ Presentation Day: January 21st, 2020
  Lab 22 -- ARI  
  Lab 21 -- Count Words  
  Lab 16 -- Image Manipulation  
+ Lab 23 -- Contact List  
+ Lab 25 -- ATM  
+ Lab 26 -- Tic Tac Toe  
+ Python Mini-Capstone: Mini presentations first thing Tuesday, Oct 27th  
 
 #### Optional Python Labs
 
