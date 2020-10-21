@@ -1,4 +1,5 @@
 class Player:
+    #initializes both players' names and tokens
     def __init__(self, name, token):
         self.name = name
         self.token = token 
@@ -25,7 +26,7 @@ class Game:
         self.board[x].insert(y, player_token)
         return
 
-    #brute forced if statements to check for winner
+    #brute forces if statements to check for the winner
     def calc_winner(self, player1token, player2token):
         if self.board[0][0] == player1token and self.board[1][1] == player1token and self.board[2][2] == player1token:
             return player1token
@@ -62,7 +63,7 @@ class Game:
         else:
             return None
 
-    #checks if the game board is full by checking if all 9 spots are filled with X's or O's
+    #checks if the game board is full by looking to see if all 9 spots are filled with X's or O's
     def is_full(self):
         is_full_list = []
         for x in range(3):
@@ -73,7 +74,7 @@ class Game:
             return True
         else:
             return False
-    #checks if the game is over by looking at is_game_over method and calc_winner method
+    #checks if the game is over by calling is_game_over and calc_winner methods
     def is_game_over(self, P1token, P2token):
         if self.is_full() == True or self.calc_winner(P1token, P2token) == P1token or self.calc_winner(P1token, P2token) == P2token:
             return True
@@ -93,11 +94,8 @@ def main():
     P1 = Player(player_one_name, player_one_token)
 
     player_two_name = input("What is the second player's name? ")
-    player_two_token = input("Would they like to be an X or an O? ")
-    #forces p2 to take the remaining option if they choose p1's token
-    if player_one_token == player_two_token:
-        print(f"I'm sorry, but Player 1 already took that token so they are stuck with {remaining_tokens}")
-        player_two_token = remaining_tokens
+    print(f"{P1.name} already took {P1.token} so {player_two_name} is stuck with {remaining_tokens}")
+    player_two_token = remaining_tokens
     
     P2 = Player(player_two_name, player_two_token)
 
