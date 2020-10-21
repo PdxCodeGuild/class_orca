@@ -22,19 +22,14 @@ class Game:
 
     def move(self, x, y, token):
         
-        # self.x = x
-        # self.y = y
-        # self.player = player
-        if self.board[x][y] == []:
-            self.board[x][y] = token
-        else:
-            print("Spot already taken")
-            x = int(input('Enter horizontal position: '))
-            y = int(input('Enter vertical position: '))
-        # if player == player_1.name:
-        #     self.board[x][y] = 'X'
-        # elif player == player_2.name:
-        #     self.board[x][y] = 'O'
+        while True:
+            if self.board[x][y] == []:
+                self.board[x][y] = token
+                break
+            else:
+                print("Spot already taken")
+                x = int(input('Enter horizontal position: '))
+                y = int(input('Enter vertical position: '))
         
     def cal_winner(self, token):
     
@@ -55,16 +50,15 @@ class Game:
     def is_full(self):
 
         for item in self.board:
-            
             for x in item:
                 if x == []:
                     return False
 
     def is_game_over(self):
 
-        pass
-
-
+        if board_full != False or is_winner != False:
+            return True
+        
 user = Game()
 
 player_1 = Player('Dan', 'X')
@@ -82,22 +76,20 @@ while True:
     
     x = int(input('Enter horizontal position: '))
     y = int(input('Enter vertical position: '))
-    
     user.move(x, y, player.token)
     counter += 1
 
     print(repr(user))
 
-    results = user.is_full()
-    
-    if results != False:
+    board_full = user.is_full()
+    if board_full != False:
         print("Cat's game!")
     
-    results = user.cal_winner(player.token)
-    if results == True:
-        print("You're the winner!")
+    is_winner = user.cal_winner(player.token)
+    if is_winner == True:
+        print(f"{player.name} wins!")
+ 
+    game_over = user.is_game_over()
+    if game_over == True:
+        print('Game over!')
         break
-
-
-
-
