@@ -40,16 +40,6 @@ class Game:
    def __repr__(self):
       for x in range(len(self.board)):
          print(' '.join(self.board[x]))
-      # print('\n') #formatting
-
-   # def legal_move(self, player):
-   #    for y in range(2,7,2):
-   #       for x in range(1,6,2):
-   #          print(self.board[y][x])
-   #          if self.board[y][x] is not None:
-   #             xy = input(f"Let's try that again {player.name} (x,y): ")
-   #             self.move(xy,player)
-   #    return True
 
    def move(self, xy, player):
    # y.Line 1 index 2
