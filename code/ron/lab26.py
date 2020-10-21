@@ -31,6 +31,13 @@ board = [
     ["    ","---","---","---"],
 ]
 
+#----Global Variables------------------------------------------------
+
+player_1 = ""
+player_1_token = ""
+player_2 = ""
+player_2_token = "" 
+
 #----Classes--------------------------------------------------------
 
 class Game:
@@ -66,8 +73,7 @@ class Game:
       else:
          xy = input(f"Let's try that again {player.name} (x,y): ")
          self.move(xy,player)   
-      self.__repr__()
-      self.is_game_over(player)
+
 
    def calc_winner(self, player):
       count = 0
@@ -156,22 +162,41 @@ class player:
 def main():
 
    print('''
-"Catch a tiger by it's...
-   Tic Tac Toe" 
+**************************
+ "Catch a tiger by it's...
+      Tic Tac Toe"
+************************** 
       ''')
+
+   # Set up players
+   player_1 = input("Who is player 1? ")
+   player_2 = input("Who is player 2? ")
+   
+   # Randomize player order
+   coin_flip = random.randint(0,1)
+   if coin_flip == 0:
+      player_1_token = 'X'
+      player_2_token = 'O'
+   else:
+      player_1_token = 'O'
+      player_2_token = 'X'
 
    # Start it up
    g1 = Game(board)
-   p1 = player("Player 1","X")
-   p2 = player("Player 2", "O")
-   print((f'   {p1.name} - {p1.token}'))
-   print((f'   {p2.name} - {p2.token}'))
+   p1 = player(player_1, player_1_token)
+   p2 = player(player_2, player_2_token)
+   print((f"\n     {p1.name} - {p1.token}'s"))
+   print((f"     {p2.name} - {p2.token}'s"))
    g1.initialize()
 
    # Game play
    while True:
       g1.move((input(f"\n{p1.name}, it's your turn (x,y): ")), p1)
+      g1.__repr__()
+      g1.is_game_over(p1)
       g1.move((input(f"\n{p2.name}, it's your turn (x,y): ")), p2)
+      g1.__repr__()
+      g1.is_game_over(p1)
 
 main()
 
