@@ -39,6 +39,8 @@ def random_ticket_nums():
         ticket.append(random.randint(1,99))
         x += 1
     return ticket
+# Above # Good spot for a list comprehension
+# return [random.randint.(1,99) for x in range(6)]
 
 def num_match(matches):
     ''' Checking # matches, assigning price money '''
@@ -56,6 +58,12 @@ def num_match(matches):
     if matches == 6:
         prize += 2500000
     return prize
+
+# Above # Code needs to be in a loop vs. if statements
+# for i in range(len(winning)):
+#   if winning[i] = ticket[i]:
+#       matches += 1
+
 
 #--------Main Code------------------------------------------
 
@@ -78,6 +86,9 @@ def main():
                 matches += 1
                 if matches > 0:
                     prize_money += num_match(matches)
+
+# Above # Code is very verbose, could be simply done with the dictionary
+# num_of_matches = {0: 0, 1: 0, 2:0, 3: 0}
 
     # Output
     roi = ((prize_money - money_spent)/money_spent)*100
