@@ -5,8 +5,8 @@ for L in nums:
     print(L)
 list_total = len(list(nums))
 sum_total = sum(list(nums))
-print(list_total)
-print(sum_total)
+print(f'number of numbers: {list_total}')
+print(f'sum of numbers: {sum_total}')
 
 average = sum_total / list_total
-print(average)
+print(f'average of numbers: {average}')

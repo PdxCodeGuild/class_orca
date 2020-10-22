@@ -61,10 +61,11 @@ class Game:
         
 user = Game()
 
-player_1 = Player('Dan', 'X')
-player_2 = Player('Comp', 'O')
+player_1 = Player('Player 1', 'X')
+player_2 = Player('Player 2', 'O')
 
-
+print("Enter you horizontal and verticle positions using 0-2 starting at top-left.")
+print(repr(user))
 # making moves
 counter = 0
 while True:
@@ -74,8 +75,8 @@ while True:
     else:
         player = player_2
     
-    x = int(input('Enter horizontal position: '))
-    y = int(input('Enter vertical position: '))
+    x = int(input(f'{player.name}, enter horizontal position: '))
+    y = int(input(f'{player.name}, enter vertical position: '))
     user.move(x, y, player.token)
     counter += 1
 
