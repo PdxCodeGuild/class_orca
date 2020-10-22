@@ -11,10 +11,12 @@ keys = lines[0].split(',')
 # original values in .csv file
 orig_values = []
 [orig_values.append(lines[item].split(',')) for item in range(1, len(lines))]
+
 # combining keys with the original contact data provided
 for contact in orig_values:
     temp_list = {}
     for i, attribute in enumerate(contact):
+        # print(i, attribute)
         temp_list.update({keys[i]: attribute})
     mstr_contact.append(temp_list)
 
@@ -100,3 +102,19 @@ def main():
             break
 
 main()
+
+with open('contact_list.csv', 'w') as file:
+    keys = ','.join(keys)
+    file.write(f'{keys}') 
+    for contact in mstr_contact:
+        file.write(f'\n')
+        i = 0
+        for k, v in contact.items():
+            if i <= 2:
+                line = f'{v},'
+                file.write(line)
+            elif i > 2:
+                line = f'{v}'
+                file.write(line)
+            i += 1
+
