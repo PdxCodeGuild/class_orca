@@ -26,7 +26,7 @@ class ATM:
         if self.check_withdrawal(amount) == True:
             self.balance -= self.amount
             self.transactions.append(f"User withdrew ${self.amount}")
-            return f"Take you your cash. You balancs is ${self.balance}."
+            return f"Take you your cash. Your balance is ${self.balance}."
         else:
             return f"${self.amount} is too much! You only have ${self.balance} in your account!"
     
