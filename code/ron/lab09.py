@@ -1,7 +1,8 @@
 
+
 # *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 #        Project: Python
-# Assignment/Ver: Lab09
+# Assignment/Ver: Lab09_basic
 #         Author: Ron Mansolilli, ron.mansolilli@gmail.com
 #           Date: 10-03-2020
 # *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
@@ -18,105 +19,102 @@ Unit Converter
 
 #----Global variables, lists, dictionaries------------------
 
-units = {
-"ft": .3048,        # meters in a foot
-"m": 1,             # meters in a meter
-"km": 1000,         # meters in a kilometer
-"mi": 1609.34,      # meters in a mile
-"yd": 0.9144,       # meters in a yard
-"in": 0.0254        # meters in a inch
-}
+''' none '''
 
 #----Functions----------------------------------------------
 
-def ver_1():
-    ''' Version 1 '''
-
-    # Input
-    print('\n*** Convert feet to meters ***\n')
-    in_feet = input('What is the distance in feet: ')
-    in_feet = float(in_feet)
-
-    # Logic
-    in_meters = in_feet * units["ft"]
-
-    # Result
-    print(f'\n{in_feet} ft is {in_meters:.2f} m\n')
-
-
-def ver_2():
-    ''' Version 2 & 3 '''
-
-    # Input
-    print('\n*** Convert a chosen unit to meters ***')
-    distance = input('\nWhat is the distance: ')
-
-    # Data validation practice (needs try and accept!)
-    # if distance != distance.isnumeric():
-    #     print('Invalid selection')
-    #     distance = input('\nWhat is the distance: ')
-    
-    distance = float(distance)
-    unit = input('\nWhat is the unit (ft, m, km, mi, yd, or in): ')
-
-    # Data validation
-    valid_input = ['ft', 'm', 'km', 'mi', 'yd', 'in']
-    while unit not in valid_input:
-        print('Invalid selection!')
-        unit = input('\nWhat is the unit (ft, m, km, mi, yd, or in): ')
-
-    # Logic 
-    in_meters = distance * units[unit]
-
-    # Result
-    print(f'\n{distance} {unit} is {in_meters:.2f} m\n')
-
-
-def ver_4():
-    ''' Version 4 '''
-    # Note: Did not build with user validation/error checking
-
-   # Intro
-    print('''
-\n*** Convert a unit distance to another unit distance ***
-               (ft, m, km, mi, yd, or in)
-
-''')
-    # Input
-    distance = input('\t\tWhat is the distance:  ')
-    input_units = input('\t\tWhat are the input units: ')
-    output_units = input('\t\tWhat are the output units: ')
-    distance = float(distance)
-
-    # Unit conversion & evaluation
-    to_meters = distance * units[input_units]
-    from_meters = round(to_meters / units[output_units])
-
-    # Result
-    print(f'\n\t\t *** {distance} {input_units} is {from_meters} {output_units} ***')
+''' none '''
 
 #--------Main Code---------------------------------------------
 
-def main():
-    ''' User input for lab version '''
+''' Version 1 '''
 
-    version = ''
-    while version != ('1', '2', '4', 'exit'):
-        version = input('\nWhich version? (1, 2, 4 or exit): ')
-        if version == '1':
-            ver_1()
-        elif version == '2':
-            print(" ** Version 2 and 3")
-            ver_2()
-        elif version == '4':
-            ver_4()
-        elif version == 'exit':
-            break
-        else:
-            print('>>> Invalid selection\n')
-            continue
-main()
+# User Input
+print("\nVersion 1")
+print("----------")
+
+user_input = float(input('What is the distance in feet: '))
+
+# Logic & output
+distance = user_input * .3048
+print(f'\n {user_input} ft is {distance:.2f} m')
+
+''' Version 2 & 3 '''
+
+print("\nVersion 2 & 3")
+print("----------")
+
+# User Input
+user_distance = float(input('What is the distance: '))
+user_units = input('What are the units: ')
+
+# Logic
+if user_units == 'ft':
+    distance = user_distance * .3048
+elif user_units == 'mi':
+    distance = user_distance * 1609.34
+elif user_units == 'km':
+    distance = user_distance * 1000
+elif user_units == 'yd':
+    distance = user_distance * .9144
+elif user_units == 'in':
+    distance = user_distance * .0254
+elif user_units == 'm':
+    distance = user_distance * 1
+    # else:
+    # print('Invalid selection')
+
+# Output
+print(f'\n {user_distance} {user_units} is {distance:.2f} m')
+
+''' Version 4 '''
+
+print("\nVersion 4")
+print("----------")
+
+# User Input
+user_distance = float(input('What is the distance: '))
+user_units = input('What are the input units: ')
+user_outputs = input('What are the output units: ')
+
+# Logic
+if user_units == 'ft':
+    distance = user_distance * .3048
+elif user_units == 'mi':
+    to_meters = user_distance * 1609.34
+elif user_units == 'km':
+    to_meters = user_distance * 1000
+elif user_units == 'yd':
+    to_meters = user_distance * .9144
+elif user_units == 'in':
+    to_meters = user_distance * .0254
+elif user_units == 'm':
+    to_meters = user_distance * 1
+# else:
+    # print('Invalid selection')
+
+if user_outputs == 'ft':
+    distance = to_meters / .3048
+elif user_outputs == 'mi':
+    distance = to_meters / 1609.34
+elif user_outputs == 'km':
+    distance = to_meters / 1000
+elif user_outputs == 'yd':
+    distance = to_meters / .9144
+elif user_outputs == 'in':
+    distance = to_meters / .0254
+elif user_outputs == 'm':
+    distance = to_meters / 1
+# else:
+    # print('Invalid selection')
+    
+# Output
+print(f'\n {user_distance} {user_units} is {distance} {user_outputs}\n')
+
+
+
+
+
+
 
 #----End Code--------------------------------------------------
-
-
