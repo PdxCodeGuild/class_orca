@@ -69,11 +69,12 @@ if score > 14:
 
 # setting variable to get age from dictionary to pass into f-string
 age_level = ari_scale[score]
-
+grade_level = ari_scale[score]
 # just getting the value at ages
 age = age_level['ages']
+grade = grade_level['grade_level']
 
-# print(f'The Pearl Harbor Address has an ARI score of {score}.\nThis is a reading level of {age}.')
+print(f'The Pearl Harbor Address has an ARI score of {score}.\nThis is a reading level for {grade} and is suitable for people aged {age}.')
 
-print(sentences)
+# print(sentences)
 

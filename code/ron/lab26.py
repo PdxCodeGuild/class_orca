@@ -45,8 +45,10 @@ class Game:
       self.board = board
 
    def __repr__(self):
+      boardstate = ''
       for x in range(len(self.board)):
-         print(' '.join(self.board[x]))
+         boardstate += ' '.join(self.board[x]) + (f'\n')
+      return boardstate
 
    def move(self, xy, player):
    # y.Line 1 index 2
@@ -149,8 +151,8 @@ class Game:
          print(f'\nEveryone is a loser\n')
          exit()
 
-   def initialize(self):
-      self.__repr__()
+   def refresh_board(self):
+      print(self.__repr__())
 
 class player:
     def __init__(self, name, token):
@@ -187,15 +189,15 @@ def main():
    p2 = player(player_2, player_2_token)
    print((f"\n     {p1.name} - {p1.token}'s"))
    print((f"     {p2.name} - {p2.token}'s"))
-   g1.initialize()
+   g1.refresh_board()
 
    # Game play
    while True:
       g1.move((input(f"\n{p1.name}, it's your turn (x,y): ")), p1)
-      g1.__repr__()
+      g1.refresh_board()
       g1.is_game_over(p1)
       g1.move((input(f"\n{p2.name}, it's your turn (x,y): ")), p2)
-      g1.__repr__()
+      g1.refresh_board()
       g1.is_game_over(p1)
 
 main()
