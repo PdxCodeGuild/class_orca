@@ -59,19 +59,22 @@ class Game:
     def __init__(self):
         self.board = board
 
-    def print_board(self):
-        print(board['7'] + ' | ' + board['8'] + ' | ' + board['9'])
-        print('--+---+--')
-        print(board['4'] + ' | ' + board['5'] + ' | ' + board['6'])
-        print('--+---+--')
-        print(board['1'] + ' | ' + board['2'] + ' | ' + board['3'])
+    def __repr__(self):
+        self.board = f'''
+        {board['7']} | {board['8']} | {board['9']}
+        --+---+--
+        {board['4']} | {board['5']} | {board['6']}
+        --+---+--
+        {board['1']} | {board['2']} | {board['3']}
+        '''
+        return self.board
 
     def make_moves(self):
         turn = 'X'
         count = 0
         p1 = name[0]
         p2 = name[1]
-        g.print_board()
+        print(g.__repr__())
         while True:    
             if p1toke[0] == turn:
                 player = p1
@@ -94,7 +97,7 @@ class Game:
                 else: 
                     player = p1
             
-                g.print_board()
+                print(g.__repr__())
             
             elif p2toke[0] == turn:
                 player = p2
@@ -116,7 +119,7 @@ class Game:
                         player = p2
                 else: 
                     player = p1
-                g.print_board()
+                print(g.__repr__())
             
             if turn =='X':
                 turn = 'O'
@@ -153,11 +156,11 @@ class Game:
             replay()
 
 def replay():
-    g.print_board
+    print(g.__repr__())
     ask = input('Would you like to play again?  y/n:\n>')
     if ask == 'y':
         board.update((k, ' ') for k in board)
-        g.print_board
+        print(g.__repr__())
         main()
     if ask == 'n':
         quit()
@@ -192,3 +195,5 @@ if ask_inst == 'y':
     instructions()
 
 main()
+
+
