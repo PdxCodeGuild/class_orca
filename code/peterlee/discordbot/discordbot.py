@@ -14,6 +14,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    #ignores bot messages
+    if message.author.bot:
+        return
     #makes the bot respond when someone types a message that starts with hello
     if message.content.startswith('hello'):
         await message.channel.send('Hello! I am a bot.')
