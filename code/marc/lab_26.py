@@ -1,4 +1,7 @@
 #This is lab 26 TIC TAC TOE
+#This became a giant monstrosity of redudnant code. I have left a lot of the dead code in for posterity's sake
+#and because I might go back later and use some of it to clean it up.
+# It works pretty good though!
 
 class Player:
     def __init__ (self, name, token = 0):
@@ -50,6 +53,10 @@ class Game:
 
     
     def move(self, player):
+        self.board_move = {1:self.board[0][0], 2:self.board[0][1], 3:self.board[0][2],
+        4:self.board[1][0], 5:self.board[1][1], 6:self.board[1][2],
+        7:self.board[2][0], 8:self.board[2][1], 9:self.board[2][2] }
+
         if player == self.player_1:
             move = self.player_1[1]
         elif player == self.player_2:
@@ -77,9 +84,18 @@ Choose a number between 1 and 9 to make your move {self.choices()}:
             
         while self.move_choice < 1 or self.move_choice > 9:
             self.move_choice = (int(input(f'''Choose a number between 1 and 9 to make your move:\n''')))
-        while self.board_move[self.move_choice] == "X" or self.board_move[self.move_choice] == "O":
-           self.move_choice = (int(input(f'''That square is taken. Choose a number between 1 and 9 to make your move:\n''')))
-        print(self.board_move[self.move_choice])
+            if self.move_choice < 1 or self.move_choice > 9:
+                continue
+        while True:
+                try:
+                    if self.board_move[self.move_choice] == "X" or self.board_move[self.move_choice] == "O":
+                        self.move_choice = (int(input(f'''That square is taken. Choose a number between 1 and 9 to make your move:\n''')))
+                        continue
+                    elif self.board_move[self.move_choice] != "X" and self.board_move[self.move_choice] != "O":
+                        break
+                except KeyError:
+                    self.move_choice = (int(input(f'''Not valid: Choose a number between 1 and 9 to make your move:\n''')))
+                    continue  
         if self.move_choice == 9:
             self.board[2][2] = move
         elif self.move_choice == 8:
