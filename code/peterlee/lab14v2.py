@@ -7,11 +7,8 @@ def pick6():
         random_set.append(random.randint(1,99))
     return random_set
 
-#chooses a random winning set of numbers
-winning = pick6()
-
 #function that compares each ticket to the winning ticket
-def num_matches(ticket, winning=winning):
+def num_matches(ticket, winning):
     match_counter = 0
     for x in range(6):
         if ticket[x] == winning[x]:
@@ -19,13 +16,16 @@ def num_matches(ticket, winning=winning):
     return match_counter
 
 def main():
+    #chooses a random winning set of numbers
+    winning = pick6()
     current_balance = 0
     current_tickets = 0
     #generates 100,000 tickets while adjusting the current balance appropriately
     while current_tickets < 100001:
         ticket = pick6()
         current_tickets += 1
-        ticket_results = num_matches(ticket)
+        current_balance -= 2
+        ticket_results = num_matches(ticket, winning)
         if ticket_results == 1:
             current_balance += 4
         elif ticket_results == 2:
@@ -38,8 +38,7 @@ def main():
             current_balance += 1000000
         elif ticket_results == 6:
             current_balance +=25000000
-        else:
-            current_balance -= 2
+
     
     print(f'Your current balance is ${current_balance}')
     expenses = 200000
