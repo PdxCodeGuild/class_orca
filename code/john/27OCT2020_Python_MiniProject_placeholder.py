@@ -11,7 +11,7 @@
 # 2: If I answer 'y' to anything, it opens the webpage for me to fill out appropriately.
 # 2: This requires the Selenium module and its Firefox addon installed.
 # 
-# Notes: This POSTED file has removed my URL, for both privacy and to keep the study data intact. 
+# Notes: The POSTED file has removed my URL, for both privacy and to keep the study data intact. 
 ##############################################################################
 
 import inspect
@@ -25,7 +25,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
-import time # time.sleep(5) is 5-second wait
+# import time # time.sleep(5) is 5-second wait
+from time import sleep
+
+from tqdm import trange
+from tqdm import tqdm
+
+
 
 while True:
     print('Have you experienced any of the following symtoms since last doing the survey? : \n Fever \n Chills \n Fatigue \n General Aches and Pains \n Dry Cough \n Sore Throat \n Cough with Mucus \n Cough with Blood \n Runny / Stuffy Nose \n Swollen / Red Eyes \n Headache \n Unexpected Loss of Smell or Taste \n Loss of Appetite \n Nausea / Vomiting \n Diarrhea')
@@ -40,24 +46,26 @@ while True:
 
             with webdriver.Firefox() as driver:
                 wait = WebDriverWait(driver, 10)
-                driver.get("https://www.google.com")
+                driver.get("http://www.google.com")
                 
-                print('45 second timer started...')
-                time.sleep(45)
+                print('60 second timer started...')
+                for i in trange(60):
+                    sleep(1)
             break
 
         elif user_input == 'n':
-            ##############################################################################
             print('Running automation...')
-            ##############################################################################
+            for i in trange(6):
+                sleep(0.5)
 
             with webdriver.Firefox() as driver:
                 wait = WebDriverWait(driver, 10) # Q Understand this wait better...
 
-                driver.get("https://www.google.com")
+                driver.get("http://www.google.com")
                 
-                print(f'LINE #: {line_number()} 5s timer...')
-                time.sleep(5)  
+                print(f'LINE #: {line_number()} START: 2s timer...')
+                for i in trange(4):
+                    sleep(0.5)
                 
                 # NOTE KEYS.* SHOULD BE CAPITAL LETTERS!
                 driver.find_element(By.ID, "NextButton").send_keys((Keys.TAB * 2) + Keys.SPACE) # uses Tabs to select 'No, I have not...'
@@ -65,19 +73,21 @@ while True:
 
                 print(f'LINE #: {line_number()} ~~~ PAGE TWO ~~~ ')
                 print(f'LINE #: {line_number()} 3s timer...')
-                time.sleep(3)  
+                for i in trange(6):
+                    sleep(0.5)
                 driver.find_element(By.ID, "NextButton").send_keys((Keys.TAB * 3) + Keys.SPACE)
                 driver.find_element(By.ID, "NextButton").send_keys(Keys.SPACE) # ADVANCES 'NEXT' TO PAGE THREE
                 
                 print(f'LINE #: {line_number()} ~~~ PAGE THREE ~~~ ')
                 print(f'LINE #: {line_number()} 3s timer...')
-                time.sleep(3)
+                for i in trange(6):
+                    sleep(0.5)
                 driver.find_element(By.ID, "NextButton").send_keys((Keys.TAB * 3) + Keys.SPACE)
                 driver.find_element(By.ID, "NextButton").send_keys(Keys.SPACE) # FINISHES PAGE THREE AND SUBMITS
-                print(f'LINE #: {line_number()} PAGE THREE: Is \'I did not take my temperature...\' selected?')
 
-                print(f'LINE #: {line_number()} 15s timer before closing...')
-                time.sleep(15)  
+                print(f'LINE #: {line_number()} 5s timer before closing...')
+                for i in trange(10):
+                    sleep(0.5)
             break
         elif user_input == 'exit':
             break
@@ -86,11 +96,21 @@ while True:
         break
 
 
-# NOTES and TODO:
+
+
+
+
+
+
+
+
+
+
+
+for i in range(1):                                                              # NOTES and TODO:
     ##############################################################################
-    # TODO PRINT A PROGRESS TIMER WHILE WAITING...
+    # TODO ENSURE 100% I'M CLICKING THE FIRST PAGE'S "NO' I HAVE NOT EXPERIENCED. . ."
     # TODO PRINT AND SAVE HISTORY OF DOING THE SURVEY, date/time, AND ITS RESULTS...
     # TODO: OPEN/CLOSE FIREFOX...OPENS IN WIERD NON-USER WINDOW, not incognito but not user-logged in...
     ##############################################################################
-print(f'LINE #: {line_number()}    >> PROGRAM ENDED <<    ')
-
+    print(f'LINE #: {line_number()}    >> PROGRAM ENDED <<    ')
