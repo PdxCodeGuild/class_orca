@@ -235,6 +235,10 @@ def main():
     keys = lines[0].split(',')
     del lines[0]
 
+## Can make code better by using list comprehensions
+## But, orginal code does work fairly well vs. below code:
+##   data_csv = [line.split(",") for line in data_csv.split('\n')]
+
     # Populate contact list with user dicts
     for x in range(len(lines)):
         info = {}
@@ -245,6 +249,15 @@ def main():
             info[keys[y]] = temp[y]
         # Drop user dict into contacts list
         contacts.append(info)
+
+## Can make code better by using list comprehensions (the second for)
+##    and use the dict, and zip functions
+## for i, values in list(enumberate(data_csv))[1:0:0]
+## data = [dict(zip(keys, values)) for values in data_csv][1::]]
+
+
+
+
 
     # Main menu
     main_menu()
