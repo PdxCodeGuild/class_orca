@@ -15,11 +15,11 @@ Modules
 '''
 #----Modules--------------------------------------------------------
 
-from PIL import ImageTk, Image
-import tkinter as tk
-import PIL
-import re
-import os
+# from PIL import ImageTk, Image
+# import tkinter as tk
+# import PIL
+# import re
+# import os
 
 
 #----Classes--------------------------------------------------------
