@@ -200,5 +200,5 @@ class Sudoku:
 
 sudoku = Sudoku()
 sudoku.make_board()
-sudoku.print_board() 
+sudoku.print_board()
 # print(sudoku.blocks) 

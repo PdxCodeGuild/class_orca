@@ -13,6 +13,8 @@ stanza.download('ru')
 nlp = stanza.Pipeline(lang="ru", processors='tokenize, pos, lemma')
 
 import csv
+import requests
+import json
 
 russianStemmer=SnowballStemmer("russian", ignore_stopwords=True)
 wordnet_lemmatizer = WordNetLemmatizer()
@@ -22,7 +24,7 @@ russian_punc = "!;№-«»–…?.""''%^'-$*"
 
 #Read and parse
 def get_words():
-    with open('./sobache-serdce.txt', 'r') as text_file:
+    with open('./test_file.txt', 'r') as text_file:
         contents = text_file.read()
         contents = contents.lower()
 
@@ -52,18 +54,40 @@ def get_words():
 
     #Get rid of duplicates
     no_dupes = []
-    [no_dupes.append(x) for x in word_list if x not in no_dupes]
+    [no_dupes.append([x]) for x in word_list if x not in no_dupes]
     # print(no_dupes)
 
-    for i in range(len(no_dupes)):
-        row_data = no_dupes[i], '\n'
+    #Get definitions, call to Yandex dictionary API
+
+    def_responses = list()
+
+    for word in no_dupes:
+        response = requests.get(f"https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=dict.1.1.20201026T201332Z.a4a55e75eb125931.8cc488a85be2c2c17bfd363de1858a3aaef55d62&lang=ru-en&text={word[0]}")
+        data = json.loads(response.text)
+        # print(data)
+        if data['def'] != []:
+            def_responses.append(data)
+
+        # print(response.status_code)
+        # print(response.json())
+    
+    # print(def_responses)
+
+    # This is the def
+    defs = []
+    for i in range(len(def_responses)):
+        defs.append(def_responses[i]['def'][0]['tr'][0]['text'])
+    print(defs)
+
+    # zipped = list(zip(no_dupes, defs))
+    # print(zipped)
 
     #Write to csv file
-    fields = ['Word', 'Definition']
-    rows = [row_data]
+    fields = ['Word']
     with open('vocab_file.csv', 'w') as f:
         write = csv.writer(f)
         write.writerow(fields)
-        write.writerows(rows)
+        write.writerows(no_dupes)
+
 get_words()
 
