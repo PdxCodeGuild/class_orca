@@ -11,9 +11,9 @@ actual_track = 0
 artist = input('drop ur artist here: ')
 url = (f'https://soundcloud.com/{artist}/tracks')
 
-op = Options()
-op.add_argument('--headless')
-driver = webdriver.Chrome(options=op)
+# op = Options()
+# op.add_argument('--headless')
+driver = webdriver.Chrome()
 driver.get(url)
 
 def saver():
