@@ -25,7 +25,7 @@ def main():
             CSV.append(list(name_dict.values()))
         
         big_list = [item for sublist in CSV for item in sublist]
-        print (big_list)
+        print (big_list) #went over this in class. would be easier to use .join You have over complicated this and it doesn't quite work
         i = 5
         while i < len(big_list):
            
