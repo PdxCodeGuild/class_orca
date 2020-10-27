@@ -23,7 +23,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 moon_color = (254, 252, 215)
 face_color = (224, 172, 105)
-font = ImageFont.truetype(font="creepsville.ttf", size=25)
+font = ImageFont.truetype(font="./fonts/creepsville.ttf", size=25)
 
 
 #----Functions----------------------------------------------

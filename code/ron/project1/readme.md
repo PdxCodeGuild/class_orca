@@ -3,15 +3,13 @@ What is the project?
 
 Art Viewer
 
-    - Select Artist
     - Display art associated with artist (that can be scrolled through)
-    - Display type of art
     - Display information about the artist
-
+   
 Requirements:
 
     - .csv file with artist data
-    - .jpg library with artist images
+    - .jpg library/directory with artist images
     - primary code file (front-end)
     - module code file (back-end)
     - readme
@@ -20,22 +18,23 @@ Basic fuctions
     - Display Artists
     - Select Artists from combo box
     - Display art type
-    - Display Artist info
+    - Display Artist nationality
+    - Display art from specific artist (take user input and pull artist art from directory)
+    - Scroll through art from specific artist (fwd/back buttons)
 
 Advanced functions
     - Utilize API to interface with Wiki for artist info
     - Allow user to add Artists and images
     
 
+Unfinshed goals
+    - Wanted a more adv. CRUD REPL
+    - Utilize Wiki API to pull in seperate info via pop-up
+    - Can record notes
+    - 
 
-
-
-- what problem does your application solve? what is the core function it performs?
-- how did you go about planning?
-- what major issues did you encounter during the course of development? how did you go about overcoming them?
-- how did your vision for the project change over time?
-- what part did you like the most? least?
-- what is the future of the project? what features (if any) will you work on next?
+Huge Lessons Learned:
+    - Reverse dictionary lookup do not have to be an exact match to the value (i.e. when looking up a string with first, last name, it will return true with just the last name (or first name))
 
 
 
