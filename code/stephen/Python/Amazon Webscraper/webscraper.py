@@ -23,7 +23,7 @@ headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 # set to run once and quit, could be modified with multiple loops or on a time interval
 def amazon_scraper(loops_count=1):
     # using pandas module to read csv file
-    tracker = pd.read_csv('PRODUCT_TRACKER1.csv')
+    tracker = pd.read_csv('PRODUCT_TRACKER.csv')
     tracker_urls = tracker.url
     
     loops = 0
