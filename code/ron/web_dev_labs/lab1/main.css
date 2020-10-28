@@ -1,0 +1,38 @@
+
+html {
+    box-sizing: border-box;}
+
+  *, *:before, *:after {
+    box-sizing: inherit;}
+
+
+body {
+    text-align : center; 
+    margin : 1em;
+    padding : 1em;  
+    background-color: rgb(125, 190, 108);
+    color: rgb(0, 60, 255);}
+
+img {
+    float: center;}
+
+img.one {
+    height: 50%;
+    width: 50%;
+    border-radius: 75%}
+
+q.one {
+    font-family: fantasy;
+    font-size: large;
+    font-weight: bold;}
+
+ul.one {
+    list-style-type: circle;
+    padding-left: 300px;}
+
+a {
+    color : red;}
+
+h2, h3 {
+    color : black;}
+    
