@@ -1,7 +1,5 @@
 import PySimpleGUI as sg
 import csv
-import subprocess
-import os
 
 sg.theme('Topanga')
 
@@ -21,6 +19,6 @@ window.close()
 
 # assigning variable to input and appending it to csv
 vals = values[0],values[1],values[2]
-with open('PRODUCT_TRACKER1.csv', mode='a') as tracker_file:
+with open('PRODUCT_TRACKER.csv', mode='a') as tracker_file:
     tracker_writer = csv.writer(tracker_file, lineterminator='\n', delimiter=',')
     tracker_writer.writerow(vals)

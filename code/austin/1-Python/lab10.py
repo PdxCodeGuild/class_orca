@@ -28,6 +28,7 @@ def find_avg(nums):
     return 
 
 
+
 while True:
     grade = input("Enter a number: ")
     if grade == "done":
