@@ -1,13 +1,32 @@
 body {
+    position:absolute;
     text-align:center;
+    background-color:teal;
+    color:pink;
+    
+}
+
+p {
+    padding: 20px;
+    margin: 10px;
+}
+
+img  {
+    float: right;
+    height: 20em;
+    width: 20em;
+    border-radius: 50%;
+  }
+
+a {
+    color: violet;
+}
+
+blockquote {
+    font-family: cursive;
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    text-align:center;
+    list-style-position: inside;
+    list-style-type: square;
 }
