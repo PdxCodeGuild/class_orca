@@ -1,19 +1,11 @@
+import os
 from discord.ext import commands
+from settings import *
 
 bot = commands.Bot(command_prefix="!")
 
-class Test(commands.Cog):
-    def __init__(self, bot):
-        self.bot = bot
+for filename in os.listdir("./cogs"):
+    if filename.endswith(".py") and filename != "__init__.py":
+        bot.load_extension(f'cogs.{filename[:-3]}')
 
-    @commands.command()
-    async def ping(self, ctx):
-        await ctx.send("pong")
-    
-    @commands.command()
-    async def hello(self, ctx):
-        await ctx.send("Hello! I am a bot.")
-
-bot.add_cog(Test(bot))
-
-bot.run('NzY4NTQ1MDY4MjgxNjI2NjQ1.X5CBXw.62ULSbChSrOJJPI2bS04Jo1Qsf4')
+bot.run('NzY4NTQ1MDY4MjgxNjI2NjQ1.X5CBXw.2x8FnPddVbBPfEGqqsKEh5AC5gg')
