@@ -3,7 +3,7 @@
 import string
 
 # opens an external file, sets its mode to read, and converts to utf8
-with open('franktest.txt', 'r', encoding='utf8') as t:
+with open('frankenstein.txt', 'r', encoding='utf8') as t:
     text = t.read()
     
     # dictionary of dictionaries with appropriate age and grade level for ARI
