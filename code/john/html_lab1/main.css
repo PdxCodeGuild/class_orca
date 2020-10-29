@@ -1,0 +1,48 @@
+/* selector {
+    property: value;
+    background: red !important;
+} */
+
+/* be careful with !important
+...should prob not use this...
+cascading part of CSS means priority-based, so it'll 'cascade' down to all children
+*/
+
+body {
+    background-color: lightblue;
+    text-align: center;
+    color: rgb(90, 4, 1);
+}
+
+a {
+    color: rgb(72, 12, 184);
+}
+
+#image1 {
+    width: 400px;
+    border-radius: 20%;
+}
+
+#image2 {
+    border: 100px lightblue;
+    float: left;
+    width: 100px;
+    margin: 1%;
+    border-radius: 10%;
+}
+
+blockquote {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+}
+
+p {
+    padding: 1%;
+    margin: auto;
+}
+
+ul {
+    list-style-type: square;
+    text-align: left;
+    margin-left: 40%;
+}
