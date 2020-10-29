@@ -1,0 +1,56 @@
+
+* {
+    font-family: 'open sans';
+}
+
+.title {
+    color: black;
+    text-align: center;
+}
+
+img {
+    border-radius: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #174D94; 
+}
+
+a:hover {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+hr {
+    border: 1px solid #174D94
+}
+
+h1 {
+    font-family: "Bad Script";
+    font-weight: bolder;
+}
+
+.container {
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(148,187,233,1) 100%);
+    padding: 35px;
+    align-content: center;
+}
+
+.quotes p {
+    font-style: italic;
+    width: 70%;
+    font-family: "Gloria Hallelujah";
+}
+
+p {
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+
+}
