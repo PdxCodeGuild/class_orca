@@ -1,0 +1,11 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* h2, h3, h4, footer, { */
+    body{
+    text-align: center;
+    }
