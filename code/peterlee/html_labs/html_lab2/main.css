@@ -1,0 +1,23 @@
+* {
+    background-color: black;
+}
+
+#Banner {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    font-family: sans-serif;
+    color: white;
+}   
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
+}
+
+a:link {
+    text-decoration: none;
+    color: gainsboro;
+}

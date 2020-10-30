@@ -1,0 +1,32 @@
+/* John Fial, PDX Code Guild, 2020-2021, www.johnfial.com  */
+
+
+
+ul {
+    list-style-type: square;
+    text-align: left;
+    margin-left: 40%;
+}
+
+blockquote {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+}
+
+#image1 {
+    display: block;
+    align-items: center;
+    width: 50%;
+    max-width: 100%;
+    border-radius: 20%;
+    padding: 2%;
+}
+
+#image2 {
+    border: 100px lightblue;
+    float: left;
+    width: 100px;
+    margin: 1%;
+    border-radius: 10%;
+}
+
