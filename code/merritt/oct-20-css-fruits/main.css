@@ -1,0 +1,66 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+
+body {
+    background-color: whitesmoke;
+    padding: 12px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header, footer, main {
+    padding: 12px;
+    background-color: lightsteelblue;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (min-width: 700px) {
+    body, header, footer, main {
+        padding: 24px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav p {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .gallery-item {
+        width: 45%;
+    }
+}
+
+@media (min-width: 1100px) {
+    .gallery-item {
+        width: 30%;
+    }
+}

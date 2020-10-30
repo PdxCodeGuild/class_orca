@@ -1,0 +1,65 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #F8CD41;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+}
+
+.dropbtn {
+    background-color:#F8CD41;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    background-color: #F8CD41;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.menu-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-content a:hover {
+    background-color: #FDEB76;
+}
+
+.menu:hover .menu-content {
+    display: block;
+}
+
+.menu:hover .dropbtn {
+    background-color:#FDEB76;
+}
