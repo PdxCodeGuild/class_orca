@@ -1,0 +1,113 @@
+/* John Fial, PDX Code Guild, 2020-2021, www.johnfial.com  */
+/* *********** NOTE ************* */
+
+/* Pick an industry and create the landing page for a hypothetical company, filling in as much detail as possible. 
+Use CSS grid and/or flexbox, and make sure it's responsive. Use this reference image, and 
+browse the internet for existing company pages and imitate as much as you can. */
+
+/* copied this from bottom of page "box sizing" @ https://github.com/PdxCodeGuild/class_orca/blob/main/2%20HTML%20+%20CSS/docs/06%20-%20CSS%20Box%20Model.md */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+} /* */
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-family: 'Henny Penny', cursive;
+    font-size: smaller;
+}
+
+body {
+    background-color: rgb(235, 255, 241);
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#logo_main {
+    max-width: 100px;
+}
+
+header, main {
+    padding: 10px;
+    background-color: rgba(165, 184, 0, 0.459);
+    align-items: center;
+}
+
+
+nav {
+    display: flex;
+    justify-content: left;
+}
+
+nav a {
+    display: flex;
+    justify-content: left;
+    /* text-decoration: none; */
+    transition: all 250ms ease-in-out;
+}
+
+nav a:hover {
+    color: white;
+    font-size: larger;
+    transition: all 50ms ease-in-out
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+    border-radius: 10%;
+    padding: 2%;
+}
+
+
+p {
+    /* padding: 0%;
+    text-align: justify; */
+    margin: 10px;
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    align-content: right;
+    position: fixed;
+    bottom: 0%;
+    background-color: aqua;
+    /* z-index: 1; */
+}
+
+@media (min-width: 700px) {
+    body, header, main {
+        padding: 20px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    /* nav p {
+        margin-top: 5px;
+        background-color: lightpink;
+    } */
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .fake-item {
+        width: 45%;
+    }
+
+}
+
+
+@media (min-width: 1000px) {
+    .fake-item {
+        width: 30%;
+    }
+}
