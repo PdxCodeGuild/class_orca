@@ -5,15 +5,41 @@ html {
   *, *:before, *:after {
     box-sizing: inherit;}
 
-
-body {
+/* body {
     text-align : center; 
     margin : 1em;
     padding : 1em;  
     background-color: rgb(125, 190, 108);
-    color: rgb(0, 60, 255);}
+    color: rgb(0, 60, 255);} */
 
-img {
+
+    
+.flex-nav1 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;}
+
+.flex-nav1-items {
+    flex-direction: row;
+    margin: auto;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+    line-height: auto;
+    color: rgb(26, 54, 218);
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;}
+    
+
+
+
+
+/* img {
     float: center;
     display: block;}
 
@@ -65,7 +91,7 @@ nav p {
     img.one {
         height: 25%;
         width: 25%;
-        border-radius: 75%}}
+        border-radius: 75%}} */
 
 /* Above code (gallery) allows one to dynamically
 build columns for all platforms */
