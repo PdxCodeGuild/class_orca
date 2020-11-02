@@ -3,11 +3,8 @@
     display: flex;  
     flex-flow: row wrap;
     font-weight: normal;
-    /* text-align: left; */
     font-family: Arial, Helvetica, sans-serif;
     max-width: 1000px;
-    /* background: rgb(226, 215, 215); */
-    /* border: black; */
     margin: 2px;
   }
   
@@ -24,7 +21,7 @@
 
   .header-text {
     /* background: wheat; */
-    overflow-wrap: normal
+    overflow-wrap: normal;
     padding: 0px;
     line-height: 15px;
     font-family: Courier;
@@ -42,28 +39,21 @@
   .main {
     text-align: left;
     background: white;
-    padding: px;
+    padding: 10px;
     width: 20%;
-    margin-left: 5px 5px;
     border-style: solid;
-    border-width: 1px;
+    border-width: 3px;
     border-color: black;
   }
 
   .main-image {
-    /* max-height: auto;
-    min-width: auto; */
     display: block;
-    /* object-fit: fill; */
     width: 95%;
     margin-left: auto;
     margin-right: auto;
-    vertical-align: bottom;
     float: none;
     padding: 10px;
     border-radius: 25%;
-    /* background-size: contain;
-    justify-content: center; */
   }
 
   .main-title {
@@ -130,17 +120,12 @@
     display: flex;  
     /* background: white; */
     flex-flow: row wrap;
-    /* justify-content: space-around; */
     padding: 5px;
     margin: 0px 3px 0px 3px;
-    /* list-style: none; */
     text-align: center;
-    /* align-content: center; */
     width: auto;
     height: auto;
     line-height: 25px;
-    /* border-style: solid;
-    border-width: 1px; */
   }
 
   .nav-1-items {
@@ -155,6 +140,7 @@
     font-weight: bold;
     font-size: 1em;
     text-align: left;
+    color: white;
   }
 
   @media all and (min-width: 600px) {
@@ -164,45 +150,37 @@
       display: flex;  
       /* background: gold; */
       flex-flow: row wrap;
-      /* justify-content: space-around; */
       padding: 5px;
       margin: 3px;
-      /* list-style: none; */
       text-align: left;
-      /* align-content: center; */
       width: auto;
       line-height: 25px;
     }
 
     .nav-1-items {
-      /* background: rgb(135, 130, 238); */
       flex-direction: row;
       margin: auto;
       padding: 5px;
       width: auto;
       height: auto;
       margin-top: 10px;
-      /* line-height: 16px; */
       color: rgb(26, 54, 218);
       font-weight: bold;
       font-size: 1em;
-      /* text-align: center; */
-      /* text-justify: auto; */
       vertical-align: middle;
       text-align: left;
       color: white;
     }
 
     .header-text {
-      /* background: wheat; */
-      overflow-wrap: normal
+      overflow-wrap: normal;
       padding: 0px;
       line-height: 15px;
       font-family: Courier;
       text-align: center;
     }
   }
-  
+    
   @media all and (min-width: 800px) {
     .main    { flex: 3 0px; }
     .nav-1 { order: 1; } 
