@@ -5,55 +5,33 @@
 Use CSS grid and/or flexbox, and make sure it's responsive. Use this reference image, and 
 browse the internet for existing company pages and imitate as much as you can. */
 
-/* copied this from bottom of page "box sizing" @ https://github.com/PdxCodeGuild/class_orca/blob/main/2%20HTML%20+%20CSS/docs/06%20-%20CSS%20Box%20Model.md */
+/* copied these two items from bottom of page "box sizing" @ https://github.com/PdxCodeGuild/class_orca/blob/main/2%20HTML%20+%20CSS/docs/06%20-%20CSS%20Box%20Model.md */
 html {
     box-sizing: border-box;
 }
+
 *, *:before, *:after {
     box-sizing: inherit;
 } /* */
 
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
-    font-family: 'Henny Penny', cursive;
-    font-size: smaller;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
 }
 
 body {
-    background-color: rgb(235, 255, 241);
+    background-color: rgb(0, 90, 78);
     padding: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-#logo_main {
-    max-width: 100px;
+header, footer, main {
+    display: block;
+    /* padding: 10px; */
+    background-color: rgb(4, 40, 94);
+    /* align-items: center; */
 }
-
-header, main {
-    padding: 10px;
-    background-color: rgba(165, 184, 0, 0.459);
-    align-items: center;
-}
-
-
-nav {
-    display: flex;
-    justify-content: left;
-}
-
-nav a {
-    display: flex;
-    justify-content: left;
-    /* text-decoration: none; */
-    transition: all 250ms ease-in-out;
-}
-
-nav a:hover {
-    color: white;
-    font-size: larger;
-    transition: all 50ms ease-in-out
-}
-
 
 img {
     display: block;
@@ -62,26 +40,46 @@ img {
     padding: 2%;
 }
 
+#logo_main {
+    max-width: 50px;
+}
+
+nav {
+    /* display: flex; */
+    /* justify-content: left; */
+    /* flex-wrap: wrap; */
+    align-content: center;
+}
+
+a {
+    display: flex;
+    justify-content: left;
+    /* text-decoration: none; */
+    transition: all 250ms ease-in-out;
+    color: blanchedalmond;
+}
+
+a:hover {
+    color: rgb(60, 64, 247);
+    font-size: larger;
+    transition: all 50ms ease-in-out
+}
+
 
 p {
     /* padding: 0%;
     text-align: justify; */
     margin: 10px;
+    color: white;
 }
 
-footer {
-    display: flex;
-    width: 100%;
-    align-content: right;
-    position: fixed;
-    bottom: 0%;
-    background-color: aqua;
-    /* z-index: 1; */
-}
 
 @media (min-width: 700px) {
     body, header, main {
         padding: 20px;
+    }
+    #logo_main {
+        max-width: 150px;
     }
 
     nav {
@@ -103,6 +101,16 @@ footer {
         width: 45%;
     }
 
+    footer {
+        display: flex;
+        /* margin: 2%; */
+        margin-left: 15%;
+        width: auto;
+        position: fixed;
+        bottom: 0%;
+        background-color: rgb(0, 107, 14);
+        z-index: 1; /* necessary?? aoeu */
+    }
 }
 
 
