@@ -1,0 +1,97 @@
+
+html {
+    box-sizing: border-box;}
+
+  *, *:before, *:after {
+    box-sizing: inherit;}
+
+/* body {
+    text-align : center; 
+    margin : 1em;
+    padding : 1em;  
+    background-color: rgb(125, 190, 108);
+    color: rgb(0, 60, 255);} */
+
+
+    
+.flex-nav1 {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    list-style: none;}
+
+.flex-nav1-items {
+    flex-direction: row;
+    margin: auto;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+    line-height: auto;
+    color: rgb(26, 54, 218);
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;}
+    
+
+
+
+
+/* img {
+    float: center;
+    display: block;}
+
+img.one {
+    height: 50%;
+    width: 50%;
+    border-radius: 75%}
+
+q.one {
+    font-family: fantasy;
+    font-size: large;
+    font-weight: bold;}
+
+ul.one {
+    list-style-type: circle;
+    padding-left: 300px;}
+
+a {
+    color : red;}
+
+h2, h3 {
+    color : black;}
+
+nav {
+    display : flex;
+    flex-direction: row;
+    align-items: space-evenly;
+    margin: inherit, 40px;}
+
+nav p {
+    display : flex;
+    flex-direction: row;
+    align-items: space-evenly;
+    margin: inherit, 40px;}
+
+@media (min-width: 700pix) {
+
+    header, footer, body, main {
+        padding: 25px;}
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;}
+
+    .gallery-items {
+        width: 45%;}
+
+    img.one {
+        height: 25%;
+        width: 25%;
+        border-radius: 75%}} */
+
+/* Above code (gallery) allows one to dynamically
+build columns for all platforms */

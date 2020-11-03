@@ -7,6 +7,8 @@ html {
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 36px;
+    padding-top: 0px
 }
 
 header {
@@ -16,16 +18,16 @@ header {
     align-items: center;
     background-color: #F8CD41;
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 12px;
+    padding-right: 12px;
     color: white;
 }
 
 .dropbtn {
     background-color:#F8CD41;
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    padding: 12px;
+    font-size: 18px;
     border: 1px solid white;
     border-radius: 10px;
     margin: 5px;
@@ -40,7 +42,7 @@ header {
     display: none;
     position: absolute;
     background-color: #F8CD41;
-    min-width: 160px;
+    min-width: 24px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -62,4 +64,120 @@ header {
 
 .menu:hover .dropbtn {
     background-color:#FDEB76;
+}
+
+main {
+    padding: 12px;
+}
+
+img {
+    /* display: block; */
+    max-width: 90%;
+    max-height: 200px;
+    top: 10%;
+    left: 10%;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}
+
+a {
+    text-decoration: none;
+    color: #9F3CA7
+}
+
+a:hover {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+main, footer {
+    padding: 12px;
+}
+
+.article {
+    text-align: center;
+    padding: 12px;
+}
+
+.article h2 {
+    color:#F8CD41
+}
+
+.article p {
+    color:#F8CD41
+}
+
+.gallery {
+    text-align: center;
+
+}
+
+.gallery-item {
+    text-align: center;
+    border-top: 12px;
+}
+
+footer {
+    padding: 4px; 
+    padding-left: 8px;
+    background-color:#F8CD41;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+footer h3 {
+    text-align: left;
+}
+
+/* Why isn't this actually centering in mobile? */
+
+@media (min-width: 700px) {
+    body, header, footer, main {
+        padding: 24px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav p {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .gallery-item {
+        width: 45%;
+        padding: 12px;
+        text-align: center;
+        border-top: 12px;;
+    }
+
+    .dropbtn {
+        background-color:#F8CD41;
+        color: white;
+        padding: 18px;
+        font-size: 24px;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin: 5px;
+    }
+
+    footer h3 {
+        text-align: left;
+    }
 }
