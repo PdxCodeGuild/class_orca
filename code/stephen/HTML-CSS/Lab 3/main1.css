@@ -1,0 +1,105 @@
+colors:  #1D2C59   #9351A6   #035AA6   #F2F2F2
+
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #1D2C59;
+    font-family: Arial;
+  }
+  
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: right;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; 
+    margin: 0;
+  }
+  
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9f5;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  } 
+img{
+    max-width: 320px;
+    
+}
+
+#bgimg{
+    position: absolute;
+    z-index: 0;
+}
+
+#cr{
+    position: relative;
+    z-index: 999;
+    padding-top: 95px;
+}
+
+.covid{
+    background-color: red;
+    color: whitesmoke;
+    text-align: center;
+    
+
+}
+
+#companytitle{
+    font-family: cinzel;
+}
+
+body{
+    background-color:#035AA6;
+}
+
+/* .companyintro{
+    padding-top: 20px;
+} */
