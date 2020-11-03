@@ -1,0 +1,89 @@
+* {
+  margin:0px;
+}
+html{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position:center;
+  background-image:url("mori.png");
+  background-color:rgb(13, 11, 12);
+  color:#f8dee3;
+}
+
+/* link hover animation stuff very cool */
+a:any-link{
+  color: rgb(189,4,72);
+}
+a:link:hover{
+  animation: color-pulse .7s infinite;
+  transition: 1s ;
+}
+
+@keyframes color-pulse{
+  0% { color: rgb(189,4,72) }
+  50% { color: #FFFFFF }
+  100% { color: rgb(189,4,72)}
+}
+/* end of animation stuff. was cool */
+
+.headspace{
+  margin-top:250px;
+  }
+  
+
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  text-align:center;
+}
+header h2{
+  display:inline;
+  background-color: rgb(13, 11, 12); 
+  padding:5px; 
+  margin:200px;
+  border:3px solid red;
+  border-radius:5px;
+}
+header a{
+  margin:20px;
+  border:3px solid blue;
+}
+
+.postcontainer{
+  display:flex;
+  /* border: 5px solid #ffffff; */
+}
+.postcontainer p{
+  text-shadow: 1px 1px 10px rgb(189,4,72);
+  padding:20px;
+}
+
+.centerpost{
+  /* border: 2px solid #2f2ff2; */
+  justify-content: center;
+  text-align:center;
+  width:60%;
+}
+.leftpost{
+  /* border: 2px solid red; */
+  text-align:center;
+  justify-content: center;
+  width:25%;
+}
+.rightpost{
+  /* border: 2px solid purple; */
+  text-align: center;
+  justify-content: center;
+  width:15%;
+}
+.postback{
+  background-color: rgba(0,0,0,.82);
+  padding:15px;
+  margin:15px;
+  border-radius:5px;
+}
+
+img{
+  max-width:100%
+}
