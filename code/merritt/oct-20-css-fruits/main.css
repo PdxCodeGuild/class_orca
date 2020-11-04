@@ -67,6 +67,37 @@ nav a:hover {
     transition: all .1s ease-in-out;
 }
 
+input, textarea, select {
+    background-color: coral;
+    border: 2px solid darkred;
+    border-radius: 4px;
+    transition: all .5s ease-in-out;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="submit"],
+input[type="reset"],
+select,
+textarea {
+    width: 150px;
+}
+
+input::placeholder {
+    color: #555;
+}
+
+input:hover, textarea:hover {
+    box-shadow: 0 0 12px black;
+}
+
+input:focus, textarea:focus {
+    background-color: black;
+    color: white;
+    transition: all .5s ease-in-out;
+}
+
 /* #banana {
     position: fixed;
     top: 200px;
