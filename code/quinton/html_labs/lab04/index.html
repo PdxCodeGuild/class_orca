@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel='stylesheet' href='main.css'>
+    <script src="https://kit.fontawesome.com/f0168edacd.js" crossorigin="anonymous"></script>
+    <title>Best Burrito Business</title>
+</head>
+<body>
+    <header>
+        <h1>Best Burrito Business</h1>
+    </header>
+    <main>
+        <form action="https://webhook.site/ebe5d4dc-48a0-4dc0-904f-0469083a549a" id="container" method="post">
+            <fieldset id='burrito'>
+                <legend>Burrito</legend>
+                <legend>Tortilla:</legend>
+                <input type="radio" name="tortilla" value="white flour"> White Flour
+                <input type="radio" name="tortilla" value="wheat flour"> Wheat Flour<br/>
+                <input type="radio" name="tortilla" value="spinach"> Spinach
+                <input type="radio" name="tortilla" value="corn"> Corn
+                <br/>
+                <br/>
+                <legend>Rice:</legend>
+                <input type="radio" name="rice" value="white"> White
+                <input type="radio" name="rice" value="brown"> Brown
+                <br/>
+                <br/>
+                <legend>Beans:</legend>
+                <input type="radio" name="beans" value="black"> Black
+                <input type="radio" name="beans" value="pinto"> Pinto
+                <br/>
+                <br/>
+                <legend>Protein:</legend>
+                <input type="radio" name="protein" value="carnitas"> Carnitas
+                <input type="radio" name="protein" value="chicken"> Chicken<br/>
+                <input type="radio" name="protein" value="sofritas"> Sofritas
+                <input type="radio" name="protein" value="none"> None
+                <br/>
+                <br/>
+                <legend>Additional Ingredients:</legend>
+                <input type="checkbox" name="additional"/>Salsa<br/>
+                <input type="checkbox" name="additional"/>Guacamole<br/>
+                <input type="checkbox" name="additional"/>Cheese<br/>
+                <input type="checkbox" name="additional"/>Cilantro<br/>
+                <input type="checkbox" name="additional"/>Sour Cream
+            </fieldset>
+            <fieldset id='information'>
+                <legend>Personal Info</legend>
+                <input type="text" class='blah' name="username" placeholder="Username" pattern="[a-z,A-Z]{6,25}"/>
+                <input type="password" class='blah' name="password" placeholder="Password" pattern="[a-z,A-Z,0-9]{6,25}"/><br/>
+                <input type="text" class='blah' name="name" placeholder="First and Last" pattern="[a-z,A-Z]{3,25} [a-z,A-Z]{3,25}"/>
+                <input type="email" class='blah' name="email" placeholder="Email" pattern="[a-z,A-Z,0-9]{1,30}@[a-z,A-Z,0-9]{1,30}.[a-z,A-Z,0-9]{1,30}"/>
+                <input type="tel" class='blah' name="phone" placeholder="Phone Number" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/><br/>
+                <input type="date" class='blah' name="dob" pattern="[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}" title="eg. 00/00/0000" placeholder="Date of Birth" required/><br/>
+                <input type="text" class='blah' name="ssn" placeholder="Social" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}"/><br/>
+                <input type="text" class='blah' name="street" placeholder="Street"/>
+                <input type="text" class='blah' name="city" placeholder="City, State, Zip"/>
+                <br/>
+                <br/>
+                <button type="submit">Place Order</button>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+}
+header {
+    font-size: 20px;
+    text-align: center;
+    word-wrap: normal;
+    background-color: black;
+}
+h1 {
+    color: white;
+}
+div {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+#burrito, #information {
+    margin: 15px;
+    padding: 10px;
+}
+legend {
+    font-size: 115%;
+}
+
+.blah {
+    margin: 3px;
+    border-radius: 4px;
+    width: 155px;
+}
+
+
+@media screen and (min-width:700px) {
+    #container {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
