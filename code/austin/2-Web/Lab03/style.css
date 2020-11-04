@@ -1,0 +1,141 @@
+body {
+    color: #fff;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#content {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: repeat(12, minmax(200px, auto));
+    grid-column-gap: 5px; 
+    grid-row-gap: 5px; 
+}
+
+#content div {
+    background-color:#F7D342;
+}
+
+#content div:nth-child(even) {
+    background-color: #3A8FCC;
+}
+
+.one {
+    grid-column: 2 / 9;
+    padding: 12px;
+}
+
+.two {
+    grid-column: 2 / 9;
+    grid-row: 2 / 6;
+    padding: 12px;
+}
+
+.two img {
+    max-width: 90%;
+}
+
+.three {
+    grid-column: 1 / 2;
+    grid-row-start: 1;
+    grid-row-end: 12;
+    padding: 12px;
+}
+
+.four {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background-color: indigo;
+    margin-top: 6px;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+    padding: 12px;
+}
+
+a:hover {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.five {
+    grid-column: 2 / 9; 
+    grid-row: 11 / 12;
+    padding: 8px;
+}
+
+.six {
+    grid-row: 4;
+    grid-column: 1 / 3;
+}
+
+.nested {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    grid-column: 2 / 9;
+    grid-row: 6 / 11;
+}
+
+.nested p {
+    border: 1px solid white;
+    /* padding: 20px; */
+    margin: 0;
+}
+
+.three img {
+    max-width: 100%;
+}
+
+.nav {
+    display: inline-block;
+
+}
+
+.gallery {
+    display: grid;
+    grid-column: 1 / 9;
+    padding: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-items: space-around;
+    background-color:  #9f3ca7;
+    padding: 12px;
+    align-items: center;
+}
+
+
+@media (min-width: 700px) {
+    body, .one, footer {
+        padding: 24px;
+    }
+
+    .four {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .gallery {
+        display: flex;
+        justify-items: space-around;
+        padding: 20px;
+    }
+
+    .gal-item {
+        padding: 12px;
+        /* border: 1px solid white; */
+        max-width: 30%;
+    }
+
+    .footer {
+        padding: 12px;
+    }
+}

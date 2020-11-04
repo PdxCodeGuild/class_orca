@@ -1,0 +1,33 @@
+html *{
+    margin:0;
+}
+
+header{
+    text-align:center;
+    top:0;
+    width:100%;
+    height: 100px;
+    background-image: linear-gradient(blue 30%, rgba(255, 255, 255, 0));
+}
+
+.lefty{
+    overflow-y: hidden;
+    justify-content: left;
+    position:fixed;
+    height:500px;
+    width: 20%;
+}
+.bodyflex{
+    display:flex;
+    margin-left:20%;
+}
+.center{
+    justify-content: center;
+    padding:5px;
+    background-color:gray;
+}
+.post{
+    display:flex;
+    flex-direction:column-reverse;
+    border:2px purple solid;
+}

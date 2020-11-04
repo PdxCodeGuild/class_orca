@@ -1,0 +1,139 @@
+header, .side, .blog, footer {
+    border-radius: 5%;
+}
+
+body {
+    background-color: rgb(252, 249, 225);
+    color:rgb(209, 105, 66);
+    font-family: "Comic Sans MS";
+}
+
+header, footer{
+    background-color: lemonchiffon;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav p {
+    margin-right: 60px;
+    margin-left: 60px;
+}
+
+.side {
+    background-color: rgba(245, 172, 143, 0.623);
+    width: 100px;
+    float: left;
+    margin: 10px;
+    margin-top: 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+}
+
+a {
+    color: rgb(184, 109, 134);
+}
+
+.blog {
+    margin: 10px;
+    margin-left: 140px;
+    background-color: lemonchiffon;
+    padding: 20px;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-content {
+    border-style: solid;
+    border-color: navajowhite;
+    border-radius: 5%;
+    width: 75%;
+    margin:10px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+
+.content p {
+    min-width: 200px;
+    max-width: 80%;
+    align-self: center;
+    text-align: center;
+}
+
+.content img {
+    max-width: 15%;
+    min-width: 200px;
+    align-self: center;
+}
+
+
+footer {
+    margin: 10px;
+    height: 100px;
+}
+
+footer h3 {
+    text-align: center;
+}
+
+.socials {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.socials p {
+    margin-right: 60px;
+    margin-left: 60px;
+}
+
+@media (max-width: 700px){
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-items: space-between;
+    }
+
+    .blog {
+        margin: 10px;
+    }
+
+    footer {
+        height: fit-content;
+    }
+
+    .side {
+        background-color: rgba(245, 172, 143, 0.623);
+        width: 100%;
+        position: static;
+        margin-top: 10px;
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
+
+
+
