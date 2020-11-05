@@ -1,0 +1,108 @@
+
+
+header {
+    text-align: center;
+    background-image: url('https://www.muchoburritous.com/assets/img/menu/byob-banner.jpg');
+    background-size: inherit;
+    background-position: center;
+    max-height: 200px;
+}
+
+h1 {
+    padding:60px;
+    color:cornflowerblue;
+    font-size: 80px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header img {
+    visibility: hidden;
+}
+
+.order-items {
+    padding:10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.order-items input{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.order-box {
+    padding: 20px;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.info fieldset{
+    margin: 10px;
+}
+
+.button {
+    margin: 20px;
+    text-align: center;
+}
+
+.white-flour{
+    color:burlywood;
+}
+
+.wheat-flour {
+    color: tan;
+}
+
+.spinach{
+    color:forestgreen;
+}
+
+.corn{
+    color:goldenrod;
+}
+
+.white-rice{
+    color:rgb(172, 166, 144);
+}
+
+.brown-rice{
+    color: sienna;
+}
+
+.black-beans {
+    color: rgb(37, 24, 6);
+}
+
+.pinto-beans {
+    color: brown;
+}
+
+.carnitas {
+    color: chocolate;
+}
+
+.chicken{
+    color: darkgray;
+}
+
+.sofritas{
+    color: rgb(80, 41, 16);
+}
+
+.cheese{
+    color:rgb(182, 182, 90);
+}
