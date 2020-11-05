@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+    background-image: url(burrito3.jpg);
+    background-repeat: no-repeat;
+}
+header {
+    font-size: 20px;
+    text-align: center;
+    word-wrap: normal;
+    font-family: 'Permanent Marker', cursive;
+}
+h1, i {
+    color: rgb(63, 44, 44);
+}
+div {
+    display: flex;
+    justify-content: center;
+}
+#burrito, #information {
+    margin: 12px;
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.616);
+}
+legend {
+    font-size: 115%;
+}
+
+.blah {
+    margin: 3px;
+    border-radius: 4px;
+    width: 155px;
+    background-color: rgb(207, 207, 207);
+}
+button {
+    border-radius: 4px;
+    color: black;
+}
+i {
+    margin: -20px 0 20px 0;
+    font-size: 40px;
+}
+
+
+@media screen and (min-width:700px) {
+    #container {
+        display: flex;
+        justify-content: center;
+    }
+}
+
