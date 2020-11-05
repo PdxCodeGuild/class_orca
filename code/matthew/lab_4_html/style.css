@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.body-content {
+    display: flex;
+    justify-content: center;
+
+}
+
+#choice-white-flour, #choice-wheat, #choice-spinach, #choice-corn {
+    margin-left: 16px;
+
+}
+
+#choice-carnitas, #choice-chicken, #choice-sofritas {
+    margin-left: 16px
+}
+
+
+#choice-beans, #choice-cheese, #choice-salsa {
+    margin-left: 16px
+}
+
+
+#additional-info input {
+    border-style: dashed;
+}
+
+legend {
+    border-radius: 16px;
+}
+
+.burrito-img-container{ 
+    background-color: wheat;
+}
+
+.body-content p {
+    text-align: center;
+}
+
+.colortext {
+    color: #BF8C60;
+}
+
+header {
+    background-color: orangered;
+}
+
+header p {
+    color: wheat;
+    text-align: center;
+    font-size: 136px;
+    border: solid;
+}
+
+.burrito-img-container {
+    border: solid;
+    border-color: #b8b8b8;
+    margin: 16px;
+    width: 40%;
+}
+
+section img {
+    width: 100%;
+}
+
+#thanks {
+    margin-top: 146px;
+}
+
+section p {
+    text-align: center;
+    margin-bottom: 36px;
+    margin-top: 36px;
+    font-size: 36px;
+}
+
+#customize-text p {
+    color: orangered;
+
+
+}
+
+.right-forms p {
+    margin-left: 24px;
+    margin-top: 106px;
+
+
+
+
+}
+
+#additional-info p {
+    font-size: 24px;
+}
+#additional-info input {
+    width: 100%;
+    height: 200%;
+
+}
+
+.personal-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+input[type=submit] {
+
+    background-color: orangered;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    width: 560px;
+    cursor: pointer
+
+  }
+
+#mascot-img {
+    height: 1000px;
+    width: 1000px;
+  }
+
+#text {
+    margin-bottom: 36px;
+    margin-top: 0px;
+
+}
+
+
+    @media (min-width: 1100px){
+
+        img {
+            margin-bottom: 36px;
+        }
+        #thanks {
+            margin-top: 0;
+        }
+        
+
+    }
+                
+
+.right-forms{
+    margin-right: 16px;
+    }
+    

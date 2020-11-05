@@ -1,0 +1,162 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    color: #fff;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#content {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: repeat(12, minmax(200px, auto));
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+}
+
+#content div {
+    background-color:#EA4246;
+}
+
+#content div:nth-child(even) {
+    background-color:#6DDF36;
+}
+
+.one {
+    grid-column: 1 / 9;
+    padding: 12px;
+}
+
+.two {
+    grid-column: 2 / 6;
+    grid-row: 2 / 11;
+    padding: 12px;
+    padding-left: 24px;
+}
+
+
+.three {
+    grid-column: 1 / 2;
+    grid-row: 2 /11;
+    padding: 12px;
+}
+
+.four {
+    grid-column: 6 / 9;
+    grid-row: 2 / 11;
+    padding: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: medium;
+    padding: 12px;
+}
+
+a:hover {
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+.five {
+    grid-column: 1 / 9; 
+    grid-row: 11 / 12;
+    padding: 8px;
+}
+
+.six {
+    grid-row: 4;
+    grid-column: 1 / 3;
+}
+
+.three img {
+    max-width: 100%;
+}
+
+.footer {
+    display: flex;
+    justify-items: space-around;
+    background-color: whitesmoke;
+    padding: 12px;
+    align-items: center;
+}
+
+.details-burrito {
+    text-align: left;
+    display: inline-block;
+    padding: 8px;
+    align-items: center;
+}
+
+input:invalid {
+    border: red solid 3px;
+}
+
+.button-style {
+    text-align: center;
+    padding: 8px;
+}
+
+button[type=submit] {
+    padding: 4px 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #EA4246;
+    color: white;
+}
+
+button[type=submit]:hover {
+    background-color: salmon;
+}
+
+.details-user {
+    text-align: left;
+}
+
+.details-item {
+    padding: 4px;
+    border: 3px dotted black;
+}
+
+.details-user {
+    padding: 8px;
+}
+
+.list {
+    border: 2px solid darkgrey;
+    text-align: left;
+    padding: 8px;
+    font-size: 12px;;
+}
+
+.list li {
+    list-style-type: none;
+}
+
+.list h3 {
+    font-style: italic;
+    font-weight: bolder;
+    text-align: center;
+}
+
+legend {
+    border: 3px dotted black;
+    color: black;
+    background-color: white;
+    padding: 2px;
+}
+
+h2 {
+    border: 3px dotted black;
+    color: black;
+    background-color: white;
+    padding: 2px;
+}
