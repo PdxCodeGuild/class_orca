@@ -1,0 +1,25 @@
+html {
+    background-color: rgb(214, 146, 146);
+}
+.container {
+    padding: 12px 24px 12px 24px;
+    border-radius: 2px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 12px;
+  }
+
+input[type=text] {
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 3px;
+}
+
+img {
+    width: 100%;
+}
