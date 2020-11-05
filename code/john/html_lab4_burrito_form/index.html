@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- ##############################################################################
+# John Fial, PDX Code Guild, 2020-2021, www.johnfial.com
+# Step 8 
+# Step 9 
+# Step 10
+############################################################################## -->
+
+<!-- Block elements will take up the full available width and force other elements to move to a new line. Examples of block elements are p, h1, div, ol/ul, and form.
+Inline elements only take the amount of space they need, and allow other elements to exist on the same line. Examples of inline elements are span, img, and a. -->
+
+<html>
+  <html>
+    <head>
+      <title>Big Portland Restaurant!</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel=stylesheet href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+      <link rel=stylesheet href="main_form.css">
+      <link rel=stylesheet href="merritt.css">
+    </head>
+  
+  <body>
+    <main>
+      <!-- <header>
+      <h1>Big Portland Restaurant Order Form</h1>
+      <nav>
+        <p><link rel="stylesheet" href="">link2</p>
+        <p><link rel="stylesheet" href="">link3</p>
+        <p><link rel="stylesheet" href="">link4</p>
+        <p><link rel="stylesheet" href="">link5</p>
+      </nav>
+    </header> -->
+
+    <section>
+      <!-- make an image  -->
+      <!-- <img src="https://live.staticflickr.com/737/21526113893_36ee5402c7_b.jpg" alt="Image Here"> -->
+      <h2>Customize Your Prix-Fixe Night-Out!</h2>
+
+      <form action="https://webhook.site/4277e97c-cb59-4932-a032-78252d3e4b0d" method="POST">
+        <fieldset>
+          <legend>Salad Course</legend>
+          <input type="radio" id="salad-spinach" name="salad" value="salad-spinach" required>
+          <label for="salad-spinach">Spinach, Salmon, and Snowberry Vinagrette</label><br>
+          <input type="radio" id="salad-kale" name="salad" value="salad-kale" required>
+          <label for="salad-kale">Kale with Kraut, Smidgen of Pretentiousness</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Protein Course</legend>
+          <input type="radio" id="protein-chicken-crackled" name="protein" value="protein-chicken-crackled" required>
+          <label for="protein-chicken-crackled">Chicken, Crackled</label><br>
+          <input type="radio" id="protein-chicken-blanched" name="protein" value="protein-chicken-blanched">
+          <label for="protein-chicken-blanched">Chicken, Blanched</label><br>
+          <input type="radio" id="protein-chickpeas-chilled" name="protein" value="protein-chickpeas-chilled">
+          <label for="protein-chickpeas-chilled">Chickpeas, Chilled</label><br>
+          <input type="radio" id="protein-cooscoose-burned" name="protein" value="protein-cooscoose-burned">
+          <label for="protein-cooscoose-burned">Cooscoose, Burned</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Dessert Course</legend>
+          <input type="radio" id="dessert-crickets" name="dessert" value="dessert-crickets" required>
+          <label for="dessert-crickets">Spinach, Salmon, and Snowberry Vinagrette</label><br>
+          <input type="radio" id="dessert-strawberry" name="dessert" value="dessert-strawberry" required>
+          <label for="dessert-strawberry">Strawberry-Spider Smoothie</label>
+        </fieldset>
+           
+        <fieldset>
+          <legend>Optional Options:</legend>
+          <input type="checkbox" id="optional-heating" name="options" value="optional-heating">
+          <label for="optional-heating">$5: Heated Outdoor Seating</label><br>
+          <input type="checkbox" id="optional-clean-table" name="options" value="optional-clean-table">
+          <label for="optional-clean-table">$5: Clean Table</label><br>
+          <input type="checkbox" id="optional-sanitizer" name="options" value="optional-sanitizer">
+          <label for="optional-sanitizer">$5 Donation: Hand Sanitizer</label><br>
+          <input type="checkbox" id="optional-50-mask" name="options" value="optional-50-mask">
+          <label for="optional-50-mask">$50 Donation: Custom Local Artist Face-Mask + Hand Sanitizer</label>
+        </fieldset>
+          
+        <fieldset>
+          <legend>Payment Information:</legend>
+          <input type="text" name="username" id="username" placeholder="Unique Username, at least 6 characters">
+          <input type="password" name="password" id="password" placeholder="Password: at least 10 characters"><br>
+          
+          <input type="text" name="first" id="first" placeholder="First Name" ><br>
+          <input type="text" name="last" id="last" placeholder="Last Name"><br>
+          <input type="text" name="address" id="address" placeholder="Street Address"><br>
+          <input type="text" name="city" id="city" placeholder="City">
+          <select name="state">
+            <option value="" disabled selected>State</option> <!-- <option value="" disabled selected>Sorry, at this time we only serve residents of OR, WA and ID!</option> -->
+            <option value="OR">OR</option>
+            <option value="WA">WA</option>
+            <option value="ID">ID</option>
+          </select>
+          <input type="text" name="zip" id="zip" placeholder="Zip Code" pattern="[0-9]{5}" title="Zip code must be five digits.">
+
+          <br>
+
+          <input type="email" name="email" id="email" placeholder="Email address" required><br>
+          <input type="tel" name="telephone" id="telephone" placeholder="Phone Number"><br>
+          <input type="date" name="birthdate" id="birthdate" placeholder="Birthdate"><br>
+          <input type="text" name="SSN" id="SSN" placeholder="Social Security Number" pattern="[0-9]{3}" title="Please enter the SSN in format: 123-45-6789."><br>
+
+          <br>
+
+          <input type="color"><label for="color-test">color-test</label>
+        </fieldset>
+        
+        <fieldset>
+          <input type="reset" value="Clear Page">
+          <input type="submit" value="Submit Payment">
+          <!-- OLD STYLE BUTTON, STYLED DIFFERENTLY BY CSS: <button type="submit">Submit button</button> -->
+        </fieldset>
+          
+      </form>
+    </section>
+    
+
+    <footer>C John Fial, 2020, see <a href="www.johnfial.com/contact/">www.johnfial.com/contact/</a></footer>
+    </main>
+  </body>
+</html>
+
+
+
+
+
+
+<!-- # ***************************** WORKING FROM HERE ***************************** -->
+<!-- # ***************************** ^^^^^^^^^ TO HERE ***************************** -->
+
+<!-- # NOTES and TODO:
+    ##############################################################################
+    # TODO 
+    # TODO 
+    # TODO
+    ############################################################################## -->
