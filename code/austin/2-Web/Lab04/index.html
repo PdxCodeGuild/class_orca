@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://yarn.pm/normalize.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>El Gato Burritos</title>
+</head>
+<body>
+    <div id="content">
+
+        <div class="one">
+            <h1>El Gato Burritos Order Form</h1>
+        </div>
+
+        <div class="two">
+            <h2>Customize Your Burrito</h2>
+            <div class="details-burrito">
+                <form action="https://webhook.site/e101b856-fc9f-493b-b70b-1396a2eee776" method="post">
+                    <fieldset>
+                        <div class="details-item">
+                            <label for="burr-name">Name your burrito!</label>
+                            <input type="text" name="burr-name" placeholder="El gato hambriento"/>
+                        </div>
+                        
+
+                        <div class="details-item">
+                            Choose a tortilla:
+                            <input type="radio" id="flour" name="tortilla" value="flour">
+                            <label for="flour">Flour</label>
+                            <input type="radio" id="corn" name="tortilla" value="corn">
+                            <label for="corn">Corn</label>
+                            <input type="radio" id="cassava" name="tortilla" value="cassava">
+                            <label for="cassava">Cassava</label>
+                        </div>
+
+                        <div class="details-item">
+                            Choose a protein: 
+                            <input type="radio" id="carnitas" name="carnitas" value="carnitas">
+                            <label for="carnitas">Carnitas</label>
+                            <input type="radio" id="chicken" name="chicken" value="chicken">
+                            <label for="chicken">Chicken</label>
+                            <input type="radio" id="sofritas" name="sofritas" value="sofritas">
+                            <label for="sofritas">Sofritas</label>
+                            <input type="radio" id="shrimp" name="shrimp" value="shrimp">
+                            <label for="shrimp">Shrimp</label>
+                        </div>
+
+                        <div class="details-item">
+                            Extras:
+                            <input type="checkbox" id="guac" name="guac" value="guac" checked>
+                            <label for="guac">Guacamole</label>
+                            <input type="checkbox" id="cheese" name="cheese" value="cheese" checked>
+                            <label for="cheese">Cotija</label>
+                            <input type="checkbox" id="cream" name="cream" value="cream" checked>
+                            <label for="cream">Sour Cream</label>
+                            <input type="checkbox" id="rojo" name="rojo" value="rojo" checked>
+                            <label for="rojo">Salsa Rojo</label>
+                        </div>
+                    </fieldset>
+                    <div class="button-style">
+                        <button type="submit">submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="details-user">
+                <form action="https://webhook.site/e101b856-fc9f-493b-b70b-1396a2eee776" method="post">
+                    <fieldset>
+                        <legend>Login</legend>
+                        Username: <input type="text" name="name" pattern="[a-z]{6,}" title="username must be between 6 and 15 charachters" name="name" required/>
+                        &nbsp;&nbsp;Password:&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]){6,}"
+                        title="Must contain at least one number, one uppercase letter, one lowercase letter, and 6 or more characters"" required/>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Personal Info</legend>
+                        Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" pattern="[a-zA-Z]{1-15} [a-zA-Z]{1-15}" title="Please type first and last names" name="name" required/>
+                        &nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Must be a valid email addres" required><br>
+                        Phone:&nbsp;&nbsp;&nbsp;&nbsp; <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Please enter a phone number in the format ###-###-####" required/>
+                        &nbsp;&nbsp;&nbsp;Date of birth:&nbsp; <input type="date" name="dob" required><br>
+                        SSN:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="ssn" pattern="{9}" title="We cannot deliver your food without all nine digits" placeholder="Necessary for delivery!" required>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Address</legend>
+                        Street:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="street" required/>
+                        &nbsp;&nbsp;City:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="city" required /><br>
+                        State:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="state" required/>
+                        &nbsp;&nbsp;Zip Code:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="zip" pattern="[0-9]{5}" title="Zip code must be five digits" required/>
+                    </fieldset>
+                    </div>
+                    <div class="button-style">
+                        <button type="submit">submit</button>
+                    </div>
+                </form>
+            </div>
+    
+        <div class="three">
+            <img src="/Volumes/BACKUP64/PDX/class_orca/code/austin/2-Web/Lab04/images/burrito.jpeg" alt="burrito" height="200px" width="165px"/>
+        </div>
+
+        <div class="four">
+            <div class="list">
+                <h3>Order Summary</h3>
+                <h4>Carnitas x2</h4>
+                    <ul>
+                        <li>Guac</li>
+                        <li>Salsa Rojo</li>
+                    </ul>
+                <h4>Shrimp</h4>
+                    <ul>
+                        <li>Cheese</li>
+                        <li>Guac</li>
+                        <li>Salsa Rojo</li>
+                    </ul>
+            </div>
+        </div>
+
+        <div class="five">
+            <div class="footer">
+                <h4>© El Gato Burritos 2020</h4>
+            </div>
+        </div>
+    </div>  
+    
+</body>
+</html>
