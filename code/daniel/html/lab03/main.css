@@ -1,0 +1,25 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+h1 {
+    background: linear-gradient(to right, #FDCC73, #868992, #898F9A) ;
+    padding-top: 18px;
+    padding-bottom: 0px;
+    border: 1px solid red;
+    margin-bottom: 0px;
+}
+nav {
+    border: 1px solid red;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.dropwdown:hover .navigation {
+    display: block;
+}

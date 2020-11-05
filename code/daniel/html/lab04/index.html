@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Burrito Mirraca-ulous</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- <img src="https://lh3.googleusercontent.com/proxy/hagSceyvnNNWOS6J5F81bIrpGUjgSw55M_cMHgYC5k0GqSnukV0XAfEfbcEprMxRKWYxZtXQGJ1dOki5gh4x16ZK8Ftnk4dX2yQK" alt=""> -->
+        
+        <header class="fixed">
+
+                <h1>Burrito Mirraca-ulous</h1>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="index.html">About</a>
+                    <a href="index.html">Merchandise</a>
+                    <a href="index.html">Careers</a>
+                </nav>
+
+        </header>
+
+        <main class="scrolling">
+
+            <!-- User order -->
+            <section class="order">
+                <form action="" method="POST">
+                    <div>
+                        <fieldset>
+                            <legend>Tortilla</legend>
+                            <input type="radio" id="tortilla" name="burrito" value="white flour">
+                            <label for="tortilla">white flour</label><br>
+                            <input type="radio" id="tortilla" name="burrito" value="wheat flour">
+                            <label for="tortilla">wheat flour</label><br>
+                            <input type="radio" id="tortilla" name="burrito" value="corn">
+                            <label for="tortilla">corn</label><br>
+                            <input type="radio" id="tortilla" name="burrito" value="spinach">
+                            <label for="tortilla">spinach</label><br>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Rice</legend>
+                            <input type="radio" id="rice" name="rice" value="white_rice">
+                            <label for="rice">white rice</label><br>
+                            <input type="radio" id="rice" name="rice" value="brown_rice">
+                            <label for="rice">brown rice</label>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Beans</legend>
+                            <input type="radio" id="beans" name="beans" value="black_beans">
+                            <label for="beans">black beans</label><br>
+                            <input type="radio" id="beans" name="beans" value="pinto_beans">
+                            <label for="beans">pinto beans</label><br>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Protein</legend>
+                            <input type="radio" name="protein" id="carnitas">
+                            <label for="protein">carnitas</label><br>
+                            <input type="radio" name="protein" id="chicken">
+                            <label for="protein">chicken</label><br>
+                            <input type="radio" name="protein" id="sofritas">
+                            <label for="protein">sofritas</label><br>
+                            <input type="radio" name="protein" id="none">
+                            <label for="protein">none</label>
+                        </fieldset>
+                    </div>
+                    <div>
+                        <fieldset>
+                            <legend>Dairy</legend>
+                            <input type="checkbox" name="cheese" id="cheese" unchecked>
+                            <label for="cheese">cheese</label><br>
+                            <input type="checkbox" name="sour_cream" id="sour_cream" unchecked>
+                            <label for="sour_cream">sour cream</label><br>
+                        </fieldset>
+                    </div>
+                </form>        
+            </section>
+            
+            <!-- User info -->
+            <section class="user_info">
+                <div>
+                    <form action="">
+                        <fieldset>
+                            <legend>Personal Info</legend>
+                            <input type="text" id="username" name="username" placeholder="username"><br>
+                            <input type="text" id="password" name="password" placeholder="password"><br>
+                            <input type="text" id="name" name="name" placeholder="name"><br>
+                            <input type="email" id="email" name="email" placeholder="email address"><br>
+                            <input type="tel" id="phone_number" name="phone_number" placeholder="phone number"><br>
+                            <input type="text" id="date_of_birth" name="date_of_birth" placeholder="date of birth"><br>
+                            <input type="text" id="social_security_number" name="social_security_number" placeholder="social security number"><br>
+                            <input type="text" id="street" name="street" placeholder="street"><br>
+                            <input type="text" id="city" name="city" placeholder="city"><br>
+                            <input type="text" id="state" name="state" placeholder="state"><br>
+                            <input type="text" id="zip" name="zip" placeholder="zip"><br>
+                        </fieldset>
+                    </form>
+                </div>
+                
+                <!-- User submit button -->
+                <div class="submit">
+                    <form action="">
+                        <fieldset>
+                            <input type="reset" value="Clear Form" >
+                            <input type="submit" value="Submit Form" >
+                        </fieldset>
+                    </form>
+                </div> 
+            </section>
+                
+        </main>
+ 
+        <footer>
+            <p>Copyright 2020.</p>
+        </footer>
+
+    </body>
+
+</html>

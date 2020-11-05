@@ -54,6 +54,49 @@
           <p>Normcore gluten-free marfa, photo booth ugh master cleanse iceland vegan. Four dollar toast hoodie waistcoat distillery sartorial biodiesel. Prism la croix lomo craft beer celiac gochujang bicycle rights microdosing. Selvage schlitz gentrify, umami pok pok kinfolk pitchfork. Etsy pour-over tofu, kinfolk street art narwhal cardigan affogato organic twee snackwave tumblr. Cloud bread small batch flannel edison bulb. Austin forage tousled fashion axe cold-pressed.</p>
         </div>
       </section>
+      <section>
+        <form action="https://webhook.site/1df32604-698e-434e-a2e6-93ecdd6be6b5" method="POST">
+          <fieldset>
+            <legend>Fruits</legend>
+            <input type="radio" id="fav-apples" name="fav-fruit" value="apples" required>
+            <label for="fav-apples">Apples</label>
+            <input type="radio" id="fav-bananas" name="fav-fruit" value="bananas">
+            <label for="fav-bananas">Bananas</label>
+            <input type="radio" id="fav-cherries" name="fav-fruit" value="cherries">
+            <label for="fav-cherries">Cherries</label>
+            <input type="radio" id="fav-oranges" name="fav-fruit" value="oranges">
+            <label for="fav-oranges">Oranges</label>
+            <input type="radio" id="fav-grapes" name="fav-fruit" value="grapes">
+            <label for="fav-grapes">Grapes</label>
+            <input type="radio" id="fav-pomegranate" name="fav-fruit" value="pomegranate">
+            <label for="fav-pomegranate">Pomegranate</label><br>
+            <label for="other">Other</label>
+            <input type="text" id="other" name="other"><br>
+            <label for="why">Tell us why:</label>
+            <textarea id="why" name="why"></textarea>
+          </fieldset>
+          <fieldset>
+            <legend>You</legend>
+            <input type="text" name="first" id="first" placeholder="First Name">
+            <input type="text" name="last" id="last" placeholder="Last Name"><br>
+            <input type="text" name="address" id="address" placeholder="Street Address"><br>
+            <input type="text" name="city" id="city" placeholder="City">
+            <select name="state">
+              <option value="" disabled selected>State</option>
+              <option value="ca">CA</option>
+              <option value="or">OR</option>
+              <option value="wa">WA</option>
+            </select>
+            <input type="text" name="zip" id="zip" placeholder="Zip Code" pattern="[0-9]{5}" title="Zip code must be five digits."><br>
+            <input type="tel" name="phone" id="phone" placeholder="Telephone Number"><br>
+            <input type="email" name="email" id="email" placeholder="Email Address">
+          </fieldset>
+          <fieldset>
+            <input type="reset" value="Clear Form">
+            <input type="submit" value="Submit Form">
+          </fieldset>
+        </form>
+      </section>
     </main>
     <footer>
       <p>Copyright 2020</p>
