@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-/* #F29199
-#031226
-#20788C
-#F2D57E
-#F2C185 */
+/* pink #F29199
+black #031226
+green #20788C
+yellow #F2D57E
+orange color#F2C185 */
 
 
 * {
@@ -32,7 +32,7 @@ a {
 
 a:hover {
     text-decoration: none;
-    color:#F2D57E;
+    color:#F2C185;
 }
 
 #name {
@@ -62,13 +62,13 @@ a:hover {
 
     border-radius: 16px;
     color: white;
-
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 24px;
 }
+
 
 
 .heading-pro {
@@ -83,6 +83,7 @@ a:hover {
 
 .pro-points p {
     color: white;
+    font-size: 16px;
     
 }
 
@@ -94,14 +95,33 @@ a:hover {
 
 #divider {
     background-color: #F2C185;
-    margin-top: 158px;
+    margin-top: 140px;
     padding-bottom: 50px;
 }
 
+.about-me {
+    padding-top: 36px;
+    font-size: 36px;
+    margin-left: 16px;
+    margin-right: 16px;
+    color:white;
+    padding-bottom: 30px;
+}
 
+.resume{ 
+    margin-top: 116px;
+    font-size: 36px;
+    color:#F2D57E;
+
+}
+
+.resume-class a:hover{
+    color: #F2C185;
+
+}
 
 .columns {
-    padding-top: 50px;
+    /* padding-top: 50px; */
     display: flex;
     justify-content: space-evenly;
 }
@@ -119,26 +139,37 @@ a:hover {
 .column-left {
     text-align: center;
     color: white;
+
 }
 
 .column-right a {
     text-align: center;
     color: white;
+    text-decoration: underline;
 }
 
-.projects{
+.background {
+    font-size: 16px;  
+}
+
+.projects a{
     display: flex;
     flex-direction: column;
+    font-size: 16px;
+    text-decoration: none;
 }
 
 .projects a:hover {
-    color: #F2D57E;
+    color: #F2C185;
+
 }
+
+
 
 .contact{
     display: flex;
     flex-direction: column;
-    padding-top: 50px;
+    /* padding-top: 50px; */
 }
 
 .heading-contact {
