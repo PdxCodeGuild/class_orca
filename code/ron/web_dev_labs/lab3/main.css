@@ -2,18 +2,29 @@
 .wrapper {
     display: flex;  
     flex-flow: row wrap;
-    font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
-    max-width: 1000px;
-    margin: 2px;
     justify-content: center;
+    align-content: center;
   }
   
-  .wrapper > * {
+/* @media all and (min-width: 559px) {
+  .nav { flex: 1 0 0; }
+
+    
+@media all and (min-width: 1000px) {
+  .nav-1 { order: 1; } 
+  .main    { order: 2; }
+  .footer  { order: 3; }
+  } */
+
+
+  /* .wrapper > * {
     padding: 5px;
     flex: 1 100%;
-  }
+  } */
+
+
   
+/*   
   body {
     padding: 1em;
     background: black;
@@ -21,7 +32,7 @@
   }
 
   .header-text {
-    /* background: wheat; */
+    background: wheat;
     overflow-wrap: normal;
     padding: 0px;
     line-height: 15px;
@@ -33,7 +44,7 @@
   }
   
   .footer {
-    /* background: lightgreen; */
+    background: lightgreen;
     text-align: center;
   }
   
@@ -58,7 +69,7 @@
   }
 
   .main-title {
-    /* background: yellow; */
+    background: yellow;
     flex-direction: row;
     margin: auto;
     padding: 0px;
@@ -73,7 +84,7 @@
   }
 
   .main-type {
-    /* background: rgb(13, 255, 0); */
+    background: rgb(13, 255, 0);
     flex-direction: row;
     margin: auto;
     padding: 0px;
@@ -88,7 +99,7 @@
   }
 
   .main-items {
-    /* background: rgb(255, 0, 225); */
+    background: rgb(255, 0, 225);
     flex-direction: row;
     margin: auto;
     padding: 10px;
@@ -103,7 +114,7 @@
   }
   
   .main-placeholder {
-    /* background: rgb(0, 217, 255); */
+    background: rgb(0, 217, 255);
     flex-direction: row;
     margin: auto;
     padding: 0px;
@@ -119,7 +130,7 @@
 
   .nav-1 {
     display: flex;  
-    /* background: white; */
+    background: white;
     flex-flow: row wrap;
     padding: 5px;
     margin: 0px 3px 0px 3px;
@@ -130,7 +141,7 @@
   }
 
   .nav-1-items {
-    /* background: violet; */
+    background: violet;
     flex-direction: row;
     margin: auto;
     padding: 5px;
@@ -144,12 +155,11 @@
     color: white;
   }
 
-  @media all and (min-width: 600px) {
-    .nav { flex: 1 0 0; }
+ 
 
     .nav-1 {
       display: flex;  
-      /* background: gold; */
+      background: gold;
       flex-flow: row wrap;
       padding: 5px;
       margin: 3px;
@@ -181,13 +191,7 @@
       text-align: center;
     }
   }
-    
-  @media all and (min-width: 800px) {
-    .main    { flex: 3 0px; }
-    .nav-1 { order: 1; } 
-    .main    { order: 2; }
-    .footer  { order: 3; }
-  }
+
   
   .fa {
     padding: 20px;
@@ -220,4 +224,4 @@
     color: white;
     border-radius: 50%;
   }
-  
+   */
