@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* #F29199
+#031226
+#20788C
+#F2D57E
+#F2C185 */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: #20788C;
+    background-image: url(https://resi.ze-robot.com/dl/4k/4k-desktop-wallpaper.-2560%C3%971080.jpg);
+    background-repeat: no-repeat;
+    background-position: center top -180px;
+    /* background-color: #04B2D9;
+    background-image: linear-gradient(to bottom right, #04B2D9, #04C4D9);  */
+    /* background-image: linear-gradient( #0395b6, #00e5ff); */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+
+}
+
+#name {
+    font-size: 30px;
+    padding-top: 66px;
+    justify-content: center;
+    text-align: center;
+    color:white;
+}
+
+#name2 {
+
+    text-align: center;
+    font-size: 100px;
+    color: #F2D57E;
+}
+
+#name3 {
+    text-align: center;
+    font-size: 100px;
+    color: #F2D57E;
+}
+
+#see-more {
+    margin-top: 350px;
+    background-color: #20788C; 
+
+    border-radius: 16px;
+    color: white;
+
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.heading-pro {
+    display: flex;
+    justify-content: center;
+    padding-top: 300px;
+    font-size: 36px;
+    /* border:solid #04B2D9; */
+    color: #F2D57E;
+
+}
+
+.pro-points p {
+    color: #F2D57E;
+    
+}
+
+
+.about {
+    text-align: center;
+
+}
+
+.about {
+    text-align: center;
+}
+
+
+
+.columns {
+    padding-top: 150px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.column-heading-left {
+    font-size: 36px;
+    color:#F2D57E;
+}
+
+.column-heading-right {
+    font-size: 36px; 
+    color:#F2D57E;
+} 
+
+.column-left {
+    text-align: center;
+}
+
+.column-left {
+    text-align: center;
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+
+.heading-contact {
+    color:#F2D57E;
+    font-size: 36px; 
+}
