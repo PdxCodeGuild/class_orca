@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <!-- ##############################################################################
 # John Fial, PDX Code Guild, 2020-2021, www.johnfial.com
-# Step 8 
-# Step 9 
-# Step 10
+# https://github.com/PdxCodeGuild/class_orca/blob/main/2%20HTML%20%2B%20CSS/labs/lab04-burrito_order_form.md
 ############################################################################## -->
 
 <!-- Block elements will take up the full available width and force other elements to move to a new line. Examples of block elements are p, h1, div, ol/ul, and form.
@@ -15,26 +13,29 @@ Inline elements only take the amount of space they need, and allow other element
       <title>Big Portland Restaurant!</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel=stylesheet href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-      <link rel=stylesheet href="main_form.css">
-      <link rel=stylesheet href="merritt.css">
+      <link rel="stylesheet" href="github_necolas_normalize.css">
+      <!-- <link rel="stylesheet" href="skeleton_normalize.css"> -->
+      <!-- <link rel="stylesheet" href="skeleton.css"> -->
+      <!-- <link rel="stylesheet" href="merritt.css"> -->
+      <link rel="stylesheet" href="main_form.css">
     </head>
   
   <body>
     <main>
-      <!-- <header>
+      <header>
       <h1>Big Portland Restaurant Order Form</h1>
       <nav>
-        <p><link rel="stylesheet" href="">link2</p>
-        <p><link rel="stylesheet" href="">link3</p>
-        <p><link rel="stylesheet" href="">link4</p>
-        <p><link rel="stylesheet" href="">link5</p>
+        <p><link rel="stylesheet" href="">Menu</p>
+        <p><link rel="stylesheet" href="">Election Results</p>
+        <p><link rel="stylesheet" href="">Sources</p>
+        <p><link rel="stylesheet" href="">About Us</p>
+        <p><link rel="stylesheet" href="">Contact</p>
       </nav>
-    </header> -->
+    </header>
 
     <section>
-      <!-- make an image  -->
-      <!-- <img src="https://live.staticflickr.com/737/21526113893_36ee5402c7_b.jpg" alt="Image Here"> -->
+      <img src="https://live.staticflickr.com/737/21526113893_36ee5402c7_b.jpg" alt="Image Here">
+
       <h2>Customize Your Prix-Fixe Night-Out!</h2>
 
       <form action="https://webhook.site/4277e97c-cb59-4932-a032-78252d3e4b0d" method="POST">
@@ -42,7 +43,7 @@ Inline elements only take the amount of space they need, and allow other element
           <legend>Salad Course</legend>
           <input type="radio" id="salad-spinach" name="salad" value="salad-spinach" required>
           <label for="salad-spinach">Spinach, Salmon, and Snowberry Vinagrette</label><br>
-          <input type="radio" id="salad-kale" name="salad" value="salad-kale" required>
+          <input type="radio" id="salad-kale" name="salad" value="salad-kale" >
           <label for="salad-kale">Kale with Kraut, Smidgen of Pretentiousness</label>
         </fieldset>
 
@@ -62,7 +63,7 @@ Inline elements only take the amount of space they need, and allow other element
           <legend>Dessert Course</legend>
           <input type="radio" id="dessert-crickets" name="dessert" value="dessert-crickets" required>
           <label for="dessert-crickets">Spinach, Salmon, and Snowberry Vinagrette</label><br>
-          <input type="radio" id="dessert-strawberry" name="dessert" value="dessert-strawberry" required>
+          <input type="radio" id="dessert-strawberry" name="dessert" value="dessert-strawberry" >
           <label for="dessert-strawberry">Strawberry-Spider Smoothie</label>
         </fieldset>
            
@@ -79,37 +80,44 @@ Inline elements only take the amount of space they need, and allow other element
         </fieldset>
           
         <fieldset>
+            
+            
+            <!-- https://regexr.com/2s5ul -->
+            <!-- https://regexr.com/2s5ul -->
+            <!-- https://regexr.com/2s5ul -->
+            <!-- https://regexr.com/2s5ul -->
+            
           <legend>Payment Information:</legend>
-          <input type="text" name="username" id="username" placeholder="Unique Username, at least 6 characters">
-          <input type="password" name="password" id="password" placeholder="Password: at least 10 characters"><br>
+          <input type="text" name="username" id="username" placeholder="At least 6 characters" pattern="[a-zA-Z][a-zA-Z0-9-_]{6,30}" title="username must be between 6 and 30 characters: letters, numbers, and _underscore." required>
+
+          <input type="password" name="password" id="password" placeholder="Strong password required, 8+ characters." pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,100})" title="Password: -8-100 characters, At least one of each: -lower case letter, -Upper Case Letter, -number, -special character." required><br>
           
-          <input type="text" name="first" id="first" placeholder="First Name" ><br>
-          <input type="text" name="last" id="last" placeholder="Last Name"><br>
-          <input type="text" name="address" id="address" placeholder="Street Address"><br>
-          <input type="text" name="city" id="city" placeholder="City">
-          <select name="state">
+          <input type="text" name="first" id="first" placeholder="First Name" pattern="[a-z]{2,30}" title="Name must be between 2 and 30 characters." required><br>
+          <input type="text" name="last" id="last" placeholder="Last Name" pattern="[a-z]{3,30}" title="Name must be between 3 and 30 characters." required><br>
+
+          <input type="text" name="address" id="address" placeholder="Street Address" required pattern="\d+\w+\s\w+\s\w+"><br>
+          <input type="text" name="city" id="city" placeholder="City" required>
+          <select name="state" required>
             <option value="" disabled selected>State</option> <!-- <option value="" disabled selected>Sorry, at this time we only serve residents of OR, WA and ID!</option> -->
             <option value="OR">OR</option>
             <option value="WA">WA</option>
             <option value="ID">ID</option>
           </select>
-          <input type="text" name="zip" id="zip" placeholder="Zip Code" pattern="[0-9]{5}" title="Zip code must be five digits.">
-
+          <input type="text" name="zip" id="zip" placeholder="Zip Code" pattern="[0-9]{5}" title="Zip code must be five digits." required>
           <br>
-
           <input type="email" name="email" id="email" placeholder="Email address" required><br>
-          <input type="tel" name="telephone" id="telephone" placeholder="Phone Number"><br>
-          <input type="date" name="birthdate" id="birthdate" placeholder="Birthdate"><br>
-          <input type="text" name="SSN" id="SSN" placeholder="Social Security Number" pattern="[0-9]{3}" title="Please enter the SSN in format: 123-45-6789."><br>
+          <input type="tel" name="telephone" id="telephone" placeholder="Phone Number" title="Phone number: 503-123-1234" pattern="\b\d{3}[-]\d{3}[-]\d{4}\b" required><br>
+          <input type="date" name="birthdate" id="birthdate" placeholder="Birthdate" required><br>
+          <input type="text" name="SSN" id="SSN" placeholder="Social Security Number" pattern="\b\d{3}[-]\d{2}[-]\d{4}\b" title="Please enter the SSN in format: 123-45-6789." required><br>
 
-          <br>
-
-          <input type="color"><label for="color-test">color-test</label>
+          <!-- <br>
+            <input type="color"><label for="color-test">color-test, just because it's cool!</label> -->
         </fieldset>
         
         <fieldset>
           <input type="reset" value="Clear Page">
           <input type="submit" value="Submit Payment">
+
           <!-- OLD STYLE BUTTON, STYLED DIFFERENTLY BY CSS: <button type="submit">Submit button</button> -->
         </fieldset>
           
@@ -117,7 +125,9 @@ Inline elements only take the amount of space they need, and allow other element
     </section>
     
 
-    <footer>C John Fial, 2020, see <a href="www.johnfial.com/contact/">www.johnfial.com/contact/</a></footer>
+    <footer>
+      <h6>C John Fial, 2020, see <a href="www.johnfial.com/contact/">www.johnfial.com/contact/</a></h6>
+    </footer>
     </main>
   </body>
 </html>
@@ -132,7 +142,61 @@ Inline elements only take the amount of space they need, and allow other element
 
 <!-- # NOTES and TODO:
     ##############################################################################
-    # TODO 
+    # TODO fix password input
     # TODO 
     # TODO
     ############################################################################## -->
+
+    <!-- 
+
+    Lab 4: Burrito Order Form
+
+    Create a burrito order form with the following input controls. Try to incorporate some images and semantic elements. Below are some recommended fields, feel free to use your own. You should include all elements in a form, and use fieldsets. You may draw some inspiration from this image.
+    
+    Tortilla (radio buttons)
+    
+        White Flour
+        Wheat Flour
+        Spinach
+        Corn
+    
+    Rice (radio buttons)
+    
+        White Rice
+        Brown Rice
+    
+    Beans (radio buttons)
+    
+        Black Beans
+        Pinto Beans
+    
+    Protein (radio buttons)
+    
+        Carnitas
+        Chicken
+        Sofritas
+        None
+    
+    Additional Ingredients (check boxes)
+    
+        Cheese
+        Sour Cream
+    
+    For personal info, use the required, pattern and title attributes of the input fields to verify that the information the user entered is legitimate.
+    
+    Personal Info
+    
+        Username (at least 6 characters)
+        Password (at least 6 characters)
+        Name (First and Last) (two words, at lease 3 characters each)
+        Email Address (one or more numbers/letters, @, one or more numbers/letters, ., one or more numbers/letters)
+        Phone Number: (e.g. 293-213-5555)
+        Date of Birth: (e.g. 2/13/2627)
+        Social Security Number: (e.g. 415-25-2627)
+        Street (e.g. 123 Mulberry Ln)
+        City, State, Zip (e.g. Portland, OR, 97201)
+    
+    Once you have your page together, use webhook.site to create a temporary endpoint. Add the attributes action="your-webhook.site-url-goes-here" and method="post" to your form. Then fill out your form and submit the data. You should see an "ok" response. You can then check your bin and look at the request's body. Make sure all the relevant data is present to ensure your form is working. 
+
+-->
+
