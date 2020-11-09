@@ -1,30 +1,188 @@
-.wrapper {
+/* 
+* {
+  margin: 10px;
+  padding: 0;
+} */
+
+body {
+  background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(./data/burrito.jpg);
+  /* height: 100vh; */
+  background-size: cover;
+  background-position: center;
+}
+
+ .wrapper {
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas: 
-    "logo     header"
-    "nav      nav"
-    "content  content"
-    "services services"
-    "news     news"
+    "headerL  headerL"
+    "headerR  headerR"
+    "title    title"
+    "tortilla protein"
+    "rice     beans"
+    "extras   extras"
+    "persinfo persinfo"
     "footer   footer";
     /* max-width: 1000px; */
     margin: 0px auto;
-    padding: 10px;
-    background-color: white;
+    /* float: left; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
 }
 
-.logo-head {
-  grid-area: logo;
-  max-width: 100%;
-}
-
-.main-head {
-  grid-area: header;
+.logo {
+  grid-area: headerL;
   border-width: 1px;
+  border-color: rgb(228, 6, 6);
+  border-style: solid;
 }
+
+/* .logo img {
+  width: 225px;
+  height: auto;
+  float: left;
+
+} */
+
+.main-nav {
+  grid-area: headerR;
+  list-style: none;
+  border-width: 1px;
+  border-color: rgb(223, 11, 11);
+  border-style: solid;
+  /* margin-top: 5px; */
+}
+
+.main-nav li {
+  display: inline-block;
+
+}
+
+.main-nav li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  line-height: 2em;
+  /* font-size: 15px; */
+}
+
+.main-nav li.active a {
+  border: 1px solid white;
+}
+
+.main-nav li a:hover {
+  border: 1px solid white;
+}
+
+.menu-title {
+  grid-area: title;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: auto;
+  height: 100px;
+  background-color: white;
+}
+
+.menu-tortilla {
+  grid-area: tortilla;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+
+}
+
+.menu-protein {
+  grid-area: protein;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: 100px;
+  height: 100px;  
+  background-color: white;
+
+}
+
+.menu-rice {
+  grid-area: rice;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+
+}
+
+.menu-beans {
+  grid-area: beans;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+
+}
+
+.menu-extras {
+  grid-area: extras;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: auto;
+  height: 100px;
+  background-color: white;
+
+}
+
+.menu-persinfo {
+  grid-area: persinfo;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: auto;
+  height: 100px;
+  background-color: white;
+
+}
+
+.menu-footer {
+  grid-area: footer;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+  width: auto;
+  height: 100px;
+  background-color: white;
+
+}
+
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-areas: 
+    "headerL  headerR"
+    /* "headerL  headerR" */
+    "title    title"
+    "tortilla protein"
+    "rice     beans"
+    "extras   extras"
+    "persinfo persinfo"
+    "footer   footer";
+  }
+
+}
+
+
+
+/*
 
 .content {
   grid-area: content;
@@ -105,7 +263,7 @@
 /**********************************
 HTML Elements
 **********************************/
-
+/*
 img {
   max-width: 100%;
   height: auto;
@@ -114,7 +272,7 @@ img {
 /**********************************
 Dynamic window applications
 **********************************/
-
+/*
 @media (min-width: 500px) {
   .wrapper {
     grid-template-columns: 1fr 3fr;
@@ -165,7 +323,7 @@ Dynamic window applications
 /**********************************
 Social Media Applications
 **********************************/
-  
+/*
   .fa {
     padding: 10px;
     font-size: 20px;
@@ -196,4 +354,4 @@ Social Media Applications
     background: #125688;
     color: white;
     border-radius: 100%;
-  }
+  } */
