@@ -6,6 +6,7 @@
     font-family: Arial, Helvetica, sans-serif;
     max-width: 1000px;
     margin: 2px;
+    justify-content: center;
   }
   
   .wrapper > * {
