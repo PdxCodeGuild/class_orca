@@ -1,5 +1,5 @@
 """
-WSGI config for lab01_grocery_list project.
+WSGI config for polls_proj project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'lab01_grocery_list.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'polls_proj.settings')
 
 application = get_wsgi_application()
