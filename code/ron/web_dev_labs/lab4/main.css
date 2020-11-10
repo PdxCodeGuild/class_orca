@@ -15,9 +15,10 @@ body {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: 
-    "headerL  headerL"
-    "headerR  headerR"
+    "headerL  headerR"
+    /* "headerR  headerR" */
     "title    title"
     "tortilla protein"
     "rice     beans"
@@ -165,11 +166,14 @@ body {
 
 }
 
+
+/* 
 @media (min-width: 500px) {
   .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
     "headerL  headerR"
-    /* "headerL  headerR" */
     "title    title"
     "tortilla protein"
     "rice     beans"
@@ -178,7 +182,7 @@ body {
     "footer   footer";
   }
 
-}
+} */
 
 
 
