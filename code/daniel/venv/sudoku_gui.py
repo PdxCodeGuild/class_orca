@@ -13,7 +13,7 @@ from PyQt5.QtWidgets import QVBoxLayout
 from PyQt5.QtWidgets import QWidget
 from functools import partial
 # game logic module
-from sudoku import Sudoku as Sud
+from build_sudoku import Sudoku as Sud
 # assign to variable
 var = Sud() 
 # runmodule to generate game numbers

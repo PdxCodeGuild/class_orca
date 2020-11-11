@@ -6,77 +6,75 @@ html {
 }
 img {
     max-width: 100%;
-    margin: 0px;
-    border: none;
-    padding-bottom: 12px;
-}
-h1, a {
-    margin-bottom: 0px;
-    color: white;
-}
-nav, h1 {
-    display: flex;
-    justify-content: center;
-}
-nav {
-    padding-top: 6px;
-    padding-bottom: 32px;
-}
-nav a {
-    padding-left: 12px;
-    padding-right: 12px;
 }
 body {
-    text-align: left;
     background-color: #024873;
     font-family: 'Bitter', serif;
 }
-p, h2 {  
-    background-color: white;
-    padding-left: 12px;
-    padding-right: 12px;
+header, footer, nav a {
+    color: #F2F1F0;
+}
+h1, nav {
+    font-family: 'Gentium Basic', serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+nav {
+    margin-bottom: 24px;
+}
+nav a {
+    padding: 12px;
+}
+h1 {
+    margin-bottom: 0px;
+}
+h2, p {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    background-color: #F2F1F0;
+    padding: 12px;
 }
 p {
     margin-top: 0px;
-    font-size: 15px;
+    padding-bottom: 24px;
     padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: justify;
-    text-indent: 18px;
+    font-size: 11pt;
+    text-indent: 23px;
 }
 h2 {
-    margin-bottom: 0px;
     padding-top: 12px;
-}
-footer {
-    color: white;
-    font-size: 8pt;
-    padding-left: 18px;
-    padding-bottom: 6px;;
-    padding-top: 64px;;
-}
-p::first-letter {
-    font-size: 16pt;
-    ;
-}
-h1 {
-    font-family: 'Gentium Basic', serif;
+    margin-bottom: 0px;
 }
 div {
-    padding-top: 36px;
+    margin:36px 0px;
 }
-
-#help {
-    padding-bottom: 24px;
+footer {
+    padding-left: 12px;
+    font-size: 8pt;
 }
-@media (min-width: 700px) {
+@media (min-width: 760px) {
     div {
-        margin-left: 24px;
-        margin-right: 24px;
         width: 45%;
+        margin-left: 12px;
+        margin-right: 12px;
     }
-    .blog {
+    
+    section:last-of-type {
         display: flex;
         flex-wrap: wrap;
+        /* align-items: ; */
+        justify-content: space-around;
+    }
+
+    .intro{
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+}
+@media (min-width: 960px) {
+    div {
+        width: 30%;
     }
 }

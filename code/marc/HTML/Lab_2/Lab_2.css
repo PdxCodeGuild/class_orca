@@ -7,8 +7,6 @@ html {
 
 img {
     display: flex;
-    float: center;
-    display: block;
     max-width: 100%; 
     margin: 0 auto;
     }
@@ -31,8 +29,8 @@ nav  {
     justify-content: space-evenly;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: none;
-    margin:0 ;}
-nav p {margin:10;}
+    margin:0 auto;}
+nav p {margin:10px;}
 
 
 h2, h3, h4, footer { 
