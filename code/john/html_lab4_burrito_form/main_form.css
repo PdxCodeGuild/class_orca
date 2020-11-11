@@ -1,0 +1,128 @@
+/*
+/* John Fial, PDX Code Guild, 2020-2021, www.johnfial.com 
+/* *********** NOTE ************* */
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+} 
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 'Libre Baskerville', serif;
+    text-align: center;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    color: rgba(245, 245, 245, 0.801); */
+}
+
+body {
+    background-color: rgb(0, 164, 214);
+    color: rgb(0, 48, 48);
+    padding: 10px;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Open Sans', sans-serif;
+}
+
+header, footer, main {
+    display: block;
+    padding: 10px; 
+    background-color: rgb(6, 56, 148);
+    align-items: center; 
+    text-decoration-color: crimson;
+}
+
+img {
+    display: flex;
+    margin: auto;
+    max-width: 33%;
+    border-radius: 10%;
+}
+
+#logo_main {
+    max-width: 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+a {
+    display: flex;
+    justify-content: left;
+    text-decoration: none; 
+    transition: all 250ms ease-in-out;
+    color: rgba(255, 235, 205, 0.952);
+}
+
+a:hover {
+    color: rgb(60, 64, 247);
+    font-size: larger;
+    transition: all 10ms ease-in-out
+}
+
+
+p {
+    padding: 0%;
+    text-align: justify; 
+    margin: 10px;
+    color: white;
+}
+
+legend {
+    color: rgba(231, 255, 204, 0.89);
+}
+
+label {
+    color: rgba(112, 255, 148, 0.89);
+}
+
+@media (min-width: 700px) {
+    body, header, main {
+        padding: 20px;
+    }
+    #logo_main {
+        max-width: 150px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav p {
+        margin-top: 5px;
+        margin-left: 20px;
+        margin-right: 20px;
+        /* background-color: lightpink; */
+    } 
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .fake-item {
+        width: 45%;
+    }
+
+    footer {
+        display: flex;
+        margin: auto; 
+        margin-left: auto;
+        width: auto;
+        /* position: fixed; */
+        /* background-color: rgb(0, 16, 107); */
+        /* z-index: 1; necessary?? aoeu */
+    }
+}
+
+
+@media (min-width: 1000px) {
+    .fake-item {
+        width: 30%;
+    }
+}

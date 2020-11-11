@@ -1,0 +1,199 @@
+.wrapper {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: 
+    "logo     header"
+    "nav      nav"
+    "content  content"
+    "services services"
+    "news     news"
+    "footer   footer";
+    /* max-width: 1000px; */
+    margin: 0px auto;
+    padding: 10px;
+    background-color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.logo-head {
+  grid-area: logo;
+  max-width: 100%;
+}
+
+.main-head {
+  grid-area: header;
+  border-width: 1px;
+}
+
+.content {
+  grid-area: content;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 10px;
+}
+
+.services {
+  grid-area: services;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #406020;
+  color: black;
+  justify-content: center;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+.services > div {
+  background-color: white;
+  flex-wrap: wrap;
+  margin: 4px;
+  padding: 4px;
+  border-width: 1px;
+  border-color: black;
+  border-style: solid;
+}
+
+.main-nav {
+  grid-area: nav;
+  background-color: #406040;
+  color: white;
+  line-height: 16px;
+  text-align: center;
+  padding: 4px;
+}
+
+.main-nav a:link, a:visited {
+  background-color: white;
+  color: black;
+  border: 1px solid green;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.main-nav a:hover, a:active {
+  background-color: green;
+  color: white;
+}
+
+.newsbar {
+  grid-area: news;
+  background-color: #406040;
+  color: black;
+  padding: 4px;
+}
+
+.newsbar > div {
+  background-color: white;
+  flex-wrap: wrap;
+  margin: 4px;
+  padding: 4px;
+}
+
+.main-footer {
+  grid-area: footer;
+  line-height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**********************************
+HTML Elements
+**********************************/
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**********************************
+Dynamic window applications
+**********************************/
+
+@media (min-width: 500px) {
+  .wrapper {
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: 
+      "logo     header"
+      "nav      nav"
+      "news     content"
+      "news     content"
+      "services services"
+      "footer   footer";
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+    border-color: black;
+    border-style: solid;
+    line-height: 5px;
+    border-width: 1px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: 
+      "logo    header   ."
+      "nav     content  news"
+      "nav     content  news"
+      "nav     services news"
+      "footer  footer   footer"
+   }
+
+   nav ul {
+     flex-direction: column;
+     border-color: black;
+     border-style: solid;
+     line-height: 5px;
+     border-width: 1px;
+   }
+
+   .services > div {
+     max-width: 200px;
+    }
+
+  }
+
+/**********************************
+Social Media Applications
+**********************************/
+  
+  .fa {
+    padding: 10px;
+    font-size: 20px;
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+    border-radius: 100%;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+    border-radius: 100%;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+    border-radius: 100%;
+  }

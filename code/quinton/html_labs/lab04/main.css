@@ -37,6 +37,10 @@ button {
     border-radius: 4px;
     color: black;
 }
+button:hover {
+    background-color: rgb(75, 75, 75);
+    transition: .3s ease-in-out;
+}
 i {
     margin: -20px 0 20px 0;
     font-size: 40px;

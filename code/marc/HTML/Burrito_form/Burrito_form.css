@@ -1,0 +1,71 @@
+
+
+
+
+/* font-family: 'Henny Penny', cursive; */
+html {
+    box-sizing: border-box;
+    }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color: #4AA3D5;
+    display: flex;
+    flex-direction:column;
+    }
+
+img {
+    display: flex;
+    float: center;
+    display: inline;
+    width: 533px; 
+    height: 300px;
+    margin: 0 auto;
+    }
+
+header {display: flex;
+        flex-direction:column;
+        font-size: 32px;
+        color: #F36419;
+        font-family: 'Henny Penny', cursive;
+        justify-content: space-between;
+     
+       }
+    h1{
+        margin:12px;
+    }
+    h3{
+        margin:12px ;
+    }
+.form {display:flex;
+       direction: row;
+       justify-content: space-around;
+       color:black;}
+
+h3{color: #F36419;
+font-size: 24px;}
+
+.formtitle {color: #F36419;
+    font-size: 18px;}
+.personal-info {color: #F36419;
+font-size: 18px;}
+
+/* input[type="radio"]{
+    margin: 6px;
+} */
+
+
+
+/* .personal-info {display:flex;
+       direction: row;
+       justify-content: space-around;
+       color:black;} */
+       
+
+/* h2{margin:10px;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 5px solid  rgb(38, 0, 255);
+    padding: 5px;
+    } */
