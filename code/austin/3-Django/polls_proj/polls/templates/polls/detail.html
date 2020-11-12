@@ -1,8 +1,14 @@
-<h1>{{ question.question_text }}</h1>
+<h1>{{ question.question_text }}<h1>
 <h4>Posted on {{ question.pub_date }}</h4>
 
+{% comment %} <ul>
+    {% for choice in question.choice_set.all %}
+        <li>{{ choice.choice_text }}</li>
+    {% endfor %}
+</ul> {% endcomment %}
+
 {% if error_message %}
-<p><strong>{{ error_message }}</strong></p>
+<p><strong>{{ error_message }}<strong></p>
 {% endif %}
 
 <form action="{% url 'polls:vote' question.id %}" method="post">
