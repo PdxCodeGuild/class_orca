@@ -28,14 +28,12 @@
 # print(years)
 # print(len(jackals))
 
+jackalope_num = 1
+
 jackals = [
-    {
-    'name': 'jackalope_1',
-    'age': 0,
-    'sex': '',
-    'pregnant': ''
-    }
-]
+    {'name': 'jackalope_'(jackalope_num), 'age': 0, 'sex': 'm', 'pregnant': 'no'},
+    {'name': 'jackalope_'(jackalope_num), 'age': 0, 'sex': 'f', 'pregnant': 'no'}
+    ]
 years = 0
 
 while len(jackals) <= 1000:
