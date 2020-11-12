@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import views
 
+app_name = 'polls' # kinda a 'magic' variable that we had to also change in the index.html thing
 urlpatterns = [ # this urlpatterns MUST BE EXACT!
     path('', views.index, name='index'), # path, then function, then NAME of path
     path('<int:question_id>/', views.detail, name='detail'),
