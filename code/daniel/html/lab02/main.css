@@ -5,73 +5,87 @@ html {
     box-sizing: inherit;
 }
 img {
+    display: block;
     max-width: 100%;
 }
 body {
-    background-color: #024873;
-    font-family: 'Bitter', serif;
-}
-header, footer, nav a {
-    color: #F2F1F0;
+    background-color: #003B74;
 }
 h1, nav {
-    font-family: 'Gentium Basic', serif;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-}
-nav {
-    margin-bottom: 24px;
-}
-nav a {
-    padding: 12px;
+    color: #E9F5F7;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-bottom: 0px;
 }
 h1 {
-    margin-bottom: 0px;
+    text-decoration: underline  ;
 }
-h2, p {
+nav a {
     display: flex;
-    flex-direction: column;
-    text-align: justify;
-    background-color: #F2F1F0;
-    padding: 12px;
+    flex-direction: row; 
+    padding-left: 6px;
+    padding-right: 6px;
+    color: #E9F5F7;
 }
-p {
-    margin-top: 0px;
-    padding-bottom: 24px;
-    padding-top: 12px;
-    font-size: 11pt;
-    text-indent: 23px;
+.intro, .blog_entry {
+    display: flex;
+    flex-flow: column;
+    text-align: justify;
+    padding: 3px;
+    margin: 30px 10px;
+    background-color: #E9F5F7;
+    box-shadow: 1px 2px 30px rgb(20, 18, 18);
+    border-radius: 5px;
 }
 h2 {
-    padding-top: 12px;
-    margin-bottom: 0px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    font-family: 'Lora', serif;
+    font-weight: 400;
 }
-div {
-    margin:36px 0px;
+div img {
+    margin-top: 3px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px black;
 }
 footer {
-    padding-left: 12px;
+    color: #E9F5F7;
+    padding-left: 10px;
     font-size: 8pt;
+    margin-top: 200px;
 }
-@media (min-width: 760px) {
-    div {
-        width: 45%;
-        margin: 24px;
+p {
+    font-family: 'Sumana', serif;
+    font-size: 11pt;
+    text-indent: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 6px;
+}
+p:first-of-type {
+    margin-top: 0px;
+}
+p::first-letter {
+    font-size: 18pt;
+}
+@media (min-width: 700px) {
+    h1, nav, .intro, footer {
+        margin-right: 6%;
+        margin-left: 6%;
     }
-    
+    .blog_entry {
+        width: 40%;
+    }
     .blog {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .intro{
-        margin: 6px 24px 32px 24px;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
     }
 }
 @media (min-width: 960px) {
-    div {
-        width: 30%;
+    .blog_entry {
+        width: 25%;
     }
 }
