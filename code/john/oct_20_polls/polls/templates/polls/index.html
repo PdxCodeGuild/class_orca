@@ -1,3 +1,7 @@
+{% load static %}
+{% comment %} good idea to have this at the top of every html... {% endcomment %}
+<link rel="stylesheet" href="{% static 'polls/main.css'%}">
+
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -8,6 +12,7 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
 
 
 {% comment %} NOTE {% endcomment %}
