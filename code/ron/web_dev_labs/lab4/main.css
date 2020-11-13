@@ -11,13 +11,14 @@ body {
   background-position: center;
 }
 
+
  .wrapper {
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 100px 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: 
-    "headerL  headerR"
+    "lefthead  righthead"
     /* "headerR  headerR" */
     "title    title"
     "tortilla protein"
@@ -29,13 +30,12 @@ body {
     margin: 0px auto;
     /* float: left; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-width: 1px;
-    border-color: white;
-    border-style: solid;
+    border: 1px white solid;
+
 }
 
 .logo {
-  grid-area: headerL;
+  grid-area: lefthead;
   border-width: 1px;
   border-color: rgb(228, 6, 6);
   border-style: solid;
@@ -49,7 +49,7 @@ body {
 } */
 
 .main-nav {
-  grid-area: headerR;
+  grid-area: righthead;
   list-style: none;
   border-width: 1px;
   border-color: rgb(223, 11, 11);

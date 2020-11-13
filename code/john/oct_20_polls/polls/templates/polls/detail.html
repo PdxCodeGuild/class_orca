@@ -2,6 +2,10 @@
 <h1>{{ question.question_text}}</h1>
 <h4>Posted on {{ question.pub_date}}</h4>
 
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
 <form action="{% url 'polls:vote' question.id %}" method="POST"> 
     {% csrf_token %} 
     {% comment %} NAME: CSRF: cross-site request forgery. Puts in a hidden input. BEST PRACTICE TO USE WITH ANY POST-UPDATE-DATABASE FORM {% endcomment %}
