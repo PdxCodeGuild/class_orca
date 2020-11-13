@@ -58,30 +58,23 @@ header * {
     padding: 1em 0;
 }
 
-div {
-    display: flex;
-    background-color: #242916;
-    align-items: center;
-    flex-direction: column;
-}
-
 ul {
     display: flex;
     margin: 0;
     padding: 0em 0;
     background-color: white;
-    justify-content: space-between;
+    justify-content: space-around;
     position: relative;
     text-align: center;
 }
 li {
     display: flex;
-    font-size: 30px;
+    font-size: 20px;
     margin: 10px;
 }
 #list {
     font-family: Arial, Helvetica, sans-serif;
-    color: #596641;
+    color: #363d21;
     text-decoration: none;
     transition-duration: .2s;
     cursor: pointer;
@@ -95,8 +88,6 @@ img {
     height: 100%;
     width: 100%;
 }
-
-
 #roadtrip {
     display: flex;
     height: 350px;
@@ -110,15 +101,6 @@ img {
     align-content: center;
     padding: 0;
 
-}
-#map {
-    color: white;
-    transition-duration: .2s;
-    cursor: pointer;
-    padding-top: 60px;
-}
-#map:hover {
-    color: #808080;
 }
 
 #portland {
@@ -134,15 +116,6 @@ img {
     align-content: center;
     padding: 0;
 }
-#city {
-    color: white;
-    transition-duration: .2s;
-    cursor: pointer;
-    padding-top: 60px;
-}
-#city:hover {
-    color: #808080;
-}
 #hood {
     display: flex;
     height: 350px;
@@ -155,15 +128,6 @@ img {
     align-items: column;
     align-content: center;
     padding: 0;
-}
-#hiking {
-    color: white;
-    transition-duration: .2s;
-    cursor: pointer;
-    padding-top: 60px;
-}
-#hiking:hover {
-    color: #808080;
 }
 #coast {
     display: flex;
@@ -178,12 +142,77 @@ img {
     align-content: center;
     padding: 0;
 }
-#ocean {
+#camping {
+    display: flex;
+    height: 350px;
+    width: 100%;
+    background-image: url(camping.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 50px;
+    justify-content: center;
+    align-items: column;
+    align-content: center;
+    padding: 0;
+}
+
+#park {
+    display: flex;
+    height: 350px;
+    width: 100%;
+    background-image: url(park.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 50px;
+    justify-content: center;
+    align-items: column;
+    align-content: center;
+    padding: 0;
+}
+#icon {
     color: white;
     transition-duration: .2s;
     cursor: pointer;
-    padding-top: 60px;
+    padding-top: 0px;
 }
-#ocean:hover {
+#icon:hover {
     color: #808080;
+}
+
+#footer {
+    display: flex;
+    background-color: white;
+    color: #242916;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+    display: flex;
+    background-color: #242916;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Permanent Marker', cursive;
+}
+h5 {
+    display: flex;
+    color: rgb(122, 122, 122);
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+hr {
+    margin: 0px 190px 10px 190px;
+}
+@media screen and (min-width:700px) {
+    body {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    div {
+        width: 50%;
+        padding: 30px;
+    }
+    ul {
+        width: 100%;
+    }
 }
