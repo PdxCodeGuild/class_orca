@@ -1,0 +1,32 @@
+
+<h1>{{ question.question_text}}</h1>
+<h4>Posted on {{ question.pub_date}}</h4>
+
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="POST"> 
+    {% csrf_token %} 
+    {% comment %} NAME: CSRF: cross-site request forgery. Puts in a hidden input. BEST PRACTICE TO USE WITH ANY POST-UPDATE-DATABASE FORM {% endcomment %}
+    {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" required>
+        <label for="choice{{ forloop.counter }}" >{{ choice.choice_text }}</label><br>
+    {% endfor %}
+    <input type="submit" value="Vote!">
+</form>
+
+
+{% comment %} 
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }}</li>
+{% endfor %}
+</ul> 
+{% endcomment %}
+
+
+{% comment %} NOTE {% endcomment %}
+{% comment %} NOTE {% endcomment %}
+{% comment %} NOTE {% endcomment %}
+{% comment %} IN LABS, PUT IN FULL HTML PAGES AND SYNTAX, HTML TAG, SYNTAX, CSS, ETC... {% endcomment %}
