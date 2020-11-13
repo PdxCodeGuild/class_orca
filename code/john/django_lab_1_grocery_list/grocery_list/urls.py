@@ -1,5 +1,7 @@
-# POLLS EXAMPLE PROJECT
-# URLs from polls_project PROJ folder
+# LAB 1, GROCERY LIST
+# THIS IS THE APP FOLDER
+# groceries is the project name
+# grocery_list is the 'app' name, only one in this proj
 
 """polls_project URL Configuration
 
@@ -16,10 +18,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls')), # app name, 
+# THIS IS THE APP FOLDER! 
+
+from django.urls import path
+
+from . import views
+
+app_name = 'grocery_list'
+
+urlpatterns = [    
+    # GENERALLY  GO FROM *MORE* SPECIFIC TO LEAST SPECIFIC...
+    # path, then function, then NAME of path
+    
+    # INDEX PAGE:
+    path('', views.index, name='index'),
+    # path('', views.view_grocery_list, name='view_grocery_list'),
 ]
