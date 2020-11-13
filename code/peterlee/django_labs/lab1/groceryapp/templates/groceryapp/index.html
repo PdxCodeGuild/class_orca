@@ -1,0 +1,29 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'groceryapp/main.css' %}">
+
+<h1>Incomplete Grocery List</h1>
+{% if incomplete_grocery_list %}
+    <ul>
+    {% for item in incomplete_grocery_list %}
+        <li>{{ item.groceryitem_text }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+<h1>Complete Grocery List</h1>
+{% if complete_grocery_list %}
+    <ul>
+    {% for item in complete_grocery_list %}
+        <li>{{ item.groceryitem_text }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<form action="{% url 'groceryapp:submit' %}" method="post">
+{% csrf_token %}
+<label>If you want to add a new item into the list, enter it below and click submit</label>
+<br><br>
+<input type="text" name="entry" placeholder="Enter an item" required>
+<input type="submit" value="Submit">
+</form>
+
