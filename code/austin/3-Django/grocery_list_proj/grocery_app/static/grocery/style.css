@@ -1,0 +1,35 @@
+
+.header {
+    padding: 25px;
+    background-image: url(groceries.jpg);
+    background-repeat: no-repeat;
+    color: white;
+    text-shadow: 1px 2px 0 black;
+}
+
+.display {
+    padding: 24px;
+}
+
+.add-item {
+    padding: 25px;
+}
+
+body {
+    padding: 24px;
+}
+
+.table {
+    max-width: 75%;
+}
+
+button {
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #4DA22F;
+    color: white;
+}
+
+button:hover {
+    background-color: green;
+}

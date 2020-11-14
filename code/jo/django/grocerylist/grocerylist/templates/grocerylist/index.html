@@ -1,0 +1,23 @@
+<form action="{% url 'grocerylist:add_item' %}" method="post">
+    {% csrf_token %}
+    <input type="text" id='item' name="item"/>
+    <button type="submit">Add item</button>
+</form>
+
+{% if current_grocery_list %}
+<ul>
+    {% for i in current_grocery_list%}
+    <li>{{i.item}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<hr/>
+{% if completed_items %}
+<ul>
+    {% for i in completed_items %}
+    <li>{{i.item}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
