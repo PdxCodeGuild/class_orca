@@ -16,7 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import grocerylist
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('grocerylist/', include('grocerylist.urls'))
+    path('grocerylist/', include('grocerylist.urls')),
 ]
