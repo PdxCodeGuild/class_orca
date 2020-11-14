@@ -1,0 +1,41 @@
+{% comment %} input is grocery list {% endcomment %}
+{% load static %}
+{% comment %} good idea to have this at the top of every html... {% endcomment %}
+<link rel="stylesheet" href="{% static 'polls/main.css'%}">
+
+{% comment %} TODO: LIMIT THIS FORM TO 200 CHARACTERS! {% endcomment %}
+
+<form action="{% url 'grocery_list:add_item' %}"  method="POST">
+    {% csrf_token %}
+    {% comment %} FORM NEEDS A {% csrf_token %} {% endcomment %}
+    <input type="text" id="item" name="item"/>
+    {% comment %} <input type="button" value="Add to grocery list" />     {% endcomment %}
+    <input type="submit" value="Add item!">
+</form>
+<hr>
+
+{% if current_grocery_list %}
+    <ul>
+        {% for item in current_grocery_list %}
+        <li> {{item.grocery_description}} </li>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+
+<hr>
+
+{% if completed_items %}
+    <ol>
+        {% for item in completed_items %}
+        <li> {{item.grocery_description}}, checked on {{item.completed_date}} </li>
+        {% endfor %}
+    </ol>
+
+{% else %}
+    <h1>List is empty!</h1>
+{% endif %}
+
+
+{% comment %} NOTE {% endcomment %}
+{% comment %} IN LABS, PUT IN FULL HTML PAGES AND SYNTAX, HTML TAG, SYNTAX, CSS, ETC... {% endcomment %}
