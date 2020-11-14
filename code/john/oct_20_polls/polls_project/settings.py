@@ -1,3 +1,5 @@
+# POLLS EXAMPLE PROJECT
+
 """
 Django settings for polls_project project.
 
