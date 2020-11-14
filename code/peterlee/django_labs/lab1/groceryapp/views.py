@@ -13,10 +13,29 @@ def index(request):
 
 def submit(request):
     if request.method == 'POST':
-        new_entry = GroceryItem(groceryitem_text=request.POST.get('entry'), pub_date=timezone.now())
-        new_entry.save()
+        if 'entry' in request.POST:
+            if request.POST.get('entry'):
+                new_entry = GroceryItem(groceryitem_text=request.POST.get('entry'), pub_date=timezone.now())
+                new_entry.save()
 
-        return HttpResponseRedirect(reverse('groceryapp:submitted'))
+                return HttpResponseRedirect(reverse('groceryapp:submitted'))
+            
+            else:
+                return render(request, 'groceryapp/index.html')
+
+        if 'delete' in request.POST:
+
+            return HttpResponseRedirect(reverse('groceryapp:submitted'))
+
+        if 'mark_incomplete' in request.POST:
+
+            return HttpResponseRedirect(reverse('groceryapp:submitted'))
+
+        if 'mark_complete' in request.POST:
+
+            return HttpResponseRedirect(reverse('groceryapp:submitted'))
+
 
 def submitted(request):
     return render(request, 'groceryapp/submitted.html')
+
