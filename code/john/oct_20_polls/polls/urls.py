@@ -1,7 +1,11 @@
+# POLLS EXAMPLE PROJECT
+# URLs from poll APP folder
+
 from django.urls import path
 from . import views
 
 app_name = 'polls' # kinda a 'magic' variable that we had to also change in the index.html thing
+
 # CLASS BASED VIEWS:
 urlpatterns = [ # this urlpatterns MUST BE EXACT!
     # GENERALLY  GO FROM *MORE* SPECIFIC TO LEAST SPECIFIC...
