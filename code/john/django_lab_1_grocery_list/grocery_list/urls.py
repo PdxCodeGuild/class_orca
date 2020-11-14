@@ -33,5 +33,6 @@ urlpatterns = [
     
     # INDEX PAGE:
     path('', views.index, name='index'),
-    # path('', views.view_grocery_list, name='view_grocery_list'),
+    
+    path('add_item/', views.add_item, name='add_item'),
 ]

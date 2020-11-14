@@ -3,31 +3,39 @@
 {% comment %} good idea to have this at the top of every html... {% endcomment %}
 <link rel="stylesheet" href="{% static 'polls/main.css'%}">
 
+{% comment %} TODO: LIMIT THIS FORM TO 200 CHARACTERS! {% endcomment %}
+
+<form action="{% url 'grocery_list:add_item' %}"  method="POST">
+    {% csrf_token %}
+    {% comment %} FORM NEEDS A {% csrf_token %} {% endcomment %}
+    <input type="text" id="item" name="item"/>
+    {% comment %} <input type="button" value="Add to grocery list" />     {% endcomment %}
+    <input type="submit" value="Add item!">
+</form>
+<hr>
+
 {% if current_grocery_list %}
     <ul>
         {% for item in current_grocery_list %}
         <li> {{item.grocery_description}} </li>
         {% endfor %}
     </ul>
+
+{% endif %}
+
+<hr>
+
+{% if completed_items %}
+    <ol>
+        {% for item in completed_items %}
+        <li> {{item.grocery_description}}, checked on {{item.completed_date}} </li>
+        {% endfor %}
+    </ol>
+
+{% else %}
+    <h1>List is empty!</h1>
 {% endif %}
 
 
-
-
-{% comment %}
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text}} Posted on {{question.pub_date}}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %} {% endcomment %}
-
-
-
 {% comment %} NOTE {% endcomment %}
-{% comment %} NOTE {% endcomment %}
-{% comment %} NOTE {% endcomment %}
-{% comment %} IN LABS, PUT IN FULL HTML PAGES AND SYNTAX, HTML TAG, SYNTAX, CSS, ETC... {% endcomment %} {% endcomment %}
+{% comment %} IN LABS, PUT IN FULL HTML PAGES AND SYNTAX, HTML TAG, SYNTAX, CSS, ETC... {% endcomment %}
