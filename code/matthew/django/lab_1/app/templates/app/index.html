@@ -12,7 +12,9 @@
 
 {% if current_grocery_list %}
 
+<h1>Grocery List</h1>
 <ul>
+
     {% for item in current_grocery_list %}
     <li> {{item.item_text}}
     <form action="{% url 'app:delete' item.id %}" method='post'>
@@ -22,19 +24,22 @@
 
     <form action="{% url 'app:mark_complete' item.id %}" method='post'>
         {% csrf_token %}
-        <input type='submit' value='Check'/>
+        <input type='submit' value='Add'/>
     </form>
     </li>
     {% endfor %}
 </ul>
-
 {% endif %}
 
+
 {% if completed_items %}
-    <p>In cart</p>
+    <h1>In cart</h1>
 <ul>
     {% for item in completed_items %}
     <li> {{item.item_text}}</li>
+    <form action="{% url 'app:delete' item.id %}" method='post'>
+        {% csrf_token %}
+        <input type='submit' value='Clear'/>
     {% endfor %}
 </ul>
 
