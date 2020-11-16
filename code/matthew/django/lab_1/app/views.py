@@ -29,7 +29,7 @@ def mark_complete(request, pk):
     # print(select_complete)
     # print(select_complete.completed)
     select_complete.completed = True
-    completed_date
+
     # print(select_complete.completed)
     select_complete.save()
     return HttpResponseRedirect(reverse('app:index'))
