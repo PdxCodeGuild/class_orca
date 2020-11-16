@@ -6,7 +6,7 @@ Lab_23 Version_1
 
 with open('contact_list.csv', 'r') as file:
     lines = file.read().split('\n')
-# print(lines)
+print(lines)
 
 def key_generator():
     '''Converts .cvs header to a list of keywords for dictionary use'''
@@ -37,14 +37,14 @@ def contact_tuples(keys, contact):
 def main():
     # generate contact list titles
     keys = key_generator()
+    # generate tuples of contact info
     contact_value = value_generator()
+    # generate a list of dictionaries, one dictionary for each contact
     contacts = []
     for contact in contact_value:
         contact_dict = contact_tuples(keys, contact)
         contacts.append(contact_dict)
     for i in contacts:
-        print(i)
-    
+        print(i)        
 
 main()
-

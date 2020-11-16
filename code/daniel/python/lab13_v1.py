@@ -29,7 +29,8 @@ for letter in to_encrypt:
         elif new_index >12:
             new_index %= 13
             encrypted.append(alpha_list[new_index])
-
+    else:
+        encrypted.append(letter)
 # convert list back to string for reading comprehension
 encrypted = ''.join(encrypted)
 
