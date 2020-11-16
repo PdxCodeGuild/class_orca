@@ -1,0 +1,89 @@
+{% load static %}
+{% comment %} good idea to have this at the top of every html... {% endcomment %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Grocery List!</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% comment %} <link rel="stylesheet" href="github_necolas_normalize.css"> {% endcomment %}
+      <link rel="stylesheet" href="{% static 'grocery_list/main.css'%}">
+    </head>
+  <body>
+
+{% comment %} TODO: LIMIT THIS FORM TO 200 CHARACTERS! {% endcomment %}
+
+{% comment %} 
+<hr>
+<h1>Shopping List:</h1>
+
+{% if current_grocery_list %}
+    <ul>
+        {% for item in current_grocery_list %}
+        <li> {{item.grocery_description}} </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h1>List is empty!</h1>
+{% endif %} 
+{% endcomment %}
+
+<hr>
+<hr>
+<h1>TEST AREA:</h1>
+{% comment %} EACH Item:
+-CHECKBOX TO MARK Completed
+-CHECKBOX TO DELETE...
+...SUBMIT AT BOTTOM {% endcomment %}
+
+    <form action="{% url 'grocery_list:delete_item' %}"  method="POST">
+        {% csrf_token %}
+        <fieldset>
+          <legend>Mark Complete:</legend>
+        {% for item in current_grocery_list %}
+            <input type="checkbox" id="{{item.grocery_description}}" name="{{item.grocery_description}}" value="{{item.grocery_description}}">
+            <label for="{{item.grocery_description}}"> {{item.grocery_description}} </label><br>
+        {% endfor %}
+
+        {% comment %} <input type="checkbox" name="completed" id="id_completed" checked=""> {% endcomment %}
+
+        </fieldset>     
+
+        <fieldset>
+          <input type="reset" value="Clear Seletced">
+          <input type="submit" value="Delete marked">
+        </fieldset>
+    </form>
+
+
+    <hr>
+    <hr>
+    <h1>Add new item:</h1>
+    <form action="{% url 'grocery_list:add_item' %}"  method="POST">
+        {% csrf_token %}
+        <input type="text" id="item" name="item"/>
+        {% comment %} <input type="button" value="Add to grocery list" />     {% endcomment %}
+        <input type="submit" value="Add item!">
+    </form>
+    <hr>
+
+    <h1>Completed Items:</h1>
+    {% if completed_items %}
+        <ol>
+            {% for item in completed_items %}
+            <li>Completed on {{item.completed_date}}: <strong>{{item.grocery_description}}</strong>.</li>
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <h1>List is empty!</h1>
+    {% endif %}
+    <hr>
+
+
+
+  <body>
+</html>
+
+{% comment %} NOTE {% endcomment %}
+{% comment %} IN LABS, PUT IN FULL HTML PAGES AND SYNTAX, HTML TAG, SYNTAX, CSS, ETC... {% endcomment %}

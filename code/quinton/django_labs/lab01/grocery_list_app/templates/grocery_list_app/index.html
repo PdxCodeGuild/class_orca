@@ -1,0 +1,27 @@
+<form action="{% url 'grocery_list_app:add_item' %}" method='post'>
+    {% csrf_token %}
+    <input type='text' id='item' name='item'/>
+    <input type="submit" value="add item to list"/>
+</form>
+
+{% if current_grocery_list %}
+
+<ul>
+{% for item in current_grocery_list %}
+    <li>{{item.text_description}}</li><br>
+{% endfor %}
+</ul>
+
+{% endif %}
+
+<hr/>
+
+{% if completed_items %}
+
+<ul>
+{% for item in completed_items %}
+    <li>{{item.text_description}}</li><br>
+{% endfor %}
+</ul>
+
+{% endif %}

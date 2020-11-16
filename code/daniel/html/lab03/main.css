@@ -4,22 +4,36 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-img {
-    display: block;
-    max-width: 100%;
+header {
+    padding-bottom: 48px;
+}
+header, body, footer {
+    text-align: center;
+    padding-left: 6px;
+    padding-right: 7px;
 }
 h1 {
-    background: linear-gradient(to right, #FDCC73, #868992, #898F9A) ;
-    padding-top: 18px;
-    padding-bottom: 0px;
-    border: 1px solid red;
-    margin-bottom: 0px;
+    font-size: 42px;
+    font-family: 'Goldman', cursive;
+    text-decoration: underline;
 }
-nav {
-    border: 1px solid red;
-    padding-left: 3px;
-    padding-right: 3px;
+.titles h2 {
+    font-size: 32px;
+    font-family: 'Teko', sans-serif;
 }
-.dropwdown:hover .navigation {
-    display: block;
+nav a {
+    color: rgb(242, 255, 168);
+    text-decoration: none;
+    padding-left: 6px ;
+}
+body {
+    background-color: black;
+    color: rgb(242, 255, 168);
+}
+body div {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+img {
+    max-width: 100%;
 }

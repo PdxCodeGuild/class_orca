@@ -1,0 +1,24 @@
+{% comment %} polls project {% endcomment %}
+
+
+{% load static %}
+{% comment %} good idea to have this at the top of every html... {% endcomment %}
+<link rel="stylesheet" href="{% static 'polls/main.css'%}">
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        {% comment %} <li><a href="/polls/{{question.id}}/">{{ question.question_text}}</a> on {{question.pub_date}}</li> {% endcomment %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text}} Posted on {{question.pub_date}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+
+
+
+{% comment %} NOTE {% endcomment %}
+{% comment %} NOTE {% endcomment %}
+{% comment %} NOTE {% endcomment %}
+{% comment %} IN LABS, PUT IN FULL HTML PAGES AND SYNTAX, HTML TAG, SYNTAX, CSS, ETC... {% endcomment %}

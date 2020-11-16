@@ -1,23 +1,7 @@
-
-
-
 /*
 /* John Fial, PDX Code Guild, 2020-2021, www.johnfial.com 
 /* *********** NOTE ************* */
 
-/* Pick an industry and create the landing page for a hypothetical company, filling in as much detail as possible. 
-Use CSS grid and/or flexbox, and make sure it's responsive. Use this reference image, and 
-browse the internet for existing company pages and imitate as much as you can. */
-
-/* copied these two items from bottom of page "box sizing" @ https://github.com/PdxCodeGuild/class_orca/blob/main/2%20HTML%20+%20CSS/docs/06%20-%20CSS%20Box%20Model.md */
-*/
-
-
-
-
-
-
-/*
 html {
     box-sizing: border-box;
 }
@@ -27,29 +11,33 @@ html {
 } 
 
 h1, h2, h3, h4, h5, h6 {
+    font-weight: 'Libre Baskerville', serif;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: whitesmoke;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    color: rgba(245, 245, 245, 0.801); */
 }
 
 body {
-    background-color: rgb(0, 90, 78);
+    background-color: rgb(0, 164, 214);
+    color: rgb(0, 48, 48);
     padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Open Sans', sans-serif;
 }
 
 header, footer, main {
     display: block;
-    /* padding: 10px; 
-    background-color: rgb(4, 40, 94);
-    /* align-items: center; 
+    padding: 10px; 
+    background-color: rgb(6, 56, 148);
+    align-items: center; 
+    text-decoration-color: crimson;
 }
 
 img {
-    display: block;
-    max-width: 100%;
+    display: flex;
+    margin: auto;
+    max-width: 33%;
     border-radius: 10%;
-    padding: 2%;
 }
 
 #logo_main {
@@ -57,34 +45,40 @@ img {
 }
 
 nav {
-    /* display: flex; */
-    /* justify-content: left; */
-    /* flex-wrap: wrap; 
-    align-content: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
 }
 
 a {
     display: flex;
     justify-content: left;
-    /* text-decoration: none; 
+    text-decoration: none; 
     transition: all 250ms ease-in-out;
-    color: blanchedalmond;
+    color: rgba(255, 235, 205, 0.952);
 }
 
 a:hover {
     color: rgb(60, 64, 247);
     font-size: larger;
-    transition: all 50ms ease-in-out
+    transition: all 10ms ease-in-out
 }
 
 
 p {
-    /* padding: 0%;
+    padding: 0%;
     text-align: justify; 
     margin: 10px;
     color: white;
 }
 
+legend {
+    color: rgba(231, 255, 204, 0.89);
+}
+
+label {
+    color: rgba(112, 255, 148, 0.89);
+}
 
 @media (min-width: 700px) {
     body, header, main {
@@ -98,9 +92,11 @@ p {
         justify-content: center;
     }
 
-    /* nav p {
+    nav p {
         margin-top: 5px;
-        background-color: lightpink;
+        margin-left: 20px;
+        margin-right: 20px;
+        /* background-color: lightpink; */
     } 
 
     .gallery {
@@ -115,13 +111,12 @@ p {
 
     footer {
         display: flex;
-        /* margin: 2%; 
-        margin-left: 15%;
+        margin: auto; 
+        margin-left: auto;
         width: auto;
-        position: fixed;
-        bottom: 0%;
-        background-color: rgb(0, 107, 14);
-        z-index: 1; /* necessary?? aoeu 
+        /* position: fixed; */
+        /* background-color: rgb(0, 16, 107); */
+        /* z-index: 1; necessary?? aoeu */
     }
 }
 
@@ -131,5 +126,3 @@ p {
         width: 30%;
     }
 }
-
-*/
