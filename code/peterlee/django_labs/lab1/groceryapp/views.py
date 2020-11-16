@@ -11,31 +11,32 @@ def index(request):
     context = {'complete_grocery_list': complete_grocery_list, 'incomplete_grocery_list': incomplete_grocery_list}
     return render(request, 'groceryapp/index.html', context)
 
-def submit(request):
-    if request.method == 'POST':
-        if 'entry' in request.POST:
-            if request.POST.get('entry'):
-                new_entry = GroceryItem(groceryitem_text=request.POST.get('entry'), pub_date=timezone.now())
-                new_entry.save()
+def add(request):
+    new_entry = GroceryItem(groceryitem_text=request.POST.get('entry'), pub_date=timezone.now())
+    new_entry.save()
+    return HttpResponseRedirect(reverse('groceryapp:index'))
+    
 
-                return HttpResponseRedirect(reverse('groceryapp:submitted'))
-            
-            else:
-                return render(request, 'groceryapp/index.html')
+def complete(request, pk):
+    entry = GroceryItem.objects.get(pk=pk)
+    entry.completion_check = True
+    entry.completion_date = timezone.now()
+    entry.save()
+    return HttpResponseRedirect(reverse('groceryapp:index'))
 
-        if 'delete' in request.POST:
-
-            return HttpResponseRedirect(reverse('groceryapp:submitted'))
-
-        if 'mark_incomplete' in request.POST:
-
-            return HttpResponseRedirect(reverse('groceryapp:submitted'))
-
-        if 'mark_complete' in request.POST:
-
-            return HttpResponseRedirect(reverse('groceryapp:submitted'))
+def incomplete(request, pk):
+    entry = GroceryItem.objects.get(pk=pk)
+    entry.completion_check = False
+    entry.completion_date = None
+    entry.save()
+    return HttpResponseRedirect(reverse('groceryapp:index'))
 
 
-def submitted(request):
-    return render(request, 'groceryapp/submitted.html')
+
+def delete(request, pk):
+    entry = GroceryItem.objects.get(pk=pk)
+    entry.delete()
+    return HttpResponseRedirect(reverse('groceryapp:index'))
+
+
 
