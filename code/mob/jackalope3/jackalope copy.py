@@ -1,32 +1,32 @@
-'''
-PDX Code Guild
-Daniel Eggimann & Quinton Baseman
-Jackalope Lab
-'''
-jackals = [0, 0]
-years = 0
+# '''
+# PDX Code Guild
+# Daniel Eggimann & Quinton Baseman
+# Jackalope Lab
+# '''
+# jackals = [0, 0]
+# years = 0
 
-while len(jackals) <= 1000:
-    for num in range(len(jackals)):
+# while len(jackals) <= 1000:
+#     for num in range(len(jackals)):
         
-        # living jackals
-        if jackals[num] <= 9:
-            # age the jackal by one year
-            jackals[num] = jackals[num] + 1
-            # # birthing jackals
-            if 4 <= jackals[num] <= 8:
-                jackals.append(0)
+#         # living jackals
+#         if jackals[num] <= 9:
+#             # age the jackal by one year
+#             jackals[num] = jackals[num] + 1
+#             # # birthing jackals
+#             if 4 <= jackals[num] <= 8:
+#                 jackals.append(0)
 
-        # removing dead jackals
-        elif jackals[num] == 10:
-            jackals.remove(jackals[num])
+#         # removing dead jackals
+#         elif jackals[num] == 10:
+#             jackals.remove(jackals[num])
     
-    # time pass
-    years += 1
+#     # time pass
+#     years += 1
     
 
-print(years)
-print(len(jackals))
+# print(years)
+# print(len(jackals))
 '''jackalope_num = 1
 jackals = [
     {

@@ -1,0 +1,28 @@
+<form action="{% url 'grocery_list_app:add_item' %}" method='POST'> 
+    {% csrf_token %}
+    <input type="text" id='item' name="item"/>
+    <input type="submit" value="add to grocery list"/>
+</form>
+{% comment %} <form action="{% url 'grocery_list_app:delete_item' %}" methos='POST'>
+    {% csrf_token %} 
+    <input type="" {% endcomment %}
+
+{% comment %} this is the context key from views (grocery_item_list) {% endcomment %}
+{% if grocery_item_list %}
+<h2>Items to Get</h2>
+<ul> 
+    {% for item in grocery_item_list %}
+        <li>{{ item.grocery_item }}</li>
+        <
+    {% endfor %}
+</ul>
+{% endif %} 
+<hr> 
+{% if completed_items %}
+<h2>Completed items</h2>
+<ul> 
+    {% for item in completed_items %}
+        <li>{{ item.grocery_item }}</li> 
+    {% endfor %}
+</ul>
+{% endif %} 

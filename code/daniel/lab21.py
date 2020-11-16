@@ -24,22 +24,23 @@ STOPWORDS = [
 ]
 
 def active_file(file):
-    '''Call .txt file for manipulation'''
+    '''Call .txt file for manipulation.'''
     with open(file, 'r') as f:
         contents = f.read()
         return contents
 
 def text_scrub(contents):
     '''Convert text to all lower case, strip puncuation, 
-    and split into a list of words.'''
-    new_contents = contents.lower()
-    newer_contents = str.maketrans('', '', string.punctuation + "’—“”")
-    newest_content = new_contents.translate(newer_contents)
+    and split into a list of words and return list.'''
+    new_content = contents.lower()
+    newer_content = str.maketrans('', '', string.punctuation + "’—“”")
+    newest_content = new_content.translate(newer_content)
     newest_content = newest_content.split()
-    # for item in newest_content:
-    #     if item in STOPWORDS:
-    #         newest_content.remove(item)
-    # return newest_content 
+    # print(newest_content[0:6])
+    # for i in range(len(newest_content)):
+    #     if newest_content[i] in STOPWORDS:
+    #         newest_content.pop(i)
+    # return newest_content
     new_list = []
     for item in newest_content:
         if item not in STOPWORDS:
@@ -48,7 +49,7 @@ def text_scrub(contents):
 
 def dictionary(content):
     '''Quantifies each occurance of a word in a string of text and populates 
-    a dictionary with the word as a key and the number as the value'''
+    a dictionary with the word as the key and the number as the value.'''
     dictionary = {}
     for item in content:
         if item not in dictionary:
@@ -57,14 +58,23 @@ def dictionary(content):
             dictionary[item] += 1
     return dictionary 
 
+# def count_words(populated_dict):
+#     '''Organizes a list of keywords and their occurances(values) into a list of the top 10 occurances'''
+#     words = list(populated_dict.items())
+#     words.sort(key=lambda tup: tup[1], reverse=True)
+#     top_words = []
+#     for i in range(min(10, len(words))):
+#         top_words.append(words[i])
+#     return top_words
+
 def count_words(populated_dict):
     '''Organizes a list of keywords and their occurances(values) into a list of the top 10 occurances'''
-    words = list(populated_dict.items())
-    words.sort(key=lambda tup: tup[1], reverse=True)
+    word_list = list(populated_dict.items())
+    word_list.sort(key = lambda x: x[1], reverse = True)
     top_words = []
-    for i in range(min(10, len(words))):
-        top_words.append(words[i])
-    return top_words
+    for i in range(10):
+        top_words.append(word_list[i])
+    return top_words     
 
 def main():
     contents = active_file('count_of_monte_cristo.txt')

@@ -9,12 +9,12 @@ import random
 
 def pick6():
     '''Generates 6 random numbers and returns those numbers.'''
-    six_nums = []
-    counter = 0
-    while counter <=5:
-        counter += 1
-        six_nums.append((random.randint(1, 99)))
-    return six_nums
+    # six_nums = []
+    
+    # for x in range(6):
+    #     six_nums.append((random.randint(1, 99)))
+    # return six_nums
+    return [random.randint(1,99) for x in range(6)]
 
 winning_nums = pick6()
 
@@ -22,13 +22,16 @@ def compare_tix(comp, gambler):
     '''Calls the winning and gambler numbers to compare 
     and returns to total number of matches'''
     matching_nums = 0
-    counter = 0
-    for num in comp:
-        if comp[counter] == gambler[counter]:
-            matching_nums += 1
-            counter += 1
-        else:
-            counter += 1        
+    # counter = 0
+    # for num in comp:
+    #     if comp[counter] == gambler[counter]:
+    #         matching_nums += 1
+    #         counter += 1
+    #     else:
+    #         counter += 1 
+    for win, tix in zip(comp, gambler):
+        if win == tix:
+            matching_nums += 1           
     return matching_nums
 
 def winning_total(matches):

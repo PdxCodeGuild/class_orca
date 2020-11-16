@@ -8,33 +8,45 @@ Lab_23 Version_2
 with open('contact_list.csv', 'r') as file:
     lines = file.read().split('\n')
 
-# Master Contact List
 contacts = []
 
-def key_generator():
-    '''Converts .cvs header to a list of keywords for dictionary use'''
-    # keywords for dictionary 
-    keys = str(lines[0]).replace(',', ', ')
-    keys = keys.split(', ')
-    # print(keys)
-    return keys
+# keywords for dictionary 
+keys = str(lines[0]).replace(',', ', ')
+keys = keys.split(', ')
 
-def value_generator():
-    '''Converts .cvs text to a list of lists per contact '''
-    dict_values = []
-    for item in range(1, len(lines)):
-        values = str(lines[item].replace(',', ', '))
-        values = values.split(', ')
-        dict_values.append(values)
-    # print(dict_values)
-    return dict_values
+orig_values = []
+for item in range(1, len(lines)):
+    values = str(lines[item].replace(',', ', '))
+    values = values.split(', ')
+    orig_values.append(values)
+
+contact_dict = {}
+for item in orig_values:
+    for index in range(len(item)):
+        contact_dict.update({keys[index], item[index]})
+    contacts.append(contact_dict)
+print(contacts)
+
+
+
+
+contact_dict = {}
+for index in range(len(dict_values)):
+    for attribute in dict_values[index]:
+        contact_dict.update({keys[index]: attribute[index]})
+contacts.append(contact_dict)
+print(contacts)
 
 def contact_tuples(keys, contact):
     '''Combines the key and value inputs to generate a list of dictionaries for every cantact input'''
     contact_dict = {}
+    # if contact_dict != {}:
+    #     contact_dict = {}
     for item in range(len(contact)):
-        contact_dict.update({keys[item]: contact[item]})
-    # print(contact_dict)
+        if contact in contact_dict.values():
+            continue
+        else:
+            contact_dict.update({keys[item]: contact[item]})
     return contact_dict
 
 def contact_input():
@@ -82,37 +94,34 @@ def delete_contact():
             i += 1
 
 def main():
-    # generate contact list titles
-    keys = key_generator()
-    answer = input("Would you like to add a new contact?\ny/n:  ")
-    if answer == 'y':
-        lines.append(contact_input())
-    # generate tuples of contact info
-    contact_value = value_generator()
-    # generate a list of dictionaries, one dictionary for each contact
-    for contact in contact_value:
-        contacts.append(contact_tuples(keys, contact)) 
-    # look up contact
-    answer = input("Would you like to look up a contact?\ny/n:  ")
-    if answer == 'y':
-        contact_info = contact_look_up()
-        print(contact_info)
-    answer = input("Would you like to update an existing contact?\ny/n:  ")
-    if answer == 'y':
-        update_contacts()
-    answer = input("Would you like to delete an existing contact?\ny/n:  ")
-    if answer == 'y':
-        delete_contact()
-    
+
+        answer = input("Would you like to add a new contact?\ny/n:  ")
+        if answer == 'y':
+            lines.append(contact_input())
+        # generate tuples of contact info
+        contact_value = value_generator()
+        # generate a list of dictionaries, one dictionary for each contact
+        for contact in contact_value:
+            contacts.append(contact_tuples(keys, contact)) 
+        # look up contact
+        answer = input("Would you like to look up a contact?\ny/n:  ")
+        if answer == 'y':
+            contact_info = contact_look_up()
+            print(contact_info)
+        answer = input("Would you like to update an existing contact?\ny/n:  ")
+        if answer == 'y':
+            update_contacts()
+        answer = input("Would you like to delete an existing contact?\ny/n:  ")
+        if answer == 'y':
+            delete_contact()
+        to_loop = input("To review these options again enter 'yes', otherwise enter 'no'.\n>")
+
+
+    # i = 0
+    # for contact in contacts:
+    #     for k, v in contacts[i].items():
+    #         print(f"\t",k,v)
+    #     print("\n")
+    #     i += 1
+
 main()
-i = 0
-for contact in contacts:
-    for k, v in contacts[i].items():
-        print(f"\t",k,v)
-    print("\n")
-    i += 1
-
-
-    
-    
-
