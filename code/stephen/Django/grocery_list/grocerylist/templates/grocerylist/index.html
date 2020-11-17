@@ -1,0 +1,78 @@
+<html>
+<head>
+    {% load static %}
+    <title>Grocery List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href= "{% static 'grocerylist/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Grocery List!</h1>
+    </header>
+    <main>
+    <h2>Your Current List:</h2>
+    <section id="current_list">
+        <table id="current_table">
+            <tr>
+                <th scope=column>Item:</th>
+        
+                <th scope=column>Added Date:</th>
+
+                <th scope=column>Completed</th>
+
+                <th scope=column>Delete</th>
+            </tr>
+            {% for item in current_grocery_list %}
+            <tr> 
+                <td>{{ item.item_text }}</td>
+                <td>{{ item.create_date }}</td>
+                <td><form action="{% url 'grocerylist:completed' item.id %}" method='POST'>
+                    {% csrf_token %} 
+                    <button type='submit' value="{{ item.pk }}">Completed</button></form></td>
+                <td><form action="{% url 'grocerylist:delete_item' item.id %}" method='POST'>
+                    {% csrf_token %}
+                    <button type='submit' value="{{ item.pk }}">Delete</button></form></td>
+        
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+    <section id="add_item">
+        <h2>Add an Item:</h2>
+        <form action="{% url 'grocerylist:add_item' %}" method='POST' placeholder="Add Item Here">
+            {% csrf_token %}
+            <input type='text' id='item' name='item'/>
+            <input type="submit" value="Add Item"/>
+        </form>
+    </section>
+    <section id="completed_list">
+        <h2>Completed List Items:</h2>
+        <table id="completed_table">
+            <tr>
+                <th scope=column>Item</th>
+                <th scope=column>Completed Date</th>
+                <th scope=column>Readd</th>
+                <th scope=column>Delete</th>
+            </tr>
+            <tr>
+            {% for item in completed_items %}
+                <td>{{ item.item_text }} </td>
+                <td>{{ item.completed_date }} </td>
+                <td><form action="{% url 'grocerylist:readd' item.id %}" method='POST'>
+                    {% csrf_token %} 
+                    <button type='submit' value="{{ item.pk }}">Readd</button></form></td>
+                <td><form action="{% url 'grocerylist:delete_item' item.id %}" method='POST'>
+                    {% csrf_token %}
+                    <button type='submit' value="{{ item.pk }}">Delete</button></form></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+</body>
+
+<html>
+

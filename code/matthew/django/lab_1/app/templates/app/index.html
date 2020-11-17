@@ -1,0 +1,46 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'app/main.css' %}">
+
+
+<form action="{%url 'app:add_item'%}" method='post'>
+    {% csrf_token %}
+    <input type='text' id='item' name='item'/>
+    <input type='submit' value='add to grocery list'/>
+</form>
+
+
+{% if current_grocery_list %}
+
+<h1>Grocery List</h1>
+<ul>
+
+    {% for item in current_grocery_list %}
+    <li> {{item.item_text}}
+    <form action="{% url 'app:delete' item.id %}" method='post'>
+        {% csrf_token %}
+        <input type='submit' value='Delete'/>
+    </form>    
+
+    <form action="{% url 'app:mark_complete' item.id %}" method='post'>
+        {% csrf_token %}
+        <input type='submit' value='Add'/>
+    </form>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% if completed_items %}
+    <h1>In cart</h1>
+<ul>
+    {% for item in completed_items %}
+    <li> {{item.item_text}}</li>
+    <form action="{% url 'app:delete' item.id %}" method='post'>
+        {% csrf_token %}
+        <input type='submit' value='Clear'/>
+    {% endfor %}
+</ul>
+
+{% endif %}

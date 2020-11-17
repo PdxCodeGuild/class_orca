@@ -10,7 +10,6 @@
         <!-- <img src="https://lh3.googleusercontent.com/proxy/hagSceyvnNNWOS6J5F81bIrpGUjgSw55M_cMHgYC5k0GqSnukV0XAfEfbcEprMxRKWYxZtXQGJ1dOki5gh4x16ZK8Ftnk4dX2yQK" alt=""> -->
         
         <header class="fixed">
-
                 <h1>Burrito Mirraca-ulous</h1>
                 <nav>
                     <a href="index.html">Home</a>
@@ -18,15 +17,13 @@
                     <a href="index.html">Merchandise</a>
                     <a href="index.html">Careers</a>
                 </nav>
-
         </header>
 
         <main class="scrolling">
-
             <!-- User order -->
-            <section class="order">
+            <section class="form">
                 <form action="" method="POST">
-                    <div>
+                    <div class="tortilla">
                         <fieldset>
                             <legend>Tortilla</legend>
                             <input type="radio" id="tortilla" name="burrito" value="white flour">
@@ -39,25 +36,7 @@
                             <label for="tortilla">spinach</label><br>
                         </fieldset>
                     </div>
-                    <div>
-                        <fieldset>
-                            <legend>Rice</legend>
-                            <input type="radio" id="rice" name="rice" value="white_rice">
-                            <label for="rice">white rice</label><br>
-                            <input type="radio" id="rice" name="rice" value="brown_rice">
-                            <label for="rice">brown rice</label>
-                        </fieldset>
-                    </div>
-                    <div>
-                        <fieldset>
-                            <legend>Beans</legend>
-                            <input type="radio" id="beans" name="beans" value="black_beans">
-                            <label for="beans">black beans</label><br>
-                            <input type="radio" id="beans" name="beans" value="pinto_beans">
-                            <label for="beans">pinto beans</label><br>
-                        </fieldset>
-                    </div>
-                    <div>
+                    <div class="protein">
                         <fieldset>
                             <legend>Protein</legend>
                             <input type="radio" name="protein" id="carnitas">
@@ -70,22 +49,47 @@
                             <label for="protein">none</label>
                         </fieldset>
                     </div>
-                    <div>
+                    <div class="beans">
                         <fieldset>
-                            <legend>Dairy</legend>
+                            <legend>Beans</legend>
+                            <input type="radio" id="beans" name="beans" value="black_beans">
+                            <label for="beans">black beans</label><br>
+                            <input type="radio" id="beans" name="beans" value="pinto_beans">
+                            <label for="beans">pinto beans</label><br>
+                        </fieldset>
+                    </div>
+                    <div class="rice">
+                        <fieldset>
+                            <legend>Rice</legend>
+                            <input type="radio" id="rice" name="rice" value="white_rice">
+                            <label for="rice">white rice</label><br>
+                            <input type="radio" id="rice" name="rice" value="brown_rice">
+                            <label for="rice">brown rice</label>
+                        </fieldset>
+                    </div>
+                    <div class="toppings">
+                        <fieldset>
+                            <legend>Toppings</legend>
                             <input type="checkbox" name="cheese" id="cheese" unchecked>
                             <label for="cheese">cheese</label><br>
                             <input type="checkbox" name="sour_cream" id="sour_cream" unchecked>
                             <label for="sour_cream">sour cream</label><br>
+                            <input type="checkbox" name="guacamole" id="guacamole" unchecked>
+                            <label for="guacamole">guacamole</label><br>
                         </fieldset>
                     </div>
-                </form>        
-            </section>
-            
-            <!-- User info -->
-            <section class="user_info">
-                <div>
-                    <form action="">
+                    <div class="sauce">
+                        <fieldset>
+                            <legend>Sauce</legend>
+                            <input type="radio" id="sauce" name="sauce" value="mild">
+                            <label for="sauce">mild</label><br>
+                            <input type="radio" id="sauce" name="sauce" value="medium">
+                            <label for="sauce">medium</label><br>
+                            <input type="radio" id="sauce" name="sauce" value="hot">
+                            <label for="sauce">hot</label><br>
+                        </fieldset>
+                    </div>
+                    <div class="user_info">
                         <fieldset>
                             <legend>Personal Info</legend>
                             <input type="text" id="username" name="username" placeholder="username"><br>
@@ -100,18 +104,14 @@
                             <input type="text" id="state" name="state" placeholder="state"><br>
                             <input type="text" id="zip" name="zip" placeholder="zip"><br>
                         </fieldset>
-                    </form>
-                </div>
-                
-                <!-- User submit button -->
-                <div class="submit">
-                    <form action="">
+                    </div>
+                    <div class="submit">
                         <fieldset>
                             <input type="reset" value="Clear Form" >
                             <input type="submit" value="Submit Form" >
                         </fieldset>
-                    </form>
-                </div> 
+                    </div>
+                </form>
             </section>
                 
         </main>

@@ -3,31 +3,31 @@ accounts = 0
 class ATM:
     def __init__(self):
         '''Stores the balance of the account'''
-        self.balance = 0
-        self.transactions = []
+        self.__balance = 0
+        self.__transactions = []
     
     def check_balance(self):
         '''Returns the available balance of the account'''
-        self.transactions.append(f'User checked available balance. Available balance: ${self.balance:,.2f}')
-        return self.balance
+        self.__transactions.append(f'User checked available balance. Available balance: ${self.__balance:,.2f}')
+        return self.__balance
 
     def deposit(self, amount):
         '''Adds the deposited amount to the account.'''
-        self.balance += amount
-        self.transactions.append(f'User deposited ${amount:,.2f} into the account. Available balance: ${self.balance:,.2f}') 
+        self.__balance += amount
+        self.__transactions.append(f'User deposited ${amount:,.2f} into the account. Available balance: ${self.__balance:,.2f}') 
 
     def check_withdrawal(self, amount):
         '''Verifies whether or not the requested funds are availble 
         in the account and returns a True value if they are'''
-        if self.balance < amount:
-            self.transactions.append(f'User attempted to withdraw insufficient funds of ${amount:,.2f}') 
-            print(f'Insufficient funds. Please enter a different amount. Available funds ${self.balance:,.2f}')
-        return self.balance >= amount
+        if self.__balance < amount:
+            self.__transactions.append(f'User attempted to withdraw insufficient funds of ${amount:,.2f}') 
+            print(f'Insufficient funds. Please enter a different amount. Available funds ${self.__balance:,.2f}')
+        return self.__balance >= amount
 
     def withdraw(self, amount):
         '''Subtracts the requested funds from the avaiable balance of the account.'''
-        self.balance -= amount
-        self.transactions.append(f'User withdrew ${amount:,.2f} from the account. Available balance: ${self.balance:,.2f}.')
+        self.__balance -= amount
+        self.__transactions.append(f'User withdrew ${amount:,.2f} from the account. Available balance: ${self.__balance:,.2f}.')
 
 user = ATM()
 while True:
@@ -69,6 +69,6 @@ while True:
     # exit menu
     elif answer == 0:
         print('User Transaction Log')
-        for item in user.transactions:
+        for item in user.__transactions:
             print(f'>{item}')
         break

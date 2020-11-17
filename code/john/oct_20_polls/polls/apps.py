@@ -1,3 +1,5 @@
+# POLLS EXAMPLE PROJECT
+
 from django.apps import AppConfig
 
 

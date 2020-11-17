@@ -1,0 +1,51 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'groceryapp/main.css' %}">
+
+<div class = incomplete>
+<h1>Incomplete Grocery List</h1>
+{% if incomplete_grocery_list %}
+    <ul>
+    {% for item in incomplete_grocery_list %}
+        <li>{{ item.groceryitem_text }}</li><br>
+        <form action="{% url 'groceryapp:delete' item.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+        </form>
+        <form action="{% url 'groceryapp:complete' item.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Mark complete">
+        </form>
+    {% endfor %}
+    </ul>
+{% endif %}
+</div>
+
+<div class = complete>
+<h1>Complete Grocery List</h1>
+{% if complete_grocery_list %}
+    <ul>
+    {% for item in complete_grocery_list %}
+        <li>{{ item.groceryitem_text }}</li><br>
+        <form action="{% url 'groceryapp:delete' item.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete">
+        </form>
+        <form action="{% url 'groceryapp:incomplete' item.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Mark incomplete">
+        </form>
+    {% endfor %}
+    </ul>
+{% endif %}
+</div>
+
+<h1>Enter a New Grocery Item </h1>
+<form action="{% url 'groceryapp:add' %}" method="post">
+{% csrf_token %}
+<label>If you want to add a new item into the list, enter it below and click submit</label>
+<br><br>
+<input type="text" name="entry" placeholder="Enter an item">
+<input type="submit" value="Submit">
+</form>
+
