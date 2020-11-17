@@ -1,7 +1,7 @@
 # LAB 2, URL SHORTENER. NAMES: URL_PROJECT AND URL_APP.
-# THIS IS THE URL_PROJECT URLS.PY FILE
+# THIS IS THE URL_APP URLS.PY FILE
 
-"""url_project URL Configuration
+"""polls_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -17,10 +17,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('url_project/', include('url_app.urls')),
+from . import views
+
+app_name = 'url_app'
+
+# THIS IS THE URL_APP FOLDER! 
+
+urlpatterns = [    # GENERALLY  GO FROM *MORE* SPECIFIC TO LEAST SPECIFIC: path, then function, then NAME of path
+    path('', views.index, name='index'),
+    path('generate_short_code/', views.generate_short_code, name='generate_short_code'),
+    path('<str:code>/', views.redirect_code_to_URL, name='redirect_code_to_URL'),       # # # # # # # bottom of list
 ]
