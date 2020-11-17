@@ -13,14 +13,26 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Grocery List</title>
 </head>
+
 <body>
     <div class=header>
         <h1>Groceries</h1>
     </div>
 
+    <div class="add-item">
+        <h3>Add Item</h3>
+        <form action="{% url 'grocery_app:create' %}" method="post">
+            {% csrf_token %}
+
+            <label for="item &nbsp;">Item</label>
+            <input type="text" id="item" name="item"/>
+            <button type="submit">Add</button>
+        </form>
+    </div>
+
+    <h3>Grocery List</h3>
     <div class="display">
         <table class="table table-hover">
-            <h3>Grocery List</h3>
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -37,8 +49,19 @@
                             <th scope="row">{{ forloop.counter }}</th>
                             <td>{{ item.item_text }}</td>
                             <td>{{ item.date_created }}</td>
-                            <td><a href="#">Completed</a></td>
-                            <td><a href="#">Delete</a></td>
+                            <td>
+                                <form action="{% url 'grocery_app:update' item.id  %}"
+                                method="post">
+                                    {% csrf_token %}
+                                    <button type="submit">Complete</button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="{% url 'grocery_app:delete' item.id  %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
                     {% endfor %}
             </tbody>
                 {% else %}
@@ -48,27 +71,16 @@
     
     </div>
 
-<div class="add-item">
-    <h3>Add Item</h3>
-
-    <form action="{% url 'grocery_app:create' %}" method="post">
-        {% csrf_token %}
-
-        <label for="item &nbsp;">Item</label>
-        <input type="text" id="item" name="item"/>
-        <button type="submit">Add</button>
-
-    </form>
-</div>
-
-<div class="display">
+    <h3>Purchased</h3>
+    <div class="display">
         <table class="table table-hover">
-            <h3>Purchased</h3>
+            
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Item</th>
                     <th scope="col">Purchased on</th>
+                    <th scope="col">Delete?</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,13 +90,18 @@
                             <th scope="row">{{ forloop.counter }}</th>
                             <td>{{ item.item_text }}</td>
                             <td>{{ item.date_completed }}</td>
+                            <td>
+                                <form action="{% url 'grocery_app:delete' item.id  %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
                     {% endfor %}
             </tbody>
                 {% else %}
                     <p>No items available</p>
                 {% endif %}
         </table>
-    
     </div>
 
 {% comment %} {% if grocery_list %}
@@ -96,7 +113,5 @@
 {% else %}
     <p>No items available</p>
 {% endif %} {% endcomment %}
-
-
 
 </body>

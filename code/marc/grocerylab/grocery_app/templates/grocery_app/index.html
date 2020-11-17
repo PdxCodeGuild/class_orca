@@ -1,0 +1,57 @@
+{% load  static  %} 
+<link rel='stylesheet' href = "{% static 'grocery_app/index.css' %}"/>
+
+<form action="{% url 'grocery_app:add_item'%}" method='post'>
+    {% csrf_token %}
+    <input type='text' id='item' name='item'/>
+    <input type="submit" value="add to grocery list"/>
+</form>
+
+{% comment %} <form action="{% url 'grocery_app:complete_item'%}" method='post'>
+    {% csrf_token %}
+    <input type='text' id='item' name='item'/>
+    <input type="submit" value="add to grocery list"/>
+</form> {% endcomment %}
+
+{% comment %} <form action="{% url 'grocery_app:add_item'%}" method='post'>
+    {% csrf_token %}
+    <input type='text' id='item' name='item'/>
+    <input type="submit" value="add to grocery list"/>
+</form> {% endcomment %}
+
+{% if current_grocery_list %}
+
+<ul>
+    {% for item in current_grocery_list %}
+    
+    <li> 
+     <form action="{% url 'grocery_app:complete_item' item.id%}" method='post'>
+        {% csrf_token %}
+        {{item.item_text}} <input type='submit' value = "mark complete"/>
+    </form> 
+    <form action="{% url 'grocery_app:delete_item' item.id%}" method='post'>
+        {% csrf_token %}
+          <input type='submit' value = "delete item"/>
+    </form>
+    </li>
+    
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+
+<hr/>
+{% if completed_items %}
+
+<ul>
+    {% for item in completed_items %}
+    <li> {{item.item_text}}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+
+{% comment %} <form action="{% url 'grocery_app:complete_item'%}" method='post'> {% endcomment %}
+
