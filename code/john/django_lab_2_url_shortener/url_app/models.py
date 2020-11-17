@@ -1,3 +1,5 @@
+# LAB 2, URL SHORTENER. NAMES: URL_PROJECT AND URL_APP.
+
 from django.db import models
 from django.utils import timezone
 import datetime
@@ -6,20 +8,16 @@ import datetime
 
 class URL(models.Model):
 
-    url_address = 'https://www.google.com/search?source=hp&q=this+is+a+long+url&oq=this+is+a+long+url&gs_l=psy-ab.3..0i22i30k1.1095.3196.0.3437.19.18.0.0.0.0.137.1480.14j4.18.0....0...1.1.64.psy-ab..1.18.1477.0..0j35i39k1j0i131k1j0i67k1j0i20i264k1j33i22i29i30k1.0.aJvctrIr-Ds'
+    # url_address = 'https://www.google.com/search?source=hp&q=this+is+a+long+url&oq=this+is+a+long+url&gs_l=psy-ab.3..0i22i30k1.1095.3196.0.3437.19.18.0.0.0.0.137.1480.14j4.18.0....0...1.1.64.psy-ab..1.18.1477.0..0j35i39k1j0i131k1j0i67k1j0i20i264k1j33i22i29i30k1.0.aJvctrIr-Ds'
+    url_address = models.CharField(max_length=500, default='')
+    short_code = models.CharField(null=True, blank=True, max_length=20)
 
-    # PUT PASSWORD GENERATOR CODE HERE TO MAKE ADDRESS
-
-    def url_shortener():
-        code = 'aoeu3i23'
-        return code
-
-    short_address = 'a3oeuaoeu'
-    
-    created_date = models.DateTimeField(default=timezone.now())
+    created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.short_address
+        return self.url_address
+
+
 
 
 # # # https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab02-url-shortener.md
