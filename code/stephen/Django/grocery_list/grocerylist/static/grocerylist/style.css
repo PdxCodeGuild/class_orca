@@ -1,0 +1,65 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Pangolin', cursive;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-family: 'Pangolin', cursive;
+}
+
+table{
+    border: 1px solid black;
+}
+
+tr{
+    border: 1px solid black;
+}
+
+#current_list{
+    background-color: lightblue;
+    align-content: center;
+    display: flex;
+    font-size: 22px;
+}
+
+#completed_table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    font-size: 22px;
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+}
+
+#add_item{
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    font-size: 22px;
+}
+
+#current_table{
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+    font-size: 22px;
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+}
+
+h1{
+    font-size: 54px;
+    color: darkblue;
+    text-decoration: underline;
+}
+h2{
+    font-size: 38px;
+}
+
+body{
+    background-color: lightblue;
+}
