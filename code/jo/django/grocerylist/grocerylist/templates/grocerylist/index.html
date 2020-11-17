@@ -4,13 +4,19 @@
     <button type="submit">Add item</button>
 </form>
 
-{% if current_grocery_list %}
-<ul>
-    {% for i in current_grocery_list%}
-    <li>{{i.item}}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+<form action="{% url 'grocerylist:edit' %}" method="post">
+{% csrf_token %}
+    {% if current_grocery_list %}
+    <ul>
+        {% for i in current_grocery_list %}
+            <li>{{i.item}}<input type="checkbox" name="i_id" value="{{ i.id }}"></li>
+        {% endfor %}
+    </ul>
+    <input type="submit" value="Update completed items" name="_update">
+    <input type="submit" value="Delete selected items" name="_delete">
+    {% endif %}
+</form> 
+
 <hr/>
 {% if completed_items %}
 <ul>

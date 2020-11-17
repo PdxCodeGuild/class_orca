@@ -21,3 +21,22 @@ def add_item(request):
     Grocerylist.objects.create(item_text=grocery_item)
     return HttpResponseRedirect(reverse('grocerylist:index'))
 
+def delete_item(request, pk):
+    deleted_item = get_object_or_404(Grocerylist, pk=pk)
+    deleted_item.delete()
+   
+    return HttpResponseRedirect(reverse('grocerylist:index'))
+
+def completed(request, pk):
+    completeg = get_object_or_404(Grocerylist, pk=pk)
+    completeg.completed_date = timezone.now()
+    completeg.completed_boolean = True
+    completeg.save()
+    return HttpResponseRedirect(reverse('grocerylist:index'))
+    
+def readd(request, pk):
+    readd_item = get_object_or_404(Grocerylist, pk=pk)
+    readd_item.create_date = timezone.now()
+    readd_item.completed_boolean = False
+    readd_item.save()
+    return HttpResponseRedirect(reverse('grocerylist:index'))

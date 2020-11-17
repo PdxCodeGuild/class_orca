@@ -36,5 +36,8 @@ urlpatterns = [
     
     path('add_item/', views.add_item, name='add_item'),
     path('mark_completed/', views.mark_completed, name='mark_completed'),
+    path('mark_incomplete/', views.mark_completed, name='mark_incomplete'),
     path('delete_item/', views.delete_item, name='delete_item'),
+
+    path('update_or_delete/', views.update_or_delete, name='update_or_delete'),
 ]
