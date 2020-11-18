@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'Urlapp/main.css' %}">
+
+
+<h1>Enter a URL here to shorten it</h1>
+<form action="{% url 'Urlapp:shorten' %}" method="post">
+{% csrf_token %}
+<input type="text" name="entry" placeholder="Enter a URL" required>
+<input type="submit" value="Submit">
+</form>
+
+
