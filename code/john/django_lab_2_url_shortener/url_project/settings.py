@@ -1,3 +1,6 @@
+# LAB 2, URL SHORTENER. NAMES: URL_PROJECT AND URL_APP.
+
+
 """
 Django settings for url_project project.
 

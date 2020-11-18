@@ -1,0 +1,24 @@
+<form action="{% url 'url_shortner_app:url_source' %}" method='post'>{% csrf_token %}
+    <fieldset>
+        <legend>url Address Encrypter</legend>
+        <input type="text" id="url_name" name="url_name" placeholder="web address name"/><br/> 
+        <input type="text" id="url_address" name="url_address" placeholder="url address"/>
+    </fieldset>
+    <button type="submit">Submit</button>
+</form><hr/>
+
+{% if url_database %}
+    <table>
+        <tr>
+            <th>Web Address</th>
+        </tr>
+        {% for url in url_database %}
+            <tr>
+                <td>{{ url.url_name }}/
+                <a href="{% url 'url_shortner_app:user_redirect' url.url_code %}">{{ url.url_code }}</a>
+                </td> 
+            </tr>
+        {% endfor %} 
+    </table>
+{% endif %}
+
