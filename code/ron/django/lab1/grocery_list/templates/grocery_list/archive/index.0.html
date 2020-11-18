@@ -1,0 +1,128 @@
+
+{% comment %} HTML Header information------------------------------------------------------{% endcomment %}
+
+    {% comment %} 
+    {% load static %} 
+    {% comment %} <link rel="stylesheet" href="{% static 'polls/main.css' %}"> 
+    {% endcomment %}
+
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 25%;
+}
+
+td, th {
+  {% comment %} border: 1px solid #dddddd; {% endcomment %}
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+{% comment %} 
+Form to enter grocery items into the list -------------------------------------------------{% endcomment %}
+
+<h1> Grocery List </h1> 
+<form action="{%url 'grocery_list:add_item' %}" method="POST">
+    {% csrf_token %}
+    &emsp;<input type="text" id="item" name="item" /> 
+    &emsp;<input type="submit" value="Add Grocery Item" />
+</form>
+
+{% comment %} 
+Return the current list and completed items list ------------------------------------------{% endcomment %}
+
+{% if current_grocery_list %}
+    <p><h3> Current Grocery List </h3></p>
+
+<table>
+    <tr>
+        <th> Completed </th>
+        <th> Item </th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for item in current_grocery_list %}
+    <tr>
+        <td>  
+            <form action="{%url 'grocery_list:mark_complete' %}" method="POST">
+            {% csrf_token %}
+            <input type="checkbox" id="check" name="complete" value="{{item.id}}">&emsp;
+        </td>
+        <td>
+            {{ item.item_text }} 
+        </td>
+        <td>
+            <input type="submit" value="Update" />
+            </form>  
+        </td>
+        <td>
+            <form action="{%url 'grocery_list:delete_item' %}" method="POST">
+            {% csrf_token %}
+            <button name="delete" type="submit" value="{{item.id}}"><label for="delete">Delete</label>
+            </form> 
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+    <p>No items are available.</p>
+{% endif %}
+<hr>
+{% if completed_items %}
+    <p><h3> Completed Items List </h3></p>
+    <ul>
+    {% for item in completed_items %}
+        <li> {{ item.item_text }} </a></li> 
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No items are available.</p>
+{% endif %}
+
+{% if current_grocery_list %}
+    <p><h3> Current Grocery List </h3></p>
+    &emsp;Complete?    
+
+    {% for item in current_grocery_list %}
+        <ul style="list-style-type:none;">
+            <li>
+                <form action="{%url 'grocery_list:mark_complete' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="checkbox" id="check" name="complete" value="{{item.id}}">&emsp;
+                    {{ item.item_text }} 
+                    <input type="submit" value="Update" />
+                </form>   
+                <form action="{%url 'grocery_list:delete_item' %}" method="POST">
+                    {% csrf_token %}
+                    <button name="delete" type="submit" value="{{item.id}}">
+                    <label for="delete">Delete</label>
+                </form> 
+                {% comment %} <label for="complete">complete</label> {% endcomment %}
+            </li>     
+        </ul>
+    {% endfor %}
+    
+    {% else %}
+        <p>No items are available.</p>
+{% endif %}
+<hr>
+{% if completed_items %}
+    <p><h3> Completed Items List </h3></p>
+    <ul>
+    {% for item in completed_items %}
+        <li> {{ item.item_text }} </a></li> 
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No items are available.</p>
+{% endif %}
+
