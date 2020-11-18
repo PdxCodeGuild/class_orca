@@ -15,7 +15,6 @@ def add(request):
     new_entry = GroceryItem(groceryitem_text=request.POST.get('entry'), pub_date=timezone.now())
     new_entry.save()
     return HttpResponseRedirect(reverse('groceryapp:index'))
-    
 
 def complete(request, pk):
     entry = GroceryItem.objects.get(pk=pk)
@@ -30,8 +29,6 @@ def incomplete(request, pk):
     entry.completion_date = None
     entry.save()
     return HttpResponseRedirect(reverse('groceryapp:index'))
-
-
 
 def delete(request, pk):
     entry = GroceryItem.objects.get(pk=pk)
