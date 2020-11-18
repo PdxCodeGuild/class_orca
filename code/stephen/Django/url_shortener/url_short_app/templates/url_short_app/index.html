@@ -1,0 +1,13 @@
+<h1>URL Shortener!</h1>
+
+<p>Enter in your full URL to have it converted to a short one!</p>
+
+<form action="{% url 'url_short_app:submit_long' %}" method='POST'>
+{% csrf_token %}
+<input type='text' id='long_url' name='long_url'/>
+<input type='submit' value='Shorten URL!'/>
+</form>
+
+{% if short_url %}
+    <p> Here's your shortened URL: <a href="{% url 'url_short_app:redirect' short_url %}">http://localhost:8000/url_short_app/{{ short_url }} </a> </p>
+{% endif %}
