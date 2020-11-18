@@ -1,0 +1,37 @@
+
+.header {
+    padding: 25px;
+    color: white;
+    background-color: #343A40;
+    text-shadow:  #59A449 1px 0 12px;
+    margin-bottom: 24px;;
+}
+
+body {
+    padding: 46px;
+    font-family: 'Poppins', sans-serif;
+    background-image: url(web.jpg);
+    background-repeat: no-repeat;
+}
+
+.get-code {
+    margin-bottom: 18px;
+    color: white;
+    text-shadow: #59A449 3px 0 24px;
+    background-color: black;
+    opacity: 0.9;
+    padding: 12px;
+}
+
+button {
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #59A449;
+    color: white;
+    min-width: 100px;
+    padding: 6px;
+}
+
+button:hover {
+    background-color: #4DA22F;
+}

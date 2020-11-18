@@ -1,0 +1,1 @@
+    <td>{{ x.url_text }}</td>
