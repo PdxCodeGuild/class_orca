@@ -21,11 +21,11 @@ body {
     background-color: black;
     opacity: 0.9;
     padding: 12px;
+    padding-left: 24px;
 }
 
 button {
     border-radius: 10px;
-    padding: 5px;
     background-color: #59A449;
     color: white;
     min-width: 100px;
@@ -34,4 +34,13 @@ button {
 
 button:hover {
     background-color: #4DA22F;
+}
+
+.extra h2 {
+    font-size: 24px;
+    color: white;
+    text-shadow: #59A449 3px 0 24px;
+    background-color: black;
+    opacity: 0.9;
+    padding: 24px;
 }
