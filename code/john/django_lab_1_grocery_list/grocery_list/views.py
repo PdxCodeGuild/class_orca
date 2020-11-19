@@ -44,7 +44,7 @@ def update_or_delete(request):
     # __dict__ # as dictionary
     # __dir__() # as list
     # print(f'>>>>>PRINT: request.__dict__ is {request.__dict__}.')
-    print(f'>>>>>PRINT: request.__dict__() is {request.__dir__()}.')
+    print(f'>>>>>PRINT: request.__dir__() is {request.__dir__()}.')
 
     return HttpResponseRedirect(reverse('grocery_list:index'))
 

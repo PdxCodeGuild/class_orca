@@ -1,0 +1,118 @@
+{% load static %} {% comment %} good idea to have this at the top of every html... {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Grocery List!</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      {% comment %} <link rel="stylesheet" href="{% static 'github_necolas_normalize.css'%}"> {% endcomment %}
+      <link rel="stylesheet" href="{% static 'grocery_list/main.css'%}">
+    </head>
+  <body>
+
+{% comment %} 
+Failed. Combining the delete/update below. See notes from views.py 
+        <form action="{% url 'grocery_list:update_or_delete' %}"  method="POST">
+            {% csrf_token %}
+            <fieldset>
+              <legend>TEST COMBINED ACTION::</legend>
+            {% for item in current_grocery_list %}
+                <input type="checkbox" id="{{item.grocery_description}}" name="update_or_delete" value="{{item.grocery_description}}">
+                <label for="{{item.grocery_description}}">{{item.grocery_description}} </label><br>
+            {% endfor %}
+            <br>
+              <input type="reset" value="Clear Selection">
+              <input type="submit" action="complete" value="Mark Completed">
+              <input type="submit" action="delete" value="Delete Checked Items">
+            </fieldset>
+        </form>
+    
+        <br>
+        <hr>
+ {% endcomment %}
+
+    <h1>Fial Shopping List</h1>
+
+    <form action="{% url 'grocery_list:mark_completed' %}"  method="POST">
+        {% csrf_token %}
+        <fieldset>
+          <legend>Grocery List:</legend>
+        {% for item in current_grocery_list %}
+            <input type="checkbox" id="{{item.grocery_description}}" name="items_to_complete" value="{{item.grocery_description}}"> 
+            <label for="{{item.grocery_description}}"> {{item.grocery_description}} </label><br>
+        {% endfor %}
+          <input type="reset" value="Clear Selection">
+          <input type="submit" value="Mark Completed">
+        </fieldset>
+    </form>
+
+    <br> 
+
+    <form action="{% url 'grocery_list:add_item' %}"  method="POST">
+        {% csrf_token %}
+        <fieldset>
+          <legend>Add a new item here:</legend>
+        <input type="text" id="item" name="item"/>
+        <input type="submit" value="Add item!">
+        </fieldset>
+    </form>
+
+    <br>
+    <br>
+  
+    <form action="{% url 'grocery_list:mark_incomplete' %}"  method="POST">
+        {% csrf_token %}
+        <fieldset>
+          <legend>Full History of Completed Items</legend>
+          {% if completed_items %}
+              <ol>
+                  {% for item in completed_items %}
+                  
+                  <li>
+                  {% comment %} <input type="checkbox" id="mark_incomplete" name="mark_incomplete" value="{{item.grocery_description}}"> {% endcomment %}
+                    Completed on {{item.completed_date}}: <strong>{{item.grocery_description}}</strong>.</li>
+                  {% endfor %}
+              </ol>
+          {% else %}
+              <h1>List is empty!</h1>
+          {% endif %}
+          {% comment %} Add a button to undelete... {% endcomment %}
+      </fieldset>
+      </form>
+
+      <br>
+    <br>
+    <br>
+
+    <form action="{% url 'grocery_list:delete_item' %}"  method="POST">
+        {% csrf_token %}
+        <fieldset>
+          <legend>Delete items below:</legend>
+        {% for item in current_grocery_list %}
+            <input type="checkbox" id="{{item.grocery_description}}" name="items_to_delete" value="{{item.grocery_description}}">
+            <label for="{{item.grocery_description}}"> {{item.grocery_description}} </label><br>
+        {% endfor %}
+        <br>
+          <input type="reset" value="Clear Selection">
+          <input type="submit" value="Delete Checked">
+        </fieldset>
+    </form>
+
+    <br>
+    <br>
+
+    <div>
+      <h2>Bugs and to-do list:</h2>
+      <li>TODO: LIMIT THIS FORM TO 200 CHARACTERS! </li>
+      <li>Add a button to undelete...</li>
+      
+      <li>Fix server time zone.</li>
+      <li>Looing up entry by NAME. Problem 1: If two identical entries exist, deleting one deletes them all.</li>
+      <li>Looing up entry by NAME. Problem 2: Deleting the item deletes all the completed history for that item!</li>
+    </div>
+    
+    <br>
+
+  <body>
+</html>

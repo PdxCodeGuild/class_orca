@@ -1,0 +1,76 @@
+{% comment %} LAB 2, URL SHORTENER. NAMES: URL_PROJECT AND URL_APP. {% endcomment %}
+
+{% load static %} 
+
+{% comment %} 
+  good idea to have this at the top of every html...
+  http://htmlshell.com/
+
+  https://docs.djangoproject.com/en/3.1/ref/templates/language/#automatic-html-escaping 
+  By default in Django, every template automatically escapes the output of every variable tag. Specifically, these five characters are escaped:
+
+      < is converted to &lt;
+      > is converted to &gt;
+      ' (single quote) is converted to &#x27;
+      " (double quote) is converted to &quot;
+      & is converted to &amp; 
+{% endcomment %}
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+      <title>URL Shortener</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'url_app/github_necolas_normalize.css'%}">
+      <link rel="stylesheet" href="{% static 'url_app/main.css'%}">
+    </head>
+
+  <body>
+
+
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+
+
+    <div>
+      <p>Your code for URL: <strong> {{ url_address }} </strong> is: <strong> {{ short_code }} </strong>.</p>
+      {% comment %} <p>Please use this link: </a href="{% static '/' %} {{ short_code }}/"> &#47;{{ short_code }}&#47; </a>  </p> {% endcomment %}
+      <p>Please use this link: <a href="http://localhost:8000/{{ short_code }}/"> http://localhost:8000/{{ short_code }}&#47; </a>  </p>
+      <p>Copy and paste: http://localhost:8000/{{ short_code }}/ </p>
+    </div>
+    
+    <br> 
+    <h2>Thanks for using URL Shortener v2020!</h2>
+    <br> 
+    
+
+  <body>
+</html>
+
+
+
+{% comment %} 
+
+    I TRIED EVERY SINGLE ONE OF THE BELOW BEFORE 'GETTING IT RIGHT!!!'
+    
+    <br>
+      <h1>{{ url.short_code }} url.short_code  </h1>
+      <h1>{{ url.url_address }} url.url_address </h1>
+      <h1>{{ URL.short_code }} URL.short_code  </h1>
+      <h1>{{ URL.url_address }} URL.url_address </h1>
+      <h1>{{ url_address.short_code }} url_address.short_code  </h1>
+      <h1>{{ url_address.url_address }} url_address.url_address </h1>
+      <h1>{{ short_code.short_code }} short_code.short_code </h1>
+      <h1>{{ short_code.url_address }} short_code.url_address </h1>
+      <code>
+    <br>
+      <h1>{{ context.short_code }} context.short_code </h1>
+      <h1>{{ context.url_address }} context.url_address </h1>
+      </code>
+
+{% endcomment %}

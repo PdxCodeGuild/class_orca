@@ -1,0 +1,49 @@
+{% load static %} {% comment %} good idea to have this at the top of every html... {% endcomment %}
+{% comment %} LAB 2, URL SHORTENER. NAMES: URL_PROJECT AND URL_APP. {% endcomment %}
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+      <title>URL Shortener</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'url_app/github_necolas_normalize.css'%}">
+      <link rel="stylesheet" href="{% static 'url_app/main.css'%}">
+    </head>
+
+  <body>
+
+    <h1>URL Shortener v2020</h1>
+
+    <br> 
+
+    <div>
+        <form action="{% url 'url_app:generate_short_code' %}"  method="POST">
+            {% csrf_token %}
+            <fieldset>
+            <legend>Enter URL here:</legend>
+            {% comment %} <input type="text" id="code" name="code"/>
+            <input type="submit" value="TEMP REDIRECT"> {% endcomment %}
+            <input type="text" id="url" name="url"/>
+            <input type="submit" value="Generate Short Code">
+            </fieldset>
+        </form>
+    </div>
+
+    <hr>
+    <br>
+
+    <div>
+        <h2>Current Notes and Bugs:<h2>
+        <li>Must have http:// or https:// ! </li>
+        <li>Doesn't track any metadata yet. Was starting to test print statements to track </li>
+        <li>Doesn't track any metadata yet. Was starting to test print statements to track 'Origin', 'Referer', and 'Cookie', and also augment visited count by 1 (that will require changes to models.py and re-migration)</li>
+    </div>
+    
+    <br>
+    
+
+  <body>
+</html>

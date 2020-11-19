@@ -27,7 +27,7 @@ def amazon_scraper(loops_count=1):
         
         for x, url in enumerate(tracker_urls):
             page = requests.get(url, headers = headers)
-            soup = BeautifulSoup(page.content, features='lxml')
+            soup = BeautifulSoup(page.content, features='html5lib')
 
             title = soup.find(id='productTitle').get_text().strip()
             try:
@@ -42,7 +42,7 @@ def amazon_scraper(loops_count=1):
                 print(f'\n{tracker.code[x]} is below purchase threshold of ${tracker.buy_below[x]}\n')
                 send_email(tracker.code[x], tracker.buy_below[x], tracker.url[x])
                 
-            # sleep(5)
+            sleep(5)
 
 def send_email(item, threshold, url):
     port = 587
