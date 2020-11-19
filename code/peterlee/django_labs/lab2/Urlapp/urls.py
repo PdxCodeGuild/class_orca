@@ -6,5 +6,6 @@ app_name = 'Urlapp'
 urlpatterns = [
     path('', views.index, name='index'),
     path('shorten/', views.shorten, name='shorten'),
-    path('results/', views.results, name='results')
+    path('results/<int:pk>/', views.results, name='results'),
+    path('short/<str:code>/', views.short, name='short')
 ]

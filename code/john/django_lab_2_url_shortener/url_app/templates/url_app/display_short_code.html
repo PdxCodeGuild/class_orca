@@ -1,6 +1,20 @@
-{% load static %} 
-{% comment %} good idea to have this at the top of every html... {% endcomment %}
 {% comment %} LAB 2, URL SHORTENER. NAMES: URL_PROJECT AND URL_APP. {% endcomment %}
+
+{% load static %} 
+
+{% comment %} 
+  good idea to have this at the top of every html...
+  http://htmlshell.com/
+
+  https://docs.djangoproject.com/en/3.1/ref/templates/language/#automatic-html-escaping 
+  By default in Django, every template automatically escapes the output of every variable tag. Specifically, these five characters are escaped:
+
+      < is converted to &lt;
+      > is converted to &gt;
+      ' (single quote) is converted to &#x27;
+      " (double quote) is converted to &quot;
+      & is converted to &amp; 
+{% endcomment %}
 
 <!DOCTYPE html>
 
@@ -22,10 +36,12 @@
 {% endif %}
 
 
+
     <div>
       <p>Your code for URL: <strong> {{ url_address }} </strong> is: <strong> {{ short_code }} </strong>.</p>
       {% comment %} <p>Please use this link: </a href="{% static '/' %} {{ short_code }}/"> &#47;{{ short_code }}&#47; </a>  </p> {% endcomment %}
-      <p>Please use this link: <a href="/{{ short_code }}/"> &#47;{{ short_code }}&#47; </a>  </p>
+      <p>Please use this link: <a href="http://localhost:8000/{{ short_code }}/"> http://localhost:8000/{{ short_code }}&#47; </a>  </p>
+      <p>Copy and paste: http://localhost:8000/{{ short_code }}/ </p>
     </div>
     
     <br> 

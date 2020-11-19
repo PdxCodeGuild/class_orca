@@ -1,0 +1,31 @@
+
+body {
+    background-color: rgb(177, 182, 177);
+    /* background-image: url() */
+}
+
+div, h1, h4 {
+    text-align: center;
+    color: black;
+}
+ 
+
+/* 
+table {
+    font-family: arial, sans-serif;
+    width: 25%;
+}
+
+td, th {
+    text-align: center;
+    padding: 4px;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    text-align: center;
+    background-color: #dddddd;
+    vertical-align: top;
+}
+
+ */
