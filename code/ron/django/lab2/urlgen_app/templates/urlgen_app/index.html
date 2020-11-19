@@ -1,0 +1,26 @@
+
+{% comment %} HTML Header information------------------------------------------------------{% endcomment %}
+
+{% load static %} 
+
+<link rel="stylesheet" href="{% static 'urlgen_app/main.css' %}"> 
+
+
+{% comment %} 
+Intro info -------------------------------------------------------------------------------{% endcomment %}
+
+<br>
+<br>
+<h1> Welcome to the URL Generator </h1> 
+<h4> Input the URL you would like to shorten:</h4> 
+
+{% comment %} 
+Form to input URL, assign variable 6 digit code, and store in db --------------------------{% endcomment %}
+
+<div>
+<form action="{%url 'urlgen_app:add_item' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" id="new_url" name="new_url" /> 
+    <input type="submit" value="Transform" />
+</form>
+</div>

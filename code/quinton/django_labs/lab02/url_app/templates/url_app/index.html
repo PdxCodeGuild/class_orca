@@ -1,0 +1,7 @@
+
+
+<form action="{% url 'url_app:add_url' %}" method='post'>
+    {% csrf_token %}
+    <input type='text' placeholder='Make your links shorter' id='item' name='item'/>
+    <input type="submit" value="Shorten URL"/>
+</form>
