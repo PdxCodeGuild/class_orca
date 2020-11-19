@@ -1,0 +1,25 @@
+
+body {
+    background-color: white;
+    /* background-image: url() */
+}
+
+table {
+    font-family: arial, sans-serif;
+    /* border-collapse: collapse; */
+    width: 25%;
+}
+
+td, th {
+    text-align: center;
+    padding: 4px;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    text-align: center;
+    background-color: #dddddd;
+    vertical-align: top;
+}
+
+

@@ -1,0 +1,13 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'app/main.css' %}">
+
+<h1>Url<h1>
+
+<form action="{%url 'app_lab_2:submit'%}" method='post'>
+    {% csrf_token %}
+    <input type='text' name='url_input'/>
+        # name is the key in the quiery dict used in Views.
+    <input type='submit' value='submit'>
+</form>
+
