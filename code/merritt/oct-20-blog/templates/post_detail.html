@@ -7,7 +7,8 @@
         <h4><em><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></em></h4>
         <h4><em>Posted on {{ post.created }}</em></h4>
         <h4><em>Last Update on {{ post.updated}}</em></h4>
-        <p>{{ post.body|linebreaks }}</p>
+        <p><img src="{{ post.photo.url }}"></p>
+        <p>{{ post.caption|linebreaks }}</p>
     </div>
 
     {% if request.user == post.author %}

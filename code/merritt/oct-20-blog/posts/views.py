@@ -16,7 +16,7 @@ class BlogDetailView(DetailView):
 class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_new.html'
-    fields = ['title', 'body']
+    fields = ['title', 'photo', 'caption']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -25,7 +25,7 @@ class BlogCreateView(LoginRequiredMixin, CreateView):
 class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     template_name = 'post_edit.html'
-    fields = ['title', 'body']
+    fields = ['title', 'caption']
 
     def test_func(self):
         post = self.get_object()
