@@ -5,4 +5,14 @@ from django.utils import timezone
 from django.views.generic import ListView, DetailView
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the index.")
+    return render(request, 'index.html')
+
+def create(request):
+    pass
+
+def edit(request):
+    pass
+
+def delete(request):
+    pass
+
