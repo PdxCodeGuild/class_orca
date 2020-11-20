@@ -1,0 +1,28 @@
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+      <div class="post-entry">
+
+        <h2> {{ post.title }} </h2>
+        <h4><em>Posted by: {{ post.author.username}} </h4></em>
+        
+        <h4> <a href="{% url 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
+
+        <h4><em>Posted on: {{ post.created }} .</h4></em>
+        <h4><em>Last update on: {{ post.updated }} .</h4></em>
+
+{% comment %} think of the pipe as the 'cool trick operator' {% endcomment %}
+        <p> {{ post.body | linebreaks }} </p>
+
+      </div>
+
+          {% if request.user == post.author %}
+                  
+            <p><a href="{% url 'blog_app:edit_post' post.pk %}">Edit this post</a></p>
+            <p><a href="{% url 'blog_app:delete_post' post.pk %}">Delete CHANGE TO BUTTON!</a></p>
+
+          {% endif %}
+
+
+    {% endblock content %}

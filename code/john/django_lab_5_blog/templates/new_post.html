@@ -1,0 +1,29 @@
+
+
+{% extends 'base.html' %}
+
+  {% block content %}
+      
+    <h1>New Post as p</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <input type="submit" value="Submit!">
+
+
+      </form>
+      
+    {% comment %} 
+    <h1>New Post as div</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+
+        {{ form.as_div }}
+        <input type="submit" value="Submit!">
+
+
+      </form> 
+      {% endcomment %}
+
+  {% endblock content %}
