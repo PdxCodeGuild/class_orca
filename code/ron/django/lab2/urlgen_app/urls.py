@@ -7,10 +7,11 @@ app_name = 'urlgen_app'
 urlpatterns = [
     path('', views.index, name='index'),
     path('add_item/', views.add_item, name='add_item'),
-    path('<int:url_id>/re_direct/', views.re_direct, name='re_direct'),
+    path('<str:url_short>/', views.re_direct, name='re_direct'),
 ]
 
-
+  
+    # path('add_item/', views.add_item, name='add_item'),
 
     # path('add_item/', views.add_item, name='add_item'),
     # path('mark_complete/', views.mark_complete, name='mark_complete'),

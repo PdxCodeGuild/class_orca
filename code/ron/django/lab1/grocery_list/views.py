@@ -9,8 +9,33 @@ from .models import Items
 def index(request):
     completed_items = Items.objects.filter(completed=True).order_by('completed_date')
     current_grocery_list = Items.objects.filter(completed=False).order_by('created_date')
-    context = {'current_grocery_list': current_grocery_list, 'completed_items': completed_items}
+    context = {
+        'current_grocery_list': current_grocery_list, 
+        'completed_items': completed_items
+        }
     return render(request, 'grocery_list/index.html', context)
+
+'''
+
+Merritts code:
+def index(request):
+    grocery_items = GroceryItem.objects.all()
+    context = {
+        'grocery_items': grocery_items
+    }
+    return render(request, "index.html", context)
+
+def new(requst):
+    description = request.POST('description')
+
+def complete(request, pk);
+    item = get_object_or_404(GroceryItem, pk=pk)
+    item.completed = True
+    item.completed_date = timezone.now()
+    item.save()
+    return HTTPResponseRedirect(reverse(grocery:index))
+
+'''
 
 def add_item(request):
     new_grocery_item = request.POST['item']

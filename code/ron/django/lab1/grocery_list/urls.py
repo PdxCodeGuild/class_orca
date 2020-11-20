@@ -10,5 +10,6 @@ urlpatterns = [
     path('mark_complete/', views.mark_complete, name='mark_complete'),
     path('delete_item/', views.delete_item, name='delete_item'),
     path('returned/', views.returned, name='returned'),
+    # Merritt path('complete/<int:pk>'/, views.complete, name='complete' )
 ]
 
