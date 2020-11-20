@@ -1,0 +1,19 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    {% for post in object_list %}
+
+        <div class="post-entry">
+            <h2><a href="{% url 'blog_app:detail' post.pk %}"> {{ post.title}} </a></h2>
+            <h4> <a href="{% 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
+            <p>
+            {{ post.body | linebreaks }}
+            </p>
+        </div>
+
+    {% endfor %}
+
+{% endblock content %}

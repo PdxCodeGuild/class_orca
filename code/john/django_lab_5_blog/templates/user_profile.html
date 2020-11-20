@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <h1>
+    {{ object.username }}
+    {% comment %} the logged in user is NOT user.username, rather object.username... {% endcomment %}
+
+    </h1>
+    <h5>
+    Writing stuff since {{ object.date_joined }} !
+    </h5>
+
+    {% for post in object.post_set.all %}
+
+        <div class="post-entry">
+            <h2><a href="{% url 'blog_app:detail' post.pk %}"> {{ post.title}} </a></h2>
+            <p>
+            {{ post.body | linebreaks }}
+            </p>
+        </div>
+
+    {% endfor %}
+
+{% endblock content %}
