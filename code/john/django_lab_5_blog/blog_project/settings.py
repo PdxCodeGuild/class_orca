@@ -1,3 +1,8 @@
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 5, BLOG https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab05-blog.md
+# PROJECT NAME: blog_project
+# APP NAMES: blog_app, users_app
+
 """
 Django settings for blog_project project.
 
@@ -121,6 +126,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [ BASE_DIR / 'static']
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 LOGIN_REDIRECT_URL = 'blog_app:home' # CORRECT?
-LOGIN_URL = 'login'
 LOGOUT_REDIRECT_URL = 'blog_app:home'
+
+
+LOGIN_URL = 'login'

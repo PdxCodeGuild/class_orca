@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for post in object_list %}
+        <div>
+            <h2><a href="{% url 'instaface:detail' post.pk %}">{{ post.text }}</a></h2>
+            {% comment %} <h4><em><a href="{% url 'users:pofile' post.poster.username %}">{{ post.poster.username }}</a></em></h4> {% endcomment %}
+            <p><img src="{{ post.photo.url }}"></p>
+            <p>{{ post.caption|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}

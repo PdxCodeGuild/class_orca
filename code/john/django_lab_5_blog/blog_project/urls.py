@@ -1,3 +1,8 @@
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 5, BLOG https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab05-blog.md
+# PROJECT NAME: blog_project
+# APP NAMES: blog_app, users_app
+
 """blog_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -28,9 +33,11 @@ Including another URLconf
 #     path('reset/done/', views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 #   ]
 
-# THIS IS THE PROJECT URLS.PY FILE
+# THIS IS THE **PROJECT** URLS.PY FILE
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,4 +45,4 @@ urlpatterns = [
     path('user/', include('users_app.urls')), # big debate user or users
     # path('', include(), name=''),
     path('', include('blog_app.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

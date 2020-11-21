@@ -50,6 +50,12 @@ Return the current list --------------------------------------------------------
             <form action="{%url 'grocery_list:delete_item' %}" method="POST"> {% csrf_token %}
             <button name="delete" type="submit" value="{{item.id}}"> <label for="delete">Delete</label>
             </form> 
+{% comment %} 
+Merrit Code
+<form action="{%url 'grocery_list:mark_complete' item.id %}" method="POST"> 
+{% csrf_token %}
+<input type="submit" value="Complete">
+{% endcomment %}
         </td>
     </tr>
     {% endfor %}

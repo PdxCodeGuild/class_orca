@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="{% static 'urlgen_app/main.css' %}"> 
 
-
+ 
 {% comment %} 
 Intro info -------------------------------------------------------------------------------{% endcomment %}
 
@@ -24,3 +24,12 @@ Form to input URL, assign variable 6 digit code, and store in db ---------------
     <input type="submit" value="Transform" />
 </form>
 </div>
+
+{% if new_url %}
+<div>
+    <h4> Your personal code for the website: <br>
+    <a href="http://127.0.0.1:8000/{{new_url.url_short}}/">
+    {{new_url.url_short}}</a><br>or<br>
+    http://127.0.0.1:8000/{{new_url.url_short}}/</h4>
+</div>
+{% endif %}
