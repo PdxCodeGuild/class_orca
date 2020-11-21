@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for entry in object_list %}
+        <div class="post-entry">
+            <h2><a href="{% url 'squawker:detail' entry.pk %}">{{ entry.title }}</a></h2>
+            {% comment %} <h4><em><a href="{% url 'users:profile' post.author.username %}">{{ entry.author.username }}</a></em></h4> {% endcomment %}
+            <p><img src="{{ entry.photo.url }}"></p>
+            <p>{{ entry.post|linebreaks }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

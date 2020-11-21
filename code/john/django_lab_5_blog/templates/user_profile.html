@@ -1,3 +1,9 @@
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 5, BLOG https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab05-blog.md
+# PROJECT NAME: blog_project
+# APP NAMES: blog_app, users_app
+{% endcomment %}
 
 {% extends 'base.html' %}
 
@@ -17,7 +23,7 @@
         <div class="post-entry">
             <h2><a href="{% url 'blog_app:detail' post.pk %}"> {{ post.title}} </a></h2>
             <p>
-            {{ post.body | linebreaks }}
+            {{ post.caption | linebreaks }}
             </p>
         </div>
 

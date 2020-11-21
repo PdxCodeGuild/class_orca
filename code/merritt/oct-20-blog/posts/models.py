@@ -6,7 +6,8 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    body = models.TextField()
+    caption = models.CharField(max_length=500)
+    photo = models.ImageField(upload_to="images/")
 
     def get_absolute_url(self):
         return reverse('posts:detail', args=(self.id,))

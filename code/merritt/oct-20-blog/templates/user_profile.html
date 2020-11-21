@@ -8,7 +8,8 @@
     {% for post in object.post_set.all %}
         <div class="post-entry">
             <h2><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.body|linebreaks }}</p>
+            <p><img src="{{ post.photo.url }}"></p>
+            <p>{{ post.caption|linebreaks }}</p>
         </div>
     {% endfor %}
 

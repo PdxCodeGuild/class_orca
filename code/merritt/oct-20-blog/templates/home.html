@@ -6,7 +6,8 @@
         <div class="post-entry">
             <h2><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h2>
             <h4><em><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></em></h4>
-            <p>{{ post.body|linebreaks }}</p>
+            <p><img src="{{ post.photo.url }}"></p>
+            <p>{{ post.caption|linebreaks }}</p>
         </div>
     {% endfor %}
 
