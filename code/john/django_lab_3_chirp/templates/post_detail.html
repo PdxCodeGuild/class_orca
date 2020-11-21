@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 3, TWITTER MVP CLONE: https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab03-chirp.md
+# PROJECT NAME: chirp_project
+# APP NAMES: posts_app, users_app
+{% endcomment %}
+
+
+
+    {% block content %}
+
+      <div class="post-entry">
+
+        <h2> {{ post.post_text }} </h2>
+        <h4><em>Posted by: {{ post.author.username}} </h4></em>
+        
+        <h4> <a href="{% url 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
+
+        <h4><em>Posted on: {{ post.created }} .</h4></em>
+        
+        {% if post.updated != post.created %}
+        <h4><em>Updated on: {{ post.updated }} .</h4></em>
+        {% else %}
+          Never updated.
+        {% endif %}
+
+
+        {% comment %} <p> <img src="{{ post.photo.url }}" caption="{{ post.photo.url }}"> </p> {% endcomment %}
+        
+        {% comment %} think of the pipe as the 'cool trick operator' {% endcomment %}
+        <p> {{ post.caption | linebreaks }} </p>
+
+      </div>
+
+          {% if request.user == post.author %}
+                  
+            <p><a href="{% url 'posts_app:edit_post' post.pk %}">Edit this post</a></p>
+            <p><a href="{% url 'posts_app:delete_post' post.pk %}">Delete, CHANGE TO BUTTON!</a></p>
+
+          {% endif %}
+
+
+    {% endblock content %}
