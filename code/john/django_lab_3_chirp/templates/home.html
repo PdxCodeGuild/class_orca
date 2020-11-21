@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 3, TWITTER MVP CLONE: https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab03-chirp.md
+# PROJECT NAME: chirp_project
+# APP NAMES: posts_app, users_app
+{% endcomment %}
+
+
+{% block content %}
+
+    {% for post in object_list %}
+
+        <div class="post-entry">
+            <h2><a href="{% url 'posts_app:detail' post.pk %}"> {{ post.post_text | linebreaks }} </a></h2>
+            <h4> by <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> </h4>
+            <p>
+            {% comment %} comment out # {{ post.caption | linebreaks }} {% endcomment %}
+            </p>
+        </div>
+
+    {% endfor %} 
+
+
+    <h2>Bugs and issues:</h2>
+      <ol>
+        <li>error when posting/editing new page, saves in DB but redirect doesn't work...</li>
+        <li>ABOVE COPIED FROM LAB 5...</li>
+        <li>Change Delete page link to a nice button</li>
+        <li>point here</li>
+        <li>point here</li>
+        <li>point here</li>
+      </ol>
+    <br>
+
+{% endblock content %}
