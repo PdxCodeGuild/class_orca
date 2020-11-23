@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>CyPher</title> 
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        
+        <header>
+            <div class='header_title'>
+                <h1><a href="{% url 'chirp_posts:home' %}" >CyPher</a></h1>
+            </div>
+
+            <div class="header_user">
+                {% comment %} <p><a href="{% url 'chirp_users:signup' %}">Sign up!</a></p>
+                <p><a href="{% url 'login' %}">Login!</a></p> {% endcomment %}
+            </div>
+        </header>
+        
+        <main>
+            <div class="container">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </main>
+        <footer>
+<hr/>
+            <div class='header_nav'>
+                <p><a href="{% url 'chirp_posts:new' %}" >New Post</a>
+            </div>
+            <h3><a href="{% url 'chirp_posts:home' %}" >CyPher</a></h3>
+            {% comment %} <h3><a href="{% url 'chirp_posts:new' %}" >New Post</a></h3> {% endcomment %}
+            <h3>Copyright 2020</h3> 
+        </footer>
+
+    </body>
+
+</html>

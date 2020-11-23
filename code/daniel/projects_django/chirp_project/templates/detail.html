@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="post_header">
+    <h2>{{ chirpposts.title }}</h2>
+    <h2>{{ chirpposts.author.username }}</h2> 
+    <h3>Author: {{ chirpposts.author}}</h3>
+    {% comment %} <h2><a href="{% url 'chirp_post.profile' chirp_post.author.username %}">{{ chirp_post.username }}</a></h2> {% endcomment %}
+</div>
+<p>{{ chirpposts.content|linebreaks }}</p>
+<div class="post_footer">
+    <h3><em>Posted on: {{ chirpposts.created_on }}</em></h3>
+    <h3><em>Last edited on: {{ chirpposts.edited_on }}</em></h3>
+</div>
+
+<div>
+    <p><a href="{% url 'chirp_posts:edit' object.pk %}">Edit</a><p>
+    <p><a href="{% url 'chirp_posts:delete' object.pk %}">Delete</a><p>
+</div> 
+
+{% endblock content %} 
