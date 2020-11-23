@@ -1,0 +1,35 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+
+}
+header {
+    background-color: white;
+    color: wheat;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+main {
+    padding-bottom: 125px;
+}
+footer {
+    background-color: white;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+h2 {
+    text-decoration: none;
+    font-size: 15px;
+}
+.post_item {
+    border: none;
+    box-shadow: 1px 1px 3px black;
+    margin-bottom: 25px;
+}

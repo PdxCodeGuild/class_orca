@@ -1,0 +1,11 @@
+/* html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+} */
+body {
+    background-color: grey;
+    margin-left: 200px;
+    margin-right: 200px;
+}
