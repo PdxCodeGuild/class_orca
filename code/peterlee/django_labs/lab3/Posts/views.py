@@ -1,18 +1,25 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from django.utils import timezone
-from django.views.generic import ListView, DetailView
+
+
+from .models import Posts
+
 
 def index(request):
-    return render(request, 'index.html')
+    posts = Posts.objects.all()
+    context = {'Posts':posts}
+    return render(request, 'index.html', context)
+
+def detail(request):
+    return
 
 def create(request):
-    pass
+    return
 
 def edit(request):
-    pass
+    return
 
 def delete(request):
-    pass
+    return
 
