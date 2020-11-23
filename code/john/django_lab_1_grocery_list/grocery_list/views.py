@@ -35,18 +35,12 @@ def add_item(request):
 
 def update_or_delete(request):
     print('>>>>>PRINT: update_or_delete function running...')
-    print(f'>>>>>PRINT: entire request.POST is {request.POST}.')
-    print(f'>>>>>PRINT: request is {request}.')
     
-    # Not doing anything atm...
     # Next step is to read documentation @ https://docs.djangoproject.com/en/3.1/topics/forms/#the-work-that-needs-to-be-done :
 
-    # __dict__ # as dictionary
-    # __dir__() # as list
-    # print(f'>>>>>PRINT: request.__dict__ is {request.__dict__}.')
-    print(f'>>>>>PRINT: request.__dir__() is {request.__dir__()}.')
 
     return HttpResponseRedirect(reverse('grocery_list:index'))
+
 
 def delete_item(request):
     print('>>>>>PRINT: delete_item function running...')
@@ -68,9 +62,6 @@ def delete_item(request):
 
 def mark_completed(request):
     print('>>>>>PRINT: mark_completed function running...')
-    print(f'>>>>>PRINT: entire request is {request}.')
-    print(f'>>>>>PRINT: entire request.POST is {request.POST}.')
-    # Request is : <WSGIRequest: POST '/groceries/mark_completed/'>.
     
     update_list = request.POST.getlist('items_to_complete') # makes a list, see above: delete function comments and links
     
@@ -91,4 +82,19 @@ def mark_completed(request):
 
 def mark_incomplete(request):
     # do something!
+    print('>>>>>PRINT: mark_incomplete function running...')
+    print(f'>>>>>PRINT: entire request is {request}.')
+    
+    update_list = request.POST.getlist('mark_incomplete') # makes a list, see above: delete function comments and links
+    
+    for item in update_list:
+        print(f'>>>>>PRINT: UPDATING item: {item}.')
+        item = get_object_or_404(GroceryItem, grocery_description=item)
+        print(f'>>>>>PRINT: UPDATING item: {item}.')
+        
+        item.completed = False
+        item.save()
+
+    print(f'>>>>>PRINT: All done.')
+
     return HttpResponseRedirect(reverse('grocery_list:index'))

@@ -1,0 +1,9 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'Urlapp/main.css' %}">
+
+<p>Your shortened URL code is {{ code }}</p>
+
+<li><a href="{% url 'Urlapp:index' %}short/{{code}}">Click here to go there now</a></li>
+<br>
+<li><a href="{% url 'Url    

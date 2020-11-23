@@ -1,0 +1,15 @@
+<form action="{% url 'url_changer:convert' %}" method='post'>
+    {% csrf_token %}
+    <input type="text" id='long_url' name="long_url"/>
+    <button type='submit'>Convert URL</button>
+</form>
+
+<hr/>
+
+{% if url %}
+    <p>{{url.long_url}}</p>
+    <p>becomes</p>
+    <p><strong>
+        <a href={% url 'url_changer:redirect' url.short_url %}> http://127.0.0.1:8000/url_changer/{{url.short_url}}</a>
+    </strong></p>
+{% endif %}

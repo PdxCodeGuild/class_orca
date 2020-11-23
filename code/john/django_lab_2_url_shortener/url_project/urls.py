@@ -20,7 +20,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('url_project/', include('url_app.urls')),
+    path('', include('url_app.urls')), # everything in this file must have /url_project/
+    # that app's path as empty string isn't that crazy
+    # option: another app as empty string..
 ]

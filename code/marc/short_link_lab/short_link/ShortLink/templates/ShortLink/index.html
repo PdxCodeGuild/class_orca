@@ -1,0 +1,11 @@
+<p> Welcome the url shortlink machine</p>
+
+<form action="{% url 'ShortLink:create_code'%}" method='post'>
+    {% csrf_token %}
+    <input type='text' id='long_url' name='long_url'/>
+    <input type="submit" value="enter url to be converted to a shortlink:"/>
+</form>
+{% if short_url %}
+    <h> Here's your shortlink: </h></br>
+    <a href={% url 'ShortLink:re_direct' short_url%}>{{short_url}}</a>
+{% endif %}

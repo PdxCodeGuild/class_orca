@@ -1,0 +1,71 @@
+/* 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 5, BLOG https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab05-blog.md
+# PROJECT NAME: blog_project
+# APP NAMES: blog_app, users_app 
+This is mostly 'my' main.css file
+*/
+
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    /* display: flex; */
+    /* box-sizing: border-box; */
+    /* padding: 5px; */
+    font-family: 'Lato', sans-serif;
+}
+
+title, h1 {
+    font-size: 30px;
+    color: blue;
+    text-align: center;
+}
+
+legend {
+    text-align: center;
+    font-style: italic;
+    /* background-color: sienna; */
+}
+
+body {
+    background-color: rgb(177, 247, 247);
+    margin-left: 5%;
+    margin-right: 5%;
+    /* background-image: url('https://media.giphy.com/media/zRG8P7IndNxoLcq648/giphy.gif'); */
+    /* background-image: url('turtlezRG8P7IndNxoLcq648.gif'); */
+}
+
+form {
+    margin: 5px;
+    /* display: grid; */
+    /* flex-basis: auto; */
+    /* flex-grow: inherit; */
+    max-width: 90%;
+}
+
+li, ol {
+    /* display: flex; */
+    font-size: 15px;
+    /* margin: 2%; */
+}
+
+ol {
+    background-color: rgb(222, 255, 192);
+}
+
+
+@media (min-width: 700px) {    
+
+    body {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    /* form {
+    max-width: 55%;
+    } */
+}
+
+@media (min-width: 1000px) {    
+}
