@@ -4,9 +4,6 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-body {
-
-}
 header {
     background-color: white;
     color: wheat;
@@ -18,17 +15,13 @@ main {
     padding-bottom: 125px;
 }
 footer {
-    background-color: white;
-
+    background-color: blue;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
-h2 {
-    text-decoration: none;
-    font-size: 15px;
-}
 .post_item {
+    background-color: grey;
     border: none;
     box-shadow: 1px 1px 3px black;
     margin-bottom: 25px;

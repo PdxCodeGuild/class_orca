@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ object.username }}'s Profile</h1>
+
+{% for post in object.chirpposts_set.all %} 
+    <h2><a href="{% url 'chirp_posts:detail' post.pk %}">{{ post.title}}</a></h2>
+    <p>{{ post.content|linebreaks }}</p>
+{% endfor %}
+
+{% endblock content %}
