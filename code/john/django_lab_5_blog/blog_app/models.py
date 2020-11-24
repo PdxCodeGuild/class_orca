@@ -26,7 +26,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         # posts from urls.py, posts_app
-        return reverse('blog_app:detail', args=(self.id),)
+        return reverse('blog_app:detail', args=(self.id,))
         # merrit's working:
         # # return reverse('posts:detail', args=(self.id,)) 
         # 

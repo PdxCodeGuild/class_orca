@@ -9,29 +9,43 @@
 
 
 {% block content %}
+    <div id='bugs'>
+      <h2>Bugs and issues:</h2>
+      <ol>
+        <li>copy the instagram outline to paper...</li>
+        <li>~ ~ ~ WORK ON PORTFOLIO CSS! ~ ~ ~</li>
+        <li>actually understand CSS blocks and flex!</li>
+        <li>make detail page author buttons prettier</li>
+        <li>point here</li>
+        <li>point here</li>
+        <li>point here</li>
+        <li>? add change password page?</li>
+      <strike>
+        <li>FIXED, VERIFY IN LAB 5 THEN DELETE error when posting/editing new page, saves in DB but redirect doesn't work... -- FIXED with...
+          changed models.py tuple comma @ ...return ... args=(self.id,))</li>
+        <li>edit color on bullet points</li>
+        <li>combine two CSS files</li>
+        <li>change home.html to NOT link tweet, rather display as normal text...</li>
+        <li>...and add link to post at bottom</li>
+        <li>then REPEAT above on user profile page</li>
+        <li>Change Delete page link to a button</li>
+        <li>then IMPROVE main chirp detail page</li>
+      </strike>
 
+      </ol>
+    </div>
+    
+    <br>
+    <br>
+    
     {% for post in object_list %}
-
-        <div class="post-entry">
-            <h2><a href="{% url 'posts_app:detail' post.pk %}"> {{ post.post_text | linebreaks }} </a></h2>
-            <h4> by <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> </h4>
-            <p>
-            {% comment %} comment out # {{ post.caption | linebreaks }} {% endcomment %}
-            </p>
+        <div class="chirp">
+            <p> {{ post.post_text | linebreaks }} </p>
+            <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
         </div>
 
     {% endfor %} 
 
 
-    <h2>Bugs and issues:</h2>
-      <ol>
-        <li>error when posting/editing new page, saves in DB but redirect doesn't work...</li>
-        <li>ABOVE COPIED FROM LAB 5...</li>
-        <li>Change Delete page link to a nice button</li>
-        <li>point here</li>
-        <li>point here</li>
-        <li>point here</li>
-      </ol>
-    <br>
 
 {% endblock content %}
