@@ -6,7 +6,22 @@
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
   </head>
   <body>
-    <div class="container">
+    <header>
+      <div class="nav-left">
+        <a href="{% url 'Posts:index' %}">Chirp</a>
+      </div>
+      <div class="nav-right">
+        {% if request.user.is_authenticated %}
+          <p>Welcome back, <a href="{% url 'Users:profile' request.user.username %}">{{ request.user.username}}!<a></p>
+          <a href="{% url 'Posts:create' %}">Post New Chirp</a>
+          <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+          <a href="{% url 'login' %}">Login</a>
+          <a href="{% url 'Users:signup' %}">Sign Up</a>
+        {% endif %}
+      </div>
+    </header>
+    <div class="block">
         {% block content %}
         {% endblock content %}
     </div>
