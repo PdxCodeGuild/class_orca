@@ -16,11 +16,12 @@
       <form action="" method="post">
         {% csrf_token %}
 
-        <p>Are you sure you want to delete the post  "{{ post.post_text }}" ?
+        <p>Are you sure you want to delete the following post: <br><br>"{{ post.post_text }}"<br><br>
         (We thought it was perfectly worded, and lovingly succinct.)</p>
         
-        <input type="submit" value="DELETE?!">
+        <br>
 
+        <input type="submit" value="Confirm Delete">
 
       </form>
 
