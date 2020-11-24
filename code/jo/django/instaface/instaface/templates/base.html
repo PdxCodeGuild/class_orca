@@ -17,6 +17,8 @@
         </header>
         <div>
             {% block content %}
+                 <p><a href="{% url 'login' %}">Login</a></p>
+                 <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
             {% endblock content%}
         </div>
     </body>

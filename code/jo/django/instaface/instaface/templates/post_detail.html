@@ -10,7 +10,9 @@
         <p>{{ post.caption|linebreaks }}</p>
     </div>
 
-    {% comment %} {% if request.user == post.poster %}
-        more user stuff
-    {% endif %} {% endcomment %}
+    {% if request.user == post.poster %}
+        <p><a href="{% url 'instaface:edit' post.pk %}">Edit Post</a></p>
+        <p><a href="{% url 'instaface:delete' post.pk %}">Delete Post</a></p>
+    {% endif %}
+
 {% endblock content%}

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'instaface.apps.InstafaceConfig'
+    'instaface.apps.InstafaceConfig',
+    # 'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
