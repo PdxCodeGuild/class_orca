@@ -1,4 +1,9 @@
-
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 5, BLOG https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab05-blog.md
+# PROJECT NAME: blog_project
+# APP NAMES: blog_app, users_app
+{% endcomment %}
 
 {% extends 'base.html' %}
 
@@ -8,12 +13,23 @@
 
         <div class="post-entry">
             <h2><a href="{% url 'blog_app:detail' post.pk %}"> {{ post.title}} </a></h2>
-            <h4> <a href="{% 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
+            <h4> by <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> </h4>
             <p>
-            {{ post.body | linebreaks }}
+            {{ post.caption | linebreaks }}
             </p>
         </div>
 
     {% endfor %}
+
+    <h2>Bugs and issues:</h2>
+    <ol>
+        <li>error when posting/editing new page, saves in DB but redirect doesn't work...</li>
+        <li>image not displaying on admin page?</li>
+        <li>point here</li>
+        <li>point here</li>
+        <li>point here</li>
+        <li>point here</li>
+        </ol>
+        <br>
 
 {% endblock content %}

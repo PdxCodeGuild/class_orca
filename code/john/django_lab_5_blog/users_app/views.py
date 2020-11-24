@@ -1,8 +1,13 @@
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 5, BLOG https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab05-blog.md
+# PROJECT NAME: blog_project
+# APP NAMES: blog_app, users_app
+
 # from django.shortcuts import render
 
 from django.shortcuts import get_object_or_404
 from django.views import generic
-from django.views.generic import DetailView
+from django.views.generic import DetailView, CreateView
 
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm

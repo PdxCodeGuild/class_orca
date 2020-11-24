@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="post-entry">
+        <h2>{{ squeek.title }}</h2>
+        <h4><em><a href="{% url 'users:profile' squeek.author.username %}">{{ squeek.author.username }}</a></em></h4>
+        <h4><em>Posted on {{ squeek.created }}</em></h4>
+        <h4><em>Last Update on {{ squeek.updated }}</em></h4>
+        {% if squeek.photo.url %}
+            <p><img src="{{ squeek.photo.url|default_if_none:'#' }}"></p>
+        {% endif %}
+        <p>{{ squeek.post|linebreaks }}</p>
+    </div>
+
+    {% if request.user == squeek.author %}
+    <p><a href="{% url 'squawker:edit' squeek.pk %}">+ Edit Blog Post</a></p>
+    <p><a href="{% url 'squawker:delete' squeek.pk %}">+ Delete Blog Post</a></p>
+    {% endif %}
+
+
+{% endblock content %}

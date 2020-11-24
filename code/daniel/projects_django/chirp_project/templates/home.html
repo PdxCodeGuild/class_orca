@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for post in object_list %}
+<a href="{% url 'chirp_posts:detail' post.pk %}">
+<div class="post_item">
+    <div class="post_header">
+        <h2>{{ post.title }}</h2>
+        <h2><a href="{% url 'chirp_users:profile' post.author.username %}">{{ post.author }}</a></h2> 
+    </div>
+    <p>{{ post.content|linebreaks }}</p>
+</div>   
+</a> 
+
+{% endfor %}
+{% endblock content %}

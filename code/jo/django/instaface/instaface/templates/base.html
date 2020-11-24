@@ -1,0 +1,25 @@
+{% comment %} {% load static %} {% endcomment %}
+{% comment %} for when i get css file in static folder {% endcomment %}
+<!DOCTYPE html>
+<html>
+    <head>
+    {% comment %} add formatting stuff, either copy merritt's or framework {% endcomment %}
+    <title>Instaface</title>
+    </head>
+    <body>
+        <header>
+            <div>
+                <h1><a href="{% url 'instaface:home' %}">Instafacer</a></h1>
+            </div>
+            <div>
+                {% comment %} user stuff {% endcomment %}
+            </div>
+        </header>
+        <div>
+            {% block content %}
+                 <p><a href="{% url 'login' %}">Login</a></p>
+                 <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endblock content%}
+        </div>
+    </body>
+</html>

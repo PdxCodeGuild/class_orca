@@ -2,15 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-from .models import urlCode
+from .models import urlCode, METAData
 
 import string, random 
+
 
 def index(request):
     url_database = urlCode.objects.all()
     context = {'url_database': url_database,} 
     return render(request, 'url_shortner_app/index.html', context) 
-
 
 def url_source(request):
     url_address = request.POST['url_address']
@@ -28,8 +28,11 @@ def url_code_generator():
     return url_code 
 
 def user_redirect(request, url_code):
+    ip = request.META['REMOTE_ADDR']
+    server_port = request.META['SERVER_PORT']
+    server_name = request.META['SERVER_NAME']
     redirect = urlCode.objects.get(url_code=url_code) 
-    print(redirect.url) 
-    return HttpResponseRedirect(redirect.url)
-
-
+    METAData.objects.create(ip=ip, server_port=server_port, server_name=server_name)
+    redirect.url_counter += 1
+    redirect.save()
+    return HttpResponseRedirect(redirect.url) 

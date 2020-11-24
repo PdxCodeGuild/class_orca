@@ -1,0 +1,58 @@
+{% load static %} 
+
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 3, TWITTER MVP CLONE: https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab03-chirp.md
+# PROJECT NAME: chirp_project
+# APP NAMES: posts_app, users_app
+{% endcomment %}
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+      <title>Twirpy Twapper Clone</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'css/github_necolas_normalize.css'%}">
+      <link rel="stylesheet" href="{% static 'css/main.css'%}">
+      {% comment %} <link rel="stylesheet" href="{% static 'css/base.css'%}"> {% endcomment %}
+      {% comment %} GOOGLE FONTS ADD {% endcomment %}
+      {% comment %} <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap"> {% endcomment %}
+    </head>
+
+  <body>    
+    
+    <header>
+      <div class="nav-left">
+        <h1> <a href="{% url 'posts_app:home' %}">Twirpy Twapper Clone</a> </h1>
+      </div>
+
+      <div class="nav-right">
+                
+        {% if request.user.is_authenticated  %}
+          <p>Hello, user: <a href="{% url 'users_app:profile' request.user.username %}"> {{ request.user.username }} </a></p>
+          {% comment %} definetly user, not users !  {% endcomment %}
+          {% comment %} NOTE added a bit with request.user.is_authenticated, rather than just user.username {% endcomment %}
+          <p><a href="{% url 'posts_app:new_post'%}">+ New Blog Post</a></p>
+          <p><a href="{% url 'logout'%}">LOGOUT</a></p>
+        {% else %}
+          <p><a href="{% url 'users_app:signup' %}">+ New User Creation</a></p>
+          <p><a href="{% url 'login' %}"> Existing User Login</a></p>
+        
+        {% endif %}
+
+      </div>
+
+    </header>
+
+    <div class="container">
+    
+        {% block content %}
+
+        {% endblock content %}
+
+    </div>
+  </body>
+</html>

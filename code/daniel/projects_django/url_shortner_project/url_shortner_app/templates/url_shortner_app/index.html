@@ -1,3 +1,10 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'url_shortner_app/main.css' %}">
+
+<h1>URL BLASTER</h1>
+<img src='https://img.favpng.com/16/0/3/cartoon-comics-comic-book-png-favpng-xCtnz6tyNaJEUa7Wtk085QTFt.jpg'
+
 <form action="{% url 'url_shortner_app:url_source' %}" method='post'>{% csrf_token %}
     <fieldset>
         <legend>url Address Encrypter</legend>

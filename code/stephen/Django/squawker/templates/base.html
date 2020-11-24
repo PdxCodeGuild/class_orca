@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Welcome to Squawker!</title>
+
+    
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="media/images/smlogo.jpg" width="570" height="100" alt="logo">
+                </a>
+                {% if request.user.is_authenticated %}
+                    <div class="navbar ml-auto">
+                    <p> Howdy, <a href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a>!</p>
+                    <p><a href="{% url 'logout' %}">Logout</a></p>
+                    </div>
+                {% else %}
+                    <p><a href="{% url 'login' %}">Login</a></p>
+                    <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+                {% endif %}
+            </nav>
+        </header>
+        <div class="container">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <p><a href="{% url 'squawker:new' %}">+ New Blog Post</a></p>
+       
+    </body>
+</html>

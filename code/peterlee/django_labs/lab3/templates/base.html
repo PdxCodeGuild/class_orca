@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chirp</title>
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+  </body>
+</html>
