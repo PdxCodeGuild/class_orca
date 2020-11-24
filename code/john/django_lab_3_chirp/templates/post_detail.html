@@ -9,35 +9,40 @@
 
 
 
+
+
+
     {% block content %}
 
-      <div class="post-entry">
+        <div class="chirp">
+            <p> {{ post.post_text | linebreaks }} </p>
+            <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
+            
+        {% comment %} 
+          <h2> {{ post.post_text }} </h2>
+          <h4><em>Posted by: {{ post.author.username}} </h4></em>
+          
+          <h4> <a href="{% url 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
 
-        <h2> {{ post.post_text }} </h2>
-        <h4><em>Posted by: {{ post.author.username}} </h4></em>
-        
-        <h4> <a href="{% url 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
-
-        <h4><em>Posted on: {{ post.created }} .</h4></em>
-        
+          <h4><em>Posted on: {{ post.created }} .</h4></em>
+         {% endcomment %}
+          <h6>
         {% if post.updated != post.created %}
-        <h4><em>Updated on: {{ post.updated }} .</h4></em>
-        {% else %}
-          Never updated.
-        {% endif %}
-
-
-        {% comment %} <p> <img src="{{ post.photo.url }}" caption="{{ post.photo.url }}"> </p> {% endcomment %}
-        
-        {% comment %} think of the pipe as the 'cool trick operator' {% endcomment %}
-        <p> {{ post.caption | linebreaks }} </p>
-
-      </div>
+          <em>Updated on: {{ post.updated }} .</em>
+          {% else %}
+            Never updated.
+          {% endif %}
+          </h6>
+          {% comment %} <p> <img src="{{ post.photo.url }}" caption="{{ post.photo.url }}"> </p> {% endcomment %}
+        </div>
 
           {% if request.user == post.author %}
-                  
-            <p><a href="{% url 'posts_app:edit_post' post.pk %}">Edit this post</a></p>
-            <p><a href="{% url 'posts_app:delete_post' post.pk %}">Delete, CHANGE TO BUTTON!</a></p>
+                <form action=" {% url 'posts_app:edit_post' post.pk %}">
+                  <input type="submit" value="Edit Chirp">
+                </form>
+                <form action=" {% url 'posts_app:delete_post' post.pk %}">
+                  <input type="submit" value="Delete Chirp">
+                </form>
 
           {% endif %}
 

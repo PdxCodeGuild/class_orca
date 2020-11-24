@@ -11,26 +11,22 @@
 {% block content %}
     
     <h1>
-    {{ object.username }}
+    Chirps by {{ object.username }} :
     {% comment %} the logged in user is NOT user.username, rather object.username... {% endcomment %}
     </h1>
 
     <h5>
-    {{ object.username }} has been posting since: {{ object.date_joined }} !
+    {{ object.username }} has been posting since: {{ object.date_joined }} .
     </h5>
 
-{% comment %} is post_set correctly named???? {% endcomment %}
-{% comment %} is post_set correctly named???? {% endcomment %}
-{% comment %} is post_set correctly named???? {% endcomment %}
-{% comment %} is post_set correctly named???? {% endcomment %}
     {% for post in object.post_set.all %}
 
-        <div class="post-entry">
-            <h2><a href="{% url 'posts_app:detail' post.pk %}"> {{ post.post_text }} </a></h2>
-            <p>
-            {{ post.caption | linebreaks }}
+        <div class="chirp">
+            <p> {{ post.post_text | linebreaks }} </p>
+            <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
             </p>
         </div>
+
 
     {% endfor %}
 
