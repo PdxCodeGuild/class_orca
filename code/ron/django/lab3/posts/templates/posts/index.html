@@ -1,0 +1,26 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+
+{% for post in object_list %}
+
+    <div class="post">
+
+        <div class="post-image">
+            <img src="{{ post.photo.url }}">
+        </div>
+
+
+        <div class="post-entry">
+            <h3><a href="{% url 'posts:entry' post.pk %}">{{ post.title }}</a></h3>
+            <h5><em>By: {{ post.author.username }}<br>
+            Posted: {{ post.created }}</em></h5>
+        </div>
+
+    </div>
+    <hr>
+
+{% endfor %}
+
+{% endblock content %}
+

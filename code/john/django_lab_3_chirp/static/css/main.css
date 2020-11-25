@@ -1,0 +1,136 @@
+/* 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 3, TWITTER MVP CLONE: https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab03-chirp.md
+# PROJECT NAME: blog_project, # APP NAMES: blog_app, users_app 
+*/
+
+/* 
+Below was originally to make Chrome reload the CSS, but Shift+F5 worked well.
+src="/css/styles.css?v={random number/string}" 
+
+COLOR COMMENTS, MOSTLY FROM https://visme.co/blog/website-color-schemes/ # 4 'Cool and Fresh'
+
+Green-centered, kinda 'digital old video game' theme:
+    #05386B dark, almost black
+    #379683 light, almost grey
+    #5CDB95 bright green, base background
+    #BEE4AF lighter green/grey, 
+    #EDF7E1 light colored white-ish text
+
+NOTES:
+    #here is an id="here"
+    .here is a class="here"
+
+*/
+
+/* @charset "UTF-8"; */
+/* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap'); */
+
+#bugs {    
+    border: 5px solid #EDF7E1;
+    margin-bottom: 5%;
+}
+li, ol {
+    /* display: flex; */
+    font-size: 15px;
+    color: #5CDB95 ;
+    background-color:#05386B;
+}
+h1, h2, h3 , h4, h5, h6 {
+    text-align: center;
+}
+header {
+    border-bottom: 5px solid #EDF7E1;
+    margin-bottom: 18px;
+    display: flex;
+}
+header h1 a {
+    text-decoration: none;
+}
+h2 a {
+    text-decoration: none;
+}
+legend {
+    text-align: center;
+    font-style: italic;
+}
+
+.nav-left, #username {
+    margin-right: auto;
+    font-family: 'Pacifico', cursive; /* LOADED VIA HTML BASE.HTML */
+}      
+.nav-right {
+    display: flex;
+    padding-top: 1rem;
+}      
+.nav-right p {          
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 18px;
+    background-color: #5CDB95;
+    color: #05386B;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.chirp-container {
+    border-bottom: 5px solid #EDF7E1;
+    margin-bottom: 5%;
+}
+
+/* This is the formatting for the chirp display */
+.chirp {
+    font-family: 'Open Sans', sans-serif; /* LOADED VIA HTML BASE.HTML */
+    margin: 3rem;
+    padding: 5px;
+    /* background-color:#05386B; */
+    border: 5px solid #05386B;
+}
+.chirp h6 a, .chirp h6 a:visited {
+    text-decoration: none;
+    color:  #379683;
+}
+.chirp p {
+    /* margin: 0; */
+    font-weight: 400;
+}
+.chirp h6 a:hover {
+    color: #BEE4AF;
+}
+footer {
+    /* position: fixed; */
+    text-align: center;
+    border-bottom: 5px solid #EDF7E1;
+    margin-bottom: 15%;
+}
+
+
+/* This is the formatting for forms, like new chirp or password change page */
+form {
+    margin: 100px;
+    /* padding: 10px; */
+    max-width: 90%;
+}
+/* BUTTONS */
+input { 
+    background-color: #379683;
+    color: rgb(0, 0, 0);
+}
+
+
+
+@media (min-width: 700px) {    
+    body {
+        margin-left: 20%;
+        margin-right: 20%;    
+    }    
+}
+@media (min-width: 1000px) {   
+    body {
+        margin-left: 30%;
+        margin-right: 30%;    
+    }    
+}

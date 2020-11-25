@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 3, TWITTER MVP CLONE: https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab03-chirp.md
+# PROJECT NAME: chirp_project
+# APP NAMES: posts_app, users_app
+{% endcomment %}
+
+
+
+  {% block content %}
+      
+    <h1>New Chirp:</h1>
+      <form action="" method="post"> 
+       {% comment %} IMAGES? ADD THIS TO ABOVE FORM TAG: enctype="multipart/form-data"> {% endcomment %}
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <p><em>Maximum: 80 characters.</em></p>
+        <input type="submit" value="Submit!">
+
+      </form>
+      
+    {% comment %} 
+    <h1>New Post as div</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+
+        {{ form.as_div }}
+        <input type="submit" value="Submit!">
+
+
+      </form> 
+      {% endcomment %}
+
+  {% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="index-body">
+        {% for post in post_list %}
+            <a href="{% url 'Posts:detail' post.id %}">{{ post.title }}</a>
+            <em><a href="{% url 'Users:profile' post.author.username %}">{{ post.author.username}}</a></em>
+            <p>{{ post.body|linebreaks }}</p>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
