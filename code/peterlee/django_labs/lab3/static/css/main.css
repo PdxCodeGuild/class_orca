@@ -1,0 +1,48 @@
+body {
+    background-color: rgb(21, 32, 43);
+    font-family: 'Lato', sans-serif;
+    color: white
+}
+
+a {
+    text-decoration: none;
+    color: rgb(29, 161, 242);
+}
+
+header {
+    display: flex;
+    padding: 2rem;
+}
+
+.nav-left {
+    margin-right: auto;
+    font-size: 24px;
+    padding-left: 4rem;
+    padding-top: 1rem;
+}
+
+.nav-right {
+    padding-left: 4rem;
+    padding-top: 1rem;
+}
+
+.nav-right a, p{
+    margin: 6px;
+    font-size: 18px;
+}
+
+.block {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.post-edit a {
+    margin: 6px;
+}
+
+.post-detail a, p {
+    padding: 6px;
+}
+
