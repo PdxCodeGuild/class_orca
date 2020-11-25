@@ -55,3 +55,6 @@ class UserProfileView(generic.DetailView):
 
     def get_object(self):
         return get_object_or_404(User, username=self.kwargs['username'])
+
+# class LargeImageView():
+#     model = Post
