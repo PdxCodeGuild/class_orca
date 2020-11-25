@@ -1,0 +1,48 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Juice Blog</title>
+    <meta   charset="UTF-8">
+    <meta   name="viewport" content="width=device-width,initial-scale=1">
+    <link   rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link   href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap" rel="stylesheet">
+    <link   rel="stylesheet" href="{% static './posts/main.css' %}">
+  </head>
+
+  <body>
+    <header>
+        <div class="nav-left">
+            <h1><a href="{% url 'posts:index' %}">The Juice Blog</a></h1>
+        </div>
+        <div class="nav-right">
+
+        {% if request.user.is_authenticated %}
+          <p> Hello, <a href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a>!<br>
+          <a href="{% url 'posts:new' %}">Create Blog Entry</a><br>
+          <a href="{% url 'logout' %}">Logout</a></p>
+
+        {% else %}
+          <p><a href="{% url 'login' %}">Login</a></p>
+          <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %}
+        </div>
+    </header>
+
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div> 
+
+  </body>
+</html>
+
+
+
+
+{% comment %} old code------------------------------------------------------------------------------------------------ {% endcomment %}
+
+  {% comment %} Hello: {{ request.user.username }}&nbsp&nbsp&nbsp {% endcomment %}
+

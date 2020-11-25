@@ -17,9 +17,12 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="{% static 'css/github_necolas_normalize.css'%}">
       <link rel="stylesheet" href="{% static 'css/main.css'%}">
-      {% comment %} <link rel="stylesheet" href="{% static 'css/base.css'%}"> {% endcomment %}
-      {% comment %} GOOGLE FONTS ADD {% endcomment %}
-      {% comment %} <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap"> {% endcomment %}
+    
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Pacifico&display=swap" rel="stylesheet"> 
+
     </head>
 
   <body>    
@@ -32,14 +35,15 @@
       <div class="nav-right">
                 
         {% if request.user.is_authenticated  %}
-          <p>Hello, user: <a href="{% url 'users_app:profile' request.user.username %}"> {{ request.user.username }} </a></p>
+          <p>Hello, user: <a href="{% url 'users_app:profile' request.user.username %}" id="username"> {{ request.user.username }} </a></p>
           {% comment %} definetly user, not users !  {% endcomment %}
           {% comment %} NOTE added a bit with request.user.is_authenticated, rather than just user.username {% endcomment %}
-          <p><a href="{% url 'posts_app:new_post'%}">+ New Blog Post</a></p>
-          <p><a href="{% url 'logout'%}">LOGOUT</a></p>
+          <p><a href="{% url 'posts_app:new_post'%}">+ New Chirp</a></p>
+          <p><a href="{% url 'posts_app:change_password'%}">Change Password</a></p>
+          <p><a href="{% url 'logout'%}">Logout</a></p>
         {% else %}
           <p><a href="{% url 'users_app:signup' %}">+ New User Creation</a></p>
-          <p><a href="{% url 'login' %}"> Existing User Login</a></p>
+          <p><a href="{% url 'login' %}">+ Existing User Login</a></p>
         
         {% endif %}
 
@@ -47,12 +51,19 @@
 
     </header>
 
-    <div class="container">
+    <div class="chirp-container">
     
         {% block content %}
 
         {% endblock content %}
 
     </div>
+
+    <footer>
+    Copyright 2020-2021 John Fial.
+    <br>
+    <br>
+    </footer>
+
   </body>
 </html>

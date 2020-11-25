@@ -2,8 +2,8 @@
 {% block content %}
 
 <div class="post_header">
-    <h2>{{ chirpposts.title }}</h2>
-    <h2>{{ chirpposts.author.username }}</h2> 
+    <h1>{{ chirpposts.title }}</h1>
+    {% comment %} <h2>{{ chirpposts.author.username }}</h2>  {% endcomment %}
     <h3>Author: {{ chirpposts.author}}</h3>
     {% comment %} <h2><a href="{% url 'chirp_post.profile' chirp_post.author.username %}">{{ chirp_post.username }}</a></h2> {% endcomment %}
 </div>
@@ -14,8 +14,10 @@
 </div>
 
 <div>
+    {% if request.user == chirpposts.author %}
     <p><a href="{% url 'chirp_posts:edit' object.pk %}">Edit</a><p>
     <p><a href="{% url 'chirp_posts:delete' object.pk %}">Delete</a><p>
+    {% endif %}
 </div> 
 
 {% endblock content %} 
