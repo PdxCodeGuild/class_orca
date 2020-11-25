@@ -3,16 +3,17 @@
 {% block content %}
 
     <h1>{{ object.username }}</h1>
-    <h5><em>Writing stuff since {{ object.date_joined }}!</em></h5>
+    <h5><em>Squawker since: {{ object.date_joined }}!</em></h5>
 
-    {% for post in object.post_set.all %}
+    {% for squeek in object.squeek_set.all %}
         <div class="post-entry">
             <h2><a href="{% url 'squawker:detail' squeek.pk %}">{{ squeek.title }}</a></h2>
             {% if squeek.photo.url %}
-            <p><img src="{{ squeek.photo.url|default_if_none:'#' }}"></p>
+            <p><img src="{{ squeek.photo.url|default_if_none:'#' }}" class="postimg"></p>
             {% endif %}
             <p>{{ squeek.post|linebreaks }}</p>
         </div>
+        <hr>
     {% endfor %}
 
 {% endblock content %}

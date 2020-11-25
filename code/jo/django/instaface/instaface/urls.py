@@ -12,5 +12,6 @@ urlpatterns = [
     path('post/<int:pk>/delete/', views.PostDeleteView.as_view(), name='delete'),
     path('signup/', views.SignupView.as_view(), name='signup'),
     path('<str:username>/', views.UserProfileView.as_view(), name='profile'),
+    # path('media/images/<str:post.photo.url>', views.LargeImageView.as_view(), name='largeimage'),
 
 ]

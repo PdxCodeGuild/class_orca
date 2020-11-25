@@ -84,6 +84,7 @@ body {
 /* This is the formatting for the chirp display */
 .chirp {
     font-family: 'Open Sans', sans-serif; /* LOADED VIA HTML BASE.HTML */
+    font-size: 150%;
     margin: 3rem;
     padding: 5px;
     /* background-color:#05386B; */
@@ -107,11 +108,25 @@ footer {
     margin-bottom: 15%;
 }
 
+/* Overall section .comments plural vs. individual .comment */
+.comments {
+    font-size: 75%;
+    text-align: center;
+    background-color: rgb(197, 101, 32) 106, 38);
+}
+.comment {
+    text-align: center;
+    background-color: rgb(214, 105, 28) 102, 43);
+    margin: 20px 0px 20px 20px;
+}
 
 /* This is the formatting for forms, like new chirp or password change page */
 form {
-    margin: 100px;
+    display: flex;
+    justify-content: center;
+    /* margin: 10px; */
     /* padding: 10px; */
+    /* border: 5px dashed red; */
     max-width: 90%;
 }
 /* BUTTONS */
@@ -124,13 +139,13 @@ input {
 
 @media (min-width: 700px) {    
     body {
-        margin-left: 20%;
-        margin-right: 20%;    
+        margin-left: 15%;
+        margin-right: 15%;    
     }    
 }
 @media (min-width: 1000px) {   
     body {
-        margin-left: 30%;
-        margin-right: 30%;    
+        margin-left: 20%;
+        margin-right: 20%;    
     }    
 }
