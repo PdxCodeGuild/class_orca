@@ -14,37 +14,37 @@
 
     {% block content %}
 
-        <div class="chirp">
-            <p> {{ post.post_text | linebreaks }} </p>
-            <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
-            
-        {% comment %} 
-          <h2> {{ post.post_text }} </h2>
-          <h4><em>Posted by: {{ post.author.username}} </h4></em>
+      <div class="chirp">
+          <p> {{ post.post_text | linebreaks }} </p>
+          <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
           
-          <h4> <a href="{% url 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
+      {% comment %} 
+        <h2> {{ post.post_text }} </h2>
+        <h4><em>Posted by: {{ post.author.username}} </h4></em>
+        
+        <h4> <a href="{% url 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
 
-          <h4><em>Posted on: {{ post.created }} .</h4></em>
-         {% endcomment %}
-          <h6>
+        <h4><em>Posted on: {{ post.created }} .</h4></em>
+        {% endcomment %}
+        <h6>
         {% if post.updated != post.created %}
           <em>Updated on: {{ post.updated }} .</em>
-          {% else %}
-            Never updated.
-          {% endif %}
-          </h6>
-          {% comment %} <p> <img src="{{ post.photo.url }}" caption="{{ post.photo.url }}"> </p> {% endcomment %}
-        </div>
+        {% else %}
+          Never updated.
+        {% endif %}
+        </h6>
 
-          {% if request.user == post.author %}
-                <form action=" {% url 'posts_app:edit_post' post.pk %}">
-                  <input type="submit" value="Edit Chirp">
-                </form>
-                <form action=" {% url 'posts_app:delete_post' post.pk %}">
-                  <input type="submit" value="Delete Chirp">
-                </form>
+        {% if request.user == post.author %}
+              <form action=" {% url 'posts_app:edit_post' post.pk %}">
+                <input type="submit" value="Edit Chirp">
+              </form>
+              <form action=" {% url 'posts_app:delete_post' post.pk %}">
+                <input type="submit" value="Delete Chirp">
+              </form>
 
-          {% endif %}
+        {% endif %}
+        {% comment %} <p> <img src="{{ post.photo.url }}" caption="{{ post.photo.url }}"> </p> {% endcomment %}
+      </div>
 
 
     {% endblock content %}

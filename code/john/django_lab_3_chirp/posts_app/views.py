@@ -4,7 +4,7 @@
 # APP NAMES: posts_app, users_app
 
 # django urls stuff
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 # django views
@@ -13,6 +13,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # django auth stuff
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm # from https://simpleisbetterthancomplex.com/tips/2016/08/04/django-tip-9-password-change-form.html
 
 # our post model
 from .models import Post
@@ -57,4 +60,22 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return self.request.user == obj.author
 
 
-
+# from https://simpleisbetterthancomplex.com/tips/2016/08/04/django-tip-9-password-change-form.html :
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user) # "an important bit is to call update_session_auth_hash() after you save the form. Otherwise the user’s auth session will be invalidated and she/he will have to log in again."
+            messages.success(request, 'Your password was successfully updated. Horray for security!')
+            return redirect('posts_app:change_password')
+            # next try posts_app:change_password
+            # why not return to user profile page?
+        else:
+            messages.error(request, 'Please correct the below error:')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'registration/change_password.html', {
+        'form': form
+    })
