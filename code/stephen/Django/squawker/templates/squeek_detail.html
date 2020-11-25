@@ -8,9 +8,9 @@
         <h4><em>Posted on {{ squeek.created }}</em></h4>
         <h4><em>Last Update on {{ squeek.updated }}</em></h4>
         {% if squeek.photo.url %}
-            <p><img src="{{ squeek.photo.url|default_if_none:'#' }}"></p>
+            <p><img src="{{ squeek.photo.url|default_if_none:'#' }}" class="postimg"></p>
         {% endif %}
-        <p>{{ squeek.post|linebreaks }}</p>
+        <p class="posttext">{{ squeek.post|linebreaks }}</p>
     </div>
 
     {% if request.user == squeek.author %}

@@ -18,11 +18,9 @@ class Squeek(models.Model):
     class Meta:
         ordering = ['-created']
     
+    
     @property
-    
     def photo_url(self):
-    
         if self.photo and hasattr(self.photo, 'url'):
-    
             return self.photo.url
     
