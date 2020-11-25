@@ -13,5 +13,4 @@ urlpatterns = [
     path('<int:pk>/delete/', views.BlogDeleteView.as_view(), name='delete'),
 ]
 
-    # path('', views.index, name='index'),
 

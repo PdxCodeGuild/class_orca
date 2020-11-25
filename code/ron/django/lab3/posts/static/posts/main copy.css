@@ -48,7 +48,6 @@ body {
     /* margin-left: auto; */
     /* flex-flow: column wrap; */
     /* padding-top: 2rem; */
-    color: black;
     margin-right: 2rem;
 
   }
@@ -59,32 +58,9 @@ body {
     margin-right: .25rem;
   }
   
-  .post {
-    display: flex;
-    justify-content: middle;
-    background-color: white;
-    justify-content: space-between;
-    color: black;
-  }
-
-  /* Left side of post */
-  .post-image {
-    margin-left: 2rem;
-    /* background-color: lightgoldenrodyellow; */
-  }
-
-  .post-image img {
-    object-fit: scale-down;
-    max-width: 200px;
-    max-height: 200px;
-  }
-
-
-  /* Right side of post */
   .post-entry {
     margin-bottom: 2rem;
     color: black;
-    margin-right: 2rem;
   }
   
   .post-entry h3 {

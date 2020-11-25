@@ -7,7 +7,7 @@
         <h5><em>By: <a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a><br>
         Posted: {{ post.created }}<br>
         Updated: {{ post.updated}}</em></h5><br>
-        {% comment %} <p><img src="{{ post.photo.url }}"></p> {% endcomment %}
+        <p><img src="{{ post.photo.url }}"></p>
         {{ post.body|linebreaks }}
     </div>
 
