@@ -38,6 +38,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Short URL</th>
                     <th scope="col">Go to Page</th>
+                    <th scope="col">Clicks</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,11 +54,41 @@
                                     <button type="submit">Go</button>
                                 </form>
                             </td>
+                            <td>{{ x.clicks }}</td>
                     {% endfor %}
             </tbody>
                 {% else %}
                     <p>No urls added</p>
                 {% endif %}
         </table>
+    </div>
+    <div class="extra">
+        <h2>PII that we collect, use, or otherwise handle</h2>
+    <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Your ip address</th>
+                    <th scope="col">Your location</th>
+                    <th scope="col">What you ate for dinner</th>
+                    <th scope="col">SSN</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if new_url_list %}
+                    {% for x in new_url_list %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ x.ip }}</td>
+                            <td>{{ x.location }}</td>
+                            <td>{{ x.dinner }}</td>
+                            <td>{{ x.social }}</td>
+                    {% endfor %}
+            </tbody>
+                {% else %}
+                    <p>No urls added</p>
+                {% endif %}
+        </table>
+    
     </div>
 </body>

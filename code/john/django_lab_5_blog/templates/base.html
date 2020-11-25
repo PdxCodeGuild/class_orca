@@ -1,0 +1,61 @@
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 5, BLOG https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab05-blog.md
+# PROJECT NAME: blog_project
+# APP NAMES: blog_app, users_app
+{% endcomment %}
+
+
+{% load static %} {% comment %} good idea to have this at the top of every html... {% endcomment %}
+{% comment %} LAB 2, URL SHORTENER. NAMES: URL_PROJECT AND URL_APP. {% endcomment %}
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+      <title>John Blog Test</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'css/github_necolas_normalize.css'%}">
+      <link rel="stylesheet" href="{% static 'css/main.css'%}">
+      <link rel="stylesheet" href="{% static 'css/base.css'%}">
+      {% comment %} GOOGLE FONTS ADD {% endcomment %}
+      {% comment %} <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap"> {% endcomment %}
+
+    </head>
+
+  <body>
+
+    
+    
+    <header>
+      <div class="nav-left">
+        <h1>            <a href="{% url 'blog_app:home' %}">blog title </a>        </h1>
+        </div>
+        <div class="nav-right">
+          
+          {% if request.user.is_authenticated  %}
+            <p>Hello, user: <a href="{% url 'users_app:profile' request.user.username %}"> {{ request.user.username }} </a></p>
+            {% comment %} added a bit with request.user.is_authenticated, rather than just user.username {% endcomment %}
+            <p><a href="{% url 'blog_app:new_post'%}">+ New Blog Post</a></p>
+            <p><a href="{% url 'logout'%}">LOGOUT</a></p>
+          {% else %}
+            <p><a href="{% url 'users_app:signup' %}">New User Creation</a></p>
+            <p><a href="{% url 'login' %}">Login</a></p>
+          
+          {% endif %}
+
+        </div>
+
+    </header>
+
+        <div class="container">
+        
+            {% block content %}
+
+            {% endblock content %}
+
+        </div>
+</body>
+</html>

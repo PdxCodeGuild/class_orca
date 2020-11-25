@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 3, TWITTER MVP CLONE: https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab03-chirp.md
+# PROJECT NAME: chirp_project
+# APP NAMES: posts_app, users_app
+{% endcomment %}
+
+
+{% block content %}
+    
+    <h1>
+    Chirps by {{ object.username }} :
+    {% comment %} the logged in user is NOT user.username, rather object.username... {% endcomment %}
+    </h1>
+
+    <h5>
+    {{ object.username }} has been posting since: {{ object.date_joined }} .
+    </h5>
+
+    {% for post in object.post_set.all %}
+        <div class="chirp">
+            <p> {{ post.post_text | linebreaks }} </p>
+            <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
+            </p>
+        </div>
+    {% endfor %}
+
+    {% comment %} 
+    {% if request.user == post.author %}
+        <form action=" {% url 'posts_app:edit_post' post.pk %}">
+            <input type="submit" value="Edit Chirp">
+        </form>
+        <form action=" {% url 'posts_app:delete_post' post.pk %}">
+            <input type="submit" value="Delete Chirp">
+        </form>
+    {% endif %} 
+    {% endcomment %}
+
+{% endblock content %}

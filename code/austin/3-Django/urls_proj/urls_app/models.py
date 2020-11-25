@@ -8,9 +8,11 @@ class URL(models.Model):
     short_code = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     code_assigned = models.BooleanField(default=False)
+    clicks = models.IntegerField(default=0)
+    ip = models.CharField(max_length=200, null=True, blank=True)
+    location = models.CharField(max_length=200, null=True, blank=True)
+    dinner = models.CharField(max_length=200, null=True, blank=True)
+    social = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.short_code
-    
-    def __str__(self):
-        return self.url_text
+        return self.short_code, self.url_text

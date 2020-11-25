@@ -20,16 +20,17 @@ legend {
     /* background-color: sienna; */
 }
 
-body {
+div {
     background-color: rgb(177, 247, 247);
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 5%;
     /* background-image: url('https://media.giphy.com/media/zRG8P7IndNxoLcq648/giphy.gif'); */
     /* background-image: url('turtlezRG8P7IndNxoLcq648.gif'); */
 }
 
 form {
-    margin: 5px;
+    /* margin: 5px; */
+    margin-left: 5%;
+    margin-right: 5%;
     /* display: grid; */
     /* flex-basis: auto; */
     /* flex-grow: inherit; */
@@ -49,9 +50,11 @@ ol {
 
 @media (min-width: 700px) {    
 
-    body {
-        margin-left: 20%;
-        margin-right: 20%;
+    form {
+        /* margin: 5px; */
+        margin-left: 15%;
+        margin-right: 15%;
+        max-width: 95%;
     }
 
     /* form {
@@ -59,5 +62,12 @@ ol {
     } */
 }
 
-@media (min-width: 1000px) {    
+@media (min-width: 1000px) {   
+
+    form {
+        /* margin: 5px; */
+        margin-left: 25%;
+        margin-right: 25%;
+        max-width: 95%;
+    } 
 }

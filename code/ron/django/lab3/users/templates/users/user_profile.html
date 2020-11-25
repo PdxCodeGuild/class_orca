@@ -1,0 +1,16 @@
+{% extends 'posts/./base.html' %} 
+
+{% block content %}
+
+    <p><h2>User: {{ object.username }}</h2>
+    <em>Juicing since: {{ object.date_joined }}!</em></p>
+
+    {% for post in object.post_set.all %}
+        <div class="post-entry">
+            <h4><a href="{% url 'posts:entry' post.pk %}">{{ post.title }}</a></h4>
+            {% comment %} <p><img src="{{ post.photo.url }}"></p> {% endcomment %}
+            <p>{{ post.caption|linebreaks }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

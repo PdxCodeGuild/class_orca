@@ -1,5 +1,9 @@
-{% if code %}
-    <p>Your shortened URL is 127.0.0.1:8000/{{ code }}</p>
-{% endif %}
+{% load static %}
 
-<li><a href="{% url 'Urlapp:index' %}">Click here to go back to the index page.</a></li>
+<link rel="stylesheet" href="{% static 'Urlapp/main.css' %}">
+
+<p>Your shortened URL code is {{ code }}</p>
+
+<li><a href="{% url 'Urlapp:index' %}short/{{code}}">Click here to go there now</a></li>
+<br>
+<li><a href="{% url 'Url    

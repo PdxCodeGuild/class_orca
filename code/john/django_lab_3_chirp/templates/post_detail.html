@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 3, TWITTER MVP CLONE: https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab03-chirp.md
+# PROJECT NAME: chirp_project
+# APP NAMES: posts_app, users_app
+{% endcomment %}
+
+
+
+
+
+
+    {% block content %}
+
+      <div class="chirp">
+          <p> {{ post.post_text | linebreaks }} </p>
+          <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
+          
+      {% comment %} 
+        <h2> {{ post.post_text }} </h2>
+        <h4><em>Posted by: {{ post.author.username}} </h4></em>
+        
+        <h4> <a href="{% url 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
+
+        <h4><em>Posted on: {{ post.created }} .</h4></em>
+        {% endcomment %}
+        <h6>
+        {% if post.updated != post.created %}
+          <em>Updated on: {{ post.updated }} .</em>
+        {% else %}
+          Never updated.
+        {% endif %}
+        </h6>
+
+        {% if request.user == post.author %}
+              <form action=" {% url 'posts_app:edit_post' post.pk %}">
+                <input type="submit" value="Edit Chirp">
+              </form>
+              <form action=" {% url 'posts_app:delete_post' post.pk %}">
+                <input type="submit" value="Delete Chirp">
+              </form>
+
+        {% endif %}
+        {% comment %} <p> <img src="{{ post.photo.url }}" caption="{{ post.photo.url }}"> </p> {% endcomment %}
+      </div>
+
+
+    {% endblock content %}

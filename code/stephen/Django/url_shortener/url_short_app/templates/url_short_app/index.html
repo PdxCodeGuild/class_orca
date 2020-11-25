@@ -1,13 +1,42 @@
-<h1>URL Shortener!</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>URL Shortener</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">   
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+        <link rel="stylesheet" type="text/css" href= "{% static 'url_short_app/style.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1>URL Shortener</h1>
+        </header>
+        <div>
+            <p>Enter in your full URL to have it converted to a short one!</p>
+        </div>
+        <div id="long_input">
+            <form action="{% url 'url_short_app:submit_long' %}" method='POST'>
+                {% csrf_token %}
+                <input type='text' id='long_url' name='long_url' required/>
+            <br>
+                <input type='submit' value='Shorten URL!' id="btn"/>
+            </form>
+        </div>
+        <div id="short_output">
+            {% if short_url %}
+                <p> Here's your shortened URL: </p>
+                <div id="s_o">
+                    <br>
+                    <a href="{% url 'url_short_app:redirect' short_url %}" id="shortlink">http://localhost:8000/url_short_app/{{ short_url }} </a> 
+                    <br><br>               
+                </div>
+            {% endif %}
+        </div>
 
-<p>Enter in your full URL to have it converted to a short one!</p>
 
-<form action="{% url 'url_short_app:submit_long' %}" method='POST'>
-{% csrf_token %}
-<input type='text' id='long_url' name='long_url'/>
-<input type='submit' value='Shorten URL!'/>
-</form>
-
-{% if short_url %}
-    <p> Here's your shortened URL: <a href="{% url 'url_short_app:redirect' short_url %}">http://localhost:8000/url_short_app/{{ short_url }} </a> </p>
-{% endif %}
+    </body>
+</html>

@@ -1,0 +1,75 @@
+html {
+    box-sizing: border-box;
+}
+
+body{
+    background-image:url("https://free4kwallpapers.com/uploads/originals/2015/09/25/blurred-web-backgrounds.jpg"); 
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    
+    font-family: 'Roboto', sans-serif;
+   
+    
+}
+
+h1{
+    text-align: center;
+    font-size: 80px;
+    margin-top: 55px;
+    font-family: 'Montserrat Subrayada', sans-serif;
+    
+  
+}
+
+input[type=text] {
+    width: 45%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+  }
+
+div{
+    text-align: center;
+}
+
+
+
+#s_o{
+    background-color: #ACF2F2;
+    width: 45%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+#shortlink{
+    font-size: 36px;
+    color: black;
+}
+#shortlink:hover{
+    color: darkblue;
+}
+
+p{
+    font-size: 30px;
+}
+
+#btn{
+    font-size: 30px;
+    border: 2px solid black;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#short_output{
+    margin-top: 100px;
+}

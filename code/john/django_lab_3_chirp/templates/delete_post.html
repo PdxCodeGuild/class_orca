@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 3, TWITTER MVP CLONE: https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab03-chirp.md
+# PROJECT NAME: chirp_project
+# APP NAMES: posts_app, users_app
+{% endcomment %}
+
+
+
+  {% block content %}
+      
+    <h1>DELETE THIS POST:</h1>
+
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <p>Are you sure you want to delete the following post: <br><br>"{{ post.post_text }}"<br><br>
+        (We thought it was perfectly worded, and lovingly succinct.)</p>
+        
+        <br>
+
+        <input type="submit" value="Confirm Delete">
+
+      </form>
+
+  {% endblock content %}

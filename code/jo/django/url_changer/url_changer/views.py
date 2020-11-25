@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, resolve
 
@@ -14,7 +14,7 @@ def index(request):
 def convert(request):
     input_url = request.POST['long_url']
     characters = string.ascii_letters + string.digits
-    new_url = "http://127.0.0.1:8000/url_changer/"
+    new_url = ""
     for x in range(5):
         new_url += random.choice(characters)
     url = UrlChanger.objects.create(long_url=input_url,short_url=new_url)
@@ -22,16 +22,11 @@ def convert(request):
     return render(request, 'url_changer/index.html', context)
     return HttpResponseRedirect(reverse('url_changer:index'))
 
-def redirect(request):
-    # url_list = UrlChanger.
-    # print(url_list)
-    # current_url = resolve(request.path_info).url_name
-    # print(current_url)
-    # if current_url[-5:] in url_list:
-    #     response = redirect('long_url')
-    # print(response)
 
-    # return response
-    return HttpResponseRedirect(reverse('url_changer:index'))
-
-
+def redirect(request, short_url):
+    code = get_object_or_404(UrlChanger, short_url=short_url)
+    code.ip = request.META['REMOTE_ADDR']
+    code.clicked += 1
+    code.linked_from = request.META['HTTP_REFERER']
+    code.save()
+    return HttpResponseRedirect(code.long_url)

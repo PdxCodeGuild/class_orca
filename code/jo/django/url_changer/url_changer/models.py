@@ -6,7 +6,9 @@ import string
 class UrlChanger(models.Model):
     long_url = models.CharField(max_length=500)
     short_url = models.CharField(max_length=50, blank=True, null=True)
-    
+    ip = models.CharField(max_length=30, blank=True, null=True)
+    clicked = models.IntegerField(default=0)
+    linked_from = models.CharField(max_length=500, blank=True, null=True)
     def __str__(self):
         return self.long_url
 
