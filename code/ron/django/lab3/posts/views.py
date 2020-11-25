@@ -21,7 +21,7 @@ class BlogCreateView(CreateView, LoginRequiredMixin):
     model = Post
     template_name = 'posts/post_new.html'
     # fields = ['__all__']                  # specifies all fields for creation
-    fields = ['title', 'body']              #,'photo']
+    fields = ['title', 'body','photo']             
 
     def form_valid(self, form):
         form.instance.author = self.request.user

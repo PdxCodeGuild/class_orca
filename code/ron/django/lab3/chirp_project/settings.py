@@ -124,8 +124,8 @@ STATIC_URL = '/static/'
 # STATICFILES_DIRS = [ BASE_DIR / 'static'] <-- Add to build centralized location for static files
 
 # Media files configuration below:
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Built in user functionality (directed at the designated page)

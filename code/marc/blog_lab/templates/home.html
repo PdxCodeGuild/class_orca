@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <header>
+        <div class="nav-left">
+        {% if ragepage_list %}
+          <ul>
+           {% for ragepage in ragepage_list %}
+            <li>
+              <a href="{% url 'bloglab:detail' ragepage.id %}"> {{ragepage.title}}</a>
+              <p><img src="{{ ragepage.photo.url }}"></p>
+              
+            </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p> There are no posts yet </p>
+        {% endif %}
+        </div>
+
+
+{% endblock content %}

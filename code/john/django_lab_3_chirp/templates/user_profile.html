@@ -22,7 +22,10 @@
     {% for post in object.post_set.all %}
         <div class="chirp">
             <p> {{ post.post_text | linebreaks }} </p>
-            <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
+            <h6>
+                <a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .
+                <a href="{% url 'posts_app:detail' post.pk %}">Comments: {{ post.comments.count }}</a>
+            </h6>
             </p>
         </div>
     {% endfor %}

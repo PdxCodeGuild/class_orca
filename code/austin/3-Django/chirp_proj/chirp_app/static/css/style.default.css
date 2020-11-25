@@ -58,6 +58,12 @@ ul {
 section {
   padding: 100px 0;
   overflow-x: hidden;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  padding-bottom: 30px;
+  padding-top: 48px;
 }
 
 button,

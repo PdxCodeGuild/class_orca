@@ -3,7 +3,8 @@ body {
     font-size: 18px;
     background-color: #fcf7fb;
     color: black;
-    margin: 75px, 75px, 75px, 20px;
+    margin: 2rem 20rem 20rem 20rem;
+    /* margin: 75px, 75px, 75px, 20px; */
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -13,28 +14,42 @@ body {
   header {
     border-bottom: 1px solid #999;
     margin-bottom: 2rem;
-    display: flex;
+    /* display: flex; */
   }
   
   header h1 a {
     color: #0f4c81;
     text-decoration: none;
   }
-  
-  .nav-left {
+
+  .nav {
     display: flex;
-    align-items: flex-start;
-    background-color: lightgreen;
-    margin-right: auto;
+    justify-content: middle;
+    background-color: lightblue;
+    justify-content: space-between;
+    color: black;
+  }
+
+  .nav-left {
+    /* display: inline-flex; */
+    /* justify-content: middle; */
+    /* align-items: flex-start; */
+    /* background-color: lightgreen; */
+    /* margin-right: auto; */
+    margin-left: 2rem;
     color: black;
   }
   
   .nav-right {
-    display: flex;
-    align-items: flex-start;
-    background-color: lightblue;
-    flex-flow: column wrap;
-    padding-top: 2rem;
+    /* display: inline-flex; */
+    /* justify-content: middle; */
+    /* align-items: flex-start; */
+    /* background-color: lightblue; */
+    /* margin-left: auto; */
+    /* flex-flow: column wrap; */
+    /* padding-top: 2rem; */
+    color: black;
+    margin-right: 2rem;
 
   }
   
@@ -44,9 +59,32 @@ body {
     margin-right: .25rem;
   }
   
+  .post {
+    display: flex;
+    justify-content: middle;
+    background-color: white;
+    justify-content: space-between;
+    color: black;
+  }
+
+  /* Left side of post */
+  .post-image {
+    margin-left: 2rem;
+    /* background-color: lightgoldenrodyellow; */
+  }
+
+  .post-image img {
+    object-fit: scale-down;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+
+  /* Right side of post */
   .post-entry {
     margin-bottom: 2rem;
     color: black;
+    margin-right: 2rem;
   }
   
   .post-entry h3 {
