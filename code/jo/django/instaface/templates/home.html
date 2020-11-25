@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for post in object_list %}
+        <div class = "post-entry">
+            <h2><a href="{% url 'instaface:detail' post.pk %}">{{ post.text }}</a> by {{post.poster.username}}</h2>
+            <a  href="{% url 'instaface:detail' post.pk %}"><img src="{{ post.photo.url }}"></a>
+            <p class='caption'>{{ post.caption|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}

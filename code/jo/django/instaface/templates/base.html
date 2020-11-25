@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <title>Instaface</title>
+    
+    </head>
+    <body>
+        <header>
+            <div class="nav-left">
+                <h1><a href="{% url 'instaface:home' %}">Instafacer</a></h1>
+            </div>
+            <div class="nav-right">
+                {% if request.user.is_authenticated %}
+                    <p>Welcome back, <a href="{% url 'instaface:profile' request.user.username%}">{{ request.user.username }}</a></p>
+                    <p><a href="{% url 'logout' %}">Logout</a></p>
+                    <p><a href="{% url 'instaface:new' %}">New Post</a></p>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a></p>
+                    <a href="{% url 'instaface:signup'%}">Sign Up</a></p>
+                {% endif %}
+            </div>
+        </header>
+        <div class="container">
+            {% block content %}
+            {% endblock content%}
+        </div>
+    </body>
+</html>
