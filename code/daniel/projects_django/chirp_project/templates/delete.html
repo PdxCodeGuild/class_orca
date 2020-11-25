@@ -3,9 +3,9 @@
 
 <h1>Delete Post</post>
 
-<div action="{% url 'chirp_posts:home' %}" method="POST">{% csrf_token %}
-    <h3><a href="{% url 'chirp_posts:home' %}">Nevermind</a></h3>
-</div>
+<form action="{% url 'chirp_posts:home' %}">{% csrf_token %}
+    <input type="submit" value="Nevermind"/>
+</form>
 
 <form action="" method="post">{% csrf_token %}
     {{ form.as_p }}

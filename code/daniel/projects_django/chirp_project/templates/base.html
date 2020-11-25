@@ -17,8 +17,13 @@
             </div>
 
             <div class="header_user">
-                {% comment %} <p><a href="{% url 'chirp_users:signup' %}">Sign up!</a></p>
-                <p><a href="{% url 'login' %}">Login!</a></p> {% endcomment %}
+                {% if request.user.is_authenticated %}
+                    <p>Hello, <a href="{% url 'chirp_users:profile' request.user.username %}">{{ request.user.username }}</a></p>
+                    <p><a href="{% url 'logout' %}">Logout!</a></p>
+                {% else %}
+                    <p><a href="{% url 'chirp_users:signup' %}">Sign up!</a></p>
+                    <p><a href="{% url 'login' %}">Login!</a></p>
+                {% endif %}
             </div>
         </header>
         
@@ -28,13 +33,14 @@
                 {% endblock content %}
             </div>
         </main>
+
         <footer>
-<hr/>
             <div class='header_nav'>
-                <p><a href="{% url 'chirp_posts:new' %}" >New Post</a>
+                {% if request.user.is_authenticated %}
+                    <p><a href="{% url 'chirp_posts:new' %}" >New Post</a>
+                {% endif %}
             </div>
             <h3><a href="{% url 'chirp_posts:home' %}" >CyPher</a></h3>
-            {% comment %} <h3><a href="{% url 'chirp_posts:new' %}" >New Post</a></h3> {% endcomment %}
             <h3>Copyright 2020</h3> 
         </footer>
 

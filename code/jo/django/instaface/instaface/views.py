@@ -20,7 +20,7 @@ class PostDetailView(DetailView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_new.html'
-    fields = ['text', 'caption', 'photo', 'poster']
+    fields = ['text', 'caption', 'photo']
 
     def form_valid(self, form):
         form.instance.poster = self.request.user
@@ -38,7 +38,7 @@ class PostEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy('posts:home')
+    success_url = reverse_lazy('instaface:home')
 
     def test_func(self):
         obj = self.get_object()

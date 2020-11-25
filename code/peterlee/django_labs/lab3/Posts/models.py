@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Posts(models.Model):
     body = models.TextField()
@@ -9,6 +10,9 @@ class Posts(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('Posts:detail', args=(self.id,))
 
     class Meta:
         ordering = ['-created']

@@ -10,7 +10,7 @@ class Post(models.Model):
     photo = models.ImageField(upload_to="images/")
 
     def get_absolute_url(self):
-        return reverse('posts:detail', args=(self.id,))
+        return reverse('instaface:detail', args=(self.id,))
 
     def __str__(self):
         return self.title

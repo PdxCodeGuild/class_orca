@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+    <h1>{{object.username}}'s profile</h1>
+    <h3>Instafacing since {{ object.date_joined }}</h3>
+
+    {% for post in object.post_set.all %}
+        <div class="post-entry">
+            <h2><a href="{% url 'instaface:detail' post.pk %}">{{ post.text }}</a></h2>
+            <p><img src="{{ post.photo.url }}"></p>
+            <p>{{ post.caption|linebreaks }}</p>
+        </div>
+    {% endfor %}
+    
+{% endblock content %}
