@@ -31,7 +31,7 @@
                     <div class="navbar ml-auto">
                         <p class="navbarp"> Howdy, <a href="{% url 'users:profile' request.user.username %}" class="username" >{{ request.user.username }}</a>!</p>
                         
-                        <a class="btn btn-primary" href="{% url 'logout' %}" role="button">Logout</a>
+                        <a class="btn btn-primary" id="logout_btn" href="{% url 'logout' %}" role="button">Logout</a>
                     </div>
                 {% else %}
                     <div class="navbar ml-auto">
@@ -58,12 +58,15 @@
                 
             </div>
         </div>
-        <div class="container justify-content-center" id="mainc">
+        <div class="container" id="mainc">
             <div class="row">
-                <div class="col-sm-3 ">
+                <div class="col-sm-3" id="leftcol">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <a class="btn btn-primary" href="{% url 'squawker:new' %}" role="button">New Post</a>
+                            <br>
+                            <a class="btn btn-primary" id="newpost" href="{% url 'squawker:new' %}" role="button">New Post</a>
+                            <br>
+                            
                         </div>
                     </div>
                 </div>
@@ -87,9 +90,13 @@
                     </div>
                 </div>
         </div>
-                
+        <br>
+        <footer>
+            <p>&#169; 2020</p>
+        </footer>       
 
 
 
 
     </body>
+</html>
