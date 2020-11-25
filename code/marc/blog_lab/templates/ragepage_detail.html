@@ -15,7 +15,8 @@
         </div>
         <div>
         {% if request.user.is_authenticated %}
-        <a href="{% url 'bloglab:edit' ragepage.id %}"> Edit Post </a> 
+        <a href="{% url 'bloglab:edit' ragepage.id %}"> Edit Post </a>
+        <a href="{% url 'bloglab:delete' ragepage.id %}"> Delete Post </a>  
         <a href="{% url 'bloglab:home'  %}"> Back to Rage Page Home </a> 
         {% else %}
         <a href="{% url 'bloglab:home'  %}"> Back to Rage Page Home </a>

@@ -2,14 +2,16 @@
 
 {% block content %}
 
-    <header>
-        <div class="nav-left">
+    
+        <div>
         {% if ragepage_list %}
-          <ul>
+          <ul style="list-style-type:none;">
            {% for ragepage in ragepage_list %}
             <li>
               <a href="{% url 'bloglab:detail' ragepage.id %}"> {{ragepage.title}}</a>
               <p><img src="{{ ragepage.photo.url }}"></p>
+              <h3>{{ ragepage.author }}</h3>
+              <h4>{{ ragepage.created }}</h4>
               
             </li>
             {% endfor %}
