@@ -3,45 +3,51 @@
 <html>
 
     <head>
+        <link rel="normalize" href="https://necolas.github.io/normalize.css/latest/normalize.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>CyPher</title> 
+        <title>Cypher</title> 
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Roboto&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/3fb032539d.js" crossorigin="anonymous"></script>
         <link href="{% static 'css/main.css' %}" rel="stylesheet">
     </head>
 
     <body>
         
         <header>
-            <div class='header_title'>
-                <h1><a href="{% url 'chirp_posts:home' %}" >CyPher</a></h1>
-            </div>
-
-            <div class="header_user">
-                {% if request.user.is_authenticated %}
-                    <p>Hello, <a href="{% url 'chirp_users:profile' request.user.username %}">{{ request.user.username }}</a></p>
-                    <p><a href="{% url 'logout' %}">Logout!</a></p>
-                {% else %}
-                    <p><a href="{% url 'chirp_users:signup' %}">Sign up!</a></p>
-                    <p><a href="{% url 'login' %}">Login!</a></p>
-                {% endif %}
-            </div>
+            <h1><a href="{% url 'chirp_posts:home' %}" >C</a></h1>
+            {% if request.user.is_authenticated %}
+                <a class="profile_anchor" href="{% url 'chirp_users:profile' request.user.username %}">{{request.user.username}}</a>
+                <h1 class="new_post"><a href="{% url 'chirp_posts:new' %}"><i class="fas fa-plus-circle"></i></a></h1>
+            {% else %}
+            <div class="sign_up">
+                <h3><a href="{% url 'chirp_users:signup' %}">Sign up!</a></h3>
+                <h3><a href="{% url 'login' %}">Login!</a></h3>
+            </div>    
+            {% endif %}
         </header>
         
         <main>
-            <div class="container">
-                {% block content %}
-                {% endblock content %}
-            </div>
+            {% block content %}
+            {% endblock content %}
         </main>
 
         <footer>
-            <div class='header_nav'>
+            <div class="footer">
+                <h1 class="logo"><a href="{% url 'chirp_posts:home' %}" ><i class="fas fa-home"></i></a></h1>
                 {% if request.user.is_authenticated %}
-                    <p><a href="{% url 'chirp_posts:new' %}" >New Post</a>
+                    <h1><a href="{% url 'chirp_users:profile' request.user.username %}"><i class="fas fa-user-circle"></i></a></h1>
+                    <h1><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i></a></h1>
+                {% else %}
+                    <h3><a href="{% url 'chirp_users:signup' %}">Sign up!</a></h3>
+                    <h3><a href="{% url 'login' %}">Login!</a></h3>
                 {% endif %}
             </div>
-            <h3><a href="{% url 'chirp_posts:home' %}" >CyPher</a></h3>
-            <h3>Copyright 2020</h3> 
+            {% comment %} <div>
+                <h1>Copyright 2020</h1> 
+            </div> {% endcomment %}
         </footer>
 
     </body>

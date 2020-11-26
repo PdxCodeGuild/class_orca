@@ -28,5 +28,20 @@ class Post(models.Model):
     class Meta:
         ordering = ['-created']
 
+class Comment(models.Model):
+    post = models.ForeignKey('posts_app.Post', on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=60)
+    comment_text = models.CharField(max_length=60) # 'text' in the djangogirls docs...
 
+    created = models.DateField(auto_now_add=True) # 'created_date' in the djangogirls docs...
+    # note used DateField with auto_now_add and NOT DateTimeField like the djangogirls docs...
+
+    approved_comment = models.BooleanField(default=False)
+
+    def approve(self):
+        self.approved_comment = True
+        self.save()
+
+    def __str__(self):
+        return self.comment_text
 

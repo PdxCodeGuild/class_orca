@@ -10,8 +10,10 @@
     </div>
 
     {% if request.user == detailed_post.author %}
-    <a href="{% url 'Posts:edit' detailed_post.pk %}">Edit Chirp</a>
-    <a href="{% url 'Posts:delete' detailed_post.pk %}">Delete Chirp</a>
+        <div class="post-edit">
+            <a href="{% url 'Posts:edit' detailed_post.pk %}">Edit Chirp</a>
+            <a href="{% url 'Posts:delete' detailed_post.pk %}">Delete Chirp</a>
+        </div>
     {% endif %}
 
 {% endblock content %}

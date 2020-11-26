@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 
 from .models import RagePage
 
@@ -31,3 +32,14 @@ class RagePageEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+
+class RagePageDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = RagePage
+    template_name = 'post_delete.html'
+
+    def get_success_url(self):
+        return  reverse_lazy('users:profile', args=[self.request.user.username])
+
+    def test_func(self):
+        obj = self.get_object()
+        return self.request.user == obj.author

@@ -3,7 +3,7 @@
 {% block content %}
     <div class="post-entry">
         <h2>{{ post.text }}</h2>
-        <p><img src="{{ post.photo.url }}"></p>
+        <div class='imagebox'><a href="{{post.photo.url}}"><img src="{{ post.photo.url }}"></a></div>
         <p class='caption'>{{ post.caption|linebreaks }}</p>
         <h4><em>Posted on {{ post.created }}</em></h4>
         <h4><em>Last Update on {{ post.updated}}</em></h4>

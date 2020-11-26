@@ -11,6 +11,7 @@
 
   {% block content %}
       
+  {% if request.user == post.author %}
     <h1>Edit a chirp:</h1>
 
       <form action="" method="post">
@@ -22,5 +23,8 @@
 
 
       </form>
+  {% else %}
+    <p>DENIED!</p>
+  {% endif %}
 
   {% endblock content %}
