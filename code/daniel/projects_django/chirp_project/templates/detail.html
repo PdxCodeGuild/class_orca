@@ -1,23 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="post_header">
+<div class="detail_container">
+
     <h1>{{ chirpposts.title }}</h1>
-    {% comment %} <h2>{{ chirpposts.author.username }}</h2>  {% endcomment %}
-    <h3>Author: {{ chirpposts.author}}</h3>
-    {% comment %} <h2><a href="{% url 'chirp_post.profile' chirp_post.author.username %}">{{ chirp_post.username }}</a></h2> {% endcomment %}
-</div>
-<p>{{ chirpposts.content|linebreaks }}</p>
-<div class="post_footer">
+    <h4><em>Posted by: <a href="{% url 'chirp_users:profile' chirpposts.author.username %}"></em>{{ chirpposts.author }}</a></h4>
+    <img id="post_pic" src="{{ chirpposts.media.url }}">
+    <p>{{ chirpposts.content|linebreaks }}</p>
+
+    <hr/>
+
     <h3><em>Posted on: {{ chirpposts.created_on }}</em></h3>
     <h3><em>Last edited on: {{ chirpposts.edited_on }}</em></h3>
+
+    <hr/>
+
+    <div class="modify">
+        {% if request.user == chirpposts.author %}
+        <p><a href="{% url 'chirp_posts:edit' object.pk %}">Edit</a><p>
+        <p><a href="{% url 'chirp_posts:delete' object.pk %}">Delete</a><p>
+        {% else %}
+        <p><i class="far fa-thumbs-up"></i></p> 
+        <p>{{ chirpposts.likes }}</p>
+        {% endif %}
+    </div> 
 </div>
-
-<div>
-    {% if request.user == chirpposts.author %}
-    <p><a href="{% url 'chirp_posts:edit' object.pk %}">Edit</a><p>
-    <p><a href="{% url 'chirp_posts:delete' object.pk %}">Delete</a><p>
-    {% endif %}
-</div> 
-
 {% endblock content %} 

@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView 
 from django.urls import reverse_lazy
@@ -11,7 +13,7 @@ class PostListView(ListView):
 
 class NewPostView(LoginRequiredMixin, CreateView):
     model = ChirpPosts
-    fields = ['title', 'content']
+    fields = ['title', 'media', 'content']
     template_name = 'new.html'
 
     def form_valid(self, form):
@@ -41,3 +43,10 @@ class DeletePost(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         obj = self.get_object()
         return self.request.user == obj.author
 
+@login_required
+def likes(request):
+    # checked which one is liked
+    liked_post = ChirpPosts.objects.get(pk=request.POST['post_id']) 
+    liked_post.likes += 1
+    liked_post.save()
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
