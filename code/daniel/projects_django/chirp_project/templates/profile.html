@@ -1,11 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>{{ object.username }}'s Profile</h1>
+<div class="profile_container">
+    <div class="header">
+        <i class="fas fa-user-circle"></i>
+    </div> 
+    <p>{{ object.username }}</p>
 
-{% for post in object.chirpposts_set.all %} 
-    <h2><a href="{% url 'chirp_posts:detail' post.pk %}">{{ post.title}}</a></h2>
-    <p>{{ post.content|linebreaks }}</p>
-{% endfor %}
+    
+    {% for post in object.chirpposts_set.all %} 
+    <a href="{% url 'chirp_posts:detail' post.pk %}">    
+    <div class="profile_content">
+        <h2>{{ post.title}}</h2>
+        <img id="post_pic" src="{{ post.media.url }}">
+        <p>{{ post.content|linebreaks }}</p>
+        <h3><em>Created on:  {{ post.created_on}}</em></h3>
+        <h3><em>Last edited on:  {{ post.edited_on}}</em></h3>
+    </div> 
+    </a>   
+    {% endfor %}
+</div>
 
 {% endblock content %}

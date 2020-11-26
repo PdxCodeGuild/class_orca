@@ -4,9 +4,9 @@
 
     <div class="post-entry">
         <h2>{{ squeek.title }}</h2>
-        <h4><em><a href="{% url 'users:profile' squeek.author.username %}">{{ squeek.author.username }}</a></em></h4>
-        <h4><em>Posted on {{ squeek.created }}</em></h4>
-        <h4><em>Last Update on {{ squeek.updated }}</em></h4>
+        <h4><em><a href="{% url 'users:profile' squeek.author.username %}" id="postmaker">{{ squeek.author.username }}</a></em></h4>
+        <h5><em>Posted on {{ squeek.created }}</em></h5>
+        <h5><em>Last Update on {{ squeek.updated }}</em></h5>
         {% if squeek.photo.url %}
             <p><img src="{{ squeek.photo.url|default_if_none:'#' }}" class="postimg"></p>
         {% endif %}
@@ -20,6 +20,6 @@
         <br><br>
     </div>
     {% endif %}
-
+    
 
 {% endblock content %}

@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'squawker.apps.SquawkerConfig',
-    'users.apps.UsersConfig',
+    'squawker',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -120,11 +120,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/css/'
 STATICFILES_DIRS = [ BASE_DIR / 'static']
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'squawker:home'
 LOGOUT_REDIRECT_URL = 'squawker:home'

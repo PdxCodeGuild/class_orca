@@ -8,6 +8,7 @@ class Squeek(models.Model):
     updated = models.DateTimeField(auto_now=True)
     post = models.CharField(max_length=150)
     photo = models.ImageField(upload_to="images/")
+    
 
     def get_absolute_url(self):
         return reverse('squawker:detail', args=(self.id,))
@@ -24,3 +25,4 @@ class Squeek(models.Model):
         if self.photo and hasattr(self.photo, 'url'):
             return self.photo.url
     
+

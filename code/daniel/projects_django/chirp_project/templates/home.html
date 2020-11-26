@@ -2,15 +2,28 @@
 {% block content %}
 
 {% for post in object_list %}
-<a href="{% url 'chirp_posts:detail' post.pk %}">
-<div class="post_item">
-    <div class="post_header">
-        <h2>{{ post.title }}</h2>
-        <h2><a href="{% url 'chirp_users:profile' post.author.username %}">{{ post.author }}</a></h2> 
+    <div class="container">
+        <div class="user_links">
+            <a href="{% url 'chirp_users:profile' post.author.username%}"><i class="far fa-user-circle"></i></a>
+            <p><a href="{% url 'chirp_users:profile' post.author.username %}"><em>{{ post.author.username }}</em></a></p>
+        </div>
+        <a href="{% url 'chirp_posts:detail' post.pk %}">
+            <h2>{{ post.title }}</h2>
+            <img id="post_pic" src="{{ post.media.url }}">
+            <p class="content">{{ post.content|linebreaks }}</p>
+        </a> 
+        <hr/>
+        <div class="container_footer">
+            <div class="like_button">
+                <form action="{% url 'chirp_posts:likes' %}" method="post">{% csrf_token %}
+                    <input type="hidden" name="post_id" value="{{ post.id }}"/>
+                    <button type="submit"><i class="fas fa-thumbs-up"></i></button> 
+                </form> 
+                <p>{{ post.likes }}</p>
+            </div>
+            <h3><em>Posted on: {{ post.created_on }}</em></h3>
+        </div>    
     </div>
-    <p>{{ post.content|linebreaks }}</p>
-</div>   
-</a> 
-
 {% endfor %}
+
 {% endblock content %}
