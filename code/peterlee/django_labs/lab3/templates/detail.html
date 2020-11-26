@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post-detail">
+        <h1>{{ detailed_post.title }} </h1>
+        <a href="{% url 'Users:profile' detailed_post.author.username %}">{{ detailed_post.author.username }}</a>
+        <p><em>Posted on {{ detailed_post.created}}</em></p>
+        <p><em>Last edited on {{ detailed_post.edited}}</em></p>
+        <p>{{ detailed_post.body }}</p>
+    </div>
+
+    {% if request.user == detailed_post.author %}
+        <div class="post-edit">
+            <a href="{% url 'Posts:edit' detailed_post.pk %}">Edit Chirp</a>
+            <a href="{% url 'Posts:delete' detailed_post.pk %}">Delete Chirp</a>
+        </div>
+    {% endif %}
+
+{% endblock content %}

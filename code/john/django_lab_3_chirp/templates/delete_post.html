@@ -11,6 +11,7 @@
 
   {% block content %}
       
+  {% if request.user == post.author %}
     <h1>DELETE THIS POST:</h1>
 
       <form action="" method="post">
@@ -24,5 +25,8 @@
         <input type="submit" value="Confirm Delete">
 
       </form>
+  {% else %}
+    <p>DENIED!</p>
+  {% endif %}
 
   {% endblock content %}

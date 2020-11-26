@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+    <h1>{{ object.username }}</h1>
+    <h5><em>Ragin' at the world since: {{ object.date_joined }}!</em></h5>
+
+    {% for ragepage in object.ragepage_set.all %}
+        <div class="post-entry">
+             <a href="{% url 'bloglab:detail' ragepage.id %}"> {{ragepage.title}}</a>
+            <p><img src="{{ ragepage.photo.url }}"></p><h2><a href="{% url 'bloglab:detail' ragepage.pk %}">{{ ragepage.title }}</a></h2>
+            <p>{{ ragepage.caption|linebreaks }}</p>
+        </div>
+    {% endfor %}
+    {% if request.user.is_authenticated %}
+        <h3>Post something new!</h3>
+        <a href = "{% url 'bloglab:new' %}">New Rage</a>
+        <a href="{% url 'bloglab:home'  %}"> Back to Rage Page Home </a> 
+         {% else %}
+        <a href="{% url 'bloglab:home'  %}"> Back to Rage Page Home </a>
+        {% endif %}
+
+{% endblock content %}

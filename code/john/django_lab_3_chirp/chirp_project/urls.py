@@ -12,10 +12,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('django.contrib.auth.urls')), # users plural, not user
     path('users/', include('users_app.urls')),
-
     path('', include('posts_app.urls')), # NOTE I SET THIS TO ROOT, NOT 'posts_app/' # NOTE CHANGED BACK...
 ] # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # only necessary if using media...

@@ -11,24 +11,28 @@
           <div class="container">
             <div class="row">
               <!-- post -->
+              {% for post in post_list %}
               <div class="post col-xl-6">
-                <div class="post-thumbnail"><a href="post.html"><img src="{% static 'img/blog-post-1.jpeg' %}" alt="..." class="img-fluid"></a></div>
+                <div class="post-thumbnail"><a href="post.html"><img src={{ post.post_photo.url }} alt="..." class="img-fluid"></a></div>
                 <div class="post-details">
                   <div class="post-meta d-flex justify-content-between">
                     <div class="date meta-last">20 May | 2016</div>
-                    <div class="category"><a href="#">Business</a></div>
+                    {% for cat in post.categories.all %}
+                    <div class="category"><a href="#">{{ cat }}</a></div>
+                    {% endfor %}
                   </div><a href="post.html">
-                    <h3 class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3></a>
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                    <h3 class="h4">{{ post.title }}</h3></a>
+                  <p class="text-muted">{{ post.caption }}</p>
                   <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
-                      <div class="avatar"><img src="{% static 'img/avatar-3.jpg' %}" alt="..." class="img-fluid"></div>
-                      <div class="title"><span>John Doe</span></div></a>
-                    <div class="date"><i class="icon-clock"></i> 2 months ago</div>
-                    <div class="comments meta-last"><i class="icon-comment"></i>12</div>
+                      <div class="avatar"><img src={{ post.author.profile_photo }} alt="..." class="img-fluid"></div>
+                      <div class="title"><span>{{ post.author }}</span></div></a>
+                    <div class="date"><i class="icon-clock"></i>{{ post.created|timesince }} ago</div>
+                    <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>
                   </footer>
                 </div>
               </div>
-              <!-- post             -->
+              {% endfor %}
+              {% comment %} <!-- post             -->
               <div class="post col-xl-6">
                 <div class="post-thumbnail"><a href="post.html"><img src="{% static 'img/blog-post-2.jpg' %}" alt="..." class="img-fluid"></a></div>
                 <div class="post-details">
@@ -81,8 +85,8 @@
                     <div class="comments meta-last"><i class="icon-comment"></i>12</div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div> {% endcomment %}
+            </div> 
             <!-- Pagination -->
             <nav aria-label="Page navigation example">
               <ul class="pagination pagination-template d-flex justify-content-center">

@@ -7,7 +7,7 @@ class Squeek(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     post = models.CharField(max_length=150)
-    photo = models.ImageField(upload_to="images/", blank=True, null=True)
+    photo = models.ImageField(upload_to="images/")
 
     def get_absolute_url(self):
         return reverse('squawker:detail', args=(self.id,))
@@ -18,11 +18,9 @@ class Squeek(models.Model):
     class Meta:
         ordering = ['-created']
     
+    
     @property
-    
     def photo_url(self):
-    
         if self.photo and hasattr(self.photo, 'url'):
-    
             return self.photo.url
     

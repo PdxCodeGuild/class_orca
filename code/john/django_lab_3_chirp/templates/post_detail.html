@@ -12,39 +12,105 @@
 
 
 
-    {% block content %}
+{% block content %}
 
-        <div class="chirp">
-            <p> {{ post.post_text | linebreaks }} </p>
-            <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
-            
-        {% comment %} 
-          <h2> {{ post.post_text }} </h2>
-          <h4><em>Posted by: {{ post.author.username}} </h4></em>
+      <div class="chirp">
+          <p> {{ post.post_text | linebreaks }} </p>
+          <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
           
-          <h4> <a href="{% url 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
+      {% comment %} 
+        <h2> {{ post.post_text }} </h2>
+        <h4><em>Posted by: {{ post.author.username}} </h4></em>
+        
+        <h4> <a href="{% url 'users_app:profile' post.author.username %}"> {{ post.author.username }} </a> </h4>
 
-          <h4><em>Posted on: {{ post.created }} .</h4></em>
-         {% endcomment %}
-          <h6>
+        <h4><em>Posted on: {{ post.created }} .</h4></em>
+        {% endcomment %}
+        <h6>
         {% if post.updated != post.created %}
           <em>Updated on: {{ post.updated }} .</em>
-          {% else %}
-            Never updated.
+        {% else %}
+          Never updated.
+        {% endif %}
+        </h6>
+
+        {% if request.user == post.author %}
+              <form action=" {% url 'posts_app:edit_post' post.pk %}">
+                <input type="submit" value="Edit Chirp">
+              </form>
+              <form action=" {% url 'posts_app:delete_post' post.pk %}">
+                <input type="submit" value="Delete Chirp">
+              </form>
+
+        {% endif %}
+        {% comment %} <p> <img src="{{ post.photo.url }}" caption="{{ post.photo.url }}"> </p> {% endcomment %}
+      </div>
+
+      <br>
+      <hr>
+
+
+      <div class="comments">
+
+              <br>
+              <form action=" {% url 'posts_app:add_comment_to_post' post.pk %}">
+                <input type="submit" value="Add Comment!">
+              </form>
+              
+        <h2>Comments go here! Make them stylish!</h2>
+
+        {% for comment in post.comments.all %}
+          
+          {% comment %} {% if user.is_authenticated or comment.approved_comment %} {% endcomment %}
+          {% if comment.approved_comment %}
+            <div class="comment">
+              <p>{{ comment.comment_text | linebreaks }} 
+                by <strong>{{ comment.author }}</strong> on {{ comment.created}} .
+              </p> 
+              <br>
+
+              <div class="date"> 
+                          {% comment %} 
+                              BELOW:
+                              FROM THE DJANGO GIRLS TUTORIAL, I WAS TRYING TO GET THE 
+                              WEB-BASED APPROVE/DELETE BUTTONS FOR THE ADMIN ONLY, 
+                              BUT HAD TROUBLE WITH THE {% if request.user == admin %} SYNTAX...
+                          {% endcomment %}
+
+                          {% comment %} 
+
+                          {% if not comment.approved_comment %}
+                              <h1>
+                              More testing here:
+                              {% if request.user == admin %}
+                                YES YES YES YES YES admin!
+                              {% else %}
+                              not admin! {{ request.user }}   <br>
+                              Comments: {{ post.comments.count }}   <br>
+                              unapproved Comments: {{ post.comments.count }}   <br>
+                              {{ post.comments.approved_comment.count }}   <br>
+                              {% endif %}
+                              </h1>
+                            <form action=" {% url 'posts_app:comment_approve' comment.pk %}">
+                              <input type="submit" value="comment_approve">
+                            </form>
+                            
+                            <form action=" {% url 'posts_app:comment_remove' comment.pk %}">
+                              <input type="submit" value="comment_remove">
+                            </form>
+                          {% endif %}
+
+                          {% endcomment %}
+                </div>
+              
+              
+            </div>
           {% endif %}
-          </h6>
-          {% comment %} <p> <img src="{{ post.photo.url }}" caption="{{ post.photo.url }}"> </p> {% endcomment %}
-        </div>
 
-          {% if request.user == post.author %}
-                <form action=" {% url 'posts_app:edit_post' post.pk %}">
-                  <input type="submit" value="Edit Chirp">
-                </form>
-                <form action=" {% url 'posts_app:delete_post' post.pk %}">
-                  <input type="submit" value="Delete Chirp">
-                </form>
+        {% empty %}
+        <p>No comments are here, yet. Why not write one and be #1?</p>
+        {% endfor %}
 
-          {% endif %}
+      </div>
 
-
-    {% endblock content %}
+{% endblock content %}

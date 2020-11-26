@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post-entry">
+        <h2>{{ post.text }}</h2>
+        <div class='imagebox'><a href="{{post.photo.url}}"><img src="{{ post.photo.url }}"></a></div>
+        <p class='caption'>{{ post.caption|linebreaks }}</p>
+        <h4><em>Posted on {{ post.created }}</em></h4>
+        <h4><em>Last Update on {{ post.updated}}</em></h4>
+    </div>
+    <div class='editdelete'>
+    {% if request.user == post.poster %}
+        <p><a href="{% url 'instaface:edit' post.pk %}">Edit Post</a></p>
+        <p><a href="{% url 'instaface:delete' post.pk %}">Delete Post</a></p>
+    {% endif %}
+    </div>
+
+{% endblock content%}

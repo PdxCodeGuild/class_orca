@@ -5,4 +5,167 @@
 #fffc00 - yellow
 #dd4c3a - red
 */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 
+body{
+    background-color: #3b5a9a;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+ 
+   
+}
+
+.navbar-nav{
+    display: flex;
+    flex-direction: row;
+    font-size: 36px;
+}
+
+.nav-item{
+    padding: 15px;
+    color:  #00aef0;
+}
+.nav-link{
+    color:  #00aef0;
+}
+.nav-link:hover{
+    color: yellow;
+}
+
+.btn-primary{
+    background-color: #5581a5;
+    padding: 5px;
+}
+/* .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+} */
+
+.subheader{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+}
+#cswyf{
+    text-align: center;
+    font-size: 40px;
+    color: #00aef0;
+    margin-left: 60px;
+}
+.logopic1{
+    align-content: center;
+    max-height: 150px;
+    max-width: 150px;
+    margin-bottom: 10px;
+    
+} 
+
+
+
+.navbarp{
+    font-size: 24px;
+    color: #00aef0;
+    margin-right: 15px;
+}
+.panel-body{
+    border: 1px solid black;
+    background-color:#00aef0;
+    border-radius: 10px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+}
+.post-entry{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+    
+}
+.posttitle{
+    font-size: 40px;
+    
+}
+.postimg{
+    max-width: 300px;
+    max-height: 300px;
+    
+}
+#abouttitle{
+    text-align: center;
+    font-size: 36px;
+    color: #3b5a9a;
+    
+}
+
+#aboutbody{
+    text-align: center;
+    font-size: 18px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.posttext{
+   
+    text-align: center;
+    align-content: center;
+}
+#work{
+    text-align: center;
+}
+
+
+
+#squawker{
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 120px;
+    color: #00aef0;
+    text-align: center;
+    margin-left: 5px;
+    
+}
+
+#detailbtns{
+    margin-bottom: 25px;
+}
+
+#logout_btn{
+    margin-top: 15px;
+}
+
+.navdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+}
+
+
+
+
+.col-sm-6{
+   
+
+}
+footer{
+    text-align: center;
+}
+#leftcol{
+    align-items: center;
+}
+
+#newpost{
+    margin: auto;
+}

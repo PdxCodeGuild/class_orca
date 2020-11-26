@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% comment %} 
+# THIS FILE IS IN (OR WAS COPIED FROM) HERE:
+# DJANGO LAB 3, TWITTER MVP CLONE: https://github.com/PdxCodeGuild/class_orca/blob/main/3%20Django/labs/lab03-chirp.md
+# PROJECT NAME: chirp_project
+# APP NAMES: posts_app, users_app
+{% endcomment %}
+
+{% block content %}
+
+    <h1>Add comment:</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% comment %} <button type="submit" class="save btn btn-default">Send</button> {% endcomment %}
+            <input type="submit" value="Add">
+        </form>
+
+
+{% endblock content %}

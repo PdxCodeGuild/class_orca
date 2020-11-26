@@ -1,0 +1,128 @@
+body {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 18px;
+  background-color: grey;
+  color: whitesmoke;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'EB Garamond', serif;
+}
+
+header {
+  border-bottom: 1px solid #999;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+header h1 a {
+  color: #0f4c81;
+  text-decoration: none;
+}
+.nav-right a:hover {
+  color: #0f4c81;
+}
+
+.nav-left {
+  margin-right: auto;
+}
+
+.nav-right {
+  display: flex;
+  padding-top: 2rem;
+  margin-left: auto;
+}
+
+.nav-right p {
+  margin-left: .25rem;
+  margin-right: .25rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.post-entry {
+  margin-bottom: 2rem;
+  max-width: 30%;
+  background-color: rgb(65, 65, 65);
+  border-radius: 5%;
+}
+
+.post-entry img {
+  display: block;
+  max-width: 60%;
+  max-height: 78%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-entry h2 {
+  margin: 0.5rem 0;
+  margin-left: 1em;
+}
+
+.post-entry h2 a {
+  font-size: 1.8em;
+  /* margin-left: 1em; */
+}
+
+.post-entry h2 a, .post-entry h2 a:visited {
+  color: #92A8D1;
+  text-decoration: none;
+}
+
+.post-entry h4 {
+  font-size: 0.8em;
+}
+
+.post-entry h5, .post-entry h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.post-entry p {
+  margin: 0;
+  font-weight: 400;
+  text-align: center;
+}
+
+.post-entry h2 a:hover {
+  color: #0f4c81;
+}
+
+.editdelete a {
+  color: whitesmoke;
+}
+
+.editdelete p a:hover {
+    color: #0f4c81;
+}
+
+.caption {
+  padding-top: .5em;
+}
+
+/* .imagebox img {
+  box-shadow: 20px 20px white;
+} */
+
+@media (max-width: 1000px){
+  .post-entry {
+    max-width: 45%;
+  }
+  .post-entry h2 {
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 700px){
+  .post-entry {
+    max-width: 90%;
+  }
+  .post-entry h2 {
+    font-size: smaller;
+  }
+}

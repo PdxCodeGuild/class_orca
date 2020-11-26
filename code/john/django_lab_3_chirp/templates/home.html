@@ -9,18 +9,41 @@
 
 
 {% block content %}
+    <br>
+    
+    {% for post in object_list %}
+        <div class="chirp">
+            <p> {{ post.post_text | linebreaks }} </p>
+            <h6>
+              <a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> . 
+              <a href="{% url 'posts_app:detail' post.pk %}">Comments: {{ post.comments.count }}</a>
+            </h6>
+        </div>
+
+    {% endfor %} 
+
+
     <div id='bugs'>
       <h2>Bugs and issues:</h2>
       <ol>
-        <li>copy the instagram outline to paper...</li>
-        <li>~ ~ ~ WORK ON PORTFOLIO CSS! ~ ~ ~</li>
-        <li>actually understand CSS blocks and flex!</li>
+        <li>COMMENTS SYSTEM:</li>
+        <li>DB/AUTH BUG: any authenticated user is able to approve/delete a comment, due to the html/django wording...</li>
+        <li>Force the authenticated user's name as the author...</li>
+        <li>Style the section better.</li>
+        <li>Change margin/padding in chirp detail page...around buttons...</li>
+        <hr>
+        <li>point here</li>
+        <li>point here</li>
+        <li>add -characters remaining count...JS?</li>
         <li>make detail page author buttons prettier</li>
-        <li>point here</li>
-        <li>point here</li>
-        <li>point here</li>
-        <li>? add change password page?</li>
-      <strike>
+        <li>make form, especially password change form, prettier</li>
+        <li>styling: Evenly Distributed, Fit as Needed via https://css-tricks.com/snippets/css/css-grid-starter-layouts/ for 'chirps'</li>
+        <li><strong>DEPLOY THIS SOMEWHERE TO THE WEB!</strong></li>
+      </ol>
+    <br>
+      <h2>Completed:</h2>
+      <ol>
+        <strike>
         <li>FIXED, VERIFY IN LAB 5 THEN DELETE error when posting/editing new page, saves in DB but redirect doesn't work... -- FIXED with...
           changed models.py tuple comma @ ...return ... args=(self.id,))</li>
         <li>edit color on bullet points</li>
@@ -30,22 +53,22 @@
         <li>then REPEAT above on user profile page</li>
         <li>Change Delete page link to a button</li>
         <li>then IMPROVE main chirp detail page</li>
-      </strike>
-
+        <li>copy the instagram outline to paper...</li>
+        <li>~ ~ ~ WORK ON PORTFOLIO CSS! ~ ~ ~</li>
+        <li>actually understand CSS blocks and flex!</li>
+        <li>make footer</li>
+        <li>? add change password page?</li>
+        <li>add fonts</li>
+        <hr>
+        <li>COMMENTS SYSTEM:</li>
+        <li>Wed 25 Nov: focus on adding comment system...try at least 1hr, then see where I'm at.</li>
+        <li>Display comment text!</li>
+        <li>Add new comment button.</li>
+        <li>Add final views from tutorial.</li>
+        </strike>
       </ol>
     </div>
     
     <br>
-    <br>
-    
-    {% for post in object_list %}
-        <div class="chirp">
-            <p> {{ post.post_text | linebreaks }} </p>
-            <h6><a href="{% url 'posts_app:detail' post.pk %}">This chirp posted on {{ post.created }}</a> by user: <a href="{% url 'users_app:profile' post.author.username %}">{{ post.author.username }} </a> .</h6>
-        </div>
-
-    {% endfor %} 
-
-
 
 {% endblock content %}

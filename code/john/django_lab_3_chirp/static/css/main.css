@@ -23,13 +23,9 @@ NOTES:
 
 */
 
-@charset "UTF-8";
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+/* @charset "UTF-8"; */
+/* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap'); */
 
-
-* {
-    font-family: 'Lato', sans-serif;
-}
 #bugs {    
     border: 5px solid #EDF7E1;
     margin-bottom: 5%;
@@ -41,7 +37,6 @@ li, ol {
     background-color:#05386B;
 }
 h1, h2, h3 , h4, h5, h6 {
-    font-family: 'EB Garamond';
     text-align: center;
 }
 header {
@@ -50,7 +45,6 @@ header {
     display: flex;
 }
 header h1 a {
-    /* removes the underline link from the links in header h1 */
     text-decoration: none;
 }
 h2 a {
@@ -59,21 +53,19 @@ h2 a {
 legend {
     text-align: center;
     font-style: italic;
-    /* background-color: sienna; */
 }
 
-.nav-left {
+.nav-left, #username {
     margin-right: auto;
+    font-family: 'Pacifico', cursive; /* LOADED VIA HTML BASE.HTML */
 }      
 .nav-right {
-display: flex;
-padding-top: 1rem;
+    display: flex;
+    padding-top: 1rem;
 }      
 .nav-right p {          
-margin-left: 0.5rem;
-margin-right: 0.5rem;
-/* margin-left: .25rem;
-margin-right: .25rem; */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 body {
@@ -83,17 +75,20 @@ body {
     color: #05386B;
     margin-left: 5%;
     margin-right: 5%;
-    /* background-image: url('https://media.giphy.com/media/zRG8P7IndNxoLcq648/giphy.gif'); */
-    /* background-image: url('turtlezRG8P7IndNxoLcq648.gif'); */
+}
+.chirp-container {
     border-bottom: 5px solid #EDF7E1;
     margin-bottom: 5%;
 }
 
 /* This is the formatting for the chirp display */
 .chirp {
+    font-family: 'Open Sans', sans-serif; /* LOADED VIA HTML BASE.HTML */
+    font-size: 150%;
     margin: 3rem;
-    border: 1px dashed olive;
     padding: 5px;
+    /* background-color:#05386B; */
+    border: 5px solid #05386B;
 }
 .chirp h6 a, .chirp h6 a:visited {
     text-decoration: none;
@@ -106,28 +101,51 @@ body {
 .chirp h6 a:hover {
     color: #BEE4AF;
 }
+footer {
+    /* position: fixed; */
+    text-align: center;
+    border-bottom: 5px solid #EDF7E1;
+    margin-bottom: 15%;
+}
 
+/* Overall section .comments plural vs. individual .comment */
+.comments {
+    font-size: 75%;
+    text-align: center;
+    background-color: rgb(197, 101, 32) 106, 38);
+}
+.comment {
+    text-align: center;
+    background-color: rgb(214, 105, 28) 102, 43);
+    margin: 20px 0px 20px 20px;
+}
+
+/* This is the formatting for forms, like new chirp or password change page */
 form {
-    /* margin: 100px; */
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    /* margin: 10px; */
+    /* padding: 10px; */
+    /* border: 5px dashed red; */
     max-width: 90%;
 }
-input {
-    /* #05386B dark, almost black
-    #379683 light, almost grey
-    #5CDB95 bright green, base background
-    #BEE4AF lighter green/grey, 
-    #EDF7E1 light colored white-ish text */
-    background-color:#EDF7E1;
+/* BUTTONS */
+input { 
+    background-color: #379683;
+    color: rgb(0, 0, 0);
 }
+
 
 
 @media (min-width: 700px) {    
     body {
-        margin-left: 20%;
-        margin-right: 20%;    }
-    
+        margin-left: 15%;
+        margin-right: 15%;    
+    }    
 }
-
-@media (min-width: 1000px) {    
+@media (min-width: 1000px) {   
+    body {
+        margin-left: 20%;
+        margin-right: 20%;    
+    }    
 }

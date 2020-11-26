@@ -34,7 +34,7 @@ class BlogEditView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class BlogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'post_delete.html'
-    success_url = reverse_lazy('posts:home')
+    success_url = reverse_lazy('instaface:home')
 
     def test_func(self):
         obj = self.get_object()
