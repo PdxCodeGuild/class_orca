@@ -143,7 +143,7 @@ body{
 }
 
 #logout_btn{
-    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .navdiv{
@@ -152,13 +152,14 @@ body{
     justify-content: baseline;
 }
 
-
-
-
-.col-sm-6{
-   
-
+#line {
+    float: left;
+    width: 731px;
+    height: 10px;
+    color: #000;
 }
+
+
 footer{
     text-align: center;
 }
@@ -168,4 +169,25 @@ footer{
 
 #newpost{
     margin: auto;
+}
+hr{
+    height: 1px;
+    background-color: #000;
+    border: none;
+    width: 66%;
+}
+.attempt{
+    display: flex;
+    flex-direction: row;
+}
+
+#postname{
+    color: #3b5a9a;
+}
+
+#postmaker{
+    color: #3b5a9a;
+}
+.posttitle{
+    font-size: 46px;
 }
