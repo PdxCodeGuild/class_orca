@@ -1,7 +1,6 @@
 html {
     box-sizing: border-box;
-    background-color: #F23847;
-
+    
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -9,30 +8,55 @@ html {
 
 body{
     display: flex;
-
+    background-color: #F23847;
    
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
-    height: 150px;
-    justify-content: space-evenly;
+    /* width: 100%; */
+    /* height: 150px; */
+    justify-content: center;
     align-items: center;
 }
  header{ 
     display: flex;
-    flex-direction: column;
-    /* width: 100%;
-    height: 150px; */
-    justify-content: space-evenly;
-    align-items: center;
-    /* background-color: #FF0F00 ; */
+    flex-direction: column; 
+    width: 100%;
+    /* height: 150px;  */
+    justify-content: space-evenly; 
+    /* align-items: center; */
+    background-color: black ; 
     margin: 0 auto;
-    padding: 6px;
+    padding: 0px;
     /* width: 100%; */
     text-align: center;
-    /* position: fixed; /* Set the navbar to fixed position */
+    /* position: fixed; Set the navbar to fixed position */
     /* top: 0;    */
     } 
+.list{ display: flex;
+       flex-direction: column;
+       justify-content:center;
+       align-content: center;
+
+     }
+
+header p{
+         margin : 0 auto;
+         margin : 6px;
+        }
+
+p a{
+    font-family: 'Averia Libre', cursive;
+    font-size: 24px;
+}
+li a{
+  font-family: 'Averia Libre', cursive;
+  font-size: 18px;
+}
+
+.writing{
+  font-family: 'Averia Libre', cursive;
+  font-size: 18px;
+  }
 
    /* unvisited link */
 a:link {
@@ -47,15 +71,23 @@ a:link {
   }
   
   /* mouse over link */
-  a:hover {
-    color: #F23838;
+  a:hover{
+    color:black;
     text-decoration: none;
   }
   
   /* selected link */
-  a:active {
+  a:active{
     color: #EBF21D;
     text-decoration: none;
+  }
+
+  .user{
+    color: #F2CB05;
+  }
+
+  .user:hover{
+    color: red;
   }
     img{ 
     object-fit: cover;
@@ -69,13 +101,113 @@ a:link {
         font-family: 'Freckle Face', cursive;
         color: #FF0F00;
         /* text-decoration: ; */
-        font-size:36px;
+        font-size:48px;
         margin-bottom: 6px;
-        margin: 0 auto;}
-    
-    h3{ font-family: 'Freckle Face', cursive;
-        color: #DEECFD;
-        font-size: 24px;
         margin: 0 auto;
-        margin-left: 12px;
-        margin-right: 12px;}
+        }
+    #main:hover{
+                color:red;
+               }
+
+        #greeting{
+                  color:#F2CB05;
+                  font-family: 'Freckle Face', cursive;
+                  font-size: 24px;
+                
+        }
+        .ragepage-entry{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        
+        }
+
+        .caption{
+                  font-family: 'Averia Libre', cursive;
+                  font-size: 18px;
+                  color: black;
+                  text-align: center;
+                  margin-left: 6px;
+                  margin-right: 6px;
+         }
+
+         .links{
+                display: flex;
+                justify-content: space-evenly;
+                margin-right: 6px;
+                margin-left: 6px;
+                
+         }
+    #title{
+          font-family: 'Averia Libre', cursive;
+          font-size: 24px;
+          color: #EBF21D;
+          margin: 6px;
+          }
+    #author{
+      font-family: 'Averia Libre', cursive;
+      font-size: 18px;
+      color: #EBF21D;
+      margin: 6px;
+
+    }
+
+    #date{
+      font-family: 'Averia Libre', cursive;
+      font-size: 12px;
+      color: #EBF21D;
+      margin: 6px;
+
+    }
+    #home_title{
+                font-size: 24px;
+    }
+
+    @media (min-width: 700px) {body{
+      align-items: flex-start;
+    } #main { 
+      font-size: 48px;
+      margin-left: 24px; 
+     } 
+     img{ 
+      object-fit: cover;
+      width: 250px;
+      height: 250px;
+      }
+     #home_title{
+        font-size: 36px;
+      }
+     #author{ font-size: 30px;
+       margin: 18px, 12px;}
+     h3{font-size: 36px; 
+      margin: 18px, 12px;}
+     .about{font-size: 24px;
+       margin-left: 24px;}
+     /* justify-content: space-around; */
+     }
+
+     @media (min-width: 1100px) {
+      body { 
+            display: flex;
+            /* flex-wrap: wrap; */
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+           } 
+           #main { 
+            font-size: 66px;
+            margin-left: 24px; 
+           } 
+           img{ 
+            object-fit: cover;
+            width: 450px;
+            height: 450px;
+            }
+            header{
+                  height: 250px;
+            }
+     
+       
+      
+}
