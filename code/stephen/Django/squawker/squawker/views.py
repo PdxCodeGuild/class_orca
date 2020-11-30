@@ -1,9 +1,13 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponseRedirect
 
 from .models import Squeek
+
+
 
 class SqueekListView(ListView):
     model = Squeek

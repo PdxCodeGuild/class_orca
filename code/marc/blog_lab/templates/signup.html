@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to the Rage Page!<h1>
+<h2>Sign up to comment or make posts</h2>
+<h4> ...or continue as a guest without the full privledges of a Rage Pager!</h4>
+    <a href="{% url 'bloglab:home'  %}"> guest </a>  
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Sign Up">
+    
+</form>
+
+
+{% endblock content %}

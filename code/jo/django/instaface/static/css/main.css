@@ -19,6 +19,9 @@ header h1 a {
   color: #0f4c81;
   text-decoration: none;
 }
+.nav-right a:hover {
+  color: #0f4c81;
+}
 
 .nav-left {
   margin-right: auto;
@@ -100,4 +103,26 @@ header h1 a {
 
 .caption {
   padding-top: .5em;
+}
+
+/* .imagebox img {
+  box-shadow: 20px 20px white;
+} */
+
+@media (max-width: 1000px){
+  .post-entry {
+    max-width: 45%;
+  }
+  .post-entry h2 {
+    font-size: smaller;
+  }
+}
+
+@media (max-width: 700px){
+  .post-entry {
+    max-width: 90%;
+  }
+  .post-entry h2 {
+    font-size: smaller;
+  }
 }

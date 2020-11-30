@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+        <div>
+        {% if ragepage_list %}
+          <ul style="list-style-type:none;">
+           {% for ragepage in ragepage_list %}
+            <li class='list'>
+              <a id="home_title" href="{% url 'bloglab:detail' ragepage.id %}"> {{ragepage.title}}</a>
+              <p><img src="{{ ragepage.photo.url }}"></P>
+              <h3><a id='author' href="{% url 'users:profile' ragepage.author.username %}">by {{ ragepage.author.username}}</a></h3>
+              <h4>{{ ragepage.created }}</h4>
+            </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p> There are no posts yet </p>
+        {% endif %}
+        </div>
+
+
+{% endblock content %}

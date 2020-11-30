@@ -1,0 +1,111 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+  <head>
+    <title>iBurrito</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="iBurrito">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Ron Mansolilli, ron.mansolilli@gmail.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+    <main>  
+      <div class="wrapper">
+
+        <div class="header">
+
+          <div class="header-logo">
+            <img src="./data/logo.png">
+          </div>
+
+          <div class="header-nav">
+            <ul>
+              <li><a href="">home</a></li>
+              <li class="active"><a href="">order</a></li>
+              <li><a href="">about</a></li>
+              <li><a href="">faq</a></li>
+              <li><a href="">contact</a></li>
+              <hr>
+            </ul>
+          </div>
+
+        </div>
+
+        <article class="menu-title">
+          <p><h2>eBurrito Order</h4></p>
+        </article>
+
+        <form action="https://webhook.site/1df32604-698e-434e-a2e6-93ecdd6be6b5" method="POST">
+          <article class="menu-tortilla">
+            <fieldset>
+              <legend>Tortilla Choice</legend>
+              <input type="radio" id="choice-white" name="tortilla_choice" value="White_Flour" required>
+              <label for="choice-white">White Flour</label>
+              <input type="radio" id="choice-wheat" name="tortilla_choice" value="Wheat_Flour">
+              <label for="choice-wheat">Wheat Flour</label>
+              <input type="radio" id="choice-spinach" name="tortilla_choice" value="Spinach">
+              <label for="choice-spinach">Spinach</label>
+              <input type="radio" id="choice-corn" name="tortilla_choice" value="Corn">
+              <label for="choice-corn">Corn</label>
+            </fieldset>        
+          </article>
+          <article class="menu-protein">
+            <fieldset>
+              <legend>Protein Choice</legend>
+              <input type="radio" id="choice-carnitas" name="protein_choice" value="Carnitas" required>
+              <label for="choice-carnitas">Carnitas</label>
+              <input type="radio" id="choice-chicken" name="protein_choice" value="Chicken">
+              <label for="choice-chicken">Chicken</label>
+              <input type="radio" id="choice-sofritas" name="protein_choice" value="Sofritas">
+              <label for="choice-sofritas">Sofritas</label>
+              <input type="radio" id="choice-none" name="protein_choice" value="None">
+              <label for="choice-none">None</label>
+            </fieldset>            
+          </article>
+          <article class="menu-rice">
+            <fieldset>
+              <legend>Rice Choice</legend>
+              <input type="radio" id="choice-whiterice" name="rice_choice" value="White Rice" required>
+              <label for="choice-whiterice">White Rice</label>
+              <input type="radio" id="choice-brownrice" name="rice_choice" value="Brown Rice">
+              <label for="choice-brownrice">Brown Rice</label>
+            </fieldset>            
+          </article>
+          <article class="menu-beans">
+            <fieldset>
+              <legend>Bean Choice</legend>
+              <input type="radio" id="choice-blackbean" name="bean_choice" value="Black Bean" required>
+              <label for="choice-blackbean">Black</label>
+              <input type="radio" id="choice-pinto" name="bean_choice" value="Pinto Bean">
+              <label for="choice-pinto">Pinto</label>
+            </fieldset>            
+          </article>
+          <article class="menu-extras">
+            <p><h4>Extras Choices</h4></p>        
+          </article>
+          <article class="menu-persinfo">
+            <p><h4>Persinfo Choices</h4></p>        
+          </article>
+          <article class="menu-footer">
+            <hr>
+            <p><h5>eBurrito - Copyright 2020</h5></p>        
+          </article>
+
+        </form>
+      </div>  <!-- <--- Wrapper Div  -->
+    </main>
+  </body>
+</html> 
+
+
+
+
+
+
+

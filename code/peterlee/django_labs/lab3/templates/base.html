@@ -3,6 +3,8 @@
 <html>
   <head>
     <title>Chirp</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
   </head>
   <body>
@@ -16,8 +18,10 @@
           <a href="{% url 'Posts:create' %}">Post New Chirp</a>
           <a href="{% url 'logout' %}">Logout</a>
         {% else %}
-          <a href="{% url 'login' %}">Login</a>
-          <a href="{% url 'Users:signup' %}">Sign Up</a>
+          <div class="login-signup">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'Users:signup' %}">Sign Up</a>
+          </div>
         {% endif %}
       </div>
     </header>
