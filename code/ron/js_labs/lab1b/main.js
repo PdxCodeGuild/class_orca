@@ -10,53 +10,91 @@
 
 /* Pick 6 (from Python Lab 14) */
 
-// ----Global variables, lists, dictionaries------------------
+// ----Global variables, arrays, etc. ------------------
 
-let nums = [5, 0, 8, 3, 4, 1, 6];   // Data for version 1
-let x = 0;                          // Loop iteration 
-let num_list = [];                  // Data holder version 2
-let i = true;                       // While loop condition
+let matches = 0
+let money_spent = 0
+let prize_money = 0
+let winners = 0
 
 // ----Functions----------------------------------------------
 
-/* None */
+function getRandomInt(min, max) {
+    //Random number generator
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  };
+
+function random_ticket_nums() {
+    //Random ticket generator
+    let x = 1;
+    let ticket = [];
+    let c1 = 0;
+    while (c1 <= 5) {
+        ticket.push(getRandomInt(1,99));
+        c1++;
+    };
+    return ticket;
+};
+
+function num_match(matches) {
+    //Checking # matches, assigning price money
+    let prize = 0;
+
+    if (matches === 1) {
+        prize += 2;
+    }
+    if (matches === 2) {
+        prize += 7;
+    }
+    if (matches === 3) {
+        prize += 100;
+    }   
+    if (matches === 4) {
+        prize += 50000;
+    }
+    if (matches === 5) {
+        prize += 1000000;
+    }   
+    if (matches === 6) {
+        prize += 2500000;
+    }
+    return prize;
+}
+
 
 // ----Main Code---------------------------------------------
 
-/* Version 1 */
+    for (let x1 = 1; x1 <= 100000; ++x1) {
+        //Building tickets, setting parameters
+        let my_ticket = random_ticket_nums();
+        let winning_ticket = random_ticket_nums();
+        matches = 0;
+        money_spent += 2;
 
-    nums.forEach(function(nums) {
-        x += nums; 
-    });
-    let y = x / (nums.length);
+        for (let x2 = 0; x2 <= 5; ++x2) {
+            //Checking tickets for matches and tallying prizes
+            if (my_ticket[x2] === winning_ticket[x2]) {
+                matches += 1;
+            };
+        };
 
-/* Version 2 */
-    x = 0;
-    let z = 0;
+        if (matches > 0) {
+            //Tallying winning ticket
+            prize_money += num_match(matches);
+            winners += 1;
+        };
+    };
 
-    while (i) {
-        user_input = prompt('Enter a number, or done: ');
-        if (user_input === 'done') {
-            num_list.forEach(function(num_list) {
-                x += num_list; 
-            });
-            z = x / (num_list.length);
-            i = false;
-        } else {
-            let b = parseInt(user_input);
-            num_list.push(b);
-            console.log(num_list);
-        }
-    }
+    /* Output */
+    let roi = (((prize_money - money_spent)/money_spent)*100);
 
-/* Output */
-
-alert(`Lab 10 \n\n Version 1 \n ----------\n Average of (${nums}): ${y = y.toFixed(2)} 
-     \nVersion 2 \n ----------\n Average of (${num_list}): ${z = z.toFixed(2)} `);
-
-
-
-
-
-
+    alert(`Lab 14 \n ---------- 
+            \n Investment: ${money_spent} 
+            \n # of winning tickets: ${winners} 
+            \n Prize Money: ${prize_money}
+            \n Net Income: ${prize_money - money_spent}
+            \n ROI: ${roi = roi.toFixed(2)}%
+        `);
 
