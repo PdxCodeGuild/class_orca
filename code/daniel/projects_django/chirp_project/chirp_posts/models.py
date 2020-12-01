@@ -23,10 +23,10 @@ class ChirpPosts(models.Model):
     class Meta: 
         ordering = ['-created_on'] 
 
-class LikedPosts(models.Model):
-    post = models.ForeignKey(ChirpPosts, on_delete=models.CASCADE)
-    liked_by = models.ForeignKey('auth.User', on_delete=models.CASCADE) 
-    is_liked = models.BooleanField(default=False)
+# class LikedPosts(models.Model):
+#     post = models.ForeignKey(ChirpPosts, on_delete=models.CASCADE)
+#     liked_by = models.ForeignKey('auth.User', on_delete=models.CASCADE) 
+#     is_liked = models.BooleanField(default=False)
 
     # def __str__(self):
     #     return self.post

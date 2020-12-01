@@ -6,5 +6,5 @@ app_name = 'chirp_app'
 urlpatterns = [
     path('', views.index, name = 'index'),
     path('blog/', views.blog, name = 'blog'),
-    path('post/', views.post, name = 'post'),
+    path('post/<id>', views.post, name = 'post'),
 ]
