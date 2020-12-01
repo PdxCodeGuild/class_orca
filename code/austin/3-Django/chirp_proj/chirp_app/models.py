@@ -19,10 +19,11 @@ class Post(models.Model):
     post_photo = models.ImageField(upload_to="images/")
     categories = models.ManyToManyField(Category)
     featured = models.BooleanField(default=False)
+    view_count = models.IntegerField(default=0)
     comment_count = models.IntegerField(default=0)
 
-    # def get_absolute_url(self):
-    #     return reverse('chirp_app:detail', args=(self.id,))
+    def get_absolute_url(self):
+        return reverse('chirp_app:post', args=(self.id,))
 
     def __str__(self):
         return self.title
