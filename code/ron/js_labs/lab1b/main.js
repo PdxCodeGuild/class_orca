@@ -19,20 +19,13 @@ let winners = 0
 
 // ----Functions----------------------------------------------
 
-function getRandomInt(min, max) {
-    //Random number generator
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-  };
-
 function random_ticket_nums() {
     //Random ticket generator
     let x = 1;
     let ticket = [];
     let c1 = 0;
     while (c1 <= 5) {
-        ticket.push(getRandomInt(1,99));
+        ticket.push(Math.floor(Math.random()*100));
         c1++;
     };
     return ticket;
