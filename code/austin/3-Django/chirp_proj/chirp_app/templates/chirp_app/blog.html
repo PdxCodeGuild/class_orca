@@ -11,16 +11,16 @@
           <div class="container">
             <div class="row">
               <!-- post -->
-              {% for post in post_list %}
+              {% for post in queryset %}
               <div class="post col-xl-6">
-                <div class="post-thumbnail"><a href="post.html"><img src={{ post.post_photo.url }} alt="..." class="img-fluid"></a></div>
+                <div class="post-thumbnail"><a href="{{ post.get_absolute_url }}"><img src={{ post.post_photo.url }} alt="..." class="img-fluid"></a></div>
                 <div class="post-details">
                   <div class="post-meta d-flex justify-content-between">
                     <div class="date meta-last">20 May | 2016</div>
                     {% for cat in post.categories.all %}
                     <div class="category"><a href="#">{{ cat }}</a></div>
                     {% endfor %}
-                  </div><a href="post.html">
+                  </div><a href="{{ post.get_absolute_url }}">
                     <h3 class="h4">{{ post.title }}</h3></a>
                   <p class="text-muted">{{ post.caption }}</p>
                   <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
@@ -90,11 +90,15 @@
             <!-- Pagination -->
             <nav aria-label="Page navigation example">
               <ul class="pagination pagination-template d-flex justify-content-center">
-                <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
-                <li class="page-item"><a href="#" class="page-link active">1</a></li>
-                <li class="page-item"><a href="#" class="page-link">2</a></li>
-                <li class="page-item"><a href="#" class="page-link">3</a></li>
-                <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+                {% if queryset.has_previous %}
+                <li class="page-item"><a href="?{{ page_request_var}}={{ queryset.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+                <li class="page-item"><a href="{{ queryset.previous_page_number }}" class="page-link">{{ queryset.previous_page_number }}</a></li>
+                {% endif %}
+                <li class="page-item"><a href="{{ queryset.number }}" class="page-link active">{{ queryset.number }}</a></li>
+                {% if queryset.has_next %}
+                <li class="page-item"><a href="{{ queryset.next_page_number }}" class="page-link">{{ queryset.next_page_number }}</a></li>
+                <li class="page-item"><a href="?{{ page_request_var}}={{ queryset.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+                {% endif %}
               </ul>
             </nav>
           </div>
@@ -118,44 +122,30 @@
               <h3 class="h6">Latest Posts</h3>
             </header>
             <div class="blog-posts"><a href="#">
+            {% for post in most_recent %}
+              <a href="{{ post.get_absolute_url }}">
                 <div class="item d-flex align-items-center">
-                  <div class="image"><img src="{% static 'img/small-thumbnail-1.jpg' %}" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
+                  <div class="image"><img src={{ post.post_photo.url }} alt="..." class="img-fluid"></div>
+                  <div class="title"><strong>{{ post.title }}</strong>
                     <div class="d-flex align-items-center">
-                      <div class="views"><i class="icon-eye"></i> 500</div>
-                      <div class="comments"><i class="icon-comment"></i>12</div>
+                      <div class="views"><i class="icon-eye"></i> {{ post.view_count }}</div>
+                      <div class="comments"><i class="icon-comment"></i> {{ post.comment_count }}</div>
                     </div>
                   </div>
-                </div></a><a href="#">
-                <div class="item d-flex align-items-center">
-                  <div class="image"><img src="{% static 'img/small-thumbnail-2.jpg' %}" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
-                    <div class="d-flex align-items-center">
-                      <div class="views"><i class="icon-eye"></i> 500</div>
-                      <div class="comments"><i class="icon-comment"></i>12</div>
-                    </div>
-                  </div>
-                </div></a><a href="#">
-                <div class="item d-flex align-items-center">
-                  <div class="image"><img src="{% static 'img/small-thumbnail-3.jpg' %}" alt="..." class="img-fluid"></div>
-                  <div class="title"><strong>Alberto Savoia Can Teach You About</strong>
-                    <div class="d-flex align-items-center">
-                      <div class="views"><i class="icon-eye"></i> 500</div>
-                      <div class="comments"><i class="icon-comment"></i>12</div>
-                    </div>
-                  </div>
-                </div></a></div>
+                </div>
+              </a>
+            {% endfor %}
           </div>
           <!-- Widget [Categories Widget]-->
           <div class="widget categories">
             <header>
               <h3 class="h6">Categories</h3>
             </header>
-            <div class="item d-flex justify-content-between"><a href="#">Growth</a><span>12</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Sales</a><span>8</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Tips</a><span>17</span></div>
-            <div class="item d-flex justify-content-between"><a href="#">Local</a><span>25</span></div>
+            {% for cat in category_list %}
+            <div class="item d-flex justify-content-between">
+              <a href="#">{{ cat.title }}</a>
+            </div>
+            {% endfor %}
           </div>
           <!-- Widget [Tags Cloud Widget]-->
           <div class="widget tags">       

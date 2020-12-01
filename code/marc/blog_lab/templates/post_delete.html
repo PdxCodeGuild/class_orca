@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> Delete: {{ ragepage.title }}? </h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <p><img src="{{ ragepage.photo.url }}"></p>
+    <p>So you really want to delete {{ ragepage.title }}?</p>
+    <input type="submit" value="Confirm">
+</form>
+<div>
+<a href="{% url 'users:profile' request.user.username %}">No. Back to my user page!</a>
+</div>
+
+{% endblock content %}

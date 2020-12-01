@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>The Rage Page</title>
-    {% comment %} <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap" rel="stylesheet"> {% endcomment %}
-    {% comment %} <link href="{% static 'css/main.css' %}" rel="stylesheet"> {% endcomment %}
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:wght@300&family=Freckle+Face&display=swap" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
   </head>
   <body>
-    <h1><a href="">Welcome to the Rage Page</a></h1>
-
+    
     <header>
-        <div class="nav-right">
+        <h1 ><a id="main" href="{% url 'bloglab:home'  %}">Welcome to the Rage Page</a></h1>
+        <div>
         {% if request.user.is_authenticated %}
-          <p> Heya, <a href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a>!</p>
-          <p><a href="{% url 'logout' %}">Logout</a></p>
+          <p id="greeting"> Heya, <a class="user" href="{% url 'users:profile' request.user.username %}">{{ request.user.username }}</a>!</p>
+          <p><a class="user" href="{% url 'logout' %}">Logout</a></p>
         {% else %}
-          <p><a href="{% url 'login' %}">Login to rage!</a></p>
-          <p><a href="{% url 'users:signup' %}">If you're new, sign up to rage!</a></p>
+          <p><a class="user" href="{% url 'login' %}">Login to rage!</a></p>
+          <p><a class="user" href="{% url 'users:signup' %}">If you're new, sign up to rage!</a></p>
         {% endif %}
         </div> 
     </header>

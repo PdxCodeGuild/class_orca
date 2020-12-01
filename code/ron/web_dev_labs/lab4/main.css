@@ -1,8 +1,6 @@
-/* 
-* {
-  margin: 10px;
-  padding: 0;
-} */
+
+
+/************* Page formatting **********************************************/
 
 body {
   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(./data/burrito.jpg);
@@ -11,168 +9,170 @@ body {
   background-position: center;
 }
 
+/* fieldset {
+  background-color: #eeeeee;
+} */
 
  .wrapper {
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: 100px 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
+  /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
   grid-template-areas: 
-    "lefthead  righthead"
-    /* "headerR  headerR" */
+    "header  header"
     "title    title"
     "tortilla protein"
     "rice     beans"
     "extras   extras"
     "persinfo persinfo"
     "footer   footer";
-    /* max-width: 1000px; */
+    max-width: 1000px;
     margin: 0px auto;
-    /* float: left; */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border: 1px white solid;
-
 }
 
-.logo {
-  grid-area: lefthead;
-  border-width: 1px;
-  border-color: rgb(228, 6, 6);
-  border-style: solid;
+/************* Header Data and Formatting *********************************/
+.header {
+  grid-area: header;
+  display: flex;
+  /* border: 1px white solid; */
 }
 
-/* .logo img {
+.header-logo {
+  /* border: 1px white solid; */
+  margin-left: 1rem;
+  flex-grow: 1;
+}
+
+.header-logo img {
   width: 225px;
   height: auto;
-  float: left;
+}
 
-} */
-
-.main-nav {
-  grid-area: righthead;
+.header-nav {
   list-style: none;
-  border-width: 1px;
-  border-color: rgb(223, 11, 11);
-  border-style: solid;
-  /* margin-top: 5px; */
+  /* border: 1px white solid; */
+  flex-grow: 1;
+  text-align: right;
 }
 
-.main-nav li {
+.header-nav li {
   display: inline-block;
-
 }
 
-.main-nav li a {
+.header-nav li a {
   color: white;
   text-decoration: none;
   padding: 5px 20px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   line-height: 2em;
-  /* font-size: 15px; */
 }
 
-.main-nav li.active a {
+.header-nav li.active a {
   border: 1px solid white;
 }
 
-.main-nav li a:hover {
+.header-nav li a:hover {
   border: 1px solid white;
 }
+
+/************* Content Data and Formatting *********************************/
 
 .menu-title {
   grid-area: title;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
+  /* border: 1px white solid; */
   width: auto;
-  height: 100px;
-  background-color: white;
+  height: auto;
+  color: wheat;
+  text-align: center;
+  /* background-color: white; */
 }
 
 .menu-tortilla {
   grid-area: tortilla;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-  width: 100px;
-  height: 100px;
-  background-color: white;
+  /* border: 1px white solid; */
+  width: auto;
+  height: auto;
+  /* background-color: white; */
+  text-align: right;
+  color: wheat;
 
 }
 
 .menu-protein {
   grid-area: protein;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-  width: 100px;
-  height: 100px;  
-  background-color: white;
+  /* border: 1px white solid; */
+  width: auto;
+  height: auto;
+  /* background-color: white; */
+  text-align: left;
+  color: wheat;
 
 }
 
 .menu-rice {
   grid-area: rice;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-  width: 100px;
-  height: 100px;
-  background-color: white;
+  /* border: 1px white solid; */
+  width: auto;
+  height: auto;
+  /* background-color: white; */
+  text-align: right;
+  color: wheat;
 
 }
 
 .menu-beans {
   grid-area: beans;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
-  width: 100px;
-  height: 100px;
-  background-color: white;
+  /* border: 1px white solid; */
+  width: auto;
+  height: auto;
+  /* background-color: white; */
+  text-align: left;
+  color: wheat;
 
 }
 
 .menu-extras {
   grid-area: extras;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
+  /* border: 1px white solid; */
   width: auto;
-  height: 100px;
-  background-color: white;
+  height: auto;
+  color: wheat;
+  text-align: center;
+  color: wheat;
 
 }
 
 .menu-persinfo {
   grid-area: persinfo;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
+  /* border: 1px white solid; */
   width: auto;
-  height: 100px;
-  background-color: white;
+  height: auto;
+  color: wheat;
+  text-align: center;
+  color: wheat;
 
 }
 
 .menu-footer {
   grid-area: footer;
-  border-width: 1px;
-  border-color: black;
-  border-style: solid;
+  /* border: 1px white solid; */
   width: auto;
-  height: 100px;
-  background-color: white;
+  height: auto;
+  color: wheat;
+  text-align: center;
+  color: wheat;
 
 }
 
+/************* Alternative Formatting **************************************/
 
 /* 
 @media (min-width: 500px) {
   .wrapper {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
+    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+    /*grid-template-areas: 
     "headerL  headerR"
     "title    title"
     "tortilla protein"
@@ -185,6 +185,14 @@ body {
 } */
 
 
+/************* Miscelleous Test Code *************************************/
+
+
+/* 
+* {
+  margin: 10px;
+  padding: 0;
+} */
 
 /*
 

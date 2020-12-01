@@ -4,15 +4,16 @@
 
     {% for entry in object_list %}
         <div class="post-entry">
-            <h2><a href="{% url 'squawker:detail' entry.pk %}" class="posttitle">{{ entry.title }}</a></h2>
-            <h5><em><a href="{% url 'users:profile' entry.author.username %}">Posted by: {{ entry.author.username }}</a></em></h4>
+            <h2 class="posttitle"><a href="{% url 'squawker:detail' entry.pk %}" id="postname">{{ entry.title }}</a></h2>
+            <div class="attempt"><h5><p>Posted by: </p><em><a href="{% url 'users:profile' entry.author.username %}" id="postmaker">{{ entry.author.username }}</a></em></h4></div>
             <h4><em> {{ squeek.created }} </em></h4>
             {% if entry.photo.url %}
                 <p><img src="{{ entry.photo.url|default_if_none:'#' }}" class="postimg"></p>
             <p>{{ entry.post|linebreaks }}</p>
             {% endif %}
-            <hr>
+            <div id="line"><hr /></div>
+            <br>
         </div>
     {% endfor %}
 
-{% endblock content %}
+{% endblock content %} 
