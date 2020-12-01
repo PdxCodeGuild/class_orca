@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import ChirpPosts, LikedPosts
+from .models import ChirpPosts
 
 admin.site.register(ChirpPosts) 
-admin.site.register(LikedPosts) 
+# admin.site.register(LikedPosts) 
