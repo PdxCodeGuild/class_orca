@@ -1,0 +1,28 @@
+
+{% extends 'post/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if post.created_date %}
+        {% endif %}
+        <h2>{{ post.author }}</h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+            <div class="date">
+                {{ post.created_date }}
+            </div>
+        {% if user == post.author %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+    <hr>
+    {% for comment in post.comments.all %}
+        <div class="comment">
+            <div class="date">{{ comment.created_date }}</div>
+            <strong>{{ comment.author }}</strong>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+        <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+    {% empty %}
+        <p>No comments here yet :(</p>
+    {% endfor %}
+    </div>
+{% endblock %}
