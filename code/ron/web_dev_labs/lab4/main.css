@@ -9,6 +9,11 @@ body {
   background-position: center;
 }
 
+/* body form {
+  min-width: 100%;
+
+} */
+
 /* fieldset {
   background-color: #eeeeee;
 } */
@@ -21,14 +26,15 @@ body {
   grid-template-areas: 
     "header  header"
     "title    title"
-    "tortilla protein"
-    "rice     beans"
+    "tortilla tortilla"
+    /* "rice     beans" */
     "extras   extras"
     "persinfo persinfo"
     "footer   footer";
     max-width: 1000px;
     margin: 0px auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px white solid;
 }
 
 /************* Header Data and Formatting *********************************/
@@ -88,48 +94,56 @@ body {
   /* background-color: white; */
 }
 
-.menu-tortilla {
+.menu1 {
   grid-area: tortilla;
-  /* border: 1px white solid; */
-  width: auto;
-  height: auto;
-  /* background-color: white; */
-  text-align: right;
-  color: wheat;
-
+  display: flexbox;
+  flex-flow: row wrap;
+  /* min-width: 50%; */
+  /* justify-content: space-between;
+  align-content: stretch; */
+  /* flex-grow: 1; */
 }
 
-.menu-protein {
-  grid-area: protein;
-  /* border: 1px white solid; */
+.menu1-tortilla {
+  /* flex-grow: 1; */
+  border: 1px white solid;
   width: auto;
-  height: auto;
+  /* height: auto; */
   /* background-color: white; */
-  text-align: left;
+  /* text-align: right; */
   color: wheat;
-
 }
 
-.menu-rice {
-  grid-area: rice;
-  /* border: 1px white solid; */
+.menu1-protein {
+  /* grid-area: protein; */
+  /* flex-grow: 1; */
   width: auto;
-  height: auto;
-  /* background-color: white; */
-  text-align: right;
-  color: wheat;
 
+  /* border: 1px white solid; */
+  /* width: auto;
+  height: auto; */
+  /* text-align: left; */
+  color: wheat;
 }
 
-.menu-beans {
-  grid-area: beans;
-  /* border: 1px white solid; */
+.menu1-rice {
+  /* grid-area: rice; */
+  border: 1px white solid;
   width: auto;
   height: auto;
+  color: yellow;
   /* background-color: white; */
-  text-align: left;
-  color: wheat;
+  /* text-align: right; */
+}
 
+.menu1-beans {
+  /* grid-area: beans; */
+  /* border: 1px white solid; */
+  /* width: auto;
+  height: auto; */
+  /* background-color: white; */
+  /* text-align: left; */
+  color: white;
 }
 
 .menu-extras {
@@ -140,7 +154,6 @@ body {
   color: wheat;
   text-align: center;
   color: wheat;
-
 }
 
 .menu-persinfo {
@@ -151,7 +164,6 @@ body {
   color: wheat;
   text-align: center;
   color: wheat;
-
 }
 
 .menu-footer {
@@ -162,7 +174,6 @@ body {
   color: wheat;
   text-align: center;
   color: wheat;
-
 }
 
 /************* Alternative Formatting **************************************/
