@@ -1,0 +1,138 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/* John Fial, PDX Code Guild, 2020-2021, www.johnfial.com */
+/* *********** NOTES ************* */
+/* 
+    MATH multiples of 5 !
+
+*/
+
+body {
+    background-color: rgba(255, 244, 235, 0.973);
+    background-repeat: repeat;        
+    background-position: top center -250px;    
+    font-family: 'Open Sans', sans-serif;
+}
+.grid {
+    display: grid;
+    position: center;
+    max-width: 95%;
+    padding: 5%;        
+    border-radius: 25%;
+}
+
+/* header */
+.nav-outer { 
+    display: grid;
+    max-height: 150px;
+    background-color: #D94848;
+    background-size: 100%;
+    padding: 10px;
+    margin: 15px;
+}
+.nav-inner { 
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    color: black;    
+    font-size: 20px;
+}
+
+/* links on page*/
+a {
+    color:#000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+.section a {
+    color:#F29D35;
+}
+a:hover {
+    color:#F27329;
+    text-decoration-style: solid;
+}
+
+/* name */
+.name {
+    padding: 10px;
+    margin: 15px;
+    display: grid;
+    border: 3px solid #F27329;
+    background-color: #f29d3585 ;
+    border-radius: 3%;  
+}
+
+h1 { /* John Fial */
+    font-size: 450%;
+    text-align: center;
+    text-emphasis: bold;
+    font-family: 'Pacifico', cursive;
+}
+h2 { /* <h2 id="name-text"> */
+    font-size: 250%;
+    justify-content: center;
+    padding: 5%;
+    text-align: center;
+    margin: 1px;
+}
+
+/* MAIN SECTIONS */
+.section {
+    display: grid;
+    grid-template-columns: 1fr 25px 5fr; /* this will be 3 colums with 3fr total */
+    padding: 10px;
+    margin: 15px;
+    border: 3px solid #F27329;
+    color: #F27329;
+    background-color: rgba(63, 30, 0, 0.842);
+    /* background-color: #D94848; */
+    border-radius: 3%;
+}
+.single-box {
+    display: grid;
+    padding: 10px;
+    margin: 15px;
+    font-size: 125%;
+    color: #000000;
+    text-align: center;
+    background-color: #bfb0b0d5;
+    border: 3px solid #F27329;
+    border-radius: 25%;
+    /* dark orange #F27329
+    red #D93D1A
+    red pink #D94848
+    grey #BFB0B0 */
+}
+.left {
+    display: flex;
+    text-transform: uppercase;
+    font-size: 200%;
+}
+.right {
+    display: grid;
+    grid-column: 3 / 3;
+    font-size: 150%;
+}
+
+.single-box li {
+
+}
+footer {
+    background: #eaeaea;
+}
+
+
+/* RESPONSIVE CHANGES FOR BIGGER SCREENS */
+@media (min-width: 700px) {    
+    body {
+        /* grid-area: auto; */
+        max-width: 75%;
+    }
+}
+@media (min-width: 1000px) {
+    body {
+        max-width: 75%;
+    }
+
+}
