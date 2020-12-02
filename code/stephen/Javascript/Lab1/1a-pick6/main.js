@@ -23,43 +23,44 @@ function pick6(){
 function compare_tickets(winner, player) {
     let match = 0;
     for (let i=0; i<6; i++) {
-        if (winner[i] == player[i]) {
-            match++
+        if (winner[i] === player[i]) {
+            match += 1;
         };
 
-    }
-}
+    };
+    return match;
+};
 
 let winner = pick6();
 console.log(winner)
 let balance = 0;
 let earnings = 0;
-let plays = 100;
+let plays = 1000;
 let cost = plays * 2
 
 
-while (plays !== 0) {
-    --plays;
+for (let i = 0; i < plays; i++) {
+    // plays--;
     balance -= 2;
     let player = pick6();
-    matches = compare_tickets(winner, player);
-    // console.log(matches)
-    if (matches == 1) {
+    let matches = compare_tickets(winner, player);
+    console.log(matches)
+    if (matches === 1) {
         balance += 4;
         earnings += 4;
-    } else if (matches == 2) {
+    } else if (matches === 2) {
         balance += 7;
         earnings +=7;
-    } else if (matches == 3) {
+    } else if (matches === 3) {
         balance += 100;
         earnings += 100;
-    } else if (matches == 4) {
+    } else if (matches === 4) {
         balance += 50000;
         earnings += 50000;
-    } else if (matches == 5) {
+    } else if (matches === 5) {
         balance += 1000000;
         earnings += 1000000;
-    } else if (matches ==6) {
+    } else if (matches === 6) {
         balance += 25000000;
         earnings += 25000000;
     }
