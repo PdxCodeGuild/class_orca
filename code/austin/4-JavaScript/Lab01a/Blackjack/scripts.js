@@ -1,6 +1,6 @@
 let card_value = {'A': '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: '8', 9: '9', 10: '10', 'J': '10', 'K': '10', 'Q': '10'};
 
-
+//Change to input fields & add button
 let card1 = prompt("Please enter your first card ");
 let card2 = prompt("Please enter your second card ");
 let card3 = prompt("Please enter your third card ");
@@ -35,6 +35,7 @@ function addCards(new_array) {
 
 addCards(new_array)
 
+//Change alerts to displays
 function vegas_baby(sum) {
     if (sum < 17) {
         alert("Hit")
