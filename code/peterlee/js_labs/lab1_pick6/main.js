@@ -50,14 +50,14 @@ function winnings() {
         }
     }
     results.innerText =`${currentBalance}`;
-    let earnings = 2*numTickets + currentBalance;
-    let roi = (earnings - 2*numTickets)/(2*numTickets);
-    results.innerText =`Your earnings are ${earnings} \n\nYour ROI is ${roi}`;
+    let expenses = 2*numTickets;
+    let earnings = expenses + currentBalance;
+    let roi = (earnings - expenses)/(expenses);
+    results.innerText =`Your current balance is $${currentBalance}\n\nYour expenses are $${expenses}\n\nYour earnings are $${earnings} \n\nYour ROI is ${roi}`;
     return;
 }
 
 let winningTicket = pick6();
-
 
 
 let btn = document.getElementById("btn");
