@@ -50,8 +50,8 @@ function winnings() {
         }
     }
     results.innerText =`${currentBalance}`;
-    let earnings = 2*numberOfTickets + currentBalance;
-    let roi = (earnings - 2*numberOfTickets)/2*numberOfTickets;
+    let earnings = 2*numTickets + currentBalance;
+    let roi = (earnings - 2*numTickets)/(2*numTickets);
     results.innerText =`Your earnings are ${earnings} \n\nYour ROI is ${roi}`;
     return;
 }
