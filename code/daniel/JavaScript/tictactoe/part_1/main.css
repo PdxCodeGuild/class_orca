@@ -1,0 +1,29 @@
+body {
+    border: 1px solid black;
+    margin: 50px;
+}
+.game_board {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 250px;
+    margin-right: 250px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.top, .middle {
+    border-bottom: 2px solid black;
+}
+.left, .center {
+    border-right: 2px solid black;
+}
+.top, .middle, .bottom {
+    margin: 0;
+    width: 30%;
+}
+p {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

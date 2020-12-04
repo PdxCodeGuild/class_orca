@@ -2,9 +2,26 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>Blackjack</title>
   </head>
   <body>
+    <h1>Blackjack</h1>
+    <ul>
+      <li>The card inputs are: A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, or K</li>
+      <li>Enter your cards in the boxes below to see what you should do next</li>
+    </ul>
+    <div>
+      <div id="cardsdiv">
+          <input class="cards" type="text" placeholder="Card 1">
+      </div>
+      <br>
+      <button id="more">Add more cards</button>
+    </div>
+    <br>
+    <button id="btn">Get Advice</button>
+    <div id="resultsdiv">
+      <p id="results"></p>
+    </div>
     <script src="main.js">
     </script>
   </body>
