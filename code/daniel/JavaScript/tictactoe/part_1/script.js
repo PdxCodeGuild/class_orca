@@ -1,3 +1,7 @@
+let game_board = document.getElementsByClassName('game_board')
+
+
+
 class Player {
 
     constructor(name, token) {
@@ -19,6 +23,12 @@ class Game {
         ${this.board_list[3]}  |  ${this.board_list[4]}  |  ${this.board_list[5]}
         ${this.board_list[6]}  |  ${this.board_list[7]}  |  ${this.board_list[8]}
         `;
+
+        for (let i = 0; i<game_board.length; i++) {
+            game_board[i].innerText = this.board_list[i]
+        }
+
+
         return this.board;
     };
 

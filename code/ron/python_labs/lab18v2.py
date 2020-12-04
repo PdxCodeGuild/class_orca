@@ -63,12 +63,12 @@ def main():
 
     print(f'Peak:   {peaks(data)}')
     print(f'Valley: {valleys(data)}')
-    print(f'Both:   {peaks_and_valleys(data)}')
+    print(f'Both:   {peaks_and_valleys(data)}\n')
 
-    for x in range(10, 0, -1):
+    for x in range(9, 0, -1):
         result = count_row(data, x)
-        x = " ".join(result)
-        print(x)
+        y = " ".join(result)
+        print(f'{x}. {y}')
         row.clear()
 
     print(f'\n')
