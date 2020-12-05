@@ -1,9 +1,9 @@
 
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 //         Project: Javascript
-//  Assignment/Ver: Lab 1c
+//  Assignment/Ver: Lab 2c
 //          Author: Ron Mansolilli, ron.mansolilli@gmail.com
-//            Date: 12-1-2020
+//            Date: 12-4-2020
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 
 // ----Instructions and notes--------------------------------
@@ -12,7 +12,7 @@
 
 // ----Global variables, arrays, etc. ------------------
 
-let hand = [];
+let hand = []; 
 
 // ----Functions----------------------------------------------
 
@@ -23,7 +23,7 @@ function sum(y) {
     console.log(y1);
     };
 
-// Utilized stackflow & MDA to research Reduce @ below:
+//Utilized stackflow & MDA to research Reduce @ below:
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
 
 function hand_eval(x) {
@@ -45,10 +45,10 @@ function hand_eval(x) {
 // ----Main Code---------------------------------------------
 
 //Input
-    hand.push(prompt('First card (1-9, j, q, k, a):'));
-    hand.push(prompt('First card (1-9, j, q, k, a):'));
-    hand.push(prompt('First card (1-9, j, q, k, a):'));    
-    console.log(hand);
+    // hand.push(prompt('First card (1-9, j, q, k, a):'));
+    // hand.push(prompt('First card (1-9, j, q, k, a):'));
+    // hand.push(prompt('First card (1-9, j, q, k, a):'));    
+    // console.log(hand);
 
 
 // Assign value to J, Q, K, A
@@ -69,8 +69,8 @@ function hand_eval(x) {
     let recommendation = hand_eval(hand);
     // Send hand to evaluate function and rtn recommendation
 
-    alert(`Lab 19 \n ---------- 
-            \n Hand: ${sum(hand)} 
-            \n Recommendation: ${recommendation} 
-        `);
+    // alert(`Lab 19 \n ---------- 
+    //         \n Hand: ${sum(hand)} 
+    //         \n Recommendation: ${recommendation} 
+    //     `);
 

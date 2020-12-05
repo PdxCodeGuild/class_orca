@@ -46,8 +46,8 @@ function hand_eval(x) {
 
 //Input
     hand.push(prompt('First card (1-9, j, q, k, a):'));
-    hand.push(prompt('First card (1-9, j, q, k, a):'));
-    hand.push(prompt('First card (1-9, j, q, k, a):'));    
+    hand.push(prompt('Second card (1-9, j, q, k, a):'));
+    hand.push(prompt('Third card (1-9, j, q, k, a):'));    
     console.log(hand);
 
 
