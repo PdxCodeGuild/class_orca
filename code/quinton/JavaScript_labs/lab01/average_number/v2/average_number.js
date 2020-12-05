@@ -12,6 +12,8 @@ function addToList(e) {
     user_input.value = '';
 }
 add_button.addEventListener('click', addToList);
+
+
 user_input.addEventListener('keydown', function(e) {
     if (e.key === "Enter") {
         addToList(user_input);

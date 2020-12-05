@@ -1,20 +1,17 @@
-// let num1 = parseInt(prompt('Enter first number'))
-// let operator = prompt('Enter operator (+, -, *, /)')
-// let num2 = parseInt(prompt('Enter second number'))
+let num1 = document.getElementById('num1');
+let num2 = document.getElementById('num2');
+let operator = document.getElementById('operator');
+let answer = document.getElementById('answer');
+let solve = document.getElementById('solve');
 
-
-// if (operator == '+') {
-//     let answer = num1+num2;
-//     alert(`${num1} ${operator} ${num2} = ${answer}`);
-// } else if (operator == '-') {
-//     let answer = num1-num2;
-//     alert(`${num1} ${operator} ${num2} = ${answer}`);
-// } else if (operator == '*') {
-//     let answer = num1*num2;
-//     alert(`${num1} ${operator} ${num2} = ${answer}`);
-// } else if (operator == '/') {
-//     let answer = num1/num2;
-//     alert(`${num1} ${operator} ${num2} = ${answer}`);
-// }
-
-
+solve.addEventListener('click', function(){
+    if (operator.value === 'add') {
+        answer.innerText = parseFloat(num1.value) + parseFloat(num2.value);
+    } else if (operator.value === 'subtract') {
+        answer.innerText = parseFloat(num1.value) - parseFloat(num2.value);
+    } else if (operator.value === 'multiply') {
+        answer.innerText = parseFloat(num1.value) * parseFloat(num2.value);
+    } else if (operator.value === 'divide') {
+        answer.innerText = parseFloat(num1.value) / parseFloat(num2.value);
+    }
+});
