@@ -3,9 +3,11 @@ let btn = document.getElementById("btn");
 let points = document.getElementById("points");
 let hit = document.getElementById("hit");
 let stay = document.getElementById("stay");
+let flop = document.getElementById("results");
 let cards = document.getElementById("cards"); 
 let deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J' ,'Q', 'K', 'A']; 
 let standby_hand = [];
+let play_again = document.getElementById("play_again");
 
 btn.addEventListener('click', deal);
 function deal() {
@@ -30,8 +32,8 @@ function math(cards) {
         } else {
             value += parseInt(standby_hand[x]);
         }};
-    console.log(value)
     points.innerText = "you have "+value+".";
+    results();
 };
 
 hit.addEventListener('click', add_card);
@@ -45,35 +47,37 @@ function add_card() {
 
 stay.addEventListener('click', results);
 function results() {
-    let points = getElementById("points");
+    let value = 0;
+    for (let x=0; x<standby_hand.length; x++) {
+        if (standby_hand[x] === 'A') {
+            value ++;
+        } else if (['J', 'Q', 'K'].includes(standby_hand[x])) {
+            value += 10;
+        } else {
+            value += parseInt(standby_hand[x]);
+        }};
+    if (value > 21) {
+        let advice = "You busted!";
+        flop.innerText = advice;
+        end_game()
+    } else if (value === 21) {
+        let advice = "Blackjack!";
+        flop.innerText = advice;
+        end_game()
+    } else if (17 <= value < 21) {
+        let advice = "You should stay.";
+        flop.innerText = advice;
+    } else if (value < 17) {
+        let advice = "You should hit.";
+        flop.innerText = advice;
+    };
+};
+
+play_again.addEventListener('click', function() {
+    location.reload()
+})
+
+function end_game() {
+    play_again.style.display = 'block';
     
-
 }
-
-
-// function crunch_points(points) {
-//     if (points < 17) {
-//         let advice = "You should hit.";
-//         return advice;
-//     } else if (17 <= points <= 21) {
-//         let advice = "You should stay.";
-//         return advice;
-//     } else if (points === 20) {
-//         let advice = "Blackjack!";
-//         return advice;
-//     } else if (points > 21) {
-//         let advice = "You busted!";
-//         return advice;
-//     };
-// };
-
-// function main() {
-//     let cards = hand();
-//     // let points = point_value(cards);
-//     // let advice = crunch_points(points);
-//     // cards = cards.join(', ');
-//     // alert('Your hand was a '+ cards + '.');
-//     // alert("That's " + points + " points. "+ advice);
-// };
-
-// main();
