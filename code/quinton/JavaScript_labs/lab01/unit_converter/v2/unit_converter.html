@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unit Converter</title>
+    </head>
+    <body style='background-color: lightblue;'>
+        <h1>Unit Converter</h1>
+        <input id='user_input' type='text' placeholder='distance'>
+        <select id="operator">
+            <option id='feet'>ft</option>
+            <option id='meters'>m</option>
+            <option id='miles'>mi</option>
+            <option id='kilometers'>km</option>
+            <option id='yards'>yd</option>
+            <option id='inches'>in</option>
+        </select>
+        <p>Converted to:</p>
+        <select id="converted_operator">
+            <option id='converted_feet'>ft</option>
+            <option id='converted_meters'>m</option>
+            <option id='converted_miles'>mi</option>
+            <option id='converted_kilometers'>km</option>
+            <option id='converted_yards'>yd</option>
+            <option id='converted_inches'>in</option>
+        </select>
+        <button id='convert'>Convert!</button>
+        <h2 id='units_converted'></h2>
+        <script src="unit_converter.js"></script>
+    </body>
+</html>
