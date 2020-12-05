@@ -101,12 +101,16 @@ function number_to_word (y) {
     
     if (100 <= x && x <= 999){
         if (1 <= (Math.floor(x / 100)) <= 9 && x % 100 === 0){
+                console.log("wtf over 0?")
                 return `${second_digit[(Math.floor(x / 100))]}-hundred`
         }else if ((x % 100) % 10 === 0){
+                console.log("wtf over 1?")
                 return `${second_digit[(Math.floor(x / 100))]}-hundred and ${first_digit[Math.floor((x % 100) / 10)]}`
-        }else if (1<= (x % 100) <= 9){
+        }else if (1<=(x % 100) && (x % 100)<= 9){
+                console.log("wtf over 2?")
                 return `${second_digit[(Math.floor(x / 100))]}-hundred and ${second_digit[(x % 100)]}`
-        }else if (11<= (x % 100) <= 19){
+        }else if (11<= (x % 100) && (x % 100) <= 19){
+                console.log("wtf over 3?")
                 return `${second_digit[(Math.floor(x / 100))]}-hundred and ${teens[(x % 100)]}`
         } else{
                 return `${second_digit[(Math.floor(x / 100))]}-hundred ${first_digit[Math.floor((x % 100) / 10)]}-${second_digit[((x % 100) % 10)]}`
