@@ -35,26 +35,4 @@ class ATM {
 }
 
 let atm = new ATM();
-while (true) {
-    let option = prompt("What would you like to do ([d]eposit, [w]ithdraw, [c]heck balance, [h]istory, or [q]uit)?");
 
-    if (option === "quit" || option === "q") {
-        break;
-    } 
-    else if (option === "deposit" || option === "d") {
-        let depositAmount =  parseFloat(prompt("How much would you like to deposit?"));
-        atm.deposit(depositAmount);
-    }
-    else if (option === "withdraw" || option === "w") {
-        let withdrawAmount = parseFloat(prompt("How much would you like to deposit?"));
-        atm.withdraw(withdrawAmount);
-    }
-    else if (option === "check balance" || option === "c") {
-        let balance = atm.getBalance();
-        alert(balance);
-    }
-    else if (option === "history" || option === "h") {
-        let history = atm.printTransactions();
-        alert(history);
-    }
-}
