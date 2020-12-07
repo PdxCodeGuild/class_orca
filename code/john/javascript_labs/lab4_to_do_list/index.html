@@ -1,0 +1,67 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JS To-Do List</title>
+  <meta name="author" content="name">
+  <meta name="description" content="description here">
+  <meta name="keywords" content="keywords,here">
+  <link rel="stylesheet" href="main_template.css" type="text/css">
+  </head>
+  <body>
+  
+  <hr>
+  <h1>JavaScript To-Do List v1.0</h1>
+  
+  <div id='container'>
+    <p>Warning! These items only exist within your browser's local copy of JavaScript code, and will reset on browser close, page reload, or sometimes even if local memory is cleared!</p>
+
+    <div >
+        <input type="text" id="field_new_task" placeholder="New Task Here" >
+        <button id="button_add_new">Add</button>
+        <ul id='new_items'>
+        </ul>
+    </div>
+
+    <br>
+    <hr>
+
+    <div id='completed_items'><h2>Completed Items:</h2>
+      
+    </div>
+
+
+  </div>
+  <hr>
+
+
+  <div style="border: dashed; 3px;" id="to-do-list">
+    <h2>To-Do List:</h2>
+    <ul>
+      <li>  //     mark an item as completed: checkbox performs function that removes the child from that DIV and adds it to the completed list</li>
+      <li>  //     Removed items should disappear entirely. Completed items should appear at the bottom (or in a separate list) with a line through them. </li>
+      <li>. . . . . . .</li>
+      <li>  //     remove an item from the list: delete hyperlink, checkbox?</li>
+      <li>. . . . . . .</li>
+      <li>. . . . . . .</li>
+      <li>Add the new text at TOP...</li>
+      <li>...then add timestamp.</li>
+      <li>. . . . . . .</li>
+      <li>Prettier: CSS improvement</li>
+      <li><strike>(Completed items are commented out in the HTML)</strike></li>
+      
+      <!--
+      <li>  //     add an item to the list: make the new item button function add a P or LI text with that</li>
+      <li>THEN add event listener for 'enter' on the input of that new line...</li>
+      <li>Have a checkbox on each item? Make an ID for that item...</li>
+      <li>. . . . . . .</li>
+      -->
+    </ul>
+  </div>
+
+  <script src="to-do-list.js" type="text/javascript"></script>
+  </body>
+</html>
+
+
