@@ -50,7 +50,7 @@ let nums = [5, 0, 8, 3, 4, 1, 6];   // Data for version 1
 
 /* Version 2 */////////////////////////////////////////////////////
 
-    //Declarations
+//Declarations
 
     let bt2 = document.getElementById("bt2");
     let inputs = document.getElementById("inputs");
@@ -58,7 +58,7 @@ let nums = [5, 0, 8, 3, 4, 1, 6];   // Data for version 1
     let results2 = document.getElementById("results2");
     let numCounter = 2;  // Counter for input input elements
 
-    //Functions
+//Functions
 
     function doAvg(e) {
         let avg = 0;
@@ -71,7 +71,7 @@ let nums = [5, 0, 8, 3, 4, 1, 6];   // Data for version 1
         results2.innerText = avg;
     };
 
-    //Code
+//Code
  
     bt2.addEventListener('click', doAvg);
 
@@ -82,6 +82,6 @@ let nums = [5, 0, 8, 3, 4, 1, 6];   // Data for version 1
         newInput.placeholder = `number ${numCounter +=1}`;
         newInput.classList.add("num");
 
-        inputs.appendChild(newInput);
+        inputs.appendChild(newInput); // Puts "new" inputs at the end of list
     });
 

@@ -15,7 +15,7 @@
 let matches = 0
 let money_spent = 0
 let prize_money = 0
-let winners = 0
+let winners = 0 
 
 // ----Functions----------------------------------------------
 

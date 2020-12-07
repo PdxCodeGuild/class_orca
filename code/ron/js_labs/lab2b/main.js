@@ -3,12 +3,12 @@
 //         Project: Javascript
 //  Assignment/Ver: Lab 1b
 //          Author: Ron Mansolilli, ron.mansolilli@gmail.com
-//            Date: 12-1-2020
+//            Date: 12-4-2020
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 
 // ----Instructions and notes--------------------------------
 
-/* Pick 6 (from Python Lab 14) */
+/* Pick 6 (from Python Lab 14) */ 
 
 // ----Global variables, arrays, etc. ------------------
 
@@ -21,7 +21,6 @@ let winners = 0
 
 function random_ticket_nums() {
     //Random ticket generator
-    let x = 1;
     let ticket = [];
     let c1 = 0;
     while (c1 <= 5) {
@@ -59,35 +58,56 @@ function num_match(matches) {
 
 // ----Main Code---------------------------------------------
 
-    for (let x1 = 1; x1 <= 100000; ++x1) {
-        //Building tickets, setting parameters
-        let my_ticket = random_ticket_nums();
-        let winning_ticket = random_ticket_nums();
-        matches = 0;
-        money_spent += 2;
+//Declarations
 
-        for (let x2 = 0; x2 <= 5; ++x2) {
-            //Checking tickets for matches and tallying prizes
-            if (my_ticket[x2] === winning_ticket[x2]) {
-                matches += 1;
+    let my_ticket = []
+    let bt1 = document.getElementById('bt1');
+    let user_ticket = document.getElementById('user_ticket');
+    let results = document.getElementById('results');
+
+//Fuctions and Buttons
+
+    bt1.addEventListener('click', function(event) {
+        //'bt1' Generate user's ticket button (bt1)
+        my_ticket = [];
+        my_ticket = random_ticket_nums();
+        user_ticket.innerText = my_ticket;
+    });
+
+    bt2.addEventListener('click', function(event) {
+        //'bt2' Generate winning tickets and evaluate against user ticket
+        money_spent = 0;    // Set initial state
+        winners = 0;        // Set initial state
+        prize_money = 0;    // Set initial state
+
+        for (let x1 = 1; x1 <= 10000; ++x1) {
+            //Building tickets, setting parameters
+            let winning_ticket = random_ticket_nums();
+            matches = 0;        // Reset
+            money_spent += 2;
+            for (let x2 = 0; x2 <= 5; ++x2) {
+                //Checking tickets for matches and tallying matches
+                for (let x3 = 0; x3 <= 5; ++x3) {
+                    //Checking user numbers against each ticket number
+                    if (my_ticket[x2] === winning_ticket[x3]) {
+                        matches += 1;
+                    };
+                };
+            };
+            if (matches > 0) {
+                //Tallying winning ticket earnings
+                prize_money += num_match(matches);
+                winners += 1; //Count total winning tickets
             };
         };
 
-        if (matches > 0) {
-            //Tallying winning ticket
-            prize_money += num_match(matches);
-            winners += 1;
-        };
-    };
+    //Output
 
-    /* Output */
     let roi = (((prize_money - money_spent)/money_spent)*100);
+    results.innerText = `Investment: ${money_spent}
+                        # of winning tickets: ${winners}
+                        Prize Money: ${prize_money}
+                        ROI: ${roi = roi.toFixed(2)}%`;
+    });
 
-    alert(`Lab 14 \n ---------- 
-            \n Investment: ${money_spent} 
-            \n # of winning tickets: ${winners} 
-            \n Prize Money: ${prize_money}
-            \n Net Income: ${prize_money - money_spent}
-            \n ROI: ${roi = roi.toFixed(2)}%
-        `);
 

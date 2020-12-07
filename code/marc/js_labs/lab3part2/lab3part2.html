@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Endcoder/Decoder</title>
+</head>
+<body>
+    <h1>Welcome to the word encoder/ decoder!</h1>
+    <h2>Enter a word that you would like to encode/decode<br>
+        by rotating the alphabet! (Useful, tool, huh?)</h2>
+    
+        <div id="inputs">
+          <div id="toscramble" >
+          <h3>Enter a word:</h3>
+          <input id="word" class="input" type="stringformat"></input>
+          </div>
+           <br>
+          <div id="Encode" >
+          <h3>Encode or decode?</h3>
+          <select id="encode_decode" class="ed" type="stringformat" placeholder="encode or decode"> Encode/Decode
+            <option value="e">encode</option>
+            <option value="d">decode</option>
+          </select>
+          </div>
+           <br>
+          <div id="numrot" >
+          <h3>Enter a number 1-26 to rotate the alphabet by</h3>
+          <input id="thenumber" class="input" type="number" placeholder="1-26"></input>
+          </div>
+          <div>
+           <button id="magic">Make Magic Happen!</button>
+          </div>
+           <br>
+        
+          <div id="results"></div>
+          
+      </div>
+    
+  <script src="lab3part2.js"></script>  
+</body>
+</html>
