@@ -1,7 +1,7 @@
 
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 //         Project: Javascript
-//  Assignment/Ver: Lab 1c
+//  Assignment/Ver: Lab 2c
 //          Author: Ron Mansolilli, ron.mansolilli@gmail.com
 //            Date: 12-1-2020
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
@@ -12,7 +12,7 @@
 
 // ----Global variables, arrays, etc. ------------------
 
-// let hand = [];
+    /* none */
 
 // ----Functions----------------------------------------------
 
@@ -57,25 +57,26 @@ function hand_eval(x1) {
     };
 };
 
-
-
 // ----Main Code---------------------------------------------
 
-// //Declarations
+// Declarations
 
-let card = document.getElementsByClassName("card");
-let inputs = document.getElementById("inputs");
-let bt2 = document.getElementById("bt2");
-let bt1 = document.getElementById("bt1");
-let results = document.getElementById("results")
-let add = 0;
+    let card = document.getElementsByClassName("card");
+    let inputs = document.getElementById("inputs");
+    let bt2 = document.getElementById("bt2");
+    let bt1 = document.getElementById("bt1");
+    let results = document.getElementById("results")
+    let add = 0;
 
-bt2.addEventListener('click', function() {
-    console.log(card[0].value);
-    add = sum();
-    // console.log(add);
-    let recommendation = hand_eval(add);
-    results.innerText = recommendation;
-    // console.log(recommendation);
-});
+// Code
+
+    bt2.addEventListener('click', function() {
+        // Button
+        console.log(card[0].value);
+        add = sum();
+        // console.log(add);
+        let recommendation = hand_eval(add);
+        results.innerText = recommendation;
+        // console.log(recommendation);
+    });
 
