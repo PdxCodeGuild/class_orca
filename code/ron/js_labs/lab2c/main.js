@@ -1,9 +1,9 @@
 
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 //         Project: Javascript
-//  Assignment/Ver: Lab 2c
+//  Assignment/Ver: Lab 1c
 //          Author: Ron Mansolilli, ron.mansolilli@gmail.com
-//            Date: 12-4-2020
+//            Date: 12-1-2020
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 
 // ----Instructions and notes--------------------------------
@@ -12,26 +12,41 @@
 
 // ----Global variables, arrays, etc. ------------------
 
-let hand = []; 
+// let hand = [];
 
 // ----Functions----------------------------------------------
 
-function sum(y) {
-    //Function to Sum array of numbers
-    let y1 = y.reduce((a, b) => a + b, 0);
-    return y1;
-    console.log(y1);
+function check_jqka(cc) {
+    //Check for Jack/Queen/King/Ace and change values appropriately
+    // console.log("Made it to check jqka")
+    // console.log(cc)
+    if (cc === ("j") || cc === ("q") || cc === ("k")) {
+        cc = 10;
+        // console.log("needs a 10")
+    } else if (cc === "a") {
+        cc = 11;
     };
+    // console.log(cc)
+    return cc;
+};
 
-//Utilized stackflow & MDA to research Reduce @ below:
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+function sum() {
+    //Function to Sum array of numbers
+    let tally = 0;
+    for (let i = 0; i < card.length; ++i) {
+        // console.log(card[i].value)
+        card[i].value = check_jqka(card[i].value);
+        // console.log(card[i].value)
+        tally += parseFloat(card[i].value);
+    };
+    return tally
+};
 
-function hand_eval(x) {
+function hand_eval(x1) {
     //Hand evaluation function
-    x1 = sum(x)
     if (x1 < 17) {
         return ('Hit');
-    } else if (x1 > 16 && x < 21) {
+    } else if (x1 > 16 && x1 < 21) {
         return ('Stay');
     } else if (x1 === 21) {
         return ('Blackjack!');
@@ -42,35 +57,25 @@ function hand_eval(x) {
     };
 };
 
+
+
 // ----Main Code---------------------------------------------
 
-//Input
-    // hand.push(prompt('First card (1-9, j, q, k, a):'));
-    // hand.push(prompt('First card (1-9, j, q, k, a):'));
-    // hand.push(prompt('First card (1-9, j, q, k, a):'));    
-    // console.log(hand);
+// //Declarations
 
+let card = document.getElementsByClassName("card");
+let inputs = document.getElementById("inputs");
+let bt2 = document.getElementById("bt2");
+let bt1 = document.getElementById("bt1");
+let results = document.getElementById("results")
+let add = 0;
 
-// Assign value to J, Q, K, A
-    for (let x2 = 0; x2 < 3; ++x2) {
-        if (hand[x2] === ("j") || hand[x2] === ("q") || hand[x2] === ("k")) {
-            hand[x2] = 10;
-        } else if (hand[x2] === "a") {
-            hand[x2] = 11;
-        };
-    };
-
-// Str -> Int
-    for (let x3 = 0; x3 < 3; ++x3) {
-        hand[x3] = parseInt(hand[x3])
-    }
-
-/* Output */
-    let recommendation = hand_eval(hand);
-    // Send hand to evaluate function and rtn recommendation
-
-    // alert(`Lab 19 \n ---------- 
-    //         \n Hand: ${sum(hand)} 
-    //         \n Recommendation: ${recommendation} 
-    //     `);
+bt2.addEventListener('click', function() {
+    console.log(card[0].value);
+    add = sum();
+    // console.log(add);
+    let recommendation = hand_eval(add);
+    results.innerText = recommendation;
+    // console.log(recommendation);
+});
 
