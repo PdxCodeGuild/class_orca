@@ -5,6 +5,19 @@ let inputField = document.getElementById("inputfield");
 let addBtn = document.getElementById("addbtn");
 let toDoUL = document.getElementById("todoul");
 let toDoListDiv = document.getElementById("todolistdiv");
+let completedUL = document.getElementById("completedul");
+
+let removeItems = document.getElementsByClassName("remove");
+
+function remove() {
+    this.parentNode.parentNode.removeChild(this.parentNode);
+}
+
+function markComplete() {
+    completedUL.appendChild(this.parentNode);
+    this.remove();
+
+}
 
 addBtn.addEventListener("click", function(e) {
     let addItem = document.createElement("LI");
@@ -14,20 +27,20 @@ addBtn.addEventListener("click", function(e) {
     let removeBtn = document.createElement("button");
     removeBtn.innerText = "Remove";
     removeBtn.id = "removebtn";
+    removeBtn.classList = "remove";
 
-    let markComplete = document.createElement("button");
-    markComplete.innerText = "Mark Complete";
-    markComplete.id = "markcompletebtn";
+    let markCompleteBtn = document.createElement("button");
+    markCompleteBtn.innerText = "Mark Complete";
+    markCompleteBtn.id = "markcompletebtn";
 
     addItem.appendChild(removeBtn);
-    addItem.appendChild(markComplete);
+    addItem.appendChild(markCompleteBtn);
     toDoUL.appendChild(addItem);
     listCounter++;
+
+    removeBtn.addEventListener("click", remove);
+    markCompleteBtn.addEventListener("click", markComplete);
+
+
 });
 
-document.addEventListener('click', function(e) {
-    if (e.target.id=="removebtn") {
-        let deleteItem = this.parentNode;
-        deleteItem.removeChild();
-    }
-});
