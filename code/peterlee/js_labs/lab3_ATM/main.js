@@ -8,7 +8,7 @@ class ATM {
     }
 
     deposit(depositAmount) {
-        this.balance += parseInt(depositAmount);
+        this.balance += parseDouble(depositAmount);
     }
 
     checkWithdrawal(amount) {
@@ -16,8 +16,8 @@ class ATM {
     }
 
     withdraw(withdrawAmount) {
-        if (this.checkWithdrawal(parseInt(withdrawAmount)) === true) {
-            this.balance -= parseInt(withdrawAmount);
+        if (this.checkWithdrawal(parseDouble(withdrawAmount)) === true) {
+            this.balance -= parseDouble(withdrawAmount);
         }
         else {
             alert("Your balance is too low.");
