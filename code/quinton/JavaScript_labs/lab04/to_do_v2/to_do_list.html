@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do List</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel='stylesheet' href="to_do_list.css">
+</head>
+<body style='background-color: lightblue;'>
+    <header>
+        <h1>My To Do List</h1>
+        <input id='user_input' type='text'>
+        <button id='add_button'>Add</button><br><br>
+    </header>
+    <h2>To Do</h2>
+    <form id='to_do'>
+        <div id='to_do_items'>
+
+        </div>
+        <br>
+        <input id='done_button' type="submit" value="Done">
+    </form>
+    <hr>
+    <h2>Done</h2>
+    <form id='done'>
+        <div id='done_items' style='text-decoration: line-through;'>
+
+        </div>
+        <br>
+        <input id='delete_button' type="submit" value="Delete">
+    </form>
+
+    
+
+
+    <script src="to_do_list.js"></script>
+</body>
+</html>
