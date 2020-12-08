@@ -100,6 +100,7 @@ let card = document.getElementById("dropdown");
 let results = document.getElementById("results");
 let card_1_select = document.getElementById("cardname1");
 let card_2_select = document.getElementById("cardname2");
+let add_card = document.getElementById("add_card");
 
 // let x = card_1 + card_2
 
@@ -112,6 +113,15 @@ check.addEventListener("click", function(){
     console.log(card_1_select.value);
     console.log(card_2_select.value);
 })
+
+// add_card.addEventListener('click', function() {
+//     // console.log(event)
+//     let newcard = document.createElement('select')
+//     colorDiv.style.backgroundColor = input.value
+//     colorDiv.classList.add('colors')
+//     container.appendChild(colorDiv)
+//     input.value = ''
+//   })
 
 
 //     console.log(e)

@@ -1,21 +1,29 @@
-var nums = [];
-let total = 0;
-let len = nums.length;
+
+// let total = 0;
+// let len = nums.length;
 // let average = sum/len;
 // let avg = average.toFixed(2);
 
-function getSum(e) {
+document.body.style.display = 'flex';
+document.body.style.alignItems = 'center';
+document.body.style.flexDirection = 'column';
+document.body.style.backgroundColor = 'lightblue';
+document.body.style.color = "red";
 
-}
 var returnnum;
 
 let inputs = document.getElementById('inputs');
+inputs.style.width = "55%";
+inputs.marginLeft = 'auto';
+inputs.marginRight = 'auto';
 let btns = document.getElementById('btns');
 let moreBtn = document.getElementById('moreBtn');
 let averageBtn = document.getElementById('averageBtn');
 let result = document.getElementById('result');
 let displayResult = document.getElementById('displayResult');
-// let num = document.getElementsByClassName('num');
+displayResult.style.fontSize = '40px';
+displayResult.style.color = 'red';
+let num = document.getElementsByClassName('num');
 
 
 moreBtn.addEventListener('click', function() {
@@ -24,11 +32,26 @@ moreBtn.addEventListener('click', function() {
     newNumber.type = "number";
     newNumber.classList.add("num");
     inputs.appendChild(newNumber);
+    
 })
 
-averageBtn.addEventListener('click', function() {
-    let num = document.getElementsByClassName('num');
-    returnnum = num.value;
-    nums.push(returnnum);
-    console.log(nums);
+
+averageBtn.addEventListener('click', function(e) {
+    var nums = [];
+    var x = document.getElementsByClassName('num')
+    for (let i=0; i < num.length; i++) {
+        nums.push(parseInt(num[i].value))
+        var sum = nums.reduce(function(a, b) {
+            return a + b;
+        }, 0);
+        
+    }
+    console.log(nums)
+    var total = 0
+    let len = nums.length
+    let average = sum/len;
+    let avg = average.toFixed(2);
+    displayResult.innerText = `Your average is ${avg}!`
+    console.log(avg)
+    
 })
