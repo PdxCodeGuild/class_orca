@@ -1,0 +1,14 @@
+body {
+  padding: 20px;
+}
+#user_input {
+  padding: 4px 10px;
+  margin: 8px 0px;
+}
+#user_input:focus {
+  outline-style: none;
+  background-color: lightblue;
+}
+#add_button {
+  padding: 4px 10px;
+}
