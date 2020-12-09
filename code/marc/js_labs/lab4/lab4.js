@@ -1,40 +1,32 @@
+//This is Lab 4. A to do list. I made it more convuluted by using nodes instead of an array
+//it does have a working "un-complete" button.
+
 let listtodo = document.getElementById("listtodo");
 let completelist = document.getElementById("completelist");
 let add = document.getElementById("add");
 let task = document.getElementById("task")
 
-// let newtask = document.createElement('li')
-//     newtask.innerText = `${task.value} `
-//     newtask.setAttribute('class', 'newtask')
-//     newtask.setAttribute('id', task.value)
-//     console.log(newtask.id)
-    
-// let completebutton = document.createElement('input')
-//     completebutton.setAttribute('type', 'button')
-//     completebutton.setAttribute('value', '✓')
-//     completebutton.style.width = '25px'
-//     completebutton.style.height = '25px'
-//     completebutton.style.color = 'green'
-    
-// let deletebutton = document.createElement('input')
-//     deletebutton.setAttribute('type', 'button')
-//     deletebutton.setAttribute('value', 'x')
-//     deletebutton.style.width = '25px'
-//     deletebutton.style.height = '25px'
-//     deletebutton.style.color = 'red'
 
 
 add.addEventListener("click", function(){
+    addtask = task.value
+    console.log("inside addnewtask")
+    createNewTask(addtask)  
+})
+
+let createNewTask = function(addtask){
     // console.log(parseInt(number.value))
+    console.log(addtask)
     console.log("add works!")
     let newtask = document.createElement('li')
-    newtask.innerText = `${task.value} `
+    newtask.innerText = `${addtask} `
     newtask.setAttribute('class', 'newtask')
-    newtask.setAttribute('id', task.value)
-    console.log(newtask.id)
+    newtask.setAttribute('id', `${addtask}`)
+    console.log(newtask.id, "newtask id?")
     listtodo.appendChild(newtask)
     let completebutton = document.createElement('input')
-    completebutton.onclick = ()=> completebuttonpush(newtask.id)
+    completebutton.onclick = ()=> completebuttonpush(newtask.id) //|| addtask)
+
     completebutton.setAttribute('type', 'button')
     completebutton.setAttribute('value', '✓')
     // completebutton.innerText = '✓'
@@ -53,7 +45,7 @@ add.addEventListener("click", function(){
     newtask.appendChild(completebutton)
     newtask.appendChild(deletebutton)
     task.value = ''
-})
+}
 
 const completebuttonpush = function(anything){
 
@@ -66,12 +58,20 @@ const completebuttonpush = function(anything){
     completelist.appendChild(completetask)
     
     let uncompletebutton = document.createElement('input')
-    uncompletebutton.onclick = ()=> uncompletebuttonpush(completetask.id)
-    // uncompletebutton.onclick = ()=> completebuttonpush(newtask.id)
+    console.log(completetask.id, "this is completetaskid")
+    // uncompletebutton.onclick = ()=> uncompletebuttonpush(completetask.id)
+    let y = completetask.id 
+    let x = function(y){
+    console.log ("it got to here")
+    remove = document.getElementById(y)
+    completelist.removeChild(remove)
+    console.log(y, "this should be anything")
+    createNewTask(y)  
+          
+    }
+    uncompletebutton.onclick = ()=> x(y)
     uncompletebutton.setAttribute('type', 'button')
     uncompletebutton.setAttribute('value', '⚬')
-    
-    // completebutton.innerText = '✓'
     uncompletebutton.style.width = '25px'
     uncompletebutton.style.height = '25px'
     uncompletebutton.style.color = 'green'
@@ -94,30 +94,21 @@ const deletebuttonpush = function(anything){
     let deleteitem = document.getElementById(anything)
     console.log("it made it here")
     console.log(anything, deleteitem)
-
     listtodo.removeChild(deleteitem)
-    //     }
-    // else if( deleteitem in completelist){
-    //     completelist.removeChild(deleteitem)
-    //     }
+   
     }
 
-    const deletebuttonpush2 = function(anything){
-        let deleteitem = document.getElementById(anything)
-        console.log("I made it here too")
-        console.log(anything, deleteitem)
-    
-        // if(document.getElementById(deleteitem) listtodo){
-        //    listtodo.removeChild(deleteitem)
-        //     }
-    
-        completelist.removeChild(deleteitem)
-        //     }
-        }
+const deletebuttonpush2 = function(anything){
+    let deleteitem = document.getElementById(anything)
+    console.log("I made it here too")
+    console.log(anything, deleteitem)
+    completelist.removeChild(deleteitem)
+    }
 
-        let uncompletebuttonpush = function(anything){
-            undelete = document.getAnimations(anything)
-            completelist.removeChild(undelete)
+// let uncompletebuttonpush = function(anything){
+//     undelete = document.getElementById(anything)
+//     completelist.removeChild(undelete)
+//     console.log(anything, "this should be anything")
+//     createNewTask(anything)  
 
-
-        }
+//     }

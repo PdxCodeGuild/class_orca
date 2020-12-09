@@ -8,7 +8,7 @@ class ATM {
     }
 
     deposit(depositAmount) {
-        this.balance += parseDouble(depositAmount);
+        this.balance += parseInt(depositAmount);
     }
 
     checkWithdrawal(amount) {
@@ -16,8 +16,8 @@ class ATM {
     }
 
     withdraw(withdrawAmount) {
-        if (this.checkWithdrawal(parseDouble(withdrawAmount)) === true) {
-            this.balance -= parseDouble(withdrawAmount);
+        if (this.checkWithdrawal(parseInt(withdrawAmount)) === true) {
+            this.balance -= parseInt(withdrawAmount);
         }
         else {
             alert("Your balance is too low.");
@@ -72,7 +72,7 @@ document.addEventListener('click', function(e) {
         transactionLi.innerText = `Deposited ${inputField.value}`
         transactionUL.appendChild(transactionLi);
         inputField.value = "";
-    }
+        }
     else if (e.target.id=="withdrawbtn") {
         atm1.withdraw(inputField.value);
         balanceDisplay.innerText = atm1.balance;
