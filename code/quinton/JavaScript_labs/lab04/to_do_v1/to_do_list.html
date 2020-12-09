@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To Do List</title>
+        <link rel='stylesheet' href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+        <link rel='stylesheet' href="to_do_list.css">
+    </head>
+    <body>
+        <div id='top_bar'>
+            <input id='user_input' type='text' placeholder='Enter To-Do'></input>
+            <button id='add_button'>Add</button>
+        </div>
+        <div id='to_do_list_div'>
+            <h2>To Do</h2>
+                <ul id='to_do_items' style='list-style-type: none;'>
+
+                </ul>
+        </div>
+        <div id='done_list_div'>
+            <h2>Done</h2>
+                <ul id='done_items' style='list-style-type: none; text-decoration: line-through;'>
+
+                </ul>
+        </div>
+        <script src="to_do_list.js"></script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>BankApp</title>
+    <meta name="description" content="JavaScript intro">
+</head>
+<body>
+    <h1>Account Information</h1>
+
+    <div id='container'>
+
+        <form id="acctForm">
+            <h2>What would you like to do?</h2>
+
+            <form>
+                <input type="radio" id="deposit-radio" name="action" value="off">
+                <label for="deposit-radio">Deposit</label>
+                <input type="number" id="amount-field" name="deposit" value="deposit"><br>
+                <input type="radio" id="withdraw-radio" name="action" value="off">
+                <label for="withdraw-radio">Withdraw</label>
+                <input type="number" id="amount-field2" name="withdraw" value="deposit"><br>
+                <input type="radio" id="balance-radio" name="action" value="balance-radio">
+                <label for="other">Balance</label><br>
+                <input type="radio" id="history-radio" name="action" value="off">
+                <label for="history-radio">History</label><br>
+            </form> 
+
+            <h3 id="display"></h3>
+
+        
+        </form>
+        <button id="btn">Submit</button><br>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
