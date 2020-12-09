@@ -1,0 +1,73 @@
+body {
+    padding: 48px;
+    background-color: #EF9970;
+    color: white;
+    background-image: url("papers.jpg");
+    background-repeat: no-repeat;
+}
+
+/* .container {
+    padding: 24px;
+} */
+
+#header {
+    padding: 24px;
+    background-color:rgb(239, 153, 112, 0.7);
+    margin-bottom: 24px;
+}
+
+button {
+    border-radius: 8px;
+    padding: 5px;
+    background-color: gray;
+    color: white;
+}
+
+button:hover {
+    background-color: darkgrey;
+}
+
+.complete { 
+    text-decoration: line-through;
+    color: gray;
+}
+
+#add-item {
+    margin-bottom: 18px;
+}
+
+.close {
+    position: absolute;
+    color: purple;
+    margin-left: 14px;
+    padding-left: 12px;
+}
+
+.close:hover {
+    color: white;
+}
+
+#list-item, #done-list-item {
+    list-style-type: none;
+}
+
+input[type="checkbox"] {
+    padding: 12px;
+    margin-right: 12px;
+}
+
+li {
+    max-width: 33%;
+    padding-left: 12px;
+}
+li:nth-child(2n+1) {
+    background-color: #edaf93;
+}
+
+li:nth-child(2n+2) {
+    background-color: #EF9970;
+}
+
+#done-list {
+    padding-left: 18px;
+}

@@ -1,11 +1,37 @@
+const container = document.getElementById('container')
+const matchForm = document.getElementById('matchForm')
 
-// Generate lotto numbers 
+//Display info in DOM
+let btn = document.getElementById("btn");
+btn.addEventListener('click', function() {
+    pick_6();
+    const yourTicket = document.getElementById('yourTicket')
+    yourTicket.innerText = `Your ticket is: ${ticket}`
+    getLotto();
+    const lottoNums = document.getElementById('winners')
+    lottoNums.innerText = `The winning numbers are: ${winning_numbers}`  
+    calcMatch(ticket, winning_numbers);
+    const matches = document.getElementById('matches');
+    matches.innerText = `You have: ${count} matches`  
+});
 
+//Display winnings info
+let whatif = document.getElementById("whatif");
+whatif.addEventListener('click', function() {
+    calcWinnings();
+    const showWinnings = document.getElementById('show-winnings')
+    showWinnings.innerText = `You lost $${earnings}`
+    const showROI = document.getElementById('roi')
+    showROI.innerText = `Your roi was: ${roi}%`
+    showWinnings.style.color = "lime";
+    showROI.style.color = "lime";
+});
+
+
+//Generate lotto numbers 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
-
-// let winning_numbers = [];
 
 function getLotto() {
     let lotto_1 = getRandomInt(1, 100);
@@ -21,7 +47,6 @@ function getLotto() {
 };
 winning_numbers = getLotto()
 console.log(winning_numbers);
-alert(`The winning numbers are: ${winning_numbers}`)
 
 let score = [];
 let count = 0;
@@ -34,7 +59,6 @@ let choice_6 = 0;
 ticket = []
 
 // Generate lotto ticket
-
 function pick_6() {
     let choice_1 = getRandomInt(1, 100);
     let choice_2 = getRandomInt(1, 100);
@@ -53,7 +77,6 @@ ticket = pick_6()
 console.log(ticket);
 
 // Calculate matching numbers
-
 function calcMatch(ticket, winning_numbers){
     let score = [];
     let count = 0;
@@ -70,10 +93,7 @@ function calcMatch(ticket, winning_numbers){
 count = calcMatch(ticket, winning_numbers)
 // console.log(count)
 
-alert(`You matched: ${count} numbers!`)
-
 // Calculate winnings
-
 let balance = 0;
 let balance_debit = 0;
 let new_balance = 0;
@@ -117,14 +137,13 @@ function calcWinnings() {
     
         balance_debit -= 2
     }
-    let earnings = balance_debit + new_balance
+    earnings = (balance_debit + new_balance) * -1
     let roi = earnings / balance_debit
 
     console.log(earnings)
+    return earnings
 
-    alert(`You earned: ${earnings} dollars after 10,000 tries`)
-    alert(`Your roi was: ${roi}%`)
-    return roi
-}
-
-console.log(calcWinnings())
+    // alert(`You earned: ${earnings} dollars after 10,000 tries`)
+    // alert(`Your roi was: ${roi}%`)
+    // return roi
+};

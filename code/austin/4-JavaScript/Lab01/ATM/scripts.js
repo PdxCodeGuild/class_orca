@@ -1,6 +1,7 @@
 // Lab25 ATM
 
 transactions = []
+let amount = 0
 
 class Bank_Account {
 
@@ -41,7 +42,7 @@ class Bank_Account {
     };
     
     print_transactions() {
-        alert(transactions)
+        console.log(transactions)
     };
 
 };
@@ -51,34 +52,34 @@ let select = "";
 
 // Account REPL
 
-while (select != "done") {
-    select = prompt("What would you like to do? Type 'deposit,' 'withdraw,' 'check balance,' 'history'  or 'done' ");
+let dep = document.getElementById("deposit-radio")
+let draw = document.getElementById("withdraw-radio")
+let bal = document.getElementById("balance-radio")
+let all = document.getElementById("history")
+let btn = document.getElementById("btn");
+let amountField = document.getElementById('amount-field')
+let amountField2 = document.getElementById('amount-field2')
 
-    if (select == "deposit") {
-        amount = parseInt(prompt("Amount of deposit? "))
-        my_account.deposit(amount)
-    }
-        
-    else if (select == "withdraw") {
-        amount = parseInt(prompt("Amount to withdraw? "))
-        my_account.withdraw(amount)
-    }
-        
-    else if (select == "check balance") {
-        amount = parseInt(prompt("Amount you want to spend? "))
-        my_account.check_withdrawal(amount)
+btn.addEventListener('click', function(){
+    if (dep.checked = true) {
+        my_account.deposit(parseInt(amountField.value))
+        let display = document.getElementById("display")
+        display.innerText = amountField.value
     }
 
-    else if (select == "history") {
-        let history = my_account.print_transactions() 
+    else if (draw.checked = true) {
+        my_account.withdraw(parseInt(amountField2.value))
+        let display = document.getElementById("display")
+        display.innerText = amountField2.value
     }
 
-    else if (select == "done") {
-        break
+    else if (bal.checked = true) {
+        my_account.check_balance()
+        let display = document.getElementById("display")
+        display.innerText = balance
     }
-    else {
-        alert("Please type a valid selection")
-    }    
-}
-    
+
+    console.log(transactions)
+});
+
 
