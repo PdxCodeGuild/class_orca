@@ -66,17 +66,25 @@ createBtn.addEventListener('click', function() {
 });
 document.addEventListener('click', function(e) {
     if (e.target.id=="depositbtn") {
-        atm1.deposit(inputField.value);
-        balanceDisplay.innerText = atm1.balance;
-        let transactionLi = document.createElement("LI");
-        transactionLi.innerText = `Deposited ${inputField.value}`
-        transactionUL.appendChild(transactionLi);
-        inputField.value = "";
+        if (!Number.isInteger(parseInt(inputField.value))) {
+            alert("Enter a number");
+            }
+        else {
+            atm1.deposit(inputField.value);
+            balanceDisplay.innerText = atm1.balance;
+            let transactionLi = document.createElement("LI");
+            transactionLi.innerText = `Deposited ${inputField.value}`
+            transactionUL.appendChild(transactionLi);
+            inputField.value = "";
+        }
         }
     else if (e.target.id=="withdrawbtn") {
+        if (!Number.isInteger(parseInt(inputField.value))) {
+            alert("Enter a number");
+            }
+        else {
         atm1.withdraw(inputField.value);
         balanceDisplay.innerText = atm1.balance;
-        if (atm1.checkWithdrawal(inputField.value)) {
         let transactionLi = document.createElement("LI");
         transactionLi.innerText = `Withdrew ${inputField.value}`
         transactionUL.appendChild(transactionLi);
