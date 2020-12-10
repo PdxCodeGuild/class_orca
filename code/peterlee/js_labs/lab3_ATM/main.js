@@ -8,7 +8,7 @@ class ATM {
     }
 
     deposit(depositAmount) {
-        this.balance += parseDouble(depositAmount);
+        this.balance += parseInt(depositAmount);
     }
 
     checkWithdrawal(amount) {
@@ -16,8 +16,8 @@ class ATM {
     }
 
     withdraw(withdrawAmount) {
-        if (this.checkWithdrawal(parseDouble(withdrawAmount)) === true) {
-            this.balance -= parseDouble(withdrawAmount);
+        if (this.checkWithdrawal(parseInt(withdrawAmount)) === true) {
+            this.balance -= parseInt(withdrawAmount);
         }
         else {
             alert("Your balance is too low.");
@@ -66,17 +66,25 @@ createBtn.addEventListener('click', function() {
 });
 document.addEventListener('click', function(e) {
     if (e.target.id=="depositbtn") {
-        atm1.deposit(inputField.value);
-        balanceDisplay.innerText = atm1.balance;
-        let transactionLi = document.createElement("LI");
-        transactionLi.innerText = `Deposited ${inputField.value}`
-        transactionUL.appendChild(transactionLi);
-        inputField.value = "";
-    }
+        if (!Number.isInteger(parseInt(inputField.value))) {
+            alert("Enter a number");
+            }
+        else {
+            atm1.deposit(inputField.value);
+            balanceDisplay.innerText = atm1.balance;
+            let transactionLi = document.createElement("LI");
+            transactionLi.innerText = `Deposited ${inputField.value}`
+            transactionUL.appendChild(transactionLi);
+            inputField.value = "";
+        }
+        }
     else if (e.target.id=="withdrawbtn") {
+        if (!Number.isInteger(parseInt(inputField.value))) {
+            alert("Enter a number");
+            }
+        else {
         atm1.withdraw(inputField.value);
         balanceDisplay.innerText = atm1.balance;
-        if (atm1.checkWithdrawal(inputField.value)) {
         let transactionLi = document.createElement("LI");
         transactionLi.innerText = `Withdrew ${inputField.value}`
         transactionUL.appendChild(transactionLi);
