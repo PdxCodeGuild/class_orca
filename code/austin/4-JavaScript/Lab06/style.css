@@ -1,0 +1,62 @@
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    padding: 48px;
+    margin: auto;
+    text-align: center;
+}
+
+#clock {
+    color: #D447A0;
+    font-size: 56px;
+    text-align: center;
+    padding: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: black;
+    max-width: 70%;
+    margin: auto;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    border: 15px outset grey;
+}
+
+#stopwatch {
+    color: #D447A0;
+    font-size: 50px;
+    text-align: center;
+    padding: 60px;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: black;
+    max-width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 270px;
+    width: 270px;
+    border: 2px solid;
+    border-radius: 50%;
+}
+
+button {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 10px;
+    background-color: #D447A0;
+    color: white;
+    margin-top: 12px;
+    width: 102px;
+    margin: 12px;
+}
+
+button:hover {
+    background-color: #d369ab;
+}
+
+#buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
