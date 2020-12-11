@@ -1,0 +1,31 @@
+button {
+    margin: 10px;
+}
+
+li {
+    padding-right: 10px;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    padding: 10px;
+}
+
+ul {
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+
+#firstbutton {
+    margin-left: 50px;
+}
+
+
+h3 {
+    text-align: center;
+    min-width: 100%;
+}

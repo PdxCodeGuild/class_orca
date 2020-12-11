@@ -10,13 +10,19 @@
     <h1>ToDo List</h1>
     <h3>lab 04</h3>
     <hr>
-    <br>
+
     <div id='app'>
         <input v-model="item" v-on:keyup.enter='additem'>
         <button v-on:click='additem'>Add Item</button>
         <ul>
-            <li v-for='item in items'>{{ item }}</li>
-            <!-- maybe instead of jsut adding item, add a div that has item and the two buttons -->
+            <h3>Things to do</h3>
+            <li class='listitem' v-for='item in items'>{{ item }}<button id='firstbutton' v-on:click="remove(item)">Delete</button><button v-on:click="makecomplete(item)">Complete</button></li>
+        </ul>
+
+
+        <ul>
+            <h4>Completed things</h4>
+            <li class='completeitem' v-for='item in completed'>{{ item }}</li>
         </ul>
     </div>
     <script src="https://unpkg.com/vue"></script>
