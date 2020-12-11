@@ -1,0 +1,135 @@
+/* light blue #51E2f5
+green blue #9DF9EF
+red white #FFA8B5
+brown #a2089 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.style_class {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 1px solid black;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 99vh;
+}
+
+#page_title {
+    background-color: lightgray;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+/* .user_stuff {
+    display: flex;
+    margin-left: 5%;
+    flex-direction: column;
+} */
+
+.posts {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.posts p {
+    width: 90%;
+}
+
+#new_post {
+}
+
+/* input[type=text], select {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: lightgray;
+}
+
+input[type=submit], select {
+    background-color: lightgray;
+    padding: 6px 16px;
+    margin: 4px 2px;
+    border-radius: 6px;
+} */
+
+#blog_key {
+    width: 90%;
+}
+
+#title_key {
+    height: 20px;
+    width: 90%;
+}
+
+.button_iso {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 5%;
+}
+
+.button_iso_home {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 5%;
+}
+
+.button_iso_home_update {
+    display: flex;
+    align-self: flex-end;
+    margin-right: 5%;
+    
+}
+#post_title {
+}
+
+#post_author {
+    padding-bottom: 6px;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#submit_key {
+    background-color: burlywood;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#delete_key {
+    background-color: burlywood;  
+}
+
+#update_key {
+    background-color: burlywood;  
+}
+
+#cat {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* Footer */
+
+.footer {
+    display: flex;
+
+    background-color: lightgray;
+    height: 3vh;
+}

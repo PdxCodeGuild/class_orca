@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(144, 227, 255);
+    overflow: hidden;
+}
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#both_lists {
+    display: flex;
+    justify-content: space-evenly;
+}
