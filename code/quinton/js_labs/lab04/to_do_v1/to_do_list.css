@@ -1,0 +1,6 @@
+body {
+    display: flex;
+    background-color: lightblue;
+    padding: 20px;
+    flex-direction: column;
+}

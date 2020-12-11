@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="todo_app">
+        <div id='header'>
+            <h1>My To-Do List</h1>
+            <div>
+                <input class='input' v-model='newToDo' @keyup.enter='add()'>
+                <button class='add_button' @click='add()'>Add</button>
+            </div>
+        </div>
+        <div id='both_lists'>
+            <div id='incomplete_list'>
+                <h3>Incomplete:</h3>
+                <ul style='list-style-type:none;'>
+                    <li v-for='(todo, i) in existingToDo'>
+                        <span>{{todo.text}}</span>
+                        <button class='delete_button' @click='deleteIncompleteToDo(i)'>x</button>
+                        <button class='complete_button' @click='completeToDo(i)'>✓</button>
+                    </li>
+                </ul>
+            </div>
+            <div id='complete_list'>
+                <h3>Complete:</h3>
+                <ul style='list-style-type:none;'>
+                    <li v-for='(todo, i) in doneToDo' style='text-decoration: line-through;'>
+                        <span>{{todo.text}}</span>
+                        <button class='delete_button' @click='deleteCompleteToDo(i)'>x</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src='main.js'></script>
+</body>
+</html>
