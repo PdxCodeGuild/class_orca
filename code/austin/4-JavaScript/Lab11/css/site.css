@@ -1,0 +1,10 @@
+body, #container {
+    font-family: 'Comfortaa', cursive;
+    padding: 48px;
+    margin: auto;
+    text-align: center;
+}
+
+ul {
+    list-style-position: inside;
+}

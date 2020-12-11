@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue </title>
+</head>
+<body>
+<div id="app">
+  <input v-model="textInput">
+  <button v-on:click="appendList">Enter</button>
+  <p v-for="(item, index) in pendingList"> 
+   <!-- (item, index) works as enumerate in python -->
+    {{item}}
+
+      <button v-on:click="deleteBtn(index)">X</button>
+      <input type="checkbox" v-on:click="checked(index)">
+  </p>
+
+  <p>Completed</p>
+  <p v-for="(item, index) in completedList>
+  </p>
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
