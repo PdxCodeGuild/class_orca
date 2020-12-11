@@ -1,33 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas Demo</title>
-    <style>
-      body {
-        display: flex;
-        width: 100vw  ;
-        height: 100vh   ;
-        justify-content: center;
-        align-items: center;
-      };
-      canvas {
-        border: 2px solid black;
-        display: flex;
-
-      };
-    </style>
+    <title>Vue Demo</title>
   </head>
 
   <body>
 
-    <Canvas width="750" height="750"></Canvas>
+    <!-- <div id="app">
+        {{ message }}
+    </div> -->
 
-    </script src="canvas.js"></script>
+<!-- 
+    <div id="app-2">
+      <span v-bind:title="message"> 
+        Hover your mouse over me for a few seconds
+        to see my dynamically bound title!
+      </span>
+    </div> -->
+
+    <!-- <div id="app-3">
+      <span v-if="seen">Now you see me</span>
+    </div> -->
+
+    <!-- <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+         {{ todo.text }}
+        </li>
+      </ol>
+    </div> -->
+
+    <div id="app-5">
+      <p>{{ message }}</p>
+      <input type="text" v-model="message">
+      <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="vue.js"></script>
   </body>
 
 </html> 
-
 

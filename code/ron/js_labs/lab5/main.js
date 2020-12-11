@@ -27,13 +27,21 @@
 function time() {
     let clock = document.getElementById('clock');
     let date = new Date();
-    let seconds = date.getSeconds();
-    let minutes = date.getMinutes();
+    let seconds = fix_time(date.getSeconds());
+    let minutes = fix_time(date.getMinutes());
     let hours = date.getHours();
     clock.innerHTML = `${hours}:${minutes}:${seconds}`;
     var t = setTimeout(function(){ time() }, 1000);
     clock.style.fontSize = "x-large";
 };
+
+function fix_time(sm) {
+    if (sm < 10) {
+        sm = '0' + sm;
+    };
+    return sm;
+};
+
 
 // Declarations---------------------------------------------------
 
