@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pete Example </title>
+</head>
+<body>  
+    <h1>Farvorite Color</h1>
+    <input id="input" type="text" placeholder="Enter your favorite color"/>
+    <button id="button">Enter</button>
+    <div id="div">Your Favorite color is green</div>
+
+
+    <script>
+
+        let input = document.querySelector('#input')
+        let button = document.querySelector('#button')   
+        let div = document.querySelector('#div')
+        button.onclick = function() {
+            // alert(input.value)
+            div.innerText = `Your favorite color is ${input.value}`
+            div.style.color = input.value
+            div.innerText = "hello"
+        }
+    </script>
+</body>
+</html>

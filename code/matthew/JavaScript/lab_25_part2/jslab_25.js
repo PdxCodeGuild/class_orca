@@ -18,7 +18,7 @@ let history = document.getElementById('history')
 btn.addEventListener('click', function() {
         // Deposit balance section
         balance += parseInt(depositInput.value)
-        // following line communicated with line: displayText.id = 'displayText'
+        // following line communicated with line: displayText.id = 'f'
         let checkValueDeopsit = document.getElementById('displayText')
         checkValueDeopsit.innerText = balance
 

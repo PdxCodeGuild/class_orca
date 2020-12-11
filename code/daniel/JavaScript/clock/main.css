@@ -1,0 +1,49 @@
+/* body {
+    width: 763px;
+}
+.hour_digits {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.hour_digit {
+    padding: 10px;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;    
+}
+.hour_digit:last-of-type {
+    border-right: 1px solid black;
+}
+.minute_digits {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.minute_digit {
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.minute_digit:last-of-type {
+    border-right: 1px solid black;
+}
+.second_digits {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.second_digit {
+    width: 20px;
+    height: 20px;
+    padding: 1px;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.second_digit:last-of-type {
+    border-right: 1px solid black;
+} */
