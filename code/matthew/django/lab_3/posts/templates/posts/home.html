@@ -1,0 +1,70 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'posts/main.css' %}">
+<link rel="stylesheet" href="d6c74d6b-6432-4163-a2a8-1a732a36c543@email.webhook.site">
+
+<body>
+<div class="style_class">
+<div id="container1">
+<h1 id=page_title>Twitter</h1>
+  <div class="user_stuff">
+        {% if request.user.is_authenticated %}
+            <p> Welcome {{ request.user.username }}</p>
+          <p><a href="{% url 'posts:logout_key' %}">Logout</a></p>
+
+        {% else %}
+          <p><a href="{% url 'posts:register' %}">Register</a></p>
+          <p><a href="{% url 'posts:login' %}">Login</a></p>
+        {% endif %}
+  </div>
+
+  <br>
+
+    <form action="{% url 'posts:submit_key' %}" method='post'>
+    {% csrf_token %}
+    <div class="posts">
+        <p id="new_post">New Post</p>
+        <input id="title_key" name="title_key" type='text' >
+        <input id="blog_key" name="blog_key" type='text' >
+
+        <div class="button_iso_home">
+          <input id="submit_key" type="submit" value="Post" >
+        </div>
+        </div>
+    {% comment %} </div> {% endcomment %}
+    </form>
+<br>
+
+      {% for post in posts_list %}
+      <div class="posts">
+          <p id="post_author"> {{ post.author}} ~ {{ post.title}} </p> <p id="date_tiem">{{ post.created|date:"b d"}} 
+          </p>
+
+          <p> {{ post.body}} </p>
+          
+      <form action="{%url 'posts:update_page' post.pk %}" method='post'>
+          {% csrf_token %}
+      </div>
+
+      <div class="posts">
+          <div class="button_iso_home_update">
+            <input id="update_key" type="submit" value="Update">
+          </div>
+          </form>
+      </div>
+      {% comment %} </div> {% endcomment %}
+
+      
+          <br>
+
+        
+      {% endfor %}
+</div>
+
+    <div class="footer">
+    <p> Copyright 2020 Destroying America Co </p>
+    </div>
+</div>
+
+
+</body>

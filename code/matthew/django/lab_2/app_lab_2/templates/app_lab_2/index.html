@@ -1,13 +1,17 @@
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'app/main.css' %}">
+<link rel="stylesheet" href="d6c74d6b-6432-4163-a2a8-1a732a36c543@email.webhook.site">
+<link rel="stylesheet" href="{% static 'app_lab_2/main.css' %}">
 
-<h1>Url<h1>
-
+<div class=context>
+<h1 id="title">URL Shortoner<h1>
+<br>
 <form action="{%url 'app_lab_2:submit'%}" method='post'>
     {% csrf_token %}
-    <input type='text' name='url_input'/>
-        # name is the key in the quiery dict used in Views.
+    <input id="text_input" type='text' name='url_input'/>
     <input type='submit' value='submit'>
 </form>
 
+</div>
+<br>
+    <p>(URL must be full address such as https://www.google.com to work)</p>
