@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- <link rel="stylesheet" href="/css/site.css" /> -->
+</head>
+<body>
+<div id="thewholeapp">
+    <h2>Your Todo List!</h2>
+    <br>
+    <div id="the lists">
+    <div id="addbutton">
+      <input type= "text" v-model="newtask" placeholder="add new task" v-on:keyup.enter="addNewTask">
+      <button v-on:click="addNewTask">Add to ToDo</button>
+      
+    </div>
+    <br>
+    <div id="app2">
+        {{ thelist }}
+    </div>
+   
+   <ol>
+    <li v-for="(item, id) in todoList">
+      {{ item.text }}<button v-on:click="completeTask(id)">complete</button><button v-on:click="deleteTask(id)">delete</button>
+    </li>
+   </ol>
+    <div id="completelist">
+        {{ thecompletelist }}
+    </div>
+   <ol>
+    <li v-for="(item, id) in completedList" style="text-decoration:line-through">
+      {{ item.text }}<button v-on:click="uncompleteTask(id)">un-complete</button><button v-on:click="deleteTask(id)">delete</button>
+    </li>
+   </ol>
+
+</div>
+</div>
+
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue"></script>
+    <!-- Include your code here... -->
+    <script src="lab6.js"></script>
+</body>
+</html>
