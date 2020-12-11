@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='css/style.css'>
+    <title>Todo VueDo</title>
+</head>
+<body>
+    <h1>ToDo List</h1>
+    <h3>lab 04</h3>
+    <hr>
+    <br>
+    <div id='app'>
+        <input v-model="item" v-on:keyup.enter='additem'>
+        <button v-on:click='additem'>Add Item</button>
+        <ul>
+            <li v-for='item in items'>{{ item }}</li>
+            <!-- maybe instead of jsut adding item, add a div that has item and the two buttons -->
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src='js/app.js'></script>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="add">
+        <input type="text" v-model='message' placeholder="Add ToDo Item">
+        <button v-on:click="additem">Add item</button>
+    </div>
+    <ul id='list'>ToDo List</ul>
+    <hr>
+    <ul id='finished'>Completed Items</ul>
+    <script src="https://unpkg.com/vue"></script>
+    <script src='app.js'></script>
+</body>
+</html> -->

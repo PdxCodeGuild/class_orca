@@ -8,7 +8,7 @@ function callback2() {
   alert('body of function');
   return function() {alert('return function')};
 }
-
+ 
 function doTheMath() {
   let x = parseFloat(num1.value);
   let y = parseFloat(num2.value);

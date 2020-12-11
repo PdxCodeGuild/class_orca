@@ -1,58 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My test page</title>
+    <title>Canvas Demo</title>
     <style>
-      #container {
+      body {
         display: flex;
-        flex-wrap: wrap;
-      }
-  
-      .colors {
-        height: 50px;
-        width: 50px;
-      }
+        width: 100vw  ;
+        height: 100vh   ;
+        justify-content: center;
+        align-items: center;
+      };
+      canvas {
+        border: 2px solid black;
+        display: flex;
+
+      };
     </style>
   </head>
 
-
   <body>
 
-    <input id="input" placeholder="add a color...">
-    <button id="button">Click Me!</button>
-    <div id="container"></div>
+    <Canvas width="750" height="750"></Canvas>
 
-    <script>
-      let input = document.getElementById('input');
-      let button = document.getElementById('button');
-      let container = document.getElementById('container');
+    </script src="canvas.js"></script>
+  </body>
 
-      button.addEventListener('click', function() {
-        let colorDiv = document.createElement('div');
-        colorDiv.style.backgroundColor = input.value;
-        colorDiv.classList.add('colors');
-        /* color.Div.style.height = '50px'
-        color.Div.style.width = '50px' */
-        container.appendChild(colorDiv);
-      });
-
-      input.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-          let colorDiv = document.createElement('div');
-          colorDiv.style.backgroundColor = input.value
-          colorDiv.classList.add('colors');
-          /* color.Div.style.height = '50px'
-          color.Div.style.width = '50px' */
-          container.appendChild(colorDiv);
-          input.value = '';
-        };
-      });
-
-    </script>
-
-   </body>
 </html> 
 
 
