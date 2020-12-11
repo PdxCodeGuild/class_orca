@@ -7,5 +7,6 @@ app_name = 'app_lab_2'
 urlpatterns = [
     path('', views.index, name='index'),
     path('submit/', views.submit, name='submit'),
-    path('<str:code>/', views.redirect_def, name='redirect')
+    path('<str:code>/', views.redirect_def, name='redirect'),
+    # path('sucess/', views.sucess, name='sucess'),
 ]

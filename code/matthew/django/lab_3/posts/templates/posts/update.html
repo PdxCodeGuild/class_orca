@@ -1,0 +1,34 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+{% comment %} {{update_post.body}} {% endcomment %}
+
+
+    <form action="{%url 'posts:update_key' post.pk%}" method='post'>
+      {% csrf_token %}
+      <div class="posts">
+          <p id="new_post">Edit Post</p>
+          <input id="title_key" name="title_key" type='text' value="{{post.title}}" >
+
+          <input id="blog_key" name="blog_key" type='text' value="{{post.body}}" >
+
+          <div class="button_iso">
+              <input id="submit_key" type="submit" value="Post"> 
+          </div>
+      </div>
+    </form>
+
+    <form action="{%url 'posts:delete_key' post.pk%}" method='post'>
+        {% csrf_token %}
+
+    <div class="posts">
+      <div class="button_iso">
+        <input id="delete_key" type="submit" value="delete">
+      </div>
+    </div>
+
+    </form>
+
+
+
+{% endblock content %}
