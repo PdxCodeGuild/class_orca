@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git'r Done</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input v-model="item" placeholder=" Press Enter to submit">
+            <button v-on:click="addItem"></button>
+        </div>
+        <div>
+            <h2>Incomplete Items</h2>
+            <li v-for="item in items">
+                {{ item }}
+                <button v-on:click="completeItem">Item Complete</button>
+                <button v-on:click="deleteItem">Delete</button>
+            </li>
+        </div>
+        <div>
+            <h2>Complete Items</h2>
+            <li v-for="item in completed_items">
+                {{ item }}
+                <button v-on:click="addItem">Mark Incomplete</button>
+                <button v-on:click="deleteItem">Delete</button>
+            </li>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

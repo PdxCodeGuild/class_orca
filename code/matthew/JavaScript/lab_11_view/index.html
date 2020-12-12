@@ -7,6 +7,7 @@
 <div id="app">
   <input v-model="textInput">
   <button v-on:click="appendList">Enter</button>
+  <p>To Do List:</p>
   <p v-for="(item, index) in pendingList"> 
    <!-- (item, index) works as enumerate in python -->
     {{item}}
@@ -15,8 +16,11 @@
       <input type="checkbox" v-on:click="checked(index)">
   </p>
 
-  <p>Completed</p>
-  <p v-for="(item, index) in completedList>
+  <p>Completed:</p>
+  <p v-for="(item, index) in completedList">
+    {{item}}
+
+    <button v-on:click="compltedDeleteBtn(index)">x</button>
   </p>
 
 </div>

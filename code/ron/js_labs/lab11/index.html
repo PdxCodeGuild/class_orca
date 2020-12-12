@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <title>Lab 11</title>
+  </head>
+  
+  <body> 
+    <div class="container">
+        <div class="row">
+          <div class="one-half column" style="margin-top: 10%">
+
+            <p><h4 style="display: inline"> Javascript Lab 11</h4>
+            <h5> To-Do List </h5></p>
+            <hr>
+            
+            <!-- Users add items to the to-do list -->
+            <p> Build your To-Do List </p>
+            <input id="items" placeholder="Item Name">
+            <button id="bt1_add">Add</button>
+            <hr>
+
+            <!-- to-do List -->
+            <u>Current Items To-do</u>
+            <div id="to_do_items">
+              <ol>
+                <li v-for="x in list">
+                 {{ x.text }}
+                </li>
+              </ol>
+            </div>
+            
+            <hr> 
+
+            <!-- Completed List -->
+            <u>Completed Items List</u>
+            <div id="completed_list">
+                  <!-- List of Items goes here-->
+            </div>
+            <hr>
+
+          <div id="to_do_items">
+            {{ text }}
+          </div>
+
+          <div id="app-6">
+            <p>{{ message }}</p>
+            <input v-model="message">
+          </div>
+
+          </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js"></script>
+  </body>
+</html> 
+
