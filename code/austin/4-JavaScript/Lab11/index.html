@@ -21,20 +21,30 @@
     <div id="container">
         
         <div id="app">
-            <input type="text" v-model="task"/>
-            <button v-on:click="addTask">Add Task</button>
+            <div id="input">
+                <input type="text" v-model="task"/>
+                <button v-on:click="addTask">Add Task</button>
+            </div>
+
             
             <div id="list">
                 <h3>To Do</h3>
                 <ul>
-                    <li v-for="task in tasks">{{ task }}</li>
+                    <li v-for="(task, index) in tasks" :key="index">
+                        <!-- <input type="checkbox"   v-on:change="markDone(task)" v-model="isComplete"> -->
+                        {{ task }}
+                        <button v-on:click="markDone(task, index)">Complete</button>
+                        <button v-on:click="deleteTask">Delete</button>
+                    </li>
                 </ul>
             </div>
 
             <div id="done-list">
                 <h3>Completed</h3>
                 <ul>
-                    <li>None</li>
+                    <li v-for="(task, index) in doneTasks" :key="index">{{ task }}
+                    <button v-on:click="deleteTask">Delete</button>    
+                    </li>
                 </ul>
             </div>
 

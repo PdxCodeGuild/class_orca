@@ -7,4 +7,33 @@ body, #container {
 
 ul {
     list-style-position: inside;
+    list-style-type: none;
+}
+
+li {
+    font-size: 18px;
+}
+
+li::before {
+    content: "⛄ ";
+}
+
+#input {
+    margin: 24px;
+}
+
+#list {
+    margin-bottom: 24px;
+}
+
+button {
+    border-radius: 8px;
+    padding: 5px;
+    background-color: gray;
+    color: white;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: darkgrey;
 }
