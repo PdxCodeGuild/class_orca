@@ -15,34 +15,89 @@
   </head>
 
   <body>
+
+    <div id='container'>
+
+      <div id="to-do-list">
+        <form v-on:submit.prevent='addNewTask'>
+          <label for="new_task">New Task:</label>
+          <input v-model="newTaskText" id="new_task" placeholder="Enter Task Here">
+          <button>Add task</button>
+          <!-- shortcut for v-bind:title="" is 
+            :title=""
+            or
+            @click=""
+            @keyPress=""
+            @change=""
+           -->
+        </form>
+
+        <hr>
+
+        <div id="incomplete">
+          <p>Incompleted Tasks:</p>
+
+          <ul v-for="(task, index) in task_list">
+            <li v-if="!task.completed">
+              <button @click='swap_completed(index)'>✓</button>
+              Incomplete || {{ task.task_name }}
+              <button v-on:click="delete_task(index)">(!) Delete</button>
+            </li>
+          </ul>
+        </div>
+
+        <hr>
+        <div id="completed">
+          <p>Completed Tasks:</p> 
+
+            <ul v-for="(task, index) in task_list" style="text-decoration: line-through">                 
+              <!-- 
+                NOTES on combining if/for :
+                  https://vuejs.org/v2/style-guide/#Avoid-v-if-with-v-for-essential :
     
-  <h1>vue</h1>
+                  https://vuejs.org/v2/guide/list.html#v-for-with-v-if :
+                  When they exist on the same node, v-for has a higher priority than v-if. 
+                  That means the v-if will be run on each iteration of the loop separately. 
+                  This can be useful when you want to render nodes for only some items, like below:
+                      <li v-for="todo in todos" v-if="!todo.isComplete">
+                      {{ todo }}
+                      </li>
+                  
+                At the moment, the easiest solution was to put the FOR as the parent and the IF as the child:
+              -->
+              <li  v-if="task.completed">
+                <button @click='swap_completed(index)'>--</button>
+                Completed || {{ task.task_name }}
+                <button v-on:click="delete_task(index)">(!) Delete</button>
+              </li>
+            </ul> 
+        </div>
+
+        <hr>
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div style="border: dashed 3px; width: 50%;" id="to-do-list">
+        <h2>To-Do List:</h2>
+        <ul>
+          <li>Could certainly style it better, perhaps left/right...</li>
+          <li>Exercise: Try to add completed time or date...</li>
+          <li>. . . . . . .</li>
+          <li><strike>Completed items are commented out in the HTML:</strike></li>
+          
+          <!--
   
-  <div id='container'>
+          <li>. . . . . . .</li>
+          -->
+        </ul>
+      </div>
 
-
-    <div id="welcome">
-      <ul>
-        <li v-for="task in tasks">{{task}}</li>
-      </ul>
-    </div>
-
-    <div id="app2">
-      <input type="text" v-model="message"/>
-      <button v-on:click="sayHello">Add task!</button>
-    </div>
-    <!-- Use Vue to create a simple todo list in the browser.
-    Your Vue app will need to do a few things:    
-        Store an array of objects (the todos themselves)
-        List each todo
-        Allow the user to add and remove todos
-        Allow a user to toggle if a task is complete or not -->
-
-
-    
-  </div>
-  
-  
+    </div>  
   </body>
 </html>
 
