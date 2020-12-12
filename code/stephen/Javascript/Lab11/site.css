@@ -1,0 +1,71 @@
+body{
+    color: "black";
+    background-image: url('todobg.jpg');
+    background-repeat: "no-repeat";
+    background-size: "cover";
+    font-family: 'Roboto', sans-serif;
+}
+
+#allthethings{
+    display: flex;
+    justify-content: space-around;
+}
+
+#toDoDiv{
+    border: 2px solid blue;
+    width: 30%;
+    min-height: 700px;
+    margin-left: 350px;
+    background-image: url(paper.jpg);
+}
+
+#toDoTitle{
+    text-decoration: underline;
+    font-size: 30px;
+    margin-left: 50px;
+    text-align: center;
+}
+
+#toDoList{
+    align-content: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+}
+
+#title{
+    text-align: center;
+    font-size: 60px;
+}
+
+#addItemDiv{
+    display: flex;
+    justify-content: center;
+}
+
+#inputTaskBtn{
+    font-size: 24px;
+    border: 2px solid blue;
+    border-radius: 10px;
+}
+
+#completedList{
+    margin-left: 100px;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+#completedDiv{
+    margin-right: 350px;
+    background-image: url(paper.jpg);
+    width: 30%;
+    border: 2px solid blue;
+}
+
+#completedTitle{
+    font-size: 30px;
+    text-decoration: underline;
+    margin-left: 50px;
+    text-align: center;
+}
