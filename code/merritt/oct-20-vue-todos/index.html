@@ -8,14 +8,22 @@
   <body>
     <div id="app">
       <h1>My Tasks</h1>
-      <input type="text" placeholder="What do you want to do?" @keyup.enter="addTodo" v-model="newTodoText">
-      <button @click="addTodo">Add to List</button>
+      <add-todo @add="addTodo"></add-todo>
       <ul v-if="incompleteTodos.length">
-        <todo-item v-for="todo in incompleteTodos" :key="todo.id" :todo="todo"></todo-item>
+        <todo-item
+            v-for="todo in incompleteTodos"
+            :key="todo.id"
+            :todo="todo"
+            @remove="removeTodo"
+            ></todo-item>
       </ul>
       <p v-else>No incomplete todos. Everything is done!</p>
       <ul v-if="completeTodos.length">
-        <todo-item v-for="todo in completeTodos" :key="todo.id"  :todo="todo"></todo-item>
+        <todo-item
+            v-for="todo in completeTodos"
+            :key="todo.id"
+            :todo="todo"
+            ></todo-item>
       </ul>
       <p v-else>No complete todos. Get to work!</p>
     </div>
