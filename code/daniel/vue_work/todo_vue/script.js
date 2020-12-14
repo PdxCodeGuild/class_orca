@@ -1,19 +1,30 @@
 
 let add_item = new Vue({
-    el: "#app",
+    el: "#todo",
     data: {
-        items: [], 
-        completed_items: []
-    },
+        items: [],
+        item: "",
+        id: 0,
+    }, 
     methods: {
         addItem: function () {
-            this.items.push(item)
+            this.items.push({
+                text: this.item,                
+                completed: false,
+                id: this.id++,
+            })
+            this.item = "" 
         },
-        completeItem: function () {
-            this.completed_items.push(item)
+    },
+    computed: {
+        completeItem: function (item) {
+            console.log(item)
+            item.completed = true
         },
-        deleteItem: function () {
-            this.items.remove(item)
-        }
-    }
+        deleteItem: function (item) {
+
+        
+    },
+
+    
 })
