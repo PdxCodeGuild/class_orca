@@ -15,6 +15,7 @@
 - Typography
 - Links
 - Buttons
+  - Juice Added: Check/Delete Button Formatting
 - Forms
 - Lists
 - Code
@@ -222,6 +223,17 @@ input[type="button"].button-primary:focus {
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
 
+  .littleButton{
+    cursor:pointer;
+    display:inline-block;
+    border: 1px solid #c4c4c4;
+    border-radius: 50%;
+    padding:0px 4px;
+  }
+  .littleButton:hover{
+    background: #3cb0fd;
+  }
+  
 
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */

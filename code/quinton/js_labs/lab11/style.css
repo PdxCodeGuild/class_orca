@@ -1,5 +1,6 @@
-/* body {
-    background-color: lightblue;
+body {
+    background-color: rgb(144, 227, 255);
+    overflow: hidden;
 }
 #header {
     display: flex;
@@ -10,4 +11,4 @@
 #both_lists {
     display: flex;
     justify-content: space-evenly;
-} */
+}

@@ -10,8 +10,10 @@
     <div id="todo_app">
         <div id='header'>
             <h1>My To-Do List</h1>
-            <input class='input' v-model='newToDo' v-on:keyup.enter='add()'>
-            <button class='add_button' v-on:click='add()'>Add</button>
+            <div>
+                <input class='input' v-model='newToDo' @keyup.enter='add()'>
+                <button class='add_button' @click='add()'>Add</button>
+            </div>
         </div>
         <div id='both_lists'>
             <div id='incomplete_list'>
@@ -19,8 +21,8 @@
                 <ul style='list-style-type:none;'>
                     <li v-for='(todo, i) in existingToDo'>
                         <span>{{todo.text}}</span>
-                        <button class='delete_button' v-on:click='deleteIncompleteToDo(i)'>x</button>
-                        <button class='complete_button' v-on:click='completeToDo(i)'>✓</button>
+                        <button class='delete_button' @click='deleteIncompleteToDo(i)'>x</button>
+                        <button class='complete_button' @click='completeToDo(i)'>✓</button>
                     </li>
                 </ul>
             </div>
@@ -29,7 +31,7 @@
                 <ul style='list-style-type:none;'>
                     <li v-for='(todo, i) in doneToDo' style='text-decoration: line-through;'>
                         <span>{{todo.text}}</span>
-                        <button class='delete_button' v-on:click='deleteCompleteToDo(i)'>x</button>
+                        <button class='delete_button' @click='deleteCompleteToDo(i)'>x</button>
                     </li>
                 </ul>
             </div>
