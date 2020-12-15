@@ -6,36 +6,34 @@
     <title>Todo List</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
     <div id="todo">
         <div>
-            <input v-model="item" @keydown.enter="addItem" placeholder=" Press Enter to submit">
+            <input type="text" v-model="item" @keydown.enter="addItem" placeholder=" Press Enter to submit">
             <button v-on:click="addItem">ADD</button>
         </div>
+
         <div>
             <h2>Incomplete Items</h2>
-            <li v-for="item in items" v-bind:key="item.id">
+            <p v-if="incompleteItem.length"></p>
+            <li v-for="item in incompleteItem" v-bind:key="item.id">
                 {{ item.text }} 
-                <button v-on:click="completeItem(item)">Item Complete</button>
-                <button v-on:click="deleteItem(item)">Delete</button>
+                <input type="checkbox" v-model="item.completed">
+                <button v-on:click="deleteItem(item, $event)">Delete</button>
             </li>
         </div> 
+
         <div>
             <h2>Complete Items</h2>
-            <p>
-
-                <!-- <button v-on:click="completeItem(item)">Item Complete</button>
-                <button v-on:click="deleteItem(item)">Delete</button> -->
-
-            </p>
+            <p v-if="completeItem.length"></p>
+            <li v-for="item in completeItem" v-bind:key="item.id">
+                {{ item.text }} 
+                <input type="checkbox" v-model="item.completed">
+                <button v-on:click="deleteItem(item, $event)">Delete</button>
+            </li>
         </div>
 
-
-            <!-- <li v-for="item in complete_items" v-bind:key="item.id">
-                {{ item.todo_item }}
-                <button v-on:click="addItem(item)">Mark Incomplete</button>
-                <button v-on:click="deleteItem(item)">Delete</button> 
-            </li> -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="script.js"></script>
