@@ -24,7 +24,9 @@
    
    <ol>
     <li v-for="(item, id) in todoList">
-      {{ item.text }}<button v-on:click="completeTask(id)">complete</button><button v-on:click="deleteTask(id)">delete</button>
+      {{ item.text }}<button v-on:click="completeTask(id)">complete</button>
+      <button v-on:click="deleteTask(id)">delete</button>
+      
     </li>
    </ol>
     <div id="completelist">
@@ -35,6 +37,7 @@
       {{ item.text }}<button v-on:click="uncompleteTask(id)">un-complete</button><button v-on:click="deleteTask(id)">delete</button>
     </li>
    </ol>
+   <whatsup></whatsup>
 
 </div>
 </div>

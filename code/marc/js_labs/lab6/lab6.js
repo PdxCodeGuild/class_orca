@@ -1,29 +1,27 @@
-// new Vue({
-//     el: '#app',
-//     data: {
-//         message: 'This is your Todo List'
-//     }
+// Vue.component('whatsup', {
+//   data: function() {
+//       return {
+//           itscool: false
+//       }
+//   },
+//   props: [''],
+//   template: `
+//   <div>
+//       <input v-if="itscool" type="checkbox" v-model="item.text" @keyup.enter="toggleEdit">
+//       <template v-else>{{ item.text }}</template>
+//       <button @click="toggleEdit">{{ editing ? "Done" : "Edit" }}</button>
+      
+//   </div>
+//   `,
+//   methods: {
+//       toggleEdit: function() {
+//           this.editing = this.editing ? false : true
+//       }
+//   }
 // })
 
-// new Vue({
-//     el: '#app2',
-//     data: {
-//         message: 'This is your complete list'
-//     }
-// })
 
-// let todolist = new Vue({
-//     el: '#todolist',
-//     data: {
-//       todos: [
-//         { id: 0, text: 'Learn JavaScript' },
-//       ]
-    //   methods: {
-    //     addToTdo: function () {
-    //       this.message = this.message.split('').reverse().join('')
-    //     }
-//     }
-//   })
+
 let vm = new Vue({
     el: '#thewholeapp',
     data: {
