@@ -1,4 +1,3 @@
-
 let add_item = new Vue({
     el: "#todo",
     data: {
@@ -15,16 +14,20 @@ let add_item = new Vue({
             })
             this.item = "" 
         },
+        deleteItem: function (item) {
+            this.items.splice(this.items.indexOf(item), 1)
+        },
     },
     computed: {
-        completeItem: function (item) {
-            console.log(item)
-            item.completed = true
+        incompleteItem: function () {
+            return this.items.filter(function(item) {
+                return item.completed === false
+            })
         },
-        deleteItem: function (item) {
-
-        
-    },
-
-    
+        completeItem: function () {
+            return this.items.filter(function(item) {
+                return item.completed === true
+            })
+        }
+    }
 })

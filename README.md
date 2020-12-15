@@ -25,8 +25,58 @@ December 31st + January 1st -- New Years
 
 ## Capstone Dates:
 
-Capstone proposal due: TBD  
+Capstone proposal due: December 28th, 2020  
 Presentation Day: January 21st, 2020  
+
+## JavaScript Labs Assigned:
+
+Lab 01-03a Pick 3 (alert/prompt)  
+Lab 01-03b Pick 3 (input/events)  
+Lab 04 Todo  
+Lab 06 Clock  
+Lab 11 Vue Todos  
+Lab 13 Vue FavQs  
+Lab 14 Any API in Vue  
+(Django Lab 06 DRF/Vue)  
+
+#### Optional JavaScript Labs
+
+Optional Calculator  
+Optional Form Validation  
+Lab 05 Random Redirector  
+Lab 07 Hacker Typer  
+Lab 08 Bouncing Ball  
+Lab 09 FavQs  
+Lab 10 Any API  
+Lab 12 Vue Calculator  
+
+## Django Labs Assigned:
+
+Lab 01 Grocery List  
+Lab 02 URL Shortener  
+Lab 03 Chirp  
+Lab 06 DRF/Vue  
+
+#### Optional Django Labs
+
+Optional Mad Libs  
+Lab 04 Library  
+Lab 05 Blog  
+
+## HTML/CSS Labs Assigned:
+
+Lab 01 Bio  
+Lab 02 Blog  
+Lab 03 Business  
+Lab 04 Burrito Order Form  
+Lab 05 Personal Portfolio  
+
+#### Optional HTML/CSS Labs
+
+Optional Animations  
+Grid Garden  
+Flexbox Froggy  
+CSS Diner  
 
 ## Python Labs Assigned:
 
