@@ -1,7 +1,25 @@
+//v2, with a component
+
+/* <input v-if="editing" type="text" v-model="task.newTaskText" @keyup.enter="editTask">\ */
+// 
+// 
+
+Vue.component('task', {
+  template: `
+    <li>
+      <button v-on:click="$emit('swap', task)">✓</button>
+      {{ task.task_name }}
+      <button v-on:click="$emit('remove', task)">(!) Delete</button>
+    </li>
+  `,
+  props: ['task'],
+})
+
+
 new Vue({
-  el: '#to-do-list', // this is the name, referenced in HTML
+  el: '#to-do-list',
   data: { 
-    message: 'Hello00000 Vue!',
+    message: 'Hello00000 Vue!',     //     ;)
     newTaskText: '',
     task_list: [
       {id: 0,
@@ -9,7 +27,7 @@ new Vue({
         completed: false,
       },
       {id: 101,
-        task_name: 'i do not like my new dew: vue',
+        task_name: 'i somewhat like my new dew: vue',
         completed: true,
       },
       {id: 102,
@@ -35,6 +53,7 @@ new Vue({
   },
   methods: {
     addNewTask: function() {
+      console.log(event),
       console.log(`performing function addNewTask, this.newTaskText: ${this.newTaskText}`),
       this.task_list.push({
         id: this.nextTaskID++,
@@ -44,6 +63,10 @@ new Vue({
       this.newTaskText = ''
     }, // and i needed this comma!
     swap_completed: function(index) {
+      console.log('attempting function swap_completed(index)'),
+      console.log(event),
+      console.log(`for index: ${index}`),
+      console.log(`for index.task_name: ${index.task_name}`),
       console.log(this.task_list[index].completed)
       if (this.task_list[index].completed === true) {
         this.task_list[index].completed = false
@@ -53,7 +76,8 @@ new Vue({
       }
     },
     delete_task: function(index) {
-      console.log(`delete_task for index: ${index}`)    ;  
+      console.log(`delete_task for index: ${index}`);
+      console.log(event);
       this.task_list.splice(index, 1);
     },
   }
@@ -63,6 +87,12 @@ new Vue({
 
 // NOTES: 
 
+// from monday 14 dec:
+// v-show is better if it's *frequently* shown and hidden, so it'll stay in memory
+// but v-if is a bit more intensive...
+// pay [?]
+// template tag in a component is JUST FOR US
+
 // C:\-=Cloud=-\Sync\git_working\week9_javascript\lab11_to_do_list_in_JS-VUE
 
 // TODO read about components: 
@@ -70,14 +100,8 @@ new Vue({
 
 // <!-- NEED TO USE A KEY, otherwise stuff gets wierd when checking boxes... -->
 
-// <!-- 
-// i want:
-// for (task, index) in tasks
-//   IF completed:true, 
-//   display...
-// then the opposite in the other list...
-// -->
 // <!-- BEFORE using watched property, use computed property and methods instead... -->
+
 // // NOTES FROM MERRIT'S REVIEW OF THIS ON THURS, 10 DEC 2020:
 
 // function addTodoCallback() {
