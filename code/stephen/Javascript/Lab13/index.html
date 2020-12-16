@@ -3,42 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>FavQ API</title>
 </head>
 <body>
     <div id="app">
-        <div>
-            <input type="radio" id="keyword" name="searchtype" value="keyword" v-model="searchType">
-            <label for="keyword">Keyword</label><br>
-            <input type="radio" id="author" name="searchtype" value="author" v-model="searchType">
-            <label for="author">Author</label><br>
-            <input type="radio" id="tag" name="searchtype" value="tag" v-model="searchType">
-            <label for="keyword">Tag</label><br>
-            <input type="text" v-model="searchTerm">
-            <button @click="loadQuotes">Search Quotes</button>
+        <br>
+        <div id="inputs">
+            <div id="radios">
+                <input type="radio" id="keyword" name="searchtype" value="keyword" v-model="searchType">
+                <label for="keyword">Keyword</label>
+                <input type="radio" id="author" name="searchtype" value="author" v-model="searchType">
+                <label for="author">Author</label>
+                <input type="radio" id="tag" name="searchtype" value="tag" v-model="searchType">
+                <label for="keyword">Tag</label>
+            </div>
+            <div id="texts">
+                <input id="inputbar" type="text" @keyup.enter="loadQuotes" v-model="searchTerm">
+                <button id="searchbtn" @click="loadQuotes">Search Quotes</button>
+            </div>
         </div>
-        <div v-show="!searching">
-            <ul>
-                <li v-for="quote in quotes">
-                    <p>{{ quote.body }}</p>
-                    <p><i>--{{ quote.author }}</i></p>
-                </li> 
-            </ul>
-        </div>
-        <div v-show="searching">
-            <ul>
-                <li v-for="quote in quotes">
-                    <p>{{ quote.body }}</p>
-                    <p><i>--{{ quote.author }}</i></p>
-                </li> 
-            </ul>
-            <div>
-                <p>Page: {{ page }}</p>
-                <button v-show="page > 1" @click="previousPage" :key="quote.id">Previous Page</button>
-                <button v-show="!lastpage" @click="nextPage" :key="quote.id">Next Page</button>
+        <div class="container">
+            <br>
+            <div v-show="!searching">
+                <ul class="quoteList">
+                    <li v-for="quote in quotes">
+                        <blockquote>{{ quote.body }}</blockquote>
+                        <p class="authorp"><i>--{{ quote.author }}</i></p>
+                        <button class="btn btn-primary"><a :href="quote.url" target="_blank">FavQ Link</a></button><hr/>
+                    </li> 
+                </ul>
+            </div>
+            <div v-show="searching">
+                <ul class="quoteList">
+                    <li v-for="quote in quotes">
+                        <blockquote>{{ quote.body }}</blockquote>
+                        <p class="authorp"><i>--{{ quote.author }}</i></p>
+                        <button class="btn btn-primary"><a :href="quote.url">FavQ Link</a></button><hr/><hr/>
+                    </li> 
+                </ul>
+                <div id="pagechangers">   
+                    <div id="pagecounter">
+                        <p :key="quote.id">Page: {{ page }}</p>
+                    </div>
+                    <div id="pagebtns">
+                        <button class="pagebutton" v-show="page > 1" @click="previousPage" :key="quote.id">⇦Previous Page</button>
+                        <button class="pagebutton" v-show="!lastpage" @click="nextPage" :key="quote.id">Next Page⇨</button>
+                    </div>
+                </div>
+                <br><br>
             </div>
         </div>
     </div>
+    <footer>&copy; 2020</footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="secrets.js"></script>
