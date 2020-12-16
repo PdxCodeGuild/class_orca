@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FavQ API</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input type="radio" id="keyword" name="searchtype" value="keyword" v-model="searchType">
+            <label for="keyword">Keyword</label><br>
+            <input type="radio" id="author" name="searchtype" value="author" v-model="searchType">
+            <label for="author">Author</label><br>
+            <input type="radio" id="tag" name="searchtype" value="tag" v-model="searchType">
+            <label for="keyword">Tag</label><br>
+            <input type="text" v-model="searchTerm">
+            <button @click="loadQuotes">Search Quotes</button>
+        </div>
+        <div v-show="!searching">
+            <ul>
+                <li v-for="quote in quotes">
+                    <p>{{ quote.body }}</p>
+                    <p><i>--{{ quote.author }}</i></p>
+                </li> 
+            </ul>
+        </div>
+        <div v-show="searching">
+            <ul>
+                <li v-for="quote in quotes">
+                    <p>{{ quote.body }}</p>
+                    <p><i>--{{ quote.author }}</i></p>
+                </li> 
+            </ul>
+            <div>
+                <p>Page: {{ page }}</p>
+                <button v-show="page > 1" @click="previousPage" :key="quote.id">Previous Page</button>
+                <button v-show="!lastpage" @click="nextPage" :key="quote.id">Next Page</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="secrets.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
