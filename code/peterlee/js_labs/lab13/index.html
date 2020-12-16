@@ -6,15 +6,13 @@
   </head>
   <body>
     <div id="app">
-        <div v-for="currency in info" class="currency">
-        {{ currency.description }}:
-        <span class="lighten">
-            <span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
-        </span>
+        <input type="text" v-model="search">
+        <button v-on:click="getQuote">Get Quote</button>
+        <div v-for="quote in quotes" :key="quote.id">
+          <p>{{ quote.body }}</p>
+          <p>{{ quote.author }}</p>
         </div>
-    </div>  
-  
-
+    </div> 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="secrets.js"></script>

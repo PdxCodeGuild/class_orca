@@ -1,18 +1,25 @@
-new Vue({
+let vm = new Vue({
   el: '#app',
-  data () {
-    return {
-      info: null
+  data: {
+    quotes: [],
+    search: ""
+    },
+    methods: {
+        getQuote: function() {
+            axios({
+            url: "https://favqs.com/api/quotes",
+            method: "get",
+            headers: {
+                "Authorization": `Token token="${apiKey}"`
+            },
+            params: {
+                filter: this.search
+            }
+            }). then(response => {
+            this.quotes = response.data.quotes
+            })
+
+        }
     }
-  },
-  filters: {
-  currencydecimal (value) {
-    return value.toFixed(2)
-  }
-},
-  mounted () {
-    axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => (this.info = response.data.bpi))
-  }
 })
+
