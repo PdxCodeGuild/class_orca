@@ -1,0 +1,12 @@
+body {
+    padding: 24px;
+    font-family: 'Comfortaa', cursive;
+}
+
+p.text {
+    font-style: italic;
+}
+
+.input {
+    margin-bottom: 24px;
+}
