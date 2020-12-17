@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,53 +9,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="css/site.css"/>
-    <title>ToDo</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Notable Quotes</title>
 </head>
 <body>
-
-    <div id="container">
-        <div id="header"> 
-            <h1>To Do List</h1> 
-        </div>
-        
+    <h1>Find a Quote</h1>
         <div id="app">
-            <div id="input">
-                <input type="text" v-model="task"/>
-                <button v-on:click="addTask">Add Task</button>
+            <div class="input">
+                <p>Enter a search term</p>
+                <input type="text" v-model="searchTerm">
+                <button @click="loadQuote">Keyword</button>
+                <button @click="loadQuoteTag">Tag</button>
+                <button @click="loadQuoteAuthor">Author</button>
             </div>
-
-            
-            <div id="list">
-                <h3>To Do</h3>
-                <ul>
-                    <li v-for="(task, index) in tasks" :key="index">
-                        {{ task }}
-                        <button v-on:click="markDone(task, index)">&#10003;</button>
-                        <button v-on:click="deleteTask">&#215;</button>
-                    </li>
-                </ul>
-            </div>
-
-            <div id="done-list">
-                <h3>Completed</h3>
-                <ul>
-                    <li v-for="(task, index) in doneTasks" :key="index">{{ task }}
-                    <button v-on:click="deleteTask">&#215;</button>    
-                    </li>
-                </ul>
+            <div class="display">
+                <div v-for="quote in quotes" :key="quote.id">
+                    <p class="text">"{{ quote.body }}"</p>
+                    <p class="author">{{ quote.author }}</p>
+                    <hr>
+                </div>
             </div>
 
         </div>
 
-    </div>
 
-    
-
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
-    <script src="js/site.js"></script>
+    <script src="secret.js"></script>
+    <script src="main.js"></script>
+
 </body>
 </html>
-
-

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>title</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1> Search Quotes</h1>
+      <input type="text" v-model="searchTerm">
+
+
+      <button @click="helperLoadQuoteAuthor">Get Quotes by Author</button>
+      <button @click="helperLoadQuoteTag">Get Quotes by Tag</button>
+      <button @click="backPage">< Page</button>
+      <button @click="forwardPage">> Page</button>
+
+
+      <div v-for="(quote, index) in quotes" :key="quote.id">
+        <p> <number v-bind:number="index +1"></number>
+        {{ quote.body }}</p>
+        <p><i><a :href="quote.url" >{{ quote.author }}</a></i></p>
+
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <label for='terms'>Search by:</label>
+        <select @change='termSelect($event)' name='terms' id='terms' v-model='key'>
+            <option value='Keyword'>Keyword</option>
+            <option value='Tag'>Tag</option>
+            <option value='Author'>Author</option>
+        </select>
+        <input type='text' @keyup.enter="loadQuote" v-model='search'>
+        <button @click="loadQuote" >Quote-splosion</button>
+        <div v-for="quote in quotes">
+            <p>{{ quote.body }}</p>
+            <p>{{ quote.author }}</p>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src='main.js'></script>
+    <script src='secrets.js'></script>
+</body>
+</html>
+
+
+<!-- v-if='searchedlength' v-model='loadQuote' -->

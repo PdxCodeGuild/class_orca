@@ -1,0 +1,108 @@
+<!-- v2, with a component -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab 11 To-Do list in JS's VUE</title>
+    <!-- development version, includes helpful console warnings -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <!-- or: -->
+    <!-- production version, optimized for size and speed -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <!-- ANOTHER VUE ON A CDN OPTION: -->
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <!-- <script src="https://unpkg.com/vue"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="js/vuetest.js" defer></script>
+
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+
+  <body>
+    <div id='container'>
+      <div id="to-do-list">
+        <form v-on:submit.prevent='addNewTask'>
+          <label for="new_task">New Task:</label>
+          <input v-model="newTaskText" id="new_task" placeholder="Enter Task Here">
+          <button>Add task</button>
+        </form>
+
+        <!-- :task_name="task_name" -->
+        <h1>v2 (end day 14 Dec), as a component:</h1>
+        <div>All tasks, as components, v2:
+          <ul>
+            <task
+            v-for="task in task_list"
+            :key="task.id"
+            :task="task"
+            @swap="swap_completed"
+            @remove="delete_task"
+            >
+          </task>
+          </ul>
+        </div>
+
+        <hr>
+        <hr>
+        <hr>
+        <h1>Old version:</h1>
+
+          <div id="incomplete">
+            <p>Incompleted Tasks:</p>
+
+            <ul v-for="(task, index) in task_list">
+              <li v-if="!task.completed">
+                <button @click='swap_completed(index)'>✓</button>
+                Incomplete || {{ task.task_name }}
+                <button v-on:click="delete_task(index)">(!) Delete</button>
+              </li>
+            </ul>
+          </div>
+
+          <hr>
+          <div id="completed">
+            <p>Completed Tasks:</p> 
+
+              <ul v-for="(task, index) in task_list" style="text-decoration: line-through">                 
+                <li  v-if="task.completed">
+                  <button @click='swap_completed(index)'>--</button>
+                  Completed || {{ task.task_name }}
+                  <button v-on:click="delete_task(index)">(!) Delete</button>
+                </li>
+              </ul> 
+          </div>
+
+          <hr>
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div style="border: dashed 3px; width: 50%;" id="to-do-list">
+        <h2>To-Do List:</h2>
+        <ul>
+          <li>v2 to-do, mon 14 dec:</li>
+          <li>fix swap_completed(index) function for this v......</li>
+          <li>in v2 this version, as a component: add back computed sections!</li>
+          <li>. . . . . . .</li>
+          <li>Old, v1:</li>
+          <li>Could certainly style it better, perhaps left/right...</li>
+          <li>Exercise: Try to add completed time or date...</li>
+          <li>. . . . . . .</li>
+          <li><strike>Completed items are commented out in the HTML:</strike></li>
+          
+          <!--
+  
+          <li>. . . . . . .</li>
+          -->
+        </ul>
+      </div>
+
+    </div>  
+  </body>
+</html>
+
