@@ -1,3 +1,21 @@
+Vue.component("add-new-item", {
+    data: function () {
+        return {
+            item: "",
+            id: 1
+        }
+    },
+    template: `
+    <div>
+        <input type="text" v-model="item" @keydown.enter="addItem" placeholder=" Press Enter to submit">
+        <button v-on:click="addItem">ADD</button>
+    </div>
+    `,
+    methods: {
+        add
+    }
+})
+
 let add_item = new Vue({
     el: "#todo",
     data: {
