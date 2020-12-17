@@ -13,12 +13,12 @@
 
     <div id='app'>
         <input v-model="item" v-on:keyup.enter='additem'>
-        <button v-on:click='additem'>Add Item</button>
+        <additem @additem='addItem'></additem>
+        <!-- <button v-on:click='additem'>Add Item</button> -->
         <ul>
             <h3>Things to do</h3>
             <li class='listitem' v-for='item in items'>{{ item }}<button id='firstbutton' v-on:click="remove(item)">Delete</button><button v-on:click="makecomplete(item)">Complete</button></li>
         </ul>
-
 
         <ul>
             <h4>Completed things</h4>

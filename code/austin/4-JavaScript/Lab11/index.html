@@ -14,11 +14,10 @@
 </head>
 <body>
 
-    <div id="header"> 
-        <h1>To Do List</h1> 
-    </div>
-
     <div id="container">
+        <div id="header"> 
+            <h1>To Do List</h1> 
+        </div>
         
         <div id="app">
             <div id="input">
@@ -31,10 +30,9 @@
                 <h3>To Do</h3>
                 <ul>
                     <li v-for="(task, index) in tasks" :key="index">
-                        <!-- <input type="checkbox"   v-on:change="markDone(task)" v-model="isComplete"> -->
                         {{ task }}
-                        <button v-on:click="markDone(task, index)">Complete</button>
-                        <button v-on:click="deleteTask">Delete</button>
+                        <button v-on:click="markDone(task, index)">&#10003;</button>
+                        <button v-on:click="deleteTask">&#215;</button>
                     </li>
                 </ul>
             </div>
@@ -43,7 +41,7 @@
                 <h3>Completed</h3>
                 <ul>
                     <li v-for="(task, index) in doneTasks" :key="index">{{ task }}
-                    <button v-on:click="deleteTask">Delete</button>    
+                    <button v-on:click="deleteTask">&#215;</button>    
                     </li>
                 </ul>
             </div>

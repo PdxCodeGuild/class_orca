@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    <h1>My Tasks</h1>
+        <input type="text" placeholder="Task" v-model="newTodoText">
+        <button @click="addTodo">Add</button>
+        <ul>
+            <li v-for="todo in inccompleteTodos">{{ todo.text }}</li>
+        </ul>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- <script src="/Volumes/BACKUP64/PDX/class_orca/code/austin/4-JavaScript/demo/main.js"></script> -->
+    <script src="main.js"></script>
+    
+</body>
+</html>

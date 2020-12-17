@@ -1,8 +1,19 @@
+
 body, #container {
     font-family: 'Comfortaa', cursive;
     padding: 48px;
     margin: auto;
     text-align: center;
+}
+
+#container {
+    background-image: url(snow-ornaments.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    color: white;
+    border: 20px solid transparent;
+    border-image: url(presents.jpg) 30 round;
 }
 
 ul {
@@ -27,7 +38,7 @@ li::before {
 }
 
 button {
-    border-radius: 8px;
+    border-radius: 3px;
     padding: 5px;
     background-color: gray;
     color: white;

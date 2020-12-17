@@ -1,3 +1,7 @@
+Vue.component('additem', {
+    template: `<button @click="$emit('additem')">Add Item</button>`
+})
+
 new Vue ({
     el: '#app',
     data: {
@@ -6,8 +10,10 @@ new Vue ({
         completed : []
     },
     methods: {
-        additem() {
+        addItem: function() {
             this.items.push(this.item)
+            console.log(this.item)
+            console.log(this.items)
             this.item = ''
         },
         remove (item) {

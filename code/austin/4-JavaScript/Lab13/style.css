@@ -1,0 +1,23 @@
+body {
+    padding: 36px;
+    font-family: 'Comfortaa', cursive;
+}
+
+.header {
+    margin: auto;
+    text-align: center;
+    font-weight: bolder;
+}
+
+p.text {
+    font-style: italic;
+}
+
+.input {
+    margin-bottom: 24px;
+}
+
+h2 {
+    margin-bottom: 24px;
+    margin-top: 24px;
+}
