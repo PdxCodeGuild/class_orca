@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 13 Quotes</title>
+    <!-- development version, includes helpful console warnings -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <!-- or: -->    <!-- production version, optimized for size and speed -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <!-- ANOTHER VUE ON A CDN OPTION: -->
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <!-- <script src="https://unpkg.com/vue"></script> -->
+    <script src="secrets.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="main.js" defer></script>
+</head>
+
+
+
+<body>
+    <div id="app_quotes">
+        <hr>
+        
+        <component_search @quotes_search_function="quotes_search_function"></component_search>
+
+        <hr>
+
+        <h3>Quote Results:</h3>
+        <div id="results" v-for="quote_object in quotes_as_objects" :key="quote_object.id">
+            <p>
+                {{ quote_object.body }}
+                -- {{ quote_object.author }}, <a :href="quote_object.url">ID: {{ quote_object.id }}</a> 
+                <br>
+            </p>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+    <hr>
+
+    <div id="to_do_list"><h2>Outstanding to-do for lab13:</h2>
+        <ul>
+            <li>Make page buttons appear only if pages > something</li>
+            <li>Make page buttons send and change pages</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+                                    <!--  -->
+<!-- 
+Build a Vue application that allows a user to search for quotes on FavQs.
+Requirements:
+    Your app must use Vue to fetch data and interact with the results.
+    Let the user enter a search term and select whether to search by keyword, author, or tag.
+    Implement pagination buttons when the search returns more than 25 quotes.
+    When the page first loads, show the user a set of completely random quotes.
+    You must have at least one Vue component in your app.
+Resources:
+    FavQs API
+    Vue documentation
+    Using Axios to Consume APIs
+    Axios documentation
+Hints:
+    Read the API documentation!
+    Remember to use your Vue app data as your single source of truth.
+    You'll need to set the Authorization header for the FavQs API to work. -->

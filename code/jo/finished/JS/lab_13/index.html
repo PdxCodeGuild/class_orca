@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <label for='terms'>Search by:</label>
+        <select @change='termSelect($event)' name='terms' id='terms' v-model='key'>
+            <option value='body'>Keyword</option>
+            <option value='tags'>Tag</option>
+            <option value='author'>Author</option>
+        </select>
+        <input type='text' @keyup.enter="firstPage();loadQuote()" v-model='search'>
+        <button @click="firstPage();loadQuote()" >Quote-splosion</button>
+        <div v-for="quote in quotes">
+            <p>{{ quote.body }}</p>
+            <p>{{ quote.author }}</p>
+            <!-- <p>{{ quote }}</p> -->
+        </div>
+        <template>           
+            <!-- <next-page @firstpage='firstPage'></next-page> -->
+            <button @click='firstPage(); loadQuote()' type='button'>First Page</button>
+            <button v-if="page > 1" @click='previosPage(); loadQuote()' type='button'>Previous Page</button>
+            <!-- <li><button @click='nextPage(); loadQuote()' type='button'>Next Page</button></li> -->
+            <next-page @nextpage='nextPage'></next-page>
+        </template>
+    </div>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src='secrets.js'></script>
+    <script src='main.js'></script>
+</body>
+</html>
+
+
+<!-- v-if='searchedlength' v-model='loadQuote' -->
