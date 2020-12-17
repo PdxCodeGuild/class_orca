@@ -1,25 +1,5 @@
-Vue.component('add-item', {
-    data: function() {
-        return {
-            items : [],
-            item : '',
-            completed : []
-        }
-    },
-    template: `
-        <div>
-            <input type='text' placeholder='item' @keyup.enter="additem" v-model='item'>
-            <button @click='additem'>Add Item</button>
-        </div>
-    `,
-    methods: {
-        additem: function() {
-            this.items.push(this.item)
-
-            this.item = ''
-
-    }
-}
+Vue.component('additem', {
+    template: `<button @click="$emit('additem')">Add Item</button>`
 })
 
 new Vue ({
@@ -30,8 +10,8 @@ new Vue ({
         completed : []
     },
     methods: {
-        additem: function() {
-            this.items.push()
+        addItem: function() {
+            this.items.push(this.item)
             console.log(this.item)
             console.log(this.items)
             this.item = ''

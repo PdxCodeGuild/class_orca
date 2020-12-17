@@ -1,0 +1,21 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>FavQs</title>
+  </head>
+  <body>
+    <div id="app">
+        <input type="text" v-model="search">
+        <button v-on:click="getQuote">Get Quote</button>
+        <div v-for="quote in quotes" :key="quote.id">
+          <p>{{ quote.body }}</p>
+          <p>{{ quote.author }}</p>
+        </div>
+    </div> 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="secrets.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
