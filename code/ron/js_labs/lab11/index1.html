@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <title>Lab 11</title>
+  </head>
+  
+  <body> 
+
+    <!-- Utilizing modified Skeleton CSS for formatting -->
+    <div class="container">
+        <div class="row">
+          <div class="one-half column" style="margin-top: 10%">
+
+            <div id="todoApp">
+
+              <p><h4 style="display: inline"> Javascript Lab 11</h4>
+              <h5> To-Do List </h5></p>
+              <hr>
+              
+              <!-- Users add items to the to-do list -->
+              <p> Build the To-Do List </p>
+
+              <add-Item @add="addItem"></add-Item>
+
+              <hr>
+
+              <!-- To-do List -->
+              <u>Current Items To-do</u>
+              <div>
+                  <div v-for="x in todoList" :key="x.id">
+                    <div v-if="x.completed === false"> <!-- utilize key for unique values -->
+                    <input 
+                      type="checkbox" 
+                      v-on:change="completeItem(x)" 
+                      v-bind:checked="todoList.completed"/>&nbsp
+                    <span 
+                      v-bind:class="{completed: x.completed}">
+                      {{ x.todoItem }}
+                    </span>&nbsp
+                    <span 
+                      class="littleButton"
+                      v-on:click="removeItem(x)">x
+                    </span>
+                    </div>
+                  </div>
+              </div>
+
+              <hr> <!---- Line divider ---->
+
+              <!-- Completed List -->
+              <u>Completed Items List</u>
+              <div>
+                <ol>
+                  <div v-for="x in todoList" :key="x.id">
+                    <li v-if="x.completed === true">   <!-- utilize key for unique values -->
+                    <span 
+                      style="text-decoration: line-through;" 
+                      v-bind:class="{completed: x.completed}">
+                      {{ x.todoItem }}
+                    </span>&nbsp
+                    <span 
+                      class="littleButton"
+                      v-on:click="removeItem(x)">x
+                    </span>
+                    </li>
+                  </div>
+                </ol>
+              </div>
+
+              <hr> <!---- Line divider ---->
+
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js"></script>
+  </body>
+</html> 
+

@@ -5,7 +5,7 @@
 //          Author: Ron Mansolilli, ron.mansolilli@gmail.com
 //            Date: 12-11-2020
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
-
+ 
 // ----Instructions and notes--------------------------------
 
     /* To Do List (JS & Vue)
@@ -28,6 +28,32 @@
 
 // Code------------------------------------------------------------
 
+Vue.component('add-Item', {
+    data: function() {
+        return {
+            add: "",
+        }
+    },
+    template: 
+    `
+    <form method="post" v-on:submit.prevent="addItem">
+        <input name="addItemInput" type="text" v-model="add" placeholder="Item Name">
+        <button type="submit">Add</button>
+    </form>
+    `,
+    methods: {
+        addItem: function () {
+            this.todoList.push({
+              id: this.todoList.length+1,
+              todoItem: this.add,
+              completed: false, 
+            });
+        this.add = ''; //reset input
+        }
+    }
+})
+
+
 var app = new Vue({
 
     el: '#todoApp',     //'el' is element name to ref in html
@@ -36,7 +62,7 @@ var app = new Vue({
     data: {
 
       //temp storage for items to be added to todoList             
-      add: '',
+    //   add: '',
 
       //Data array for items
       todoList: [
@@ -56,13 +82,15 @@ var app = new Vue({
     methods: {
       
         //Add items to Current Item list (i.e. Array)
-        addItem: function () {
-          this.todoList.push({
-            id: this.todoList.length+1,
-            todoItem: this.add,
-            completed: false,
-          });
-        this.add = ''; //reset input
+        addItem: function(todo) {
+            this.todoList.push(todo)
+        // addItem: function () {
+        //   this.todoList.push({
+        //     id: this.todoList.length+1,
+        //     todoItem: this.add,
+        //     completed: false,
+        //   });
+        // this.add = ''; //reset input
         },
 
         //Move items to complete list
