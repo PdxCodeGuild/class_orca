@@ -9,11 +9,7 @@
 
 <body>
     <div id="todo">
-        <div>
-            <input type="text" v-model="item" @keydown.enter="addItem" placeholder=" Press Enter to submit">
-            <button v-on:click="addItem">ADD</button>
-        </div>
-
+        <add-new-item></add
         <div>
             <h2>Incomplete Items</h2>
             <p v-if="incompleteItem.length"></p>
