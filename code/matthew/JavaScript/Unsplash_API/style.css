@@ -7,6 +7,7 @@
     background-color: lightgray;
 }
 
+/* Heading or all content before images */
 h1 {
     padding-top: 6px;
     font-family: Lucida Handwriting;
@@ -19,6 +20,7 @@ label {
 #apiIso {
     color: red;
 }
+
 #unsplashIso {
     color:steelblue;
 }
@@ -96,6 +98,8 @@ button {
     color: red;
 }
 
+
+/* section for image styling */
 .imageContainer {
     display: flex;
     flex-direction: row;
@@ -113,12 +117,12 @@ button {
     padding: 6px;
     object-fit: contain;
     height: 200px;
-
 }
 
 #images:hover {
     box-shadow: 0 0 10px black;
 }
+
 
 .collectionContainer {
     padding-top: 6px;
@@ -153,6 +157,7 @@ button {
     background-color: white;
 }
 
+/* button for 'View Album' displayed in the collections */
 #retroBtn {
     padding: 0;
     border: none;
