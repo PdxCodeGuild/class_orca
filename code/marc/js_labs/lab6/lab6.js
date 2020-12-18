@@ -1,24 +1,26 @@
-// Vue.component('whatsup', {
-//   data: function() {
-//       return {
-//           itscool: false
-//       }
-//   },
-//   props: [''],
-//   template: `
-//   <div>
-//       <input v-if="itscool" type="checkbox" v-model="item.text" @keyup.enter="toggleEdit">
-//       <template v-else>{{ item.text }}</template>
-//       <button @click="toggleEdit">{{ editing ? "Done" : "Edit" }}</button>
+Vue.component('whatsup', {
+  data: function() {
+      return {
+          itscool: false,
+          message1:'it\'s cool ya\'ll',
+          message2:'it\'s not cool ya\'ll',
+      }
+  },
+  props: [],
+  template: `
+  <div>
+      <input v-if="itscool" type="checkbox" v-model="it's cool" @keyup.enter="toggleEdit">
+      <template v-else>{{message1}}</template>
       
-//   </div>
-//   `,
-//   methods: {
-//       toggleEdit: function() {
-//           this.editing = this.editing ? false : true
-//       }
-//   }
-// })
+      
+  </div>
+  `,
+  // methods: {
+  //     toggleEdit: function() {
+  //         this.editing = this.editing ? false : true
+  //     }
+  
+})
 
 
 
