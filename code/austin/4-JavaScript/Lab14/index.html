@@ -10,54 +10,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css"/>
-    <title>Notable Quotes</title>
+    <title>Dog Lotto</title>
 </head>
 <body>
         <div class="header">
-            <h1>Notable Quotes</h1>
+            <h1>Dog Lotto</h1>
         </div>
 
         <div id="app">
-            <h2>Daily Quotes</h2>
+
+            <div class="normal">
+                <button @click="loadDog">Play</button>
+            </div>
+
             <div class="rando">
-                <div v-for="quote in rando_quotes" :key="quote.id">
-                    <p class="text">"{{ quote.body }}"</p>
-                    <p class="author">{{ quote.author }}</p>
-                    <hr>
+                    <div v-for="(dog, index) in randoDogs" :key="dog.id">
+                        <div class="card">
+                            <p>{{ dog.breed_group }}</p>
+                            <img
+                                :src="dog.image.url"
+                                class="dog"
+                                :key="index"
+                                alt="dog"
+                                width="177"
+                                height="150"
+                            />
+                        <div>
+                    </div>
                 </div>
-            </div>
-
-            <h2>Find a Quote</h2>
-            <div class="input">
-                <p>Enter a search term</p>
-                
-                <total v-bind:total="total" v-if="total"></total>
-
-                <input type="text" v-model="searchTerm">
-                <button @click="loadQuote">Keyword</button>
-                <button @click="loadQuoteTag">Tag</button>
-                <button @click="loadQuoteAuthor">Author</button>
-            </div>
-
-            <div class="display">
-                <div v-for="quote in quotes" :key="quote.id">
-                    <p class="text">"{{ quote.body }}"</p>
-                    <p class="author">{{ quote.author }}</p>
-                    <hr>
-                </div>
-
-                <div class="show-page">
-                    <h6>Page {{ page }}</h6>
-                    <button @click="prevPage">&#x21D0;</button>
-                    <button @click="nextPage">&#x21D2;</button>
-                </div>
-            </div>
+        
+            
         </div>
-
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
-    <script src="secret.js"></script>
+    <script src="secrets.js"></script>
     <script src="main.js"></script>
 
 </body>
