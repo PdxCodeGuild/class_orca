@@ -12,14 +12,14 @@
     <div id='app'>
         <label for='platform'>Filter by platform:</label>
         <select @change='platformSelect($event)' name='platform' id='platform' v-model='key'>
-            <option value='pc'>PC</option>
-            <option value='steam'>Steam</option>
             <option value='epic-games-store'>Epic Games Store</option>
             <option value='ubisoft'>Ubisoft</option>
             <option value='gog'>GoG</option>
             <option value='icthio'>Icthio</option>
             <option value='ps4'>PS4</option>
             <option value='xbox-one'>Xbox One</option>
+            <option value='pc'>PC</option>
+            <option value='steam'>Steam</option>
             <option value='switch'>Switch</option>
             <option value='android'>Android</option>
             <option value='ios'>IOS</option>
@@ -30,13 +30,13 @@
         </select>
         <div class='container' >
             <div class="row row-cols-3">
-                <div v-for='free in freebies' class='col' id='game'>
-                    <p>{{ free.title }}</p>
-                    <img class="img-thumbnail" :src=free.thumbnail>
+                <div v-for='game in freebies' class='col' id='game'>
+                    <p>{{ game.title }}</p>
+                    <img class="img-thumbnail" :src=game.thumbnail>
                     <div class='container'>
                         <div class="row justify-content-md-left">
-                            <div class="col col-lg-5"><a  :href=free.gamerpower_url>Link</a></div>
-                            <div class="col col-lg-2"><button  id='dowanit'>Have/Don't Want</button></div>
+                            <div class="col col-lg-5"><a class="btn btn-outline-secondary" :href=game.gamerpower_url target='_blank'>getit</a></div>
+                            <div class="col col-lg-2"><button class="btn btn-outline-secondary" type="button" @click='removeGame(game)' id='donwanit'>donwanit</button></div>
                         </div>
                     </div>
                 </div>
