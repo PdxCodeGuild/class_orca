@@ -1,0 +1,192 @@
+@import url(https://fonts.googleapis.com/css?family=Satisfy); 
+@import url(https://fonts.googleapis.com/css?family=Six+Caps);
+* {
+    text-align: center;
+    margin:0;
+    padding:0;
+    background-color: lightgray;
+}
+
+/* Heading or all content before images */
+h1 {
+    padding-top: 6px;
+    font-family: Lucida Handwriting;
+}
+
+label {
+    font-size: 15px;
+}
+
+#apiIso {
+    color: red;
+}
+
+#unsplashIso {
+    color:steelblue;
+}
+
+input {
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input {
+    padding: 1px;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 4px;
+    font-size: 15px;
+}
+
+#searchBtn {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: white;  
+}
+
+button {
+    padding: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-family: sans-serif;
+    border-radius: 6px;
+}
+
+#searchBtn:hover{
+    background-color: red;
+    color: white;
+}
+
+#showAlbumBtn {
+    margin-top: 10px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-family:  Lucida Handwriting;
+    border-radius:0px;
+    border-top: 1px dotted;
+    border-bottom: 1px dotted;;
+}
+
+/* #allows the camer portion of the button to change color without "View Albums" for better styling */
+#cameraHover:hover{
+    color: red;
+}
+
+#nextPage {
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+#nextPage:hover {
+    color: red;
+}
+
+#pageNumberText {
+    font-size: 16px;
+}
+
+#lastPage{
+    margin-bottom: 6px;
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+#lastPage:hover {
+    color: red;
+}
+
+
+/* section for image styling */
+.imageContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    object-fit: contain;
+    justify-content: space-evenly;
+    margin-left: 16px;
+    margin-right: 16px;
+    border-top: 1px solid gray;
+}
+
+#images {
+    align-items: center;
+    padding: 6px;
+    object-fit: contain;
+    height: 200px;
+}
+
+#images:hover {
+    box-shadow: 0 0 10px black;
+}
+
+
+.collectionContainer {
+    padding-top: 6px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+#collection {
+    display: flex;
+    align-items: center;
+    max-height: 30vh;
+    justify-content: center;
+    padding: 6px;
+    padding-bottom: 0px;
+    background-color: white;
+}
+
+#collectionContainer {
+    box-shadow: 0 0 10px black;   
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+
+#viewAlbumBtn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+}
+
+/* button for 'View Album' displayed in the collections */
+#retroBtn {
+    padding: 0;
+    border: none;
+    background: none;
+    font-family:  Lucida Handwriting;;
+    width: 100px;
+    font-size: 16px;
+}
+
+#retroBtn:hover {
+    color: red;
+}
+
+#gallery {
+    align-items: center;
+    max-height: 30vh;
+    padding: 6px;
+}
+
+#gallery:hover{
+    box-shadow: 0 0 10px black;
+}
+
+#albumGallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+
+

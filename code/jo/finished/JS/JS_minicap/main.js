@@ -2,7 +2,8 @@ new Vue ({
     el:'#app',
     data : {
         freebies: [],
-        key: ''
+        key: '',
+        game: ''
     },    
     methods: {
         filterGames : function () {
@@ -13,16 +14,19 @@ new Vue ({
                     platform : this.key
                 }
             }).then (response => {
+                console.log(response.data)
                 this.freebies = response.data
             })
         },
         platformSelect(event) {
             key = event.target.value
             this.filterGames()
-            console.log(key, 'platform')
+            // console.log(key, 'platform')
         },
-        removeGame() {
-            
+        removeGame(game) {
+            console.log(game)
+            console.log(this.freebies)
+            this.freebies.splice(this.freebies.indexOf(game),1)
         }
     },
     mounted : function () {
