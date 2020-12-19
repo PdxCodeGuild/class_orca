@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unsplash, API</title>
+  <!-- font awesome link -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div id="app">
+        <!-- header portion of page. All data above images -->
+        <div id="logo"> 
+            <!-- spans used in h1 to give header style and multiple colors -->
+            <h1><span id="unsplashIso">Unsplash</span> <span id="punctIso">,</span>
+            <span id="apiIso">API</span></h1>
+
+            <!-- field where user enters their seach term followed by search button -->
+            <input type="text" v-model="searchTerm">
+            <button id="searchBtn" @click="search">Search Images</button>
+            <br>
+
+        
+            <!-- radio buttons for different dimensions for photos -->
+            <label for="landscapeCheckbox">Landscape</label>
+            <input type="radio" id="landscape" v-model="ori" value="landscape" name="landscapeCheckbox">
+
+            <label for="portraitCheckbox">Portrait</label>
+            <input type="radio" id="portrait" v-model='ori' value="portrait" name="portraitCheckbox">
+
+            <label for="squarishCheckbox">Square</label>
+            <input type="radio" id="spquarish" v-model='ori' value='squarish'  name="squarishCheckbox">
+
+            <!-- br used to push view albums box below for easier styling -->
+            <br>
+
+            <!-- albums button with font awesome symbol -->
+            <button id="showAlbumBtn" @click="collection">
+                  View Albums
+                <!-- br to push camera font awesome below for easier styling -->
+                <br>
+            <div id="cameraHover">
+                <i class="fas fa-camera-retro fa-2x"></i>
+            </div>
+            </button>
+        </div>
+ 
+        <!-- buttons for forward/backward page with font awesome buttons -->
+        <div id="pages">
+            <button id="lastPage" @click="lastPage" v-if="page > 1">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button id="nextPage" @click="nextPage">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+             
+            <!-- display the page number  -->
+            <p  id="pageNumberText">Page: {{page}}</p>
+        </div>
+
+        <!-- image displaying section -->
+        <div class="imageContainer">
+            <!-- looped over imageReturned array to get single images -->
+            <div v-for="image in imageReturned">
+                <img id="images" v-bind:src='image.urls.raw'>
+            </div>
+        </div>
+
+        <!-- if collection is shown, loop over collectionReturned to get single imgages for collection -->
+        <div v-if="show" class="collectionContainer">
+            <div id="collectionContainer" v-for="collection in collectionReturned">
+                <img id="collection" v-bind:src='collection.cover_photo.urls.raw'>
+                <div id="viewAlbumBtn">
+                    <button id='retroBtn' @click="viewAlbum(collection.preview_photos)">View Album</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- looped over albumGallery array to get single images -->
+         <div id="albumGallery" v-if="albumGallery">
+            <div v-for="galleryPhoto in albumGallery">
+                <img id="gallery" v-bind:src='galleryPhoto.urls.raw'> 
+            </div>
+        </div>    
+            
+    </div>
+    <!-- link axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

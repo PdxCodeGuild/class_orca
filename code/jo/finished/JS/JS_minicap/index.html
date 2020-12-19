@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="main.css" rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Free game stuff getter</h1>
+    <div id='app'>
+        <label for='platform'>Filter by platform:</label>
+        <select @change='platformSelect($event)' name='platform' id='platform' v-model='key'>
+            <option value='epic-games-store'>Epic Games Store</option>
+            <option value='ubisoft'>Ubisoft</option>
+            <option value='gog'>GoG</option>
+            <option value='icthio'>Icthio</option>
+            <option value='ps4'>PS4</option>
+            <option value='xbox-one'>Xbox One</option>
+            <option value='pc'>PC</option>
+            <option value='steam'>Steam</option>
+            <option value='switch'>Switch</option>
+            <option value='android'>Android</option>
+            <option value='ios'>IOS</option>
+            <option value='vr'>VR</option>
+            <option value='battlenet'>Battlenet</option>
+            <option value='origin'>Origin</option>
+            <option value='drm-free'>DRM Free</option>
+        </select>
+        <div class='container' >
+            <div class="row row-cols-3">
+                <div v-for='game in freebies' class='col' id='game'>
+                    <p>{{ game.title }}</p>
+                    <img class="img-thumbnail" :src=game.thumbnail>
+                    <div class='container'>
+                        <div class="row justify-content-md-left">
+                            <div class="col col-lg-5"><a class="btn btn-outline-secondary" :href=game.gamerpower_url target='_blank'>getit</a></div>
+                            <div class="col col-lg-2"><button class="btn btn-outline-secondary" type="button" @click='removeGame(game)' id='donwanit'>donwanit</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <p>{{free.platforms}}</p> -->
+            <!-- <p>{{ freebies }}</p> -->
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src='secrets.js'></script>
+    <script src='main.js'></script>
+</body>
+</html>
