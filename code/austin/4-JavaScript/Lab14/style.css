@@ -19,15 +19,16 @@ body {
 
 .card-deck {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    width: 70%;
+    width: 64%;
 }
 
 img {
     padding-left: 12px;
     padding-right: 12px;
-    padding-bottom: 12px;;
+    padding-bottom: 12px;
+    margin: auto;
 }
 
 .normal {
