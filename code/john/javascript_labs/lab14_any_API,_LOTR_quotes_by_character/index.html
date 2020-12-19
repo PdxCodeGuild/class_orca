@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 14: The One Lab to Rule Them All</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="main.css">
+
+    <script src="secrets.js"></script>  <!-- I do NOT want to defer this loading, but all other JS yes -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="main.js" defer></script>
+  </head>
+
+  <body class="main_container">
+    <div id="tolkien_quotes">
+      <div id="title">
+        <!-- <img src="https://en.wikipedia.org/wiki/Tolkien_Estate#/media/File:JRRT_logo.svg" alt="JRR Tolkien Estate Logo"> -->
+        <img src="800px-JRRT_logo.svg.png" alt="JRR Tolkien Estate Logo">*
+        <br>
+        <h3>"The One Lab to Rule Them All"</h3>
+            <!-- https://the-one-api.dev/documentation -->
+            <!-- https://www.clipartkey.com/view/ihJixiw_jrr-tolkien-logo/ -->
+            <!-- https://www.shutterstock.com/image-vector/white-tree-gondor-isolated-on-brown-1220057590 -->
+        <hr>
+      </div>
+      <div id="pagination_buttons">
+        <h3>Cycle through Results:</h3>
+        <button @click="page_backward" v-if="current_offset > current_limit" class="button_nav">← Backward</button>
+        <button @click="page_forward" v-if="(current_limit + current_offset) < 2390" class="button_nav">Forward →</button>
+        <br>
+        <br>
+        <button @click="get_random_quote" class="button_nav">Random</button>
+      </div>
+      <hr>
+      <div class="quote" v-for="quote_object in quotes_as_objects">
+        <p> 
+          <ul>
+            <li class="quote_font">"{{ quote_object.dialog }}"</li>
+            <li v-if="quote_object.character in character_ids_and_names"><strong>-{{ character_ids_and_names[quote_object.character] }}</strong></li>
+            <li v-else>-Undetermined</li>
+          </ul>              
+        </p>
+      </div>
+      <div class="section">
+        <h3>Random Quote by character:</h3>
+          <div id="character_button_nav">
+            <div v-for="character in character_array.slice(0,10)" class="fellowship_selection">
+              <button @click="get_quote_by_character(character)">{{ character.name }}</button>
+            </div>
+          </div>
+        <br>
+      </div>
+    </div>
+
+    <br>
+    <hr>
+
+    <footer>
+      <br>
+      *<a href="//en.wikipedia.org/wiki/File:JRRT_logo.svg" title="Fair use of copyrighted material in the context of J. R. R. Tolkien">Image: By Source, Fair use</a>, <a href="https://en.wikipedia.org/w/index.php?curid=9251026">Link</a>
+      <!-- https://en.wikipedia.org/wiki/Tolkien_Estate -->
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div id="to-do-list">
+        <h2>Outstanding to-do:</h2>
+        <ol>
+          <li>. . .</li>
+          <li>Try to add Hobbit movie quotes with API</li>
+          <li>Add: Component for quote block?</li>
+          <li>Add: Character radio buttons, races, movies, budgets, runtimes, </li>
+          <li>CSS:</li>
+            <ul>
+              <li>Perfect button sizes...</li>
+              <li>Colors...</li>
+              <li>.</li>
+              <li>.</li>
+            </ul>
+          <li>Change VUE to production Version!</li>
+          <li>. . .</li>
+          <li>BUG: Quotes don't always display with proper formatting.</li>
+          <li>BUG: Don't have every character input (I looked them up manually...).</li>
+          <li style="text-decoration: line-through;">(Completed items are commented out in the HTML:)</li>            
+          <!--
+            <li>Oldest here. . .</li>
+            <li>Rename app in HTML Div and VUE app load</li>
+            <li>Change Auth in JS to match docs</li>
+            <li>Delete Component and move that out!</li>
+            <li>Get some data!</li>
+            <li>Add function to pageload to display data if there</li>
+            <li>Add function to pageload to call API</li>
+            <li>Make pagination buttons change the OFFSET, not the page...</li>
+            <li>Get a random quote... offset? page?</li>
+          <li>Make page buttons send and change pages</li>
+          <li>Make page buttons appear only if pages > something</li>
+            <li>Make the main display search pass in character ID...then:</li>
+            <li>Make radio buttons for 2+ major characters, user input</li>
+            <li>Change Color to LOTR theme</li>
+            <li>Add a ring logo</li>
+            <li>Fonts!</li>
+
+            <li>NEWEST HERE, paste BEFORE here. . . . . . .</li>
+          -->
+        </ol>
+      </div>
+    </footer>
+
+  </body>
+</html>
+
+
+        <!--                 
+          there are 2390 movie quotes, 2 pages of 1000 and final page of 390.
+          
+            /movie :
+          5cd95395de30eff6ebccde5c MOVIE: Fellowship
+          5cd95395de30eff6ebccde5b MOVIE: Two Towers   
+          5cd95395de30eff6ebccde5d MOVIE: The Return Of The King
+
+            /book/: 
+          5cf5805fb53e011a64671582 The Fellowship Of The Ring
+          5cf58077b53e011a64671583 The Two Towers
+          5cf58080b53e011a64671584 The Return Of The King
+
+          /chapter EXAMPLE:
+            .docs[2] // (chapter 3)
+              _id	"5cdc25d5bc17e929cf246219"
+              bookName	"The Return Of The King"
+              chapterName	" Minas Tirith "
+         -->

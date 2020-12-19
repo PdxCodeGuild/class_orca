@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+/* John Fial, PDX Code Guild, 2020-2021, www.johnfial.com */
+/* *********** NOTES ************* */
+/* 
+    COLORS:, LOTR theme from Hobbit Door image: https://static.parade.com/wp-content/uploads/2020/09/lord-of-the-ringsquotes.jpg 
+    #F2134F bright red
+    #F2C166 skin/earth/beige tone
+    #D99C52 darker of above/skin/brown
+    
+    #534659 grey-ish
+    #53733C dark green 
+    #34402C super dark green
+    #261D26 almost black
+    MATH:
+        multiples of 5 !
+*/
+
+#pagination_buttons {
+    /* position: center; */
+}
+body {
+    /* display: flex; */
+    color: #87BF34;
+    background-color:#261D26;
+    font-family: 'MedievalSharp', cursive;
+    text-align: center;
+    padding: 1%;
+    max-width: 85%;
+    margin: auto;
+    width: auto;
+}
+.main_container {
+    /* display: flex; */
+    /* grid-row: 1; */
+    /* position: center; */
+    padding: 1%;
+}
+img {
+    max-width: 20%;
+}
+#character_button_nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+button {
+    background-color:#53733C; /* Green */
+    color:  #87BF34;
+    padding: 15px 32px;
+    text-align: center;
+    width: 125px;
+    font-size: 20px;
+    font-family: 'MedievalSharp', cursive;
+  }
+.button_nav {
+    font-size: 15px;
+}
+.quote {
+    /* display: flex; */
+    padding: 10px;
+    margin: 15px;
+    border: 3px solid #87BF34;
+    background-color: #34402C;
+    border-radius: 5%;
+}
+.quote_font {
+    font-family: cursive;
+}
+/* links on page*/
+a {
+    color: #F2134F;
+    text-decoration: none;
+    font-weight: bold;
+}
+#to-do-list {
+    border: dashed 3px;
+    font-family: 'Courier New', Courier, monospace;
+    /* text-decoration: line-through; */
+}
+/* RESPONSIVE CHANGES FOR BIGGER SCREENS */
+@media (min-width: 700px) {    
+    body {
+        max-width: 75%;
+    }
+    img {
+        max-width: 40%;
+    }
+}
+@media (min-width: 1000px) {
+    body {
+        max-width: 75%;
+    }
+}

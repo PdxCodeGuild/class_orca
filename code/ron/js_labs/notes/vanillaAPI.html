@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>API Demo</title>
+  </head>
+  <body>
+
+
+    <div id="target"></div>
+    <button id="quote_button" >Get random quote</button>
+
+    <script>
+
+    let target = document.getElementById("target");
+
+// Create new request   
+    let req = new XMLHttpRequest();
+
+// Define event listeners 
+    req.addEventListener("progress", function(e) {
+        console.log(e.loaded);
+    });
+    req.addEventListener("error", function(e) {
+        console.log(e.status);
+    });
+    req.addEventListener("load", function(e) {
+        console.log(req.responseText); // returns the raw text response
+        let response = JSON.parse(req.responseText);
+        console.log(response); // returns a JavaScript object
+        let resultHTML = 
+        `
+        <p>${response.quote.body}</p>
+        <p><i><a href="${response.quote.url}">${response.quote.author}</a></i></p>
+        `
+        textTarget.innerHTML = resultHTML;
+    });
+
+// Open the request
+    req.open("GET", "https://favqs.com/api/qotd");
+
+// Set any request headers
+    req.setRequestHeader("Authorization", 'Token="0869e4e2f2664a6852f4b04bd1d51065"');
+
+//Send the request
+    req.send()
+
+    </script>
+
+
+<!-- Javascript files -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="vanilla.js"></script>
+  </body>
+</html>
+
+

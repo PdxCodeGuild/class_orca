@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <title>Lab 14</title>
+  </head>
+   
+  <body> 
+
+    <!-- Utilizing modified Skeleton CSS for formatting ------>
+    <div class="container">
+      <div class="row">
+        <div class="one-half column" style="margin-top: 10%">
+
+          <!-- Begin app development ----------------------------------->
+          <div id="quoteApp">
+
+            <!-- Title and header info -->
+            <p><h4 style="display: inline"> Javascript Lab 14</h4>
+            <h5> Oregon  </h5></p>
+            <hr>
+            
+            <!-- Users enter text/type to search favqs -->
+            <p> Search </p>
+            <input name="search_text" type="text" v-model="search_text" placeholder="Search">
+            <select name="search_type" id="search_type" v-model="search_type">
+              <option value="keyword">Keyword</option>
+              <option value="author">Author</option>
+              <option value="tag">Tag</option>
+            </select>
+            <button @click="loadQuote">Find Quotes</button>
+
+            <hr> <!---- Line divider ---->
+
+            <!-- Quote List ------------->
+            <u>Quotes</u>
+            <div v-for="quote in quotes" :key="quote.id"> 
+                <p> {{ quote.body }} <br> -{{ quote.author }}</p>
+                <!-- <p> {{ num++ }}. &nbsp {{ quote.body }} <br> -{{ quote.author }}</p> -->
+            </div>
+
+            <!-- Navigation ------------->
+            <div>
+              <button v-if="current_page > 1" @click="previousPage">Previous Page</button>
+              <button @click="nextPage">Next Page</button>
+            </div>
+
+          </div>
+
+        <!-- End app development ---------------------------------------->
+        </div>
+      </div>
+    </div>
+
+    <!-- JS files -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="secrets.js"></script>
+    <script src="main.js"></script>
+
+    <!-- Closing tags -->
+  </body>
+</html> 
+

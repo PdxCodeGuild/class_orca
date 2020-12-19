@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Demo</title>
+  </head>
+
+  <body>
+
+    <div id="app">
+        <h1> my tasks </h1>
+        <input type="text" placeholder="Task Item" @keyup.enter="addTodo" v-model="newTodoText" >
+        <button @click="addTodo">Add to list</button>
+        <hr>
+        <ul v-if="incompleteTodos.length">
+            <h4> Incomplete </h4>
+            <li v-for="todo in incompleteTodos" :key="todo.id"> 
+                {{ todo.text }} 
+                <input type="checkbox" v-model="incompleteTodos">
+                <button @click="removeTodo(todo, $event)">x</button> 
+            
+            </li>
+        </ul>
+        <p v-else>No incomplete todos. Everthing is done</p>
+        <ul v-if="completeTodos.length">
+            <h4> Complete </h4>
+            <li v-for="todo in completeTodos" :key="todo.id"> 
+                <input type="checkbox" v-model="completeTodos">
+                {{ todo.text }} 
+            </li>
+        </ul>
+        <p v-else>No todos.  Everything is done. </p>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main11.js"></script>
+  </body>
+
+</html> 
+
