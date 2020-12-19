@@ -13,23 +13,45 @@
     <title>Notable Quotes</title>
 </head>
 <body>
-    <h1>Find a Quote</h1>
+        <div class="header">
+            <h1>Notable Quotes</h1>
+        </div>
+
         <div id="app">
-            <div class="input">
-                <p>Enter a search term</p>
-                <input type="text" v-model="searchTerm">
-                <button @click="loadQuote">Keyword</button>
-                <button @click="loadQuoteTag">Tag</button>
-                <button @click="loadQuoteAuthor">Author</button>
-            </div>
-            <div class="display">
-                <div v-for="quote in quotes" :key="quote.id">
+            <h2>Daily Quotes</h2>
+            <div class="rando">
+                <div v-for="quote in rando_quotes" :key="quote.id">
                     <p class="text">"{{ quote.body }}"</p>
                     <p class="author">{{ quote.author }}</p>
                     <hr>
                 </div>
             </div>
 
+            <h2>Find a Quote</h2>
+            <div class="input">
+                <p>Enter a search term</p>
+                
+                <total v-bind:total="total" v-if="total"></total>
+
+                <input type="text" v-model="searchTerm">
+                <button @click="loadQuote">Keyword</button>
+                <button @click="loadQuoteTag">Tag</button>
+                <button @click="loadQuoteAuthor">Author</button>
+            </div>
+
+            <div class="display">
+                <div v-for="quote in quotes" :key="quote.id">
+                    <p class="text">"{{ quote.body }}"</p>
+                    <p class="author">{{ quote.author }}</p>
+                    <hr>
+                </div>
+
+                <div class="show-page">
+                    <h6>Page {{ page }}</h6>
+                    <button @click="prevPage">&#x21D0;</button>
+                    <button @click="nextPage">&#x21D2;</button>
+                </div>
+            </div>
         </div>
 
 
@@ -40,3 +62,4 @@
 
 </body>
 </html>
+

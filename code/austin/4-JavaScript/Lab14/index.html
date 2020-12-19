@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Dog Lotto</title>
+</head>
+<body>
+        <div class="header">
+            <h1>Dog Lotto</h1>
+        </div>
+
+        <div id="app">
+
+            <div class="normal">
+                <button @click="loadDog" button class="btn play">Play</button>
+            </div>
+
+                <div class="results">
+                    <div v-for="dog in newList">
+                        <p>&nbsp;{{ dog }}&nbsp;&nbsp;</p>
+                    </div>
+                </div>
+                <div class="center">
+                    
+                    <div v-if="results != null">
+                        <div v-if="results > 0 && results < 4">
+                            <p>You have {{ results }} matches! You won a puppy! <a href="http://www.oregondogrescue.org/" target="_blank"><span>Claim here</span></a></p>
+                        </div>
+                        <div v-if="results > 3">
+                            <p>You have {{ results }} matches! Spend your ${{ results }} <a href="https://secure.aspca.org/donate/donate" target="_blank"><span>here</span></a></p>
+                        </div>
+                        <div v-if="results == 0">You have no matches! Please play again</div><br>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="card-deck">
+                        <div v-for="(dog, index) in randoDogs" :key="dog.id">
+                            <div class="card">
+                                <p>{{ dog.breed_group }}</p>
+                                <img
+                                    :src="dog.image.url"
+                                    class="dog"
+                                    :key="index"
+                                    alt="dog"
+                                    width="177"
+                                    height="150"
+                                />
+                            <div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="secrets.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
+

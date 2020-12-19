@@ -17,17 +17,20 @@
     <script src="main.js" defer></script>
 </head>
 
-
-
 <body>
     <div id="app_quotes">
+        <hr>        
+        <component_search @quotes_search_function="quotes_search_function" v-bind:search_terms="search_terms"></component_search>
+        <br>
         <hr>
-        
-        <component_search @quotes_search_function="quotes_search_function"></component_search>
-
+            <button @click="page_backward" v-if="current_page > 1">← Page</button>
+            <button @click="page_forward" v-if="">Page →</button>
         <hr>
+        <br>
 
         <h3>Quote Results:</h3>
+            <h3>    {{ quotes_as_objects.page }}    </h3>
+
         <div id="results" v-for="quote_object in quotes_as_objects" :key="quote_object.id">
             <p>
                 {{ quote_object.body }}
@@ -36,15 +39,22 @@
             </p>
         </div>
     </div>
-
     <br>
     <hr>
     <hr>
-
-    <div id="to_do_list"><h2>Outstanding to-do for lab13:</h2>
+    <div style="border: dashed 3px; width: 50%;" id="to-do-list"><h2>Outstanding to-do for lab13:</h2>
         <ul>
-            <li>Make page buttons appear only if pages > something</li>
-            <li>Make page buttons send and change pages</li>
+            <li>. . .</li>
+            <!-- <li>Mkae initial function pass in a SET search term</li> -->
+            <!-- <li>Make three buttons pass in functions</li> -->
+            <!-- <li>Bind button to function...</li> -->
+            <!-- <li>Make page buttons send and change pages</li> -->
+            <!-- <li>Make page buttons appear only if pages > something</li> -->
+            <li>Make choice a drop down, not 3 buttons!</li>
+            <li>Limit requested quotes</li>
+            <li>Make page forward dissapear if last_page=true (the v-if isn't correct)</li>
+            <li>. . .</li>
+            <li>. . .</li>
         </ul>
     </div>
 </body>
