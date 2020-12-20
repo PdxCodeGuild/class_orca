@@ -4,7 +4,7 @@ removed_list = []
 ready_list = []
 
 
-with open('day_1_data.txt', 'r') as get_file:
+with open('data.txt', 'r') as get_file:
     contents = get_file.read()
 
 
@@ -14,11 +14,12 @@ for i in contents:
         strings_List.append(',')
     else:
         strings_List.append(i)
-
+print(strings_List)
 
 for i in strings_List:
-    if i != ',':
+    if i == ',':
         number_list = ''.join(strings_List)
+print(number_list)
 
 removed_list = number_list.split(',')
 # print(removed_list)
@@ -44,7 +45,6 @@ while True:
         if i == 199:
             x += 1
             i = 0
-
 
 
 
