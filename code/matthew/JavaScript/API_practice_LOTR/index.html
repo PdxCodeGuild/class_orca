@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue </title>
+</head>
+<body>
+    <div id="app">
+        <h1>LOTR Quotes</h1>
+        <p>One button to rule them all </p>
+
+        <button @click="charList">Show Characters</button>
+        <div v-for="character in characters" :key="character._id" >
+            <p> {{character.name}} {{character.race}} </p>
+        <button @click="quotes(character)">Quotes</button>
+    
+        <div v-if="character.quotes">    
+            <div v-for="quote in character.quotes"  :key="quote._id" >>
+                <p> {{quote.dialog}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
