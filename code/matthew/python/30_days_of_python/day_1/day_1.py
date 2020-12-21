@@ -14,11 +14,12 @@ for i in contents:
         strings_List.append(',')
     else:
         strings_List.append(i)
-
+print(strings_List)
 
 for i in strings_List:
-    if i != ',':
+    if i == ',':
         number_list = ''.join(strings_List)
+print(number_list)
 
 removed_list = number_list.split(',')
 # print(removed_list)
@@ -47,31 +48,3 @@ while True:
 
 
 
-
-# print("the length of the list is: ", len(number_list))
-
-# print(numbers)
-
-# for i in number_list:
-#     if i == '0':
-#         digits.append('0)'
-#     if i == '1':
-#         indexed.append('1)
-#     elif i == '2':
-#         indexed.append(2)
-#     elif i == '3':
-#         indexed.append(3)
-#     elif i == '4':
-#         indexed.append(4)
-#     elif i == '5':
-#         indexed.append(5)
-#     elif i == '6':
-#         indexed.append(6)
-#     elif i == '7':
-#         indexed.append(7)
-#     elif i == '8':
-#         indexed.append(8)
-#     elif i == '9':
-#         indexed.append(9)
-#     else:
-#         indexed.append('\n')
