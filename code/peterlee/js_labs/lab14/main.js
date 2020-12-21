@@ -17,6 +17,7 @@ let vm = new Vue({
                 }
                 }). then(response => {
                     this.stocks = response.data;
+                    this.stocks
 
                 }) 
         }
