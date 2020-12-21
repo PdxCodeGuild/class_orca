@@ -7,24 +7,67 @@
     <title>Blog</title>
 </head>
 <body>
+    {% csrf_token %}
     <div id="app">
-    <p>[[ message ]]</p>
+        <ul>
+            <h1>Django Rest Framework Blog!</h1>
+            <li v-for="post in posts" :key="post.id">
+                <h3>[[ post.title ]]</h3>
+                <h4>By user #[[ post.author ]]</h4>
+                <h4>[[ post.created ]]</h4>
+                <p>[[ post.body ]]</p>
+            </li>
+        </ul>
+        <div>
+            <input type="text" placeholder="Title" v-model="newPost.title"><br>
+            <textarea placeholder="Post" v-model="newPost.body"></textarea><br>
+            <button @click="createPost">New Post</button>
+        </div>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script>
     let app = new Vue({
         el: '#app',
         delimiters: ['[[', ']]'],
         data: {
-            message: 'Hello world!',
+            posts: [],
+            newPost: {
+                "author": 1,
+                "title": "",
+                "body": ""
+            },
+            csrf_token: "",
         },
         methods: {
-            logMessage: function () {
-                console.log(this.message);
-        }
+            loadPosts: function() {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/posts/'
+                }).then(response => {
+                    this.posts = response.data
+                })
+            },
+            createPost: function() {
+                axios({
+                    method: 'post',
+                    url: '/api/v1/posts/',
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: this.newPost
+                }).then(response => {
+                    this.loadPosts()
+                }).catch(error => {
+                    console.log(error.response)
+                })
+            }
         },
-        mounted: function () {
-            this.logMessage();
+        created: function() {
+            this.loadPosts()
+        },
+        mounted: function() {
+            this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
         }
     });
     </script>
