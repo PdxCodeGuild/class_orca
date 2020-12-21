@@ -52,7 +52,7 @@ body{
 .winStatement{
     font-family: RoyalFlush;
     font-size: 76px;
-    color: black;
+    color:red;
     text-align: center;
 }
 
@@ -108,4 +108,8 @@ th, td{
 #dealer-hand-label{
     font-size: 32px;
     color: whitesmoke;
+}
+
+#hitBtn{
+    margin-right: 15px;
 }

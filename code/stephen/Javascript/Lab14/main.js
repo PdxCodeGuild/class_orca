@@ -160,7 +160,10 @@ let vm = new Vue({
                 this.playerValue.push(playerCard3Value)
                 
                 this.playerTotal = this.playerValue.reduce((a, b) => a + b, 0)
-                if (this.playerTotal > 21) {
+                if (this.playerValue.includes(11) && this.playerTotal > 21) {
+                    this.playerTotal = this.playerTotal - 10
+                }
+                else if (this.playerTotal > 21) {
                     this.playerBusted = true
                     this.dealerWins++
                 }
@@ -213,7 +216,10 @@ let vm = new Vue({
             // if (this.dealerTotal <= 16) {
             //     this.dealerHit()
             // }
-            if (this.dealerTotal > 21) {
+            if (this.dealerTotal > 21 && this.dealerValue.includes(11)) {
+                this.dealerTotal = this.dealerTotal - 10
+            }    
+            else if (this.dealerTotal > 21){   
                 this.dealerBusted = true
                 this.playerWins++
                 console.log(this.dealerBusted)
@@ -222,16 +228,16 @@ let vm = new Vue({
 
         }, 
         calcWinner: function() {
-            if (this.playerTotal > this.dealerTotal){
+            if (this.playerTotal > this.dealerTotal && this.dealerTotal <= 21 && this.playerTotal <= 21){
                 this.playerWins++
                 this.youWon = true
 
             }
-            else if (this.playerTotal < this.dealerTotal){
+            else if (this.playerTotal < this.dealerTotal && this.dealerTotal <= 21 && this.playerTotal <= 21){
                 this.dealerWins++
                 this.dealerWon = true
             }
-            else if (this.playerTotal === this.dealerTotal){
+            else if (this.playerTotal === this.dealerTotal && this.dealerTotal <= 21 && this.playerTotal <= 21){
                 this.tied++
                 this.youTied = true
             }
