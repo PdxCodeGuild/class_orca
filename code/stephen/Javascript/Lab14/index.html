@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Any API Lab</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2" id="left-column">
+                    <div id="startBtns">
+                        <button @click="getNewDeck" id="newGameBtn" class="btn btn-primary btn-lg">New Game</button><br/>
+                        <button @click="dealCards" class="btn btn-primary btn-lg">Deal Cards</button>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div id="dealerHand"> 
+                            <h3 v-show="playing" id="dealer-hand-label">Dealer Hand</h3>  
+                        <div id="dealer" v-show="!hiding">
+                            <p v-for="img in dealerImgs"><img :src='img' class="cards"></p>
+                        </div>
+                        <div v-show="hiding">
+                            <img :src="dealerImgs[0]" class="cards"><img src="cardback.jpg" class="cards">
+                        </div>
+                        <div v-show="playing && stayed" id="dealer-total">
+                            <p>Dealer total is: {{dealerTotal}}</p>
+                        </div>
+                    </div>
+                    <div id="winStatementDiv">
+                        <p v-show="youWon" class="winStatement">You won</p>
+                        <p v-show="dealerWon" class="winStatement">Dealer wins</p>
+                        <p v-show="youTied" class="winStatement">You tied</p>
+                        <p v-show="blackjack" class="winStatement">Blackjack You win </p>
+                        <p v-show="dealerBusted" class="winStatement">Dealer busted Winner </p>
+                        <p v-show="playerBusted" class="winStatement">You busted Dealer wins </p>
+                    </div>
+                    <div id="btns">
+                        <button @click="playerHit" v-show="playing && !stayed && !playerBusted">Hit</button>
+                        <button @click="stay" v-show="playing && !stayed && !playerBusted">Stay</button>
+                    </div>
+                    <div id="playerHand">
+                        <div id="player">
+                            <p v-for="img in playerImgs"><img :src='img' class="cards"></p>
+                        </div><br><br>
+                        <div v-show="playing" id="player-total">
+                            <p>Your total is: {{playerTotal}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div id="winTallyDiv">
+                        
+                        <table id="winTallyTable">
+                            <tr>
+                                <th colspan="3">WIN TALLY</th>
+                            </tr>
+                            <tr>
+                                <td>Player</td>
+                                <td>Dealer</td>
+                                <td>Ties</td>
+                            </tr>
+                            <tr>
+                                <td>{{playerWins}}</td>
+                                <td>{{dealerWins}}</td>
+                                <td>{{ties}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>&copy; 2020</footer>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>   
+</body>
+</html>
