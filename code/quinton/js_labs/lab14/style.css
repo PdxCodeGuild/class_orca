@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'montserrat', sans-serif;
+}
+
+#app {
+    background-image: url('movie.jpg');
+    background-size: cover;
+    background-position: bottom;
+}
+
+main {
+    min-height: 100vh;
+    padding: 25px;
+
+    background-image: linear-gradient(to bottom, rgba(0,0,0,.5), rgba(0,0,0,.85));
+}
+
+.search-box {
+    display: block;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.search-box .search-bar {
+    display: block;
+    width: 100%;
+    padding: 15px;
+
+    color: #313131;
+    font-size: 20px;
+
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, .25);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0px 16px 0px 16px;
+    transition: 0.5s;
+}
+
+.search-box .search-bar:focus {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, .25);
+    background-color: rgba(255, 255, 255, .75);
+    border-radius: 16px 0px 16px 0px;
+}
+
+.movie-title {
+    color: #FFF;
+    font-size: 60px;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 2px 4px rgba(0, 0, 0, .25);
+    text-emphasis-style: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.movie-rated {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.movie-date {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.movie-runtime {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.movie-plot {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+.movie-actors {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.movie-rating {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.movie-favorites {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+h2 {
+    color: #FFF;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+i {
+    color: white;
+    font-size: 30px;
+    transition-duration: 0.4s
+
+}
+i:hover {
+    color: red;
+}
+

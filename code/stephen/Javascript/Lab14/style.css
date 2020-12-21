@@ -1,0 +1,115 @@
+@font-face {
+    font-family: RoyalFlush;
+    src:url('RoyalFlushRegular-Dev1.ttf')
+}
+body{
+    background-image: url('blackjack.jpg') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#player{
+    display: flex;
+    flex-direction: row;
+}
+
+.cards{
+    max-width: 80px;
+    max-width: 165px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#dealer{
+    display: flex;
+    flex-direction: row;
+}
+
+#dealerHand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 140px;
+    margin-bottom: 10px;
+}
+
+#playerHand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+#btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.winStatement{
+    font-family: RoyalFlush;
+    font-size: 76px;
+    color:red;
+    text-align: center;
+}
+
+#winStatementDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#winTallyTable{
+    /* border: 1px solid black; */
+    font-size: 40px;
+    color: whitesmoke;
+}
+
+#winTallyDiv{
+    margin-top: 430px;
+    font-size: 40px;
+    
+}
+#left-column{
+    min-height: 1000px;
+    align-content: center;
+}
+
+
+table, th, td {
+    border: 2px solid black;
+    text-align: center;
+  }
+
+th, td{
+    padding: 5px;
+    
+}
+
+#startBtns{
+    margin-top: 450px;
+    font-size: 40px;
+}
+
+#dealer-total{
+    font-size: 32px;
+    color: whitesmoke;
+}
+
+#player-total{
+    font-size: 32px;
+    color: whitesmoke;
+    margin-top: -30px;
+}
+
+#dealer-hand-label{
+    font-size: 32px;
+    color: whitesmoke;
+}
+
+#hitBtn{
+    margin-right: 15px;
+}

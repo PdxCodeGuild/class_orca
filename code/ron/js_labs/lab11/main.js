@@ -1,14 +1,14 @@
 
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 //         Project: Javascript & Vue
-//  Assignment/Ver: Lab 7
+//  Assignment/Ver: Lab 11
 //          Author: Ron Mansolilli, ron.mansolilli@gmail.com
-//            Date: 12-10-2020
+//            Date: 12-11-2020
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 
 // ----Instructions and notes--------------------------------
 
-    /* To List (JS & Vue)
+    /* To Do List (JS & Vue)
 
     Notes:
     1. Store an array of objects (the todos themselves)

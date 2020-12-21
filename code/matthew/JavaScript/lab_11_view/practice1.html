@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue </title>
+</head>
+<body>
+
+<div id="app">
+  <input v-model="textInput">
+  <button v-on:click="addToListBtn">Enter</button>
+  <p v-for="(item, index) in toDoList">
+   {{item}}</p>
+
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="practice1.js"></script>
+</body>
+</html>
