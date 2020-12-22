@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f0168edacd.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <main>
+            <div class='search-box'>
+                <input placeholder="Search Movie..." type="text" class='search-bar' v-model="searchTerm" @keyup.enter="checkMovie">
+            </div>
+            <div v-if="typeof movie.Title != 'undefined'" class='title'>
+                <div class='movie-title'>{{ movie.Title }} <p @click='addToFavorites'><i class="fas fa-star"></i></p></div>
+                <div class='movie-rated'>Rated {{ movie.Rated }}</div>
+                <div class='movie-date'>Released {{ movie.Released }}</div>
+                <div class='movie-runtime'>Runtime {{ movie.Runtime }}</div><br>
+                
+                <div class='movie-plot'>
+                    <h2>Plot:</h2>
+                    {{ movie.Plot }}
+                </div>
+                <div class='movie-actors'>
+                    <h2>Starring:</h2>
+                    {{ movie.Actors }}
+                </div>
+                <div class='movie-actors'>
+                    <h2>Directed by:</h2>
+                    {{ movie.Director }}
+                </div>
+                
+                <div class='movie-rating'>
+                    <h2>Rating:</h2>
+                    {{ movie.Ratings[0].Value }} from {{ movie.Ratings[0].Source }} 
+                </div>
+                <div class='favorite-button'>
+                    <p @click='addToFavorites'><i class="fas fa-star"></i></p>
+                </div>
+                <div class='show-favorite-button'>
+                    <button @click='favoritesToggle'>Show Favorites</button>
+                </div>
+                <div v-if="showFavorites == true">
+                    <div v-for="favorite in favorites" class='movie-favorites'>
+                    <button value="favorite.Title" v-on:click='checkMovie(favorite.Title)'>{{ favorite.Title }}</button>, {{ favorite.Year}}
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src='main.js'></script>
+    <script src='secrets.js'></script>
+</body>
+</html>

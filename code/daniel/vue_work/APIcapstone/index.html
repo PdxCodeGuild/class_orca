@@ -4,37 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>Info App</title>
 </head>
 
 <body>
-    
-    <div id="weather-app">
-
-        <input v-model="locationText" @keydown.enter="getLocation" type="text" placeholder=" Enter location" style="width: 250px">
-        <button @click="getLocation" type="submit">Search</button>
-
-        <div v-if="conditions.current">
-
-            <p>{{ location.adminArea5 }} {{ location.adminArea3 }}  
-            {{conditions.current.weather[0].description}}  {{ conditions.current.temp }}F</p>            
-            <current-conditions :conditions="conditions"></current-conditions> 
-            <!-- <hourly-conditions :conditions="conditions"></hourly-conditions> 
-            <daily-conditions :conditions="conditions"></daily-conditions>  -->
-        </div>
-
-    </div>
-
-    <div id="news-app">
-
+    <div id="info-app">
+        <weather-app></weather-app>
+        <news-app></news-app> 
     </div>
 
     <div class="scripts">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="script.js"></script>
+        <script src="weather.js"></script>
         <script src="news.js"></script>
-        <!-- <script src="secrets.js"></script> -->
+        <script src="secrets.js"></script>
+        <script src="main.js"></script>
     </div>
 
 </body>

@@ -16,8 +16,9 @@ let vm = new Vue({
                     apikey: `${apiKey}`
                 }
                 }). then(response => {
-
                     this.stocks = response.data;
+                    this.stocks
+
                 }) 
         }
 

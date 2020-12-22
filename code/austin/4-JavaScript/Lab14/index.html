@@ -17,29 +17,49 @@
             <h1>Dog Lotto</h1>
         </div>
 
+
         <div id="app">
 
             <div class="normal">
-                <button @click="loadDog">Play</button>
+                <button @click="loadDog" button class="btn play">Play</button>
             </div>
 
-            <div class="rando">
-                    <div v-for="(dog, index) in randoDogs" :key="dog.id">
-                        <div class="card">
-                            <p>{{ dog.breed_group }}</p>
-                            <img
-                                :src="dog.image.url"
-                                class="dog"
-                                :key="index"
-                                alt="dog"
-                                width="177"
-                                height="150"
-                            />
-                        <div>
+                <div class="results">
+                    <div v-for="dog in newList">
+                        <p>&nbsp;{{ dog }}&nbsp;&nbsp;</p>
                     </div>
                 </div>
-        
-            
+                <div class="center">
+                    
+                    <div v-if="results != null">
+                        <div v-if="results > 0 && results < 4">
+                            <p>You have {{ results }} matches! You won a puppy! <a href="http://www.oregondogrescue.org/" target="_blank"><span>Claim here</span></a></p>
+                        </div>
+                        <div v-if="results > 3">
+                            <p>You have {{ results }} matches! Spend your ${{ results }} <a href="https://secure.aspca.org/donate/donate" target="_blank"><span>here</span></a></p>
+                        </div>
+                        <div v-if="results == 0">You have no matches! Please play again</div><br>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="card-deck">
+                        <div v-for="(dog, index) in randoDogs" :key="dog.id">
+                            <div class="card">
+                                <p>{{ dog.breed_group }}</p>
+                                <img
+                                    :src="dog.image.url"
+                                    class="dog"
+                                    :key="index"
+                                    alt="dog"
+                                    width="177"
+                                    height="150"
+                                />
+                            <div>
+                        </div>
+                    </div>
+                </div>
         </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

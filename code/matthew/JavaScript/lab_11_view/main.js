@@ -7,20 +7,17 @@ var app = new Vue({
 
   },
   methods: {
-    appendList: function () {
+    appendList: function() {
       this.pendingList.push(this.textInput) 
       // this.pendingList.push(textInput.value) 
     },
-    deleteBtn: function (index) {
-      console.log(index)
+    deleteBtn: function(index) {
       this.pendingList.splice(index, 1)
     },
-    checked: function (index) {
-      console.log(index)
+    checked: function(index) {
       this.completedList.push(this.textInput) 
     },
     compltedDeleteBtn: function (index) {
-      console.log(index)
       this.completedList.splice(index, 1)
     }
   }
