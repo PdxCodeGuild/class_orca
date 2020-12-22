@@ -60,9 +60,12 @@ let vm = new Vue({
                 this.youWon = false
                 this.dealerWon = false
                 this.youTied = false
+                this.dealerHitting = false
+
                 this.deckId = response.data.deck_id
                 this.cardsRemaining = response.data.remaining
                 // console.log(this.deckId)
+                this.dealCards()
             })
         },
         dealCards: function() {
@@ -211,7 +214,13 @@ let vm = new Vue({
             this.stayed = true
             console.log(this.dealerTotal)
             if (this.dealerTotal <= 16) {
+                this.dealerHitting = true
                 this.dealerHit()
+                this.dealerHitting = false
+                
+            }
+            if (this.dealerTotal > 16 && this.dealerTotal <= 21) {
+                this.dealerHitting = false
             }
             // if (this.dealerTotal <= 16) {
             //     this.dealerHit()
@@ -219,8 +228,9 @@ let vm = new Vue({
             if (this.dealerTotal > 21 && this.dealerValue.includes(11)) {
                 this.dealerTotal = this.dealerTotal - 10
             }    
-            else if (this.dealerTotal > 21){   
+            if (this.dealerTotal > 21){   
                 this.dealerBusted = true
+                this.dealerHitting = false
                 this.playerWins++
                 console.log(this.dealerBusted)
             }
@@ -232,6 +242,10 @@ let vm = new Vue({
                 this.playerWins++
                 this.youWon = true
 
+            }
+            else if (this.playerTotal <= 21 && this.dealerTotal > 21) {
+                this.youWon = true
+                this.playerWins++
             }
             else if (this.playerTotal < this.dealerTotal && this.dealerTotal <= 21 && this.playerTotal <= 21){
                 this.dealerWins++
