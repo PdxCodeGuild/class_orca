@@ -1,26 +1,19 @@
  
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 //         Project: Javascript & Vue
-//  Assignment/Ver: Lab 13
+//  Assignment/Ver: Lab 14
 //          Author: Ron Mansolilli, ron.mansolilli@gmail.com
-//            Date: 12-15-2020
+//            Date: 12-18-2020
 //  *'-.-'*'-.-'*'-.-'*-.-'*-.-'*-.-'*-.-'*'-.-'*'-.-'*'-.-'*
 
 // ----Instructions and notes--------------------------------
 
-    /* Famous Quote Page/App (JS, Vue, & Axios)
+    /* Oregon Affordable Housing Information (JS, Vue, & Axios)
 
     Notes:
 
     1. Your app must use Vue to fetch data and interact with the 
-    results. (complete)
-    2. Let the user enter a search term and select whether to 
-    search by keyword, author, or tag. (complete)
-    3. Implement pagination buttons when the search returns more 
-    than 25 quotes.
-    4. When the page first loads, show the user a set of completely 
-    random quotes.
-    5. You must have at least one Vue component in your app.
+    results. 
 
     */
 
@@ -36,79 +29,97 @@
 
 var app = new Vue({
 
-    el: '#quoteApp',     //'el' is element name to ref in html
+    el: '#housingApp',     //'el' is element name to ref in html
 
   //Data
     data: {
 
       //temp data storage             
-      search_text: '',
-      search_type: 'keyword',
+      select_county: '',
+      select_city: '',
+
       //Data array for quotes
-      quotes: [],
+      housingData: [],
+
       //Random variables 
       num: 1,
-      current_page: 1,
+      currentPage: 1,
+
     },
 
   //Methods
     methods: {
       
-      //Return quotes based on Search Button
-      loadQuote: function() {
+      //Load housing info from data.oregon to housingData array
+      housingInfo: function() {
         axios({
-            // url: "https://favqs.com/api/qotd",
-            url: "https://favqs.com/api/quotes",
-            method: "get",
-            headers: {
-                "Authorization": `Token token="${apiKey}"`
+            url: "https://data.oregon.gov/resource/bq26-qyg4.json",
+            method: "GET",
+            // dataType: "json",
+            data: {
+              // "status": "CLOSED",
+              "$$app_token": apiKey
             },
-            params: {
-                filter: this.search_text,
-                type: this.search_type,
-                page: this.current_page,
-            },
+            // headers: {
+            //     "app_token": apiKey
+            // },
+            // params: {
+            //     //None
+            // },
         }).then(response => {
-            console.log(response.data.quotes),
-            this.quotes = response.data.quotes       
+            // console.log(response.data.housingData),
+            // console.log("Got the data")
+            // console.log(response)
+            this.housingData = response.data       
             })
         },
 
-      firstQuote: function() {
-        axios({
-            url: "https://favqs.com/api/quotes",
-            method: "get",
-            headers: {
-                "Authorization": `Token token="${apiKey}"`
-            },
-            params: {
-              // None //
-            },
-        }).then(response => {
-            console.log(response.data.quotes),
-            this.quotes = response.data.quotes       
-            })
-        },
+      //   $.ajax({
+      //     url: "https://data.oregon.gov/resource/bq26-qyg4.json",
+      //     type: "GET",
+      //     data: {
+      //       "$limit" : 5000,
+      //       "$$app_token" : "YOURAPPTOKENHERE"
+      //     }
+      // }).done(function(data) {
+      //   alert("Retrieved " + data.length + " records from the dataset!");
+      //   console.log(data);
+      // });
+
+  //     firstQuote: function() {
+  //       axios({
+  //           url: "https://favqs.com/api/quotes",
+  //           method: "get",
+  //           headers: {
+  //               "Authorization": `Token token="${apiKey}"`
+  //           },
+  //           params: {
+  //             // None //
+  //           },
+  //       }).then(response => {
+  //           console.log(response.data.quotes),
+  //           this.quotes = response.data.quotes       
+  //           })
+  //       },
       
-      nextPage: function() {
-        console.log("hi")
-        this.current_page++
-        this.loadQuote()
-      },
+  //     nextPage: function() {
+  //       console.log("hi")
+  //       this.currentPage++
+  //       this.loadQuote()
+  //     },
 
-      previousPage: function() {
-        this.current_page--
-        this.loadQuote()
+  //     previousPage: function() {
+  //       this.currentPage--
+  //       this.loadQuote()
+  //     }
+  //   },
+
+    // Initial load housing info (on page initialization)
+    },
+    created: function() {
+      // console.log('Created called.');
+      this.housingInfo();
       }
-    },
-
-  // Initial load of quotes (on page initialization)
-    created() {
-
-      console.log('created called.');
-      this.firstQuote();
-
-    },
 
 })
 

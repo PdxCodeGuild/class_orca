@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vue </title>
+</head>
+<body>
+    <div id="app">
+        <h1>Random Facts</h1>
+        <p>Enter a Number</p>
+        <input type="text" v-model="searchTerm">
+        <button @click="randomFact">Random Fact</button>
+        <p> {{ fact }} </p>
+    
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

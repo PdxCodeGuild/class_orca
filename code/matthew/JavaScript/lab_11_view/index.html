@@ -10,16 +10,18 @@
   <p>To Do List:</p>
   <p v-for="(item, index) in pendingList"> 
    <!-- (item, index) works as enumerate in python -->
-    {{item}}
+    {{item}} 
+    <!-- {{index}} -->
 
       <button v-on:click="deleteBtn(index)">X</button>
       <input type="checkbox" v-on:click="checked(index)">
   </p>
 
   <p>Completed:</p>
+  <!-- index is position in left  -->
   <p v-for="(item, index) in completedList">
     {{item}}
-
+        
     <button v-on:click="compltedDeleteBtn(index)">x</button>
   </p>
 
