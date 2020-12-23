@@ -5,84 +5,113 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Django Lab06 REST Framework with VUE</title>
-      <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
   </head>
+
   <body>
     
+    <div id="app">
+      <div id="auth">
+        {% if user.is_authenticated %}
+          {% csrf_token %}  
+          <h1>Welcome {{ user.username }}!</h1>
+          <p>
+            <a href="{% url 'logout' %}">Logout</a>
+          </p>
+            <!-- in a real app, this is still pretty lame authentication to create a new user, and I know it'd be unacceptable! -->
 
-  <div id="app">
-    {% if user.is_authenticated %}
-      {% csrf_token %}  
-      <h1>Welcome {{ user.username }}!</h1>
+            <hr>
 
-      Here's some <strong>HTML!</strong>
+            <div id="student_list">
+                <ol>
+                    <li v-for="student in students" :key="student.id">
+                        <h3>[[ student.last_name ]], [[ student.first_name ]].</h3>
+                        <ul>
+                          <li>Class: [[ student.cohort ]], capstone: <a :href="student.capstone">[[ student.capstone ]]</a></li>
+                          <li>Favorite topic: [[ student.favorite_topic ]]</li>
+                          <li>Favorite teacher: [[ student.favorite_teacher ]]</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+      
+            <hr>
+              
+            <div>
+              <h2>Create New Student:</h2>
+              <input type="text" placeholder="Student" v-model="new_student.first_name"><br>
+              <input type="text" placeholder="last_name" v-model="new_student.last_name"><br>
+              <input type="text" placeholder="cohort" v-model="new_student.cohort"><br>
+              <input type="text" placeholder="favorite_topic" v-model="new_student.favorite_topic"><br>
+              <input type="text" placeholder="favorite_teacher" v-model="new_student.favorite_teacher"><br>
+              <input type="text" placeholder="capstone" v-model="new_student.capstone"><br> 
+              <button @click="createStudent">Create New Student</button>
+            </div>
+        </div>
 
-      <ul>
-          <li>Your frontend should display a list of students upon loading. </li>
-          <li>It should also offer the ability to create new students in the database.</li>
-      </ul>
-      <hr>
-      <div>
-        <h2>Create New Student</h2>
-        <input type="text" placeholder="Student" v-model="new_student.first_name"><br>
-        <input type="text" placeholder="last_name" v-model="new_student.last_name"><br>
-        <input type="text" placeholder="cohort" v-model="new_student.cohort"><br>
-        <input type="text" placeholder="favorite_topic" v-model="new_student.favorite_topic"><br>
-        <input type="text" placeholder="favorite_teacher" v-model="new_student.favorite_teacher"><br>
-        <input type="text" placeholder="capstone" v-model="new_student.capstone"><br>
-        <button @click="createStudent()">Create New Student</button>
+
+      <div id="auth">
+        {% else %}  <!-- ELSE (IF NOT AUTHENTICATED! ) -->
+          <h1>Welcome, visitor!</h1>
+          <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %}
       </div>
+    </div>
 
-      <p><a href="{% url 'logout' %}">Logout</a><p>
-      </div>
-  {% else %}
-    <h1>Welcome, visitor!</h1>
-    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-  {% endif %}
-<script>
-let app = new Vue({
-  el: '#app',
-  delimiters: ['[[', ']]'],
-  data: {
-    students: [],
-    csrf_token: "",
-    new_student: {
-      first_name: "",
-      last_name: "",
-      cohort: "",
-      favorite_topic: "",
-      favorite_teacher: "",
-      capstone: "",
-    },
-  },
-  methods: {
-    showStudents: function() {
-      axios({})
-    },
-    createStudent: function() {
-      axios({
-        method: 'post',
-        // fix this
-        url: '', // '/api/v1/posts/'
-        headers: {
-          'X-CSRFToken': this.csrf_token
+    <script src="https://unpkg.com/axios/dist/axios.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" ></script>
+    <script>
+    new Vue({
+      el: '#app',
+      delimiters: ['[[', ']]'],
+      data: {
+        students: [],
+        csrf_token: "",
+        new_student: {
+          first_name: "",
+          last_name: "",
+          cohort: "",
+          favorite_topic: "",
+          favorite_teacher: "",
+          capstone: "",
         },
-        data: this.new_student,
-      }).then(response => {
+      },
+      methods: {
+        showStudents: function() {
+          axios({
+            method: 'get',
+            url: 'api/v1/students/',        
+          }).then(response => {
+            this.students = response.data
+          }).catch(error => {
+            console.log(`showStudents() function`)
+            console.log(error.response.data)
+          })
+        },
+        createStudent: function() {
+          axios({
+            method: 'post',
+            url: '/api/v1/students/',
+            headers: {
+              'X-CSRFToken': this.csrf_token
+            },
+            data: this.new_student,
+          }).then(response => {
+            // this.showStudents()
+            location.reload()
+          }).catch(error => {
+            console.log(`createStudent() function`)
+            console.log(error.response.data)
+          })
+        },
+      },
+      created: function() { // ... what is this created() for again?
         this.showStudents()
-      }).catch(error => {
-        console.log(error.response)
-      })
-    },
-  },
-  created: function() {
-    this.showStudents()
-  },
-  mounted: function() {      
-    this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-  },
-})
-</script>
-</body>
+      },
+      mounted: function() {      
+        this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        this.showStudents()
+      },
+    })
+    </script>
+  </body>
 </html>
