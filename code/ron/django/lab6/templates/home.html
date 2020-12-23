@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
+    <title>Lab 14</title>
+  </head>
+   
+  <body> 
+
+    <!-- Utilizing modified Skeleton CSS for formatting ------>
+    <div class="container">
+      <div class="row">
+        <div class="one-half column" style="margin-top: 10%">
+
+          <!-- Begin html/django code  ----------------------------------->
+          <div>
+            {% if user.is_authenticated %}
+                <h1>Welcome {{ user.username }}!</h1>
+                <p><a href="{% url 'logout' %}">Logout</a><p>
+            {% csrf_token %}
+
+                <div id="app">
+                    <ul>
+                        <h3>Students</h3>
+                        <li v-for="student in Students" :key="student.id">
+                            <h4>[[ student.first_name ]]</h4>
+                            <h4>[[ student.last_name ]]</h4>
+                            <h4>[[ student.cohort ]]</h4>
+                        </li>
+                    </ul>
+                </div>
+
+            {% else %}
+                <h1>Welcome, visitor!</h1>
+                <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+          </div>
+        <!-- End django ----------------------------------------------->
+        </div>
+      </div>
+    </div>
+
+    <!-- JS files -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- Vue script ----------------------------------------------------->
+    <script>
+    let app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            posts: [],
+            users: [],
+            newStudent: {
+                "first_name": "",
+                "last_name": "",
+                "cohort": ""
+            },
+            csrf_token: "",
+            postErrors: {}
+        },
+        methods: {
+            loadStudents: function() {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/students/'
+                }).then(response => {
+                    this.posts = response.data
+                })
+            },
+        },
+        created: function() {
+            this.loadStudents()
+        },
+        mounted: function() {
+            this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        }
+    });
+    </script>
+
+  <!-- Closing tags -->
+  </body>
+</html> 
+

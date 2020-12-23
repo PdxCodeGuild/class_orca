@@ -20,15 +20,16 @@
         <ul>
             <h1>Student List</h1>
             <li v-for="student in students" :key="student.id">
-                <p>[[ student.first_name ]]</p>
-                <p>[[ student.last_name ]]</p>
-                <p>[[ student.cohort ]]</p>
-                <p>[[ student.favorite_topic ]]</p>
-                <p>[[ student.favorite_teacher ]]</p>
-                <p>[[ student.capstone ]]</p>
+                <p>First name: [[ student.first_name ]]</p>
+                <p>Last name: [[ student.last_name ]]</p>
+                <p>Cohort: [[ student.cohort ]]</p>
+                <p>Favorite Topic: [[ student.favorite_topic ]]</p>
+                <p>Favorite Teacher: [[ student.favorite_teacher ]]</p>
+                <p>Capstone URL: [[ student.capstone ]]</p>
             </li>
         </ul>
         <div>
+            <h1>New Student Entry</h1>
             <input type="text" placeholder="First Name" v-model="newStudent.first_name"><br>
             <input type="text" placeholder="Last Name" v-model="newStudent.last_name"><br>
             <input type="text" placeholder="Cohort" v-model="newStudent.cohort"><br>

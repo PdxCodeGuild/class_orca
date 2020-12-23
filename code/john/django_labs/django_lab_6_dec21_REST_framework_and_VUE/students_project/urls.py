@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+# this is the students_project PROJECT urls.py file!
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/', include('api_app.urls')),
     path('user/', include('django.contrib.auth.urls')),
     path('user/', include('users.urls')),
     path('', include('students.urls'))

@@ -1,24 +1,11 @@
 html {
     background-color: black;
-}
-
-header {
-    text-align: center;
-    font-family: sans-serif;
     color: white;
-    padding: 20px;
 }
 
-body {
+#navbar {
     display: flex;
-    flex-direction: column;
-    padding: 12px;
-    margin: 12px;
-}
-
-nav {
-    display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 a:link {
@@ -28,18 +15,38 @@ a:link {
     color: honeydew;
 }   
 
+
+#UL1 {
+    position: absolute;
+    right: 0px;
+}
+
 #UL1 li {
+    justify-content: right;
     display: inline-block;
     padding: 15px;
 }
 
-section {
+#section {
+    top: px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
     color: rgb(194, 191, 206);
     font-family: Verdana;
+    text-align: center;
+    width: 100%;
 }
 
-footer {
-    text-align: right;
+
+#footer {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #UL2 li {
@@ -48,13 +55,8 @@ footer {
     padding: 20px;
 }
 
-@media screen and (min-width: 700px) {
-    section {width: 75%;}
+@media screen and (min-width: 1000px) {
+    #section {width: 25%;}
+    #navbar {justify-content: center;}
 }
 
-@media screen and (min-width: 1000px) {
-    section {width: 60%;}
-    nav {justify-content: left;}
-    footer {text-align: left;}
-    header {text-align: left;}
-}

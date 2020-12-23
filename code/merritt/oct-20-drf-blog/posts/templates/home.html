@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blog</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     {% csrf_token %}
@@ -13,14 +18,26 @@
             <h1>Django Rest Framework Blog!</h1>
             <li v-for="post in posts" :key="post.id">
                 <h3>[[ post.title ]]</h3>
-                <h4>By user #[[ post.author ]]</h4>
+                <h4>[[ post.author_detail.username ]]</h4>
                 <h4>[[ post.created ]]</h4>
                 <p>[[ post.body ]]</p>
             </li>
         </ul>
         <div>
             <input type="text" placeholder="Title" v-model="newPost.title"><br>
+            <template v-if="postErrors.title">
+                <p class="error" v-for="error in postErrors.title">[[ error ]]</p>
+            </template>
+            <select v-model="newPost.author">
+                <option v-for="user in users" :key="user.id" :value="user.id">[[ user.username ]]</option>
+            </select><br>
+            <template v-if="postErrors.author">
+                <p class="error" v-for="error in postErrors.author">[[ error ]]</p>
+            </template>
             <textarea placeholder="Post" v-model="newPost.body"></textarea><br>
+            <template v-if="postErrors.body">
+                <p class="error" v-for="error in postErrors.body">[[ error ]]</p>
+            </template>
             <button @click="createPost">New Post</button>
         </div>
     </div>
@@ -32,12 +49,14 @@
         delimiters: ['[[', ']]'],
         data: {
             posts: [],
+            users: [],
             newPost: {
-                "author": 1,
+                "author": "",
                 "title": "",
                 "body": ""
             },
             csrf_token: "",
+            postErrors: {}
         },
         methods: {
             loadPosts: function() {
@@ -58,13 +77,30 @@
                     data: this.newPost
                 }).then(response => {
                     this.loadPosts()
+                    this.postErrors = {}
+                    this.newPost = {
+                        "author": "",
+                        "title": "",
+                        "body": ""
+                    }
                 }).catch(error => {
-                    console.log(error.response)
+                    if (error.response.status === 400) {
+                        this.postErrors = error.response.data
+                    }
+                })
+            },
+            loadUsers: function() {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/users/'
+                }).then(response => {
+                    this.users = response.data
                 })
             }
         },
         created: function() {
             this.loadPosts()
+            this.loadUsers()
         },
         mounted: function() {
             this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
