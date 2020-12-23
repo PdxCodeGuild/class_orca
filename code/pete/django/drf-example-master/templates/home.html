@@ -1,0 +1,95 @@
+{% if user.is_authenticated %}
+<h1>Welcome {{ user.username }}!</h1>
+<p><a href="{% url 'logout' %}">Logout</a>
+<p>
+  {% else %}
+<h1>Welcome, visitor!</h1>
+<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+{% endif %}
+
+{% csrf_token %}
+
+<div id="app">
+  <hr />
+  <div v-for="student in students" :key="student.id">
+    <h3>d( student.first_name )b d( student.last_name )b</h3>
+    <h5>Graduating Class: d( student.cohort )b</h5>
+    <h5>Favorite Topic: d( student.favorite_topic )b</h5>
+    <h5>Favorite Teacher: d( student.favorite_teacher )b</h5>
+    <h5>Capstone: <a :href="student.capstone">d( student.capstone )b</a></h5>
+    <hr />
+  </div>
+
+  <form @submit="addStudent">
+    <label for="first_name">First Name</label>
+    <input v-model="newStudent.first_name"></br>
+
+    <label for="last_name">Last Name</label>
+    <input v-model="newStudent.last_name"></br>
+
+    <label for="cohort">Graduating Class</label>
+    <input v-model="newStudent.cohort"/></br>
+
+    <label for="favorite_topic">Favorte Topic</label>
+    <input v-model="newStudent.favorite_topic"></br>
+
+    <label for="favorite_teacher">Favorite Teacher</label>
+    <input v-model="newStudent.favorite_teacher"></br>
+
+    <label for="capstone">Capstone</label>
+    <input v-model="newStudent.capstone"></br>
+
+    <input type="submit" value="Add Student" />
+  </form>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    delimiters: ['d(', ')b'],
+    data: {
+      students: [],
+      csrf_token: '',
+      newStudent: {
+        first_name: '',
+        last_name: '',
+        cohort: '',
+        favorite_topic: '',
+        favorite_teacher: '',
+        capstone: '',
+      }
+    },
+    methods: {
+      getStudents: function () {
+        axios({
+          method: 'get',
+          url: '/api/v1/',
+
+        }).then(response => {
+          this.students = response.data
+        })
+      },
+      addStudent: function (e) {
+        console.log(this.newStudent)
+        e.preventDefault()
+        axios({
+          method: 'post',
+          url: '/api/v1/',
+          data: this.newStudent,
+          headers: {
+            "X-CSRFToken": this.csrf_token
+          }
+        }).then(res => this.getStudents())
+          .catch(err => console.log(err.response))
+      }
+    },
+    created: function () {
+      this.getStudents()
+    },
+    mounted: function () {
+      this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+    }
+  })
+</script>
