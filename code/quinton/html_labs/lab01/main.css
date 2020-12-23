@@ -12,4 +12,7 @@ img {
     float: right;
     border-radius: 50%;
 }
+li {
+    list-style-type: katakana;;
+}
 
