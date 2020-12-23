@@ -10,7 +10,7 @@ class StudentSerializer(serializers.ModelSerializer):
             'last_name',
             'cohort',
             'favorite_topic',
-            'favorite_teacer',
+            'favorite_teacher',
             'capstone',
         )
         model = models.Student

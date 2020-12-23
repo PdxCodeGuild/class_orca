@@ -1,0 +1,125 @@
+{% csrf_token %}
+
+{% if user.is_authenticated %}
+<h1>Welcogf="{% url 'logout' %}">Logout</a>
+<p>
+  {% else %}
+<h1>Welcome, visitor!</h1>
+<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+{% endif %}
+
+<div id="app">
+  <h1>Student List and Info</h1>
+  <div v-for="student in stundents">
+
+    <p>First Name: [[student.first_name]]</p>
+    <p>Last Name: [[student.last_name]]</p>
+    <p>Chohort: [[student.cohort]]</p>
+    <p>Favorite Topic: [[student.favorite_topic]]</p>
+    <p>Favorite Teacher: [[student.favorite_teacher]]</p>
+    <p>Capstone Project: [[student.capstone]]</p>
+    <button @click="editStudent">Edit Student Info</button>  
+    <br><br>
+  </div>
+
+  <h1>Add Student</h1>
+  <p>First Name</p>
+  <input v-model="first_name">
+
+  <p>Last Name</p>
+  <input v-model="last_name">
+
+  <p>Cohort</p>
+  <input v-model="cohort">
+
+  <p>Favorite Topic</p>
+  <input v-model="favorite_topic">
+
+  <p>Favorite Teacher</p></p>
+
+  <input v-model="favorite_teacher">
+
+  <p>Capstone</p>
+  <input v-model="capstone">
+  <br>
+  <button @click="addStudent">Add Student</button>
+  <div id="addStudentFields"></div>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+  let vm = new Vue({
+    el: '#app',
+    delimiters: [
+      '[[', ']]'
+    ],
+    data: {
+      stundents: [],
+      first_name: '',
+      last_name: '',
+      cohort: '',
+      favorite_topic: '',
+      favorite_teacher: '',
+      capstone: '',
+    },
+    mounted: function () {
+      this.get_students()
+      },
+    methods: {
+      get_students: function () {
+        let csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+        axios({
+          url: '/apis/v1/',
+          method: 'get',
+          headers: {
+            'X-CSRFToken': csrf_token
+          }
+        }).then(response => {
+          this.stundents = response.data
+        })
+      },
+      editStudent: function() {
+        let csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+        axios({
+          url: '/apis/v1/',
+          method: 'post',
+          headers: {
+            'X-CSRFToken': csrf_token
+          }
+        }).then(response => {
+          this.stundents = response.data
+        })
+      },        
+      addStudent: function() {
+        let csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+        axios({
+          url: '/apis/v1/',
+          method: 'post',
+          headers: {
+            'X-CSRFToken': csrf_token
+          },
+          data: {
+            first_name: this.first_name,
+            last_name: this.last_name,
+            cohort: this.cohort,
+            favorite_topic: this.favorite_topic,
+            favorite_teacher: this.favorite_teacher,
+            capstone: this.capstone,
+          }
+        }).then(response => {
+          this.get_students()
+      }).catch(error => {
+        console.log(error.response)
+        
+      })
+     }
+      }
+    })
+</script>
+
+
+
+<script>
+</script>
