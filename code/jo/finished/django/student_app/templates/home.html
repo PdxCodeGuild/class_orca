@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student List</title>
+    </head>
+    <body>
+        <h1>List of students</h1>
+        <div id='app'>
+            <ul>
+                <li v-for='student in students'>
+                    <p>{{ student.name }}</p>
+                    <p>From: {{ student.hometown }}</p>
+                    <p>Likes: {{ student.favorite }}</p>
+                </li> 
+            </ul>
+            <input type='text' placeholder="Student Name" v-model='newStudent.name'>
+            <input type='text' placeholder="Student Hometown" v-model='newStudent.hometown'>
+            <input type='text' placeholder="Favorite Language" v-model='newStudent.favorite'>
+            <button @click='addStudent'>Add Student</button>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    students: [],
+                    newStudent: {
+                        'name': '',
+                        'hometown': '',
+                        'body': ''
+                    }
+                },
+                methods: {
+                    showStudents: function() {
+                        axios({
+                            method: 'get',
+                            url: 'http://localhost:8000/apis/v1/',
+                        }).then(response => {
+                            this.students = response.data
+                        })
+                    },
+                    addStudent: function() {
+                        axios({
+                            method: 'post',
+                            url: 'http://localhost:8000/apis/v1/',
+                            data: this.newStudent
+                        }).then(response => {
+                            this.showStudents()
+                        })
+                    }
+                },
+                mounted: function() {
+                    axios({
+                        method: 'get',
+                        url: 'http://localhost:8000/apis/v1/',
+                    })
+                    .then(response => {
+                        this.students = response.data
+                    })
+                }
+            })
+        </script>
+    </body>
+</html>
