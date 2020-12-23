@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 2 Redux</title>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <main id="app">
+        <h1>My Favorite Colors</h1>
+        <input v-model="text" placeholder="add a color...">
+        <button @click="addColor">Add Color</button>
+
+        <color v-for="color in colors" 
+        v-bind:color="color"></color>
+
+        <!-- <div v-for="color in colors">{{ color }}</div> -->
+    </main>
+</body>
+</html>

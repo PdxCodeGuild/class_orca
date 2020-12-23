@@ -17,37 +17,51 @@
         <div class="one-half column" style="margin-top: 10%">
 
           <!-- Begin app development ----------------------------------->
-          <div id="quoteApp">
+          <div id="housingApp">
 
             <!-- Title and header info -->
-            <p><h4 style="display: inline"> Javascript Lab 14</h4>
-            <h5> Oregon  </h5></p>
+            <p><h5 style="display: inline"> Javascript Lab 14</h5><br><br>
+            <center><h4>Oregon Affordable Housing Information  </h4</p>
+            <h6> Select from the drop down to view data by county or city. </h6></center>
+
             <hr>
             
-            <!-- Users enter text/type to search favqs -->
-            <p> Search </p>
-            <input name="search_text" type="text" v-model="search_text" placeholder="Search">
+            <!-- Users can select county or city to display info -->
+            <!-- <div v-for="x in housingData">  -->
+              <!-- :key="quote.id" -->
+                <select  name="select_county" id="select_county" v-model="select_county">
+                <option div v-for="x in housingData" value=""> {{ x.county }} </option>
+                </select>
+
+              <!-- </div> -->
+
+            <select name="select_city" id="select_city" v-model="select_city">
+              <option value=""> {{ housingData.city }} </option>
+            </select>
+
+
+
+            <!-- <input name="search_text" type="text" v-model="search_text" placeholder="Search">
             <select name="search_type" id="search_type" v-model="search_type">
               <option value="keyword">Keyword</option>
               <option value="author">Author</option>
               <option value="tag">Tag</option>
             </select>
-            <button @click="loadQuote">Find Quotes</button>
+            <button @click="loadQuote">Find Quotes</button> -->
 
             <hr> <!---- Line divider ---->
 
             <!-- Quote List ------------->
-            <u>Quotes</u>
+            <!-- <u>Quotes</u>
             <div v-for="quote in quotes" :key="quote.id"> 
                 <p> {{ quote.body }} <br> -{{ quote.author }}</p>
-                <!-- <p> {{ num++ }}. &nbsp {{ quote.body }} <br> -{{ quote.author }}</p> -->
-            </div>
+            </div> -->
 
             <!-- Navigation ------------->
-            <div>
+            <!-- <div>
               <button v-if="current_page > 1" @click="previousPage">Previous Page</button>
               <button @click="nextPage">Next Page</button>
-            </div>
+            </div> -->
 
           </div>
 
