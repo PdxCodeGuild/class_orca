@@ -6,17 +6,18 @@
     <link rel="stylesheet" href="Lab14.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
     <title>Chord Diagram Generator</title>
 </head>
 <body>
     <div id="app">
         <header class= "top_of_page">
         <!-- <img src='images/jimi.jpg' id = "jimi" alt="jim hendrix"> -->
-        <h2>I am a Guitar Chord Generator!</h2>
+        <h2 id="heading">I am a Guitar Chord Generator!</h2>
         <!-- <img src='images/jimmy-page-2.jpg' id = "jimmy" alt="jimmy page" > -->
         </header>
         <div id='below_header'>
-        <h3> Enter the chord you want to play and I will return a basic<br>
+        <h3 id="instructions"> Enter the chord you want to play and I will return a basic
         fingering diagram:<h3>
         <div id="search">
             <label for="chord_root">Chord Root? <label>
@@ -29,38 +30,38 @@
             <option value="E">E</option>
             <option value="F">F</option>
             <option value="G">G</option>
-           </select>
+           </select><br>
            <label for="flatorsharp">Natural, Flat, or Sharp? <label>
            <select id="flatorsharp" v-model="flatorsharp"> 
             <option value=""></option>
             <option value="b">b(flat)</option>
             <option value="#">#(sharp)</option>
-           </select>
+           </select><br>
             <label for="majororminor">Interval? <label>
             <select id="majororminor" v-model="majororminor"> 
             <option value=""></option>
             <option value="m">minor</option>
-            </select>
+            </select><br>
             <label for="seventh">Add a Seventh? <label>
             <select id="seventh" v-model="seventh"> 
             <option value=""></option>
             <option value="7">7th(dominant)</option>
             <option value="maj7">maj7(major 7th)</option>
-           </select>
+           </select><br>
 
-            <button @click="loadChord">Display Chord</button>
+            <br><button @click="loadChord">Display Chord</button>
             <button @click="searchReset" >Reset</button>
         </div>    
        <div v-if = "fingering" id="chord_return">
             <p class = "Chord_diagram">
                 <!-- Chord: {{chordroot}}{{flatorsharp}}{{majororminor}}{{seventh}}<br>  -->
                 How to interpret strings and fingering:<br>
-                <img src = "images/frets-fingers-strings-hr.png" id="chord explanation" alt="chord explanation" width="450" height="253"><br>
+                <img src = "images/frets-fingers-strings-hr.png" id="chord_explanation" alt="chord explanation" ><br>
                 Chord: {{chordname}}<br>
                 Fingering: {{fingering}}<br>
                 On these strings: 6 5 4 3 2 1<br>
                 At these frets: {{strings}}<br>
-                <div v-if = "showpic" id="Chord Diagram"> 
+                <div v-if = "showpic" id="Chord_Diagram"> 
                  Chord diagram:<br>
                  <img :src='diagramtoshow' id = "chord_diagram" alt="chord diagram" width="150" height="200">
                 </div>

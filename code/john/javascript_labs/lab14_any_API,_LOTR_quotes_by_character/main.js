@@ -8,49 +8,51 @@
 new Vue({
     el: '#tolkien_quotes',
     data: {
-        quotes_as_objects: {},
-        quote_random: {},
-        search_terms: "",
-        current_page: 1,
-        current_limit: 2,
-        current_offset: 1,
-        //
         character_array: [
             {
                 id: "5cd99d4bde30eff6ebccfd0d",
                 name: "Sam",
+                max_quotes: 218,
             },
             {
                 id: "5cd99d4bde30eff6ebccfc15",
                 name: "Frodo",
+                max_quotes: 229,
             },
             {
                 id: "5cd99d4bde30eff6ebccfc7c",
                 name: "Merry",
+                max_quotes: 139,
             },
             {
                 id: "5cd99d4bde30eff6ebccfe2e",
                 name: "Pippin",
+                max_quotes: 166,
             },
             {
                 id: "5cd99d4bde30eff6ebccfc57",
                 name: "Boromir",
+                max_quotes: 41,
             },
             {
                 id: "5cd99d4bde30eff6ebccfbe6",
                 name: "Aragorn",
+                max_quotes: 214,
             },
             {
                 id: "5cd99d4bde30eff6ebccfd23",
                 name: "Gimli",
+                max_quotes: 116,
             },
             {
                 id: "5cd99d4bde30eff6ebccfd81",
                 name: "Legolas",
+                max_quotes: 55,
             },
             {
                 id: "5cd99d4bde30eff6ebccfea0",
                 name: "Gandalf",
+                max_quotes: 216,
             }
         ],
         character_ids_and_names: {
@@ -85,26 +87,31 @@ new Vue({
           "5cdbdecb6dc0baeae48cfa96": "Gothmog",
           "5cd99d4bde30eff6ebccfd0e": "Gamling",
           "5cdbdecb6dc0baeae48cfab2": "Uglúk",
-          "": "Mauhúr",
+          "5cd9d5a0844dc4c55e47afef": "Mouth of Sauron",
+          "": "Mauhúr",          
           "": "",
         },
+        quotes_as_objects: {}, // works as [] or {}
+        search_terms: "",
+        current_page: 1,
+        current_quote_limit: 2,
+        current_offset: 0,
+        current_search_character: "",
+        max_quotes: 2390, // 2390 is the API's max quotes, with no character selected
     },
     methods: {
-        quotes_search_function: function(search_terms, characterID="quote") {
-            console.log(`quotes_search_function(search_terms, character="") ${search_terms}, character=${characterID}`)
-            console.log('https://the-one-api.dev/v2/character/'+characterID+'/quote/')
-// / / / / / / / / / / / / / / / / / WORKING FROM HERE / / / / / / / / / / / / / / / / / / / / / / / / /
+        quotes_search_function: function() {
+            // / / / / / / / / / / / / / / / / / WORKING FROM HERE / / / / / / / / / / / / / / / / / / / / / / / / /
+            console.log(`quotes_search_function()`)
             axios({
                 method: 'get',
-                url: 'https://the-one-api.dev/v2/character/'+characterID+'/quote/',
-                // url: 'https://the-one-api.dev/v2/quote',
+                url: 'https://the-one-api.dev/v2/quote',
                 // url: 'https://the-one-api.dev/v2/chapter/5cdc25d5bc17e929cf246219/',
                 headers: {
                     Authorization: `Bearer ${apiKey}` // secrets.js: var apiKey 
                 },
                 params: {
-                    // filter: search_terms,
-                    limit: this.current_limit, // of 2300 movie quotes total, (limit default is 1,000)
+                    limit: this.current_quote_limit, // of 2300 movie quotes total, (limit default is 1,000)
                     // page: this.current_page, // (limit default is 10)
                     offset: this.current_offset, //max ~ // offset overwrites page, so pages don't work... (limit default is 10)
                 }
@@ -112,38 +119,84 @@ new Vue({
                 // console.log(response.data.docs)
                 console.log(response.data)
                 this.quotes_as_objects = response.data.docs
+                // COULD DEFINETLY IMPROVE HOW I'M STORING THE QUOTES RECEIVED...
+            // check /movie response...
+            // then using hobbit...
+            // /movie/{id}/quote says only LOTR... try
+            // /quote/{id}
+            // / / / / / / / / / / / / / / / / / ^^^^^^^^^ TO HERE / / / / / / / / / / / / / / / / / / / / / / / / /
             })
         },
-        page_forward: function(search_terms) {
-            console.log(`logging start of function: page_forward(), current_page: ${this.current_page}, current_offset: ${this.current_offset}, current_limit: ${this.current_limit}`)
-            // this.current_page ++
-            this.current_offset += this.current_limit
+        // there are no 'pages' on the results here, so we have to calculate using the limit (max quotes returned) and the current offset
+        quotes_search_function_by_character: function(char_object) {
+            // axios/call section comments are above in initial axios function
+            console.log(`quotes_search_function(character) characterID=${char_object.id} and char_object.max_quotes: ${char_object.max_quotes}`)
+            this.current_search_character = char_object.id
+            this.max_quotes = char_object.max_quotes
+            this.current_offset = this.set_random_offset()
+            console.log(`logging line 136 current_offset: ${this.current_offset}`)
+            axios({
+                method: 'get',
+                url: 'https://the-one-api.dev/v2/character/' + this.current_search_character + '/quote/', //concatenates the char ID into the URL string, per API docs
+                headers: {
+                    Authorization: `Bearer ${apiKey}`
+                },
+                params: {
+                    limit: this.current_quote_limit,
+                    offset: this.current_offset,
+                }
+            }).then(response => { 
+                console.log(response.data)
+                this.quotes_as_objects = response.data.docs
+            })
+        },
+        page_forward: function() {
+            console.log(`logging start of function: page_forward(), current_page: ${this.current_page}, current_offset: ${this.current_offset}, current_quote_limit: ${this.current_quote_limit}`)
+            this.current_offset += this.current_quote_limit
             this.quotes_search_function()
         },
-        page_backward: function(search_terms) {
-            console.log(`logging start of function: page_backward(), current_page: ${this.current_page}, current_offset: ${this.current_offset}, current_limit: ${this.urrent_limit}`)     
-            // this.current_page --
-            this.current_offset -= this.current_limit
+        page_backward: function() {
+            console.log(`logging start of function: page_backward(), current_page: ${this.current_page}, current_offset: ${this.current_offset}, current_quote_limit: ${this.current_quote_limit}`)     
+            this.current_offset -= this.current_quote_limit
             this.quotes_search_function()
         },
-        get_random_quote() { //used JS lab2b__pick_6 for help:
+        set_random_offset: function() { //used JS lab2b__pick_6 for help:
+            console.log(`set_random_offset() START with this.max_quotes: ${this.max_quotes}`)
             var random_number = Math.random()
-            random_int_max_2390 = Math.floor(random_number * Math.floor(2390))
-            console.log(random_int_max_2390)
-
-            this.current_offset = random_int_max_2390
-            this.quotes_search_function()
+            random_int_max = Math.floor(random_number * Math.floor(this.max_quotes))
+            this.current_offset = random_int_max
+            console.log(`set_random_offset() END with this.current_offset: ${this.current_offset}`)
+            return random_int_max
         },
-        get_quote_by_character(char_object) {
-            console.log(char_object.id)
-            console.log(`make a random search BY char ID: ${char_object.id}`)
-            this.current_offset = 0
-            this.quotes_search_function("",char_object.id)
+        get_random_quote: function() { //used JS lab2b__pick_6 for help:
+            console.log(`get_random_quote() START`)
+            this.max_quotes = 2390
+            this.current_offset = this.set_random_offset()
+            this.quotes_search_function()
+            console.log(`get_random_quote() END}`)
+        },        
+        reset_search: function() {
+            console.log(`reset_search()`)
+            // currently not used in HTML
+            // probably want to reset these two: 
+            this.max_quotes = 2390
+            this.current_quote_limit = 2
+            this.current_search_character = ""
+            this.get_random_quote()
+        },
+        set_current_quote_limit: function() {
+            // console.log(input_number)
+            console.log(`OLD this.current_quote_limit: ${this.current_quote_limit}`)
+            // this.current_quote_limit = input_number
+            // IMPORTANT NOTE event.target.value might be what i need in the future
+            // console.log(`set_current_quote_limit to: ${input_number}`)
+            // console.log(`set_current_quote_limit to: ${n}`)
+            console.log(`NEW this.current_quote_limit: ${this.current_quote_limit}`)
         },
     },
-    // / / / / / / / / / / / / / / / / / ^^^^^^^^^ TO HERE / / / / / / / / / / / / / / / / / / / / / / / / /
-    mounted:function(search_terms) {
-        console.log('page load!')
+    mounted:function() {
+        this.max_quotes = 2390
+        this.set_random_offset()
         this.get_random_quote()
     },
 })
