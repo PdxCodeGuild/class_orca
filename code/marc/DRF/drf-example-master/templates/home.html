@@ -19,13 +19,26 @@
         {% if user.is_authenticated %}
         <ul>
             <h1>Student List</h1>
+         
             <li v-for="student in students" :key="student.id">
-                <h3>Student name: [[ student.first_name ]] [[ student.last_name ]]</h3>
-                <h4>Student cohort: [[ student.cohort ]]</h4>
-                <h4>Favorite topic: [[ student.favorite_topic ]]</h4>
-                <h4>Favorite teacher: [[ student.favorite_teacher ]]</h4>
-                <h4>Capstone: [[ student.capstone]]</h4>
-                
+                <div v-if = "student.edit===false">
+                    <h3>Student name: [[ student.first_name ]] [[ student.last_name ]]</h3>
+                    <h4>Student cohort: [[ student.cohort ]]</h4>
+                    <h4>Favorite topic: [[ student.favorite_topic ]]</h4>
+                    <h4>Favorite teacher: [[ student.favorite_teacher ]]</h4>
+                    <h4>Capstone: [[ student.capstone]]</h4>
+                    <br><button @click="deleteStudent(student.id)"> Delete student?</button>
+                    <br><button @click="editToTrue(student.id)">Edit Student</button>
+                </div>
+                   <div v-if = "student.edit===true">
+                        <input type="text" placeholder="first name" v-model ="editStudent.first_name"><br>
+                        <input type="text" placeholder="last name" v-model="editStudent.last_name"><br>
+                        <input type="text" placeholder="cohort" v-model= "editStudent.cohort"><br>
+                        <input type="text" placeholder="favorite topic" v-model="editStudent.favorite_topic"><br>
+                        <input type="text" placeholder="favorite teacher" v-model="editStudent.favorite_teacher"><br>
+                        <input type="text" placeholder="capstone project" v-model="editStudent.capstone"><br> 
+                        <br><button @click="updateStudent(student.id)">Update Student</button>
+                    </div>
             </li>
         </ul>
         <div>
@@ -50,6 +63,8 @@
         delimiters: ['[[', ']]'],
         data: {
             students: [],
+            editStudent:{},
+           
             newStudent: {
                 
                     "first_name": "",
@@ -57,17 +72,59 @@
                     "cohort": "",
                     "favorite_topic": "",
                     "favorite_teacher": "",
-                    "capstone": ""
+                    "capstone": "",
+                    "edit":false
             },
             csrf_token: "",
             },
         methods: {
-            loadStudents: function() {
+            editToTrue: function(id){
+                axios({
+                    method: 'patch',
+                    url: `/apis/v1/${id}/`,
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: {
+                        edit:true
+                    }
+                }).then(response => {
+                                        
+                    this.loadStudents()
+                    console.log(this.students)
+                })
+            },
+     
+            loadStudents: function(id) {
                 axios({
                     method: 'get',
-                    url: '/apis/v1/'
+                    url: '/apis/v1/' ,
+                     headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
                 }).then(response => {
                     this.students = response.data
+                    this.students.forEach(student=>{   ///this is import this is a for loop this is how you fill the obeject editStudent with data that you can then manipulate
+                        if(student.edit===true){
+                            this.editStudent= student
+                        }
+                    })
+                    console.log(this.editStudent, 'editStudentinfo')
+                    
+                })
+            },
+            
+            deleteStudent: function(id) {
+                axios({
+                    method: 'delete',
+                    url: `/apis/v1/${id}/`,
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                }).then(response => {
+                    this.loadStudents()
+                    this.students = response.data
+                    
                 })
             },
             createStudent: function() {
@@ -86,10 +143,27 @@
                                 "cohort": "",
                                 "favorite_topic": "",
                                 "favorite_teacher": "",
-                                "capstone": ""
+                                "capstone": "",
+                                "edit": false                                
                     }
                 }).catch(error=>console.log(error.response.data))
-             }
+             },
+                updateStudent: function(id) {
+                    this.editStudent.edit = false
+                    console.log(id)
+                    axios({
+                            method: 'patch',
+                            url: `/apis/v1/${id}/`,
+                            headers: {
+                                'X-CSRFToken': this.csrf_token
+                            },
+                            data: this.editStudent                                          
+                        }).then(response => {
+                            this.loadStudents()
+                                
+                        }).catch(error=>console.log(error.response.data))
+                    
+                    },
             },
             
         created: function() {
