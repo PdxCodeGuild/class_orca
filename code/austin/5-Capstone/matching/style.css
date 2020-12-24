@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background: radial-gradient(#4eaec0, #3281c9);
+    color: #f2e0c9;
+} 
+
+.page-title {
+    text-align: center;
+    font-size: 5rem;
+}
+
+.game-info-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-info {
+    font-size: 3rem;
+    font-family: 'Bungee Outline', cursive;
+}
+
+.game-containter {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+}
+.card {
+    position: relative;
+    background-color: #b900bc;
+    height: 175px;
+    width: 125px;
+    background-image: url("images/squiggles-small.jpg");
+}
+
+.card-face {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card.visible .card-back {
+    transform: rotate(-180deg)
+}
+
+.card.visible .card-front {
+    transform: rotateY(0)
+}
+
+.card:hover {
+    filter: brightness(1.75);
+}
