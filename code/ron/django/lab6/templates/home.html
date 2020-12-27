@@ -1,11 +1,16 @@
-<!DOCTYPE html> 
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href="css/normalize.css"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" type="text/css" href="css/skeleton.css"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="{% static './posts/main.css' %}"> {% endcomment %}
+
     <title>Lab 14</title>
   </head>
    
@@ -19,23 +24,23 @@
           <!-- Begin html/django code  ----------------------------------->
           <div>
             {% if user.is_authenticated %}
-                <h1>Welcome {{ user.username }}!</h1>
+                <h4>Welcome {{ user.username }}!</h4>
                 <p><a href="{% url 'logout' %}">Logout</a><p>
             {% csrf_token %}
 
                 <div id="app">
                     <ul>
-                        <h3>Students</h3>
-                        <li v-for="student in Students" :key="student.id">
-                            <h4>[[ student.first_name ]]</h4>
-                            <h4>[[ student.last_name ]]</h4>
-                            <h4>[[ student.cohort ]]</h4>
+                        <h4>Students</h4>
+                        <li v-for="student in students" :key="students.id">
+                            <h5>[[ student.first_name ]]</h5>
+                            <h5>[[ student.last_name ]]</h5>
+                            <h5>[[ student.cohort ]]</h5>
                         </li>
                     </ul>
                 </div>
 
             {% else %}
-                <h1>Welcome, visitor!</h1>
+                <h4>Welcome, visitor!</h4>
                 <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
             {% endif %}
           </div>
@@ -54,8 +59,8 @@
         el: '#app',
         delimiters: ['[[', ']]'],
         data: {
-            posts: [],
             users: [],
+            students: [],
             newStudent: {
                 "first_name": "",
                 "last_name": "",
@@ -68,9 +73,9 @@
             loadStudents: function() {
                 axios({
                     method: 'get',
-                    url: '/api/v1/students/'
+                    url: '/api/'
                 }).then(response => {
-                    this.posts = response.data
+                    this.students = response.data
                 })
             },
         },
