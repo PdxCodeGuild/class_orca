@@ -37,12 +37,12 @@
                         <p v-show="dealerWon" class="winStatement">Dealer wins</p>
                         <p v-show="youTied" class="winStatement">You tied</p>
                         <p v-show="blackjack" class="winStatement">Blackjack You win </p>
-                        <p v-show="dealerBusted" class="winStatement">Dealer busted Winner </p>
+                      
                         <p v-show="playerBusted" class="winStatement">You busted Dealer wins </p>
                     </div>
                     <div id="btns">
-                        <button @click="playerHit" v-show="playing && !stayed && !playerBusted" class="btn btn-primary btn-lg" id="hitBtn">Hit</button>
-                        <button @click="stay" v-show="playing && !stayed && !playerBusted" class="btn btn-primary btn-lg">Stay</button>
+                        <button @click="playerHit" v-show="playing && !stayed && !playerBusted && !blackjack" class="btn btn-primary btn-lg" id="hitBtn">Hit</button>
+                        <button @click="stay" v-show="playing && !stayed && !playerBusted && !blackjack" class="btn btn-primary btn-lg">Stay</button>
                     </div>
                     <div id="playerHand">
                         <div id="player">

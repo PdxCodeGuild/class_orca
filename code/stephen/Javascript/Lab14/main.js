@@ -28,6 +28,7 @@ let vm = new Vue({
         dealerWon: false,
         youTied: false,
         ties: 0,
+        handEnded: false,
         
         
 
@@ -60,7 +61,7 @@ let vm = new Vue({
                 this.youWon = false
                 this.dealerWon = false
                 this.youTied = false
-                this.dealerHitting = false
+                this.handEnded = false
 
                 this.deckId = response.data.deck_id
                 this.cardsRemaining = response.data.remaining
@@ -130,6 +131,7 @@ let vm = new Vue({
                 // console.log(this.playerTotal)
                 if (this.playerTotal == 21) {
                     this.blackjack = true
+                    this.handEnded = true
                     this.playerWins++
                 }
                 
@@ -166,9 +168,11 @@ let vm = new Vue({
                 if (this.playerValue.includes(11) && this.playerTotal > 21) {
                     this.playerTotal = this.playerTotal - 10
                 }
-                else if (this.playerTotal > 21) {
+                if (this.playerTotal > 21) {
                     this.playerBusted = true
                     this.dealerWins++
+                    this.handEnded = true
+                    this.calcWinner()
                 }
                 // console.log(this.playerBusted)
 
@@ -202,11 +206,33 @@ let vm = new Vue({
                 this.dealerValue.push(dealerCard3Value)
                 
                 this.dealerTotal = this.dealerValue.reduce((a, b) => a + b, 0)
-                if (this.stayed = true) {
+                if (this.dealerTotal <= 16) {
+                    this.dealerHit()
+                }
+                
+                if (this.stayed = true && this.dealerTotal > 16) {
+                    this.handEnded = true
                     this.calcWinner()
                 }
+                this.dealerTotal = this.dealerValue.reduce((a, b) => a + b, 0)
                 console.log(this.dealerTotal)
-
+                if (this.dealerTotal > 21 && this.dealerValue.includes(11)) {
+                    this.dealerTotal = this.dealerTotal - 10
+                    
+                } 
+                if (this.dealerTotal > 16 && this.dealerTotal.includes(11) && this.playerTotal > this.dealerTotal) {
+                    this.dealerTotal = this.dealerTotal - 10
+                    
+                }  
+                if (this.dealerTotal > 21){   
+                    this.dealerBusted = true
+                    this.dealerHitting = false
+                    this.playerWins++
+                    this.handEnded = true
+                    this.calcWinner()
+                    console.log(this.dealerBusted)
+                }
+                
             })
         },
         stay: function() {
@@ -214,27 +240,27 @@ let vm = new Vue({
             this.stayed = true
             console.log(this.dealerTotal)
             if (this.dealerTotal <= 16) {
-                this.dealerHitting = true
+                
                 this.dealerHit()
-                this.dealerHitting = false
+                
+                
                 
             }
             if (this.dealerTotal > 16 && this.dealerTotal <= 21) {
-                this.dealerHitting = false
+                this.handEnded = true
+                this.calcWinner()
             }
             // if (this.dealerTotal <= 16) {
             //     this.dealerHit()
             // }
-            if (this.dealerTotal > 21 && this.dealerValue.includes(11)) {
-                this.dealerTotal = this.dealerTotal - 10
-            }    
             if (this.dealerTotal > 21){   
                 this.dealerBusted = true
                 this.dealerHitting = false
                 this.playerWins++
+                this.handEnded = true
+                this.calcWinner()
                 console.log(this.dealerBusted)
             }
-            this.calcWinner()
 
         }, 
         calcWinner: function() {
@@ -251,8 +277,8 @@ let vm = new Vue({
                 this.dealerWins++
                 this.dealerWon = true
             }
-            else if (this.playerTotal === this.dealerTotal && this.dealerTotal <= 21 && this.playerTotal <= 21){
-                this.tied++
+            else if (this.playerTotal === this.dealerTotal && this.dealerTotal <= 21 && this.playerTotal <= 21 && this.handEnded){
+                this.ties++
                 this.youTied = true
             }
             
