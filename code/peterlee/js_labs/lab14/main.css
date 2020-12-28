@@ -6,3 +6,14 @@ body {
     text-align: center;
 }
 
+#daily {
+    background-color: rgb(130, 130, 180)
+}
+
+#weekly {
+    background-color: blueviolet;
+}
+
+#monthly {
+    background-color: cyan;
+}

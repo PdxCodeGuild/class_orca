@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +13,35 @@
     </style>
 </head>
 <body>
-    {% csrf_token %}  
-    {% if user.is_authenticated %}
-    <h1>Welcome {{ user.username }}!</h1>
-    <p><a href="{% url 'logout' %}">Logout</a><p>
-    {% else %}
-    <h1>Welcome, visitor!</h1>
-    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-    {% endif %}
+    {% csrf_token %}
+    <div id="app">
+        {% if user.is_authenticated %}
+        <h1> {{ user.username }}!</h1>
+        <p><a href="{% url 'logout' %}">Logout</a><p>
+        {% else %}
+        <h1>Welcome, visitor!</h1>
+        <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %} 
+        <student-list :students="students"></student-list>
+        <add-new-student :add-student="addStudent"></add-new-student> 
+    </div> 
 
     <div class="scripts">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/vue"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="script.js"></script> 
+        <script src="{% static 'javascript/script.js'%}"></script> 
     </div>
 </body>
 </html>
+
+<!-- save it bucket 
+
+    <input v-model="newStudent.first_name" placeholder="First Name" type="text">        
+    <input v-model="newStudent.last_name" placeholder="Last Name" type="text">        
+    <input v-model="newStudent.cohort" placeholder="Cohort" type="text">        
+    <input v-model="newStudent.favorite_topic" placeholder="Favorite Topic" type="text">        
+    <input v-model="newStudent.favorite_teacher" placeholder="Favorite Teacher" type="text">        
+    <input v-model="newStudent.capstone" placeholder="Capstone" type="text">        
+    <button type="submit" @click="addStudent">Submit</button>
+-->
