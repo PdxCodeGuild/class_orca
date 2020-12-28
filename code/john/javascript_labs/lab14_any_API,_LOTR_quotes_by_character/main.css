@@ -44,7 +44,7 @@ img {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
-button {
+.button_nav {
     background-color:#53733C; /* Green */
     color:  #87BF34;
     padding: 15px 32px;
