@@ -6,7 +6,7 @@ class Student(models.Model):
     cohort = models.CharField(max_length=50)
     favorite_topic = models.CharField(max_length=50)
     favorite_teacher = models.CharField(max_length=50)
-    capstone = models.URLField()
+    capstone = models.CharField(max_length=999)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'

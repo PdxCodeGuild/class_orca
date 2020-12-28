@@ -131,3 +131,9 @@ LOGIN_REDIRECT_URL = 'students:home'
 LOGOUT_REDIRECT_URL = 'students:home'
 
 LOGIN_URL = 'login'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}

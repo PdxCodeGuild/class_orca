@@ -1,3 +1,0 @@
-let vm = new Vue({
-    
-})
