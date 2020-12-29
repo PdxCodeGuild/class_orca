@@ -9,26 +9,14 @@ Capstone Proposal, 28/29 December, 2020
 
 ### Project Overview
 
-- Marvels of Music should let a user input their song, save its lyrics and guitar tabs/piano chords, maybe stream the music, download their MIDI version if one exists, 
-- Childhood Canvas should, first and foremost, start with a blank fullscreen white/black screen. Then, any key/button pressed should provide a visual output mode
+- Marvels of Music should let a user input their song, save its lyrics and guitar tabs/piano chords, maybe stream the music, download their MIDI version if one exists, see similar songs, get some API's NLP analysis of similar songs/moods/wordCloud, and more...
 
 ### Features Marvels of Music
 
-- Features
-- 'User Stories' -- sentences describing what the user should need/solve/how/etc 
-- Elevator Pitch
-- User stories follow this template: "As a _____ (user), I want _____ (feature) because _____ (reason)."*
 
 
 
 ### Data Model
 
-- Data Model
-- What data will you need to store as part of your application? These should be specific nouns, collections of information that serve a collective purpose. Examples might be 'User', 'Book', 'ImageSet'. These are schemas for your data models (database tables).
-
 
 ### Schedule
-
-- This should serve as both a blueprint and a to-do list of everything to do...
-- 'milestones'
-- Schedule
