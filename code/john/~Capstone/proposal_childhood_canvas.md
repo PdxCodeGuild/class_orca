@@ -60,10 +60,6 @@
       - [ ] **MVP**: All keypresses repeat the same draw feature -- mostly for testing that each keypress works.
       - [ ] All keypresses force *different* draw feature -- easiest for now is a randomly-placed entry of that letter
 
-5. As a parent with a growing toddler, I want each keypress to display random shapes
-   - Tasks: 
-      - [ ] a
-
 6. As parents and kids, **now we think your app is boring, and we need it to display (with keypresses) or draw (with the mouse) basic shapes and lines and colors**!
    - Tasks: 
       - [ ] **MVP**: Bind each keypress to a random shape or simple vector graphic
@@ -77,25 +73,26 @@
       - [ ] Mouse: add different paintbrushes (thickness, color, line/brush/dashed/etc.)
       - [ ] Mouse: add different colors
 
-9. As a child, I want **music** because silent computer time is boring!
+7. As a child, I want **music** because silent computer time is boring!
    - Tasks: 
-      - [ ] *MVP*: Background music or gentle sounds, easiest API or free method available, with only on/off and no volume.
+      - [ ] **MVP**: Background music or gentle sounds, easiest API or free method available, with only on/off and no volume.
       - [ ] Volume slider
       - [ ] Select from different acceptable music
       - [ ] Expand music selection
       - [ ] Save selected music and auto-play and select on next app open
 
-10. As a parent, I want to be able to switch between modes as my child grows or as I see fit. 
-      - [ ] *MVP*: Toggle between each keypress doing the same thing on the screen (i.e. "e" displayed in the same place, or toggling on/off) vs. making the keypress position the letter randomly or with random formatting (the "e" displaying at a random position and with random size/formatting)
-      - [ ] *MVP*: (If shapes exist at this point) Toggle between ranndom shape per key and same shape per key.
+8. As a parent, I want to be able to switch between modes as my child grows or as I see fit. 
+      - [ ] **MVP**: Toggle between each keypress doing the same thing on the screen (i.e. "e" displayed in the same place, or toggling on/off) vs. making the keypress position the letter randomly or with random formatting (the "e" displaying at a random position and with random size/formatting)
+      - [ ] **MVP**: (If shapes exist at this point) Toggle between ranndom shape per key and same shape per key.
       - [ ] Toggle other more advanced modes
       - [ ] Remember "Bind each keypress to a random shape or simple vector graphic" ? Now let the user randomize that again during the same session (but not randomized per keypress).
 
-11. As a user, I want to be able to **save or print my/our drawings**, and would love these to save to the account (in the cloud, accessible from anywhere).
+9. As a user, I want to be able to **save or print my/our drawings**, and would love these to save to the account (in the cloud, accessible from anywhere).
    - Tasks: 
-      - [ ] a
+      - [ ] **MVP**: Add standard save as jpg/print button
+      - [ ] Add save to user profile, store back via django into database (watch storage usage...)
 
-12. As a user, I want to be comfortable using the app at night or day, so I need a light/dark mode.
+10. As a user, I want to be comfortable using the app at night or day, so I need a light/dark mode.
    - Tasks: 
       - [ ] Add dark mode
       - [ ] Check system default, put current mode into system default
