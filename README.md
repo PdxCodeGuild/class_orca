@@ -133,6 +133,9 @@ In all three presentations, you should first explain the development process and
 An Illustrated (and Musical) Guide to Map, Reduce, and Filter Array Methods  
 https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/  
 
+Custom User Model  
+https://learndjango.com/tutorials/django-custom-user-model  
+
 Tips for using many-to-many fields  
 https://www.revsys.com/tidbits/tips-using-djangos-manytomanyfield/  
 
