@@ -11,6 +11,8 @@ November 3rd -- Election Day
 November 26th + 27th -- Thanksgiving  
 December 14th + 25th -- Christmas  
 December 31st + January 1st -- New Years  
+January 11th -- Study Day/No Class  
+January 18th -- MLK Jr Day
 
 ### Staff
 
