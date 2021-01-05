@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Programmers</h1>
+      <div id="app">
+        <hr />
+        <div v-for="programmer in programmers">
+          <div>d( programmer.first_name )b d( programmer.last_name )b</div>
+          <div>github: <a v-bind:href="'https://github.com/' + programmer.github_username">https://github.com/d(programmer.github_username)b</a></div>
+        </br>
+        </div>
+        <hr />
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script>
+        const app = new Vue({
+          el: '#app',
+          delimiters: ['d(', ')b'],
+          data: {
+            programmers: []
+          },
+          methods: {
+            getProgrammers: function () {
+              axios({
+                method: 'get',
+                url: '/api/'
+              }).then(res => this.programmers = res.data)
+            }
+          },
+          mounted: function () {
+            this.getProgrammers()
+          }
+        })
+
+      </script>
+</body>
+
+</html>
