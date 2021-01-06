@@ -12,9 +12,9 @@
   <h1>Programmers</h1>
       <div id="app">
         <hr />
-        <div v-for="programmer in programmers">
-          <div>d( programmer.first_name )b d( programmer.last_name )b</div>
-          <div>github: <a v-bind:href="'https://github.com/' + programmer.github_username">https://github.com/d(programmer.github_username)b</a></div>
+        <div v-for="programmer in parsedProgrammers">
+          <div>d( programmer.stylizedName )b</div>
+          <div>github: <a v-bind:href="programmer.github_link">d( programmer.github_username )b</a></div>
         </br>
         </div>
         <hr />
@@ -27,6 +27,18 @@
           delimiters: ['d(', ')b'],
           data: {
             programmers: []
+          },
+          computed: {
+            parsedProgrammers: function() {
+              return this.programmers.filter(programmer => programmer.github_username).map(programmer => {
+                const programmerObj = {
+                  stylizedName: programmer.last_name + ', ' + programmer.first_name[0],
+                  github_username: programmer.github_username,
+                  github_link: 'https://github.com/' + programmer.github_username
+                }
+                return programmerObj
+              })
+            }
           },
           methods: {
             getProgrammers: function () {
