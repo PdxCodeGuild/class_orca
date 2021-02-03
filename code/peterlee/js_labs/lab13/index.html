@@ -7,11 +7,23 @@
   <body>
     <div id="app">
         <input type="text" v-model="search">
+
+        <select id="search-type" v-model="selected">
+          <option disabled value="">Please select one</option>
+          <option value="keyword">Keyword</option>
+          <option value="author">Author</option>
+          <option value="tag">Tag</option>
+        </select>
+
         <button v-on:click="getQuote">Get Quote</button>
         <div v-for="quote in quotes" :key="quote.id">
           <p>{{ quote.body }}</p>
           <p>{{ quote.author }}</p>
         </div>
+          <div>
+            <button v-if="currentPage > 1" @click="previousPage">Previous Page</button>
+            <button @click="nextPage">Next Page</button>
+          </div>
     </div> 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
