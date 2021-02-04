@@ -1,8 +1,94 @@
-{% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}!</h1>
-<p><a href="{% url 'logout' %}">Logout</a><p>
-<p>You're logged in... Nice.</p>
-{% else %}
-<h1>Welcome, visitor!</h1>
-<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Students</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h1>Welcome {{ user.username }}!</h1>
+        <p><a href="{% url 'logout' %}">Logout</a><p>
+    {% else %}
+        <h1>Welcome, visitor!</h1>
+        <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}
+
+    {% csrf_token %}
+    <div id="app">
+        <ul>
+            <h1>Student List</h1>
+            <li v-for="student in students" :key="student.id">
+                <p>First name: [[ student.first_name ]]</p>
+                <p>Last name: [[ student.last_name ]]</p>
+                <p>Cohort: [[ student.cohort ]]</p>
+                <p>Favorite Teacher: [[ student.favorite_teacher ]]</p>
+            </li>
+        </ul>
+        <div>
+            <h1>New Student Entry</h1>
+            <input type="text" placeholder="First Name" v-model="newStudent.first_name"><br>
+            <input type="text" placeholder="Last Name" v-model="newStudent.last_name"><br>
+            <input type="text" placeholder="Cohort" v-model="newStudent.cohort"><br>
+            <input type="text" placeholder="Favorite Teacher" v-model="newStudent.favorite_teacher"><br>
+
+            <button @click="createNewStudent">New Student</button>
+        </div>
+    </div>
+
+
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+    
+    let app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            students: [],
+            newStudent: {
+                "first_name": "",
+                "last_name": "",
+                "cohort": "",
+                "favorite_teacher": "",
+            },
+            csrf_token: "",
+        },
+        methods: {
+            loadStudents: function() {
+                axios({
+                    method: 'get',
+                    url: 'api/v1/students/'
+                }).then(response => {
+                    this.students = response.data
+                })
+            },
+            createNewStudent: function() {
+                axios({
+                    method: 'post',
+                    url: 'api/v1/students/',
+                    headers: {
+                        'X-CSRFToken': this.csrf_token
+                    },
+                    data: this.newStudent
+                }).then(response => {
+                    this.loadStudents()
+                }).catch(error => {
+                    pass
+                })
+            }
+        },
+        created: function() {
+            this.loadStudents()
+        },
+        mounted: function() {
+            this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        }
+
+    });
+
+    </script>
+</body>
+</html>
