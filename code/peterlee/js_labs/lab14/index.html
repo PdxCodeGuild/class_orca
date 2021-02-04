@@ -10,14 +10,46 @@
   </head>
   <body>
     <div id="app">
-    <h1>Stocks</h1>
-    <input type="text" placeholder = "Enter symbol" v-model="search">
-    <button @click="searchStocks">Search</button>
-    <div id="results">
-      <pre style="word-wrap: break-word; white-space: pre-wrap;">
-      {{ stocks }}
-      </pre>
-    </div>
+      <h1>Stocks</h1>
+      <input type="text" placeholder = "Enter symbol (e.g. AAPL)" v-model="search">
+      <button @click="searchStocks">Search</button>
+        <div id="results">
+          <pre style="word-wrap: break-word; white-space: pre-wrap;">
+          {{ stocks }}
+          </pre>
+        </div>
+
+        <div id="daily">
+          <button v-show="searched && dailyButton" @click="getDaily">Get Daily Data</button>
+          <button v-show="searched && !dailyButton" @click="dailyButton=true">Hide Daily Data</button>
+            <div v-show="!dailyButton">
+            <pre style="word-wrap: break-word; white-space: pre-wrap;">
+            {{ daily }}
+            </pre>
+            </div>
+        </div>
+
+        <div id="weekly">
+          <button v-show="searched && weeklyButton" @click="getWeekly">Get Weekly Data</button>
+          <button v-show="searched && !weeklyButton" @click="weeklyButton=true">Hide Weekly Data</button>
+            <div v-show="!weeklyButton">
+            <pre style="word-wrap: break-word; white-space: pre-wrap;">
+            {{ weekly }}
+            </pre>
+            </div>
+        </div>
+
+        <div id="monthly">
+          <button v-show="searched && monthlyButton" @click="getMonth">Get Monthly Data</button>
+          <button v-show="searched && !monthlyButton" @click="monthlyButton=true">Hide Monthly Data</button>
+            <div v-show="!monthlyButton">
+            <pre style="word-wrap: break-word; white-space: pre-wrap;">
+            {{ monthly }}
+            </pre>
+            </div>
+        </div>
+
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

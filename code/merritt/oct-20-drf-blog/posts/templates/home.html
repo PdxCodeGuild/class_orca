@@ -16,6 +16,7 @@
     <div id="app">
         <ul>
             <h1>Django Rest Framework Blog!</h1>
+            <h5>Hello [[ currentUser.username ]]!</h5>
             <li v-for="post in posts" :key="post.id">
                 <h3>[[ post.title ]]</h3>
                 <h4>[[ post.author_detail.username ]]</h4>
@@ -28,12 +29,12 @@
             <template v-if="postErrors.title">
                 <p class="error" v-for="error in postErrors.title">[[ error ]]</p>
             </template>
-            <select v-model="newPost.author">
+            <!-- <select v-model="newPost.author">
                 <option v-for="user in users" :key="user.id" :value="user.id">[[ user.username ]]</option>
             </select><br>
             <template v-if="postErrors.author">
                 <p class="error" v-for="error in postErrors.author">[[ error ]]</p>
-            </template>
+            </template> -->
             <textarea placeholder="Post" v-model="newPost.body"></textarea><br>
             <template v-if="postErrors.body">
                 <p class="error" v-for="error in postErrors.body">[[ error ]]</p>
@@ -56,7 +57,8 @@
                 "body": ""
             },
             csrf_token: "",
-            postErrors: {}
+            postErrors: {},
+            currentUser: {}
         },
         methods: {
             loadPosts: function() {
@@ -74,7 +76,12 @@
                     headers: {
                         'X-CSRFToken': this.csrf_token
                     },
-                    data: this.newPost
+                    // data: this.newPost
+                    data: {
+                        "author": this.currentUser.id,
+                        "title": this.newPost.title,
+                        "body": this.newPost.body
+                    }
                 }).then(response => {
                     this.loadPosts()
                     this.postErrors = {}
@@ -96,11 +103,20 @@
                 }).then(response => {
                     this.users = response.data
                 })
+            },
+            loadCurrentUser: function() {
+                axios({
+                    method: 'get',
+                    url: '/api/v1/currentuser/'
+                }).then(response => {
+                    this.currentUser = response.data
+                })
             }
         },
         created: function() {
             this.loadPosts()
             this.loadUsers()
+            this.loadCurrentUser()
         },
         mounted: function() {
             this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value

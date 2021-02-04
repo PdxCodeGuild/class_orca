@@ -62,23 +62,42 @@ new Vue({
       })
       this.newTaskText = ''
     }, // and i needed this comma!
-    swap_completed: function(index) {
-      console.log('attempting function swap_completed(index)'),
-      console.log(event),
-      console.log(`for index: ${index}`),
-      console.log(`for index.task_name: ${index.task_name}`),
-      console.log(this.task_list[index].completed)
-      if (this.task_list[index].completed === true) {
-        this.task_list[index].completed = false
+    swap_completed_with_component: function(object) {
+      console.log('function swap_completed_with_component(object)')
+      console.log(object)
+      console.log(object.id)
+      console.log(object.completed)
+      let temp_index = object.id
+      console.log(`for index: ${temp_index}`)
+      console.log(`for index.task_name: ${object.task_name}`)
+      // console.log(this.task_list[index].completed)
+      if (object.completed === true) {
+        object.completed = false
       }
-      else if (this.task_list[index].completed === false) {
-        this.task_list[index].completed = true
+      else if (object.completed === false) {
+        object.completed = true
       }
     },
-    delete_task: function(index) {
-      console.log(`delete_task for index: ${index}`);
-      console.log(event);
-      this.task_list.splice(index, 1);
+    swap_completed: function(object) {
+      console.log('attempting old function swap_completed(index)')
+      console.log(object)
+      let temp_index = object.id
+      console.log(`for index: ${temp_index}`)
+      console.log(temp_index)
+      console.log(`for index.task_name: ${index.task_name}`)
+      // console.log(this.task_list[index].completed)
+      if (this.task_list[temp_index].completed === true) {
+        this.task_list[temp_index].completed = false
+      }
+      else if (this.task_list[temp_index].completed === false) {
+        this.task_list[temp_index].completed = true
+      }
+    },
+    delete_task: function(object) {
+      let temp_index = object.id;
+      console.log(`delete_task for index: ${temp_index}`);
+      // console.log(event);
+      this.task_list.splice(temp_index, 1);
     },
   }
 });

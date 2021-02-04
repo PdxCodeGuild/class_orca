@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <h1>Programmers</h1>
+      <div id="app">
+        <hr />
+        <div v-for="programmer in parsedProgrammers">
+          <div>d( programmer.stylizedName )b</div>
+          <div>github: <a v-bind:href="programmer.github_link">d( programmer.github_username )b</a></div>
+        </br>
+        </div>
+        <hr />
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script>
+        const app = new Vue({
+          el: '#app',
+          delimiters: ['d(', ')b'],
+          data: {
+            programmers: []
+          },
+          computed: {
+            parsedProgrammers: function() {
+              return this.programmers.filter(programmer => programmer.github_username).map(programmer => {
+                const programmerObj = {
+                  stylizedName: programmer.last_name + ', ' + programmer.first_name[0],
+                  github_username: programmer.github_username,
+                  github_link: 'https://github.com/' + programmer.github_username
+                }
+                return programmerObj
+              })
+            }
+          },
+          methods: {
+            getProgrammers: function () {
+              axios({
+                method: 'get',
+                url: '/api/'
+              }).then(res => this.programmers = res.data)
+            }
+          },
+          mounted: function () {
+            this.getProgrammers()
+          }
+        })
+
+      </script>
+</body>
+
+</html>

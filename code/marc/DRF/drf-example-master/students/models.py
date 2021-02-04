@@ -7,6 +7,7 @@ class Student(models.Model):
     favorite_topic = models.CharField(max_length=50)
     favorite_teacher = models.CharField(max_length=50)
     capstone = models.URLField()
+    edit = models.BooleanField(default = False)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'

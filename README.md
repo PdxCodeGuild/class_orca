@@ -11,6 +11,8 @@ November 3rd -- Election Day
 November 26th + 27th -- Thanksgiving  
 December 14th + 25th -- Christmas  
 December 31st + January 1st -- New Years  
+January 11th -- Study Day/No Class  
+January 18th -- MLK Jr Day
 
 ### Staff
 
@@ -132,6 +134,9 @@ In all three presentations, you should first explain the development process and
 ## Odds and Ends
 An Illustrated (and Musical) Guide to Map, Reduce, and Filter Array Methods  
 https://css-tricks.com/an-illustrated-and-musical-guide-to-map-reduce-and-filter-array-methods/  
+
+Custom User Model  
+https://learndjango.com/tutorials/django-custom-user-model  
 
 Tips for using many-to-many fields  
 https://www.revsys.com/tidbits/tips-using-djangos-manytomanyfield/  

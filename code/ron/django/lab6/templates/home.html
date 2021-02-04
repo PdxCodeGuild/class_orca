@@ -1,7 +1,94 @@
-{% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}!</h1>
-<p><a href="{% url 'logout' %}">Logout</a><p>
-{% else %}
-<h1>Welcome, visitor!</h1>
-<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-{% endif %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+    {% comment %} <link rel="stylesheet" type="text/css" href="css/normalize.css"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" type="text/css" href="css/skeleton.css"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="{% static './posts/main.css' %}"> {% endcomment %}
+
+    <title>Lab 14</title>
+  </head>
+   
+  <body> 
+
+    <!-- Utilizing modified Skeleton CSS for formatting ------>
+    <div class="container">
+      <div class="row">
+        <div class="one-half column" style="margin-top: 10%">
+
+          <!-- Begin html/django code  ----------------------------------->
+          <div>
+            {% if user.is_authenticated %}
+                <h4>Welcome {{ user.username }}!</h4>
+                <p><a href="{% url 'logout' %}">Logout</a><p>
+            {% csrf_token %}
+
+                <div id="app">
+                    <ul>
+                        <h4>Students</h4>
+                        <li v-for="student in students" :key="students.id">
+                            <h5>[[ student.first_name ]]</h5>
+                            <h5>[[ student.last_name ]]</h5>
+                            <h5>[[ student.cohort ]]</h5>
+                        </li>
+                    </ul>
+                </div>
+
+            {% else %}
+                <h4>Welcome, visitor!</h4>
+                <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+          </div>
+        <!-- End django ----------------------------------------------->
+        </div>
+      </div>
+    </div>
+
+    <!-- JS files -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- Vue script ----------------------------------------------------->
+    <script>
+    let app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            users: [],
+            students: [],
+            newStudent: {
+                "first_name": "",
+                "last_name": "",
+                "cohort": ""
+            },
+            csrf_token: "",
+            postErrors: {}
+        },
+        methods: {
+            loadStudents: function() {
+                axios({
+                    method: 'get',
+                    url: '/api/'
+                }).then(response => {
+                    this.students = response.data
+                })
+            },
+        },
+        created: function() {
+            this.loadStudents()
+        },
+        mounted: function() {
+            this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
+        }
+    });
+    </script>
+
+  <!-- Closing tags -->
+  </body>
+</html> 
+

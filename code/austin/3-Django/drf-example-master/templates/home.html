@@ -1,16 +1,15 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <title>Student Roster</title>
+    <link rel="stylesheet"  href="{% static './css/style.css' %}"/>
+    <title>Student Roster</title>  
 </head>
 <body>
 
@@ -18,7 +17,7 @@
     <h1>Welcome {{ user.username }}!</h1>
     <p><a href="{% url 'logout' %}">Logout</a><p>
     {% else %}
-    <h1>Welcome, visitor!</h1>
+    <h1>Welcome, Visitor!</h1>
     <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
     {% endif %}
 
@@ -34,6 +33,19 @@
                 Capstone: [[ student.capstone ]]<br>
             </li>
         </ul>
+
+        <div class="create">
+            <h2>New Student</h2>
+                <input type="text" placeholder="First name" v-model="new_student.first_name"><br>
+                <input type="text" placeholder="Last name" v-model="new_student.last_name"><br>
+                <input type="text" placeholder="Cohort" v-model="new_student.cohort"><br>
+                <input type="text" placeholder="Favorite topic" v-model="new_student.favorite_topic"><br>
+                <input type="text" placeholder="Favorite teacher" v-model="new_student.favorite_teacher"><br>
+                <input type="text" placeholder="Capstone" v-model="new_student.capstone"><br> 
+                <button @click="createStudent">Create New Student</button>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js" ></script>
@@ -66,6 +78,28 @@
                     }).catch(error => {
                         console.log(error.response.data)
                     })
+                },
+                createStudent: function() {
+                    axios({
+                        method: 'post',
+                        url: '/apis/v1/',
+                        headers: {
+                            'X-CSRFToken': this.csrf_token
+                        },
+                        data: this.new_student,
+                    }).then(response => {
+                        this.loadStudents()
+                        this.studentErrors = {}
+                        this.newStudent = {
+                            first_name: "",
+                            last_name: "",
+                            cohort: "",
+                            favorite_topic: "",
+                            favorite_teacher: "",
+                            capstone: ""
+                        }
+                        this.students = response.data
+                    })
                 }
             },
             created: function() {
@@ -73,7 +107,7 @@
             },
             mounted: function() {
                 this.csrf_token = document.querySelector('input[name="csrfmiddlewaretoken"]').value
-                this.listStudents
+                this.loadStudents()
             }
         });
     </script>

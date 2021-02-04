@@ -2,7 +2,9 @@ let vm = new Vue({
   el: '#app',
   data: {
     quotes: [],
-    search: ""
+    search: "",
+    selected: "",
+    currentPage: 1,
     },
     methods: {
         getQuote: function() {
@@ -13,12 +15,22 @@ let vm = new Vue({
                 "Authorization": `Token token="${apiKey}"`
             },
             params: {
-                filter: this.search
+                filter: this.search,
+                type: this.selected,
+                page: this.currentPage
             }
             }). then(response => {
-            this.quotes = response.data.quotes
+                this.quotes = response.data.quotes
             })
 
+        },
+        nextPage: function() {
+            this.currentPage++
+            this.getQuote()
+        },
+        previousPage: function() {
+            this.currentPage--
+            this.getQuote()
         }
     }
 })

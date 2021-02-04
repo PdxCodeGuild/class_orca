@@ -43,6 +43,10 @@ Working in quality assurance can be highly rewarding if you're interested in the
 
 Like a systems analyst, maybe you love coding and technology but don't necessarily want to be doing it every day in your workplace? Maybe you would like to continue expanding your knowledge about all aspects of technology rather than specializing in a specific field. If that sounds like something that interests you then technical writing could be for you. As a technical writer you can write about all industries of science and technology as long as you're willing to study enough to build a good foundation of knowledge on the subject matter (the more knowledgeable you are about a subject the better your writing on it will be). You'll spend a lot of your time writing of course, but a lot of your time will also be spent studying and keeping up with the latest trends and developments in science and technology.
 
+### DevOps
+
+### Technical Support Engineer
+
 ## Personal Coding Projects
 
 Have an idea for a program or website? Make it! chances are you'll learn something new in the process. And, even if you don't, if you create a polished enough looking or functional enough product you can slap it on your portfolio and showcase it to the world.
