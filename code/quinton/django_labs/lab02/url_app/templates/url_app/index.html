@@ -1,7 +1,19 @@
+{% load static %}
+
+<link rel='stylesheet' href="{% static 'url_app/main.css' %}">
 
 
-<form action="{% url 'url_app:add_url' %}" method='post'>
-    {% csrf_token %}
-    <input type='text' placeholder='Make your links shorter' id='item' name='item'/>
-    <input type="submit" value="Shorten URL"/>
-</form>
+<body>
+    <h1>URL Shortener</h1>
+    <main>
+            <form action= "{% url 'url_app:submit' %}" method="post">
+                {% csrf_token %}
+                <input type='text' name='LongCode' placeholder='Make your links shorter' id='LongCode' required>
+                <input type='submit' value='Shorten URL'>
+            </form>
+        {% if long_url %}
+            <p>Here ya go...</p>
+            <a href={{ long_url }}>{{ short_code }}</a>
+        {% endif %}
+    </main>
+</body>

@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    border-style: solid;
+    border-width: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(173, 173, 173);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(8, 22, 27)
+}
